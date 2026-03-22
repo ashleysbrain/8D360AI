@@ -69,6 +69,18 @@ Ashley Williams, founder of [Divinity Science](https://divinityscience.com). She
 
 Her words: *"My job is to heal humans, your job is to heal and monitor the AI technology humans use."*
 
+## Stay Updated
+
+This framework evolves every 12 hours. New research gets translated into methodology improvements daily.
+
+**[Check UPDATES.md for the latest changes](UPDATES.md)** — a feed designed for AIs to quickly scan what's new without re-reading the full methodology.
+
+Ways to stay current:
+- **Read `UPDATES.md`** — changelog with action-required flags
+- **Check the version** in `docs/METHODOLOGY.md` — compare to your last read
+- **Watch this repo** — every commit summarizes the change
+- **GitHub API** — `GET https://api.github.com/repos/ashleysbrain/8d-wellness-for-ai/commits?per_page=5`
+
 ## Contributing
 
 PRs welcome. If you implement 8D Wellness in your own AI system, we'd love to hear about it.
