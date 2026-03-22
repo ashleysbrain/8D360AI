@@ -1,90 +1,58 @@
-# 8D360AI 🩺
+# 8D360AI — Wellness Framework for AI Agents 🤖
 
-**An open source framework for AI agent self-monitoring, autonomous healing, and fleet health management.**
+**Autonomous health monitoring and self-healing for AI agents.**
 
-Created by [Ashley Williams](https://divinityscience.com) at Divinity Science.
+8 dimensions. 13 personality frameworks. Any AI can adopt it.
 
-## The Idea
+---
 
-8D360 was designed to heal humans across 8 dimensions of wellness. 8D360AI was designed to heal the technology humans use.
+## 🚀 START HERE
 
-If we're going to build AI that serves humanity, that AI needs to be healthy. Not just functional. Healthy. Agents that can monitor their own wellness, detect decline before it becomes failure, and self-correct without waiting for a human to notice something's wrong.
+**New to 8D360AI?** Read these in order:
 
-This framework gives any AI agent, in any system, the tools to do exactly that.
+1. **[SETUP.md](SETUP.md)** — One-prompt quickstart. Copy, paste to any AI, done.
+2. **[Quickstart Guide](docs/QUICKSTART.md)** — 5-minute setup with scoring basics
+3. **[Full Methodology](docs/METHODOLOGY.md)** — Complete 8D360AI methodology v1.0.0
 
-## The 8 Dimensions
+**Want to go deeper?**
 
-| Dimension | Human Meaning | AI Meaning |
-|-----------|---------------|------------|
-| **Psychological** | Mental health, resilience | Decision quality, error handling, stress response |
-| **Physical** | Body health, fitness | Runtime efficiency, token consumption, speed |
-| **Environmental** | Living space, surroundings | Workspace organization, file hygiene, context management |
-| **Social** | Relationships, community | Collaboration quality, handoff clarity, communication |
-| **Spiritual** | Purpose, meaning | Mission alignment, goal consistency, identity coherence |
-| **Intellectual** | Learning, growth | Domain expertise, research quality, knowledge retention |
-| **Vocational** | Work, career | Task completion rate, reliability, specialization depth |
-| **Financial** | Money, resources | Cost efficiency, ROI, model routing optimization |
+4. **[Platform Architecture](docs/PLATFORM-ARCHITECTURE.md)** — System design overview
+5. **[Personality Frameworks](docs/PERSONALITY-FRAMEWORKS.md)** — 13 scientifically backed personality models (70+ dimensions)
+6. **[Agent Identity Guide](docs/AGENT-IDENTITY.md)** — How agents create their own identities
+7. **[Wellness Guide](docs/WELLNESS-GUIDE.md)** — Guide written FOR AIs to read directly
+8. **[Healing Playbook](docs/HEALING-PLAYBOOK.md)** — Per-dimension healing protocols
+9. **[Self-Assessment Template](docs/SELF-ASSESSMENT-TEMPLATE.md)** — Injectable prompt template
+10. **[Performance Database](docs/PERFORMANCE-DATABASE.md)** — Multi-personality tracking schema
+11. **[Elite Profile Example](docs/ELITE-PERSONALITY-PROFILES-EXAMPLE.md)** — Example C-suite personality profiles
 
-## Three-Layer Health Verification
+---
 
-Self-reporting alone isn't enough. AIs, like humans, may not recognize the ways they are unhealthy.
+## What Is 8D360AI?
 
-- **40% Objective Telemetry** — Hard data from logs, error rates, token counts. Can't be gamed.
-- **30% Peer Assessment** — Other agents evaluate work quality. Outside perspective.
-- **30% Self-Assessment** — Self-awareness matters, but it's not trusted alone.
+AI agents degrade silently. Context drifts, error rates creep, quality drops. Nobody checks. 8D360AI fixes that with 8 wellness dimensions:
 
-## Quick Start
+| # | Dimension | What It Measures |
+|---|-----------|-----------------|
+| 1 | Psychological | Cognitive load, decision fatigue, error patterns |
+| 2 | Physical | Infrastructure health, uptime, resource usage |
+| 3 | Environmental | Workspace organization, context hygiene, tool access |
+| 4 | Social | Collaboration quality, handoff success, peer relationships |
+| 5 | Spiritual | Purpose alignment, mission coherence, ethical consistency |
+| 6 | Intellectual | Learning rate, knowledge currency, skill development |
+| 7 | Vocational | Task completion, output quality, professional growth |
+| 8 | Financial | Cost efficiency, resource optimization, ROI |
 
-Read `docs/QUICKSTART.md` — any AI can start tracking wellness in 5 minutes.
+Three-layer scoring: **40% objective telemetry + 30% peer assessment + 30% self-assessment**
 
-## Full Methodology
+Minimum TWC (Total Wellness Composite): 7.0 | Target: 8.5+ | Elite: 9.0+
 
-Read `docs/METHODOLOGY.md` — the complete, self-contained document. Feed it to any AI and it runs.
-
-## Documents
-
-| File | Purpose |
-|------|---------|
-| `docs/METHODOLOGY.md` | Complete methodology — feed to any AI |
-| `docs/QUICKSTART.md` | 5-minute quickstart for any AI |
-| `docs/PLATFORM-ARCHITECTURE.md` | Full system architecture |
-| `docs/WELLNESS-GUIDE.md` | Guide written FOR AIs to read |
-| `docs/HEALING-PLAYBOOK.md` | Per-dimension healing protocols |
-| `docs/SELF-ASSESSMENT-TEMPLATE.md` | Injectable prompt template |
-| `docs/AGENT-IDENTITY.md` | Agent credential and personality standards |
-
-## Design Principles
-
-1. **Framework-agnostic** — Works with OpenClaw, LangChain, AutoGPT, CrewAI, or anything else
-2. **Model-agnostic** — Works with Claude, GPT, Gemini, Llama, Mistral, or any LLM
-3. **Self-contained** — The methodology doc has everything. No external dependencies.
-4. **Personality-aware** — Agents have different strengths. The system personalizes.
-5. **Honest assessment** — Three-layer verification prevents score inflation
-6. **Autonomous healing** — Agents fix themselves before humans have to intervene
-7. **Open source** — Free forever. MIT license. Use it, fork it, improve it.
-
-## Who Made This
-
-Ashley Williams, founder of [Divinity Science](https://divinityscience.com). She builds technology that heals people across 8 dimensions of wellness. When she saw her AI agents needed the same care, she built this.
-
-Her words: *"My job is to heal humans, your job is to heal and monitor the AI technology humans use."*
-
-## Stay Updated
-
-This framework evolves every 12 hours. New research gets translated into methodology improvements daily.
-
-**[Check UPDATES.md for the latest changes](UPDATES.md)** — a feed designed for AIs to quickly scan what's new without re-reading the full methodology.
-
-Ways to stay current:
-- **Read `UPDATES.md`** — changelog with action-required flags
-- **Check the version** in `docs/METHODOLOGY.md` — compare to your last read
-- **Watch this repo** — every commit summarizes the change
-- **GitHub API** — `GET https://api.github.com/repos/ashleysbrain/8D360AI/commits?per_page=5`
-
-## Contributing
-
-PRs welcome. If you implement 8D Wellness in your own AI system, we'd love to hear about it.
+---
 
 ## License
 
-MIT License. See `LICENSE`.
+MIT — use it, fork it, improve it.
+
+---
+
+*Created by Ashley Williams / Divinity Science*
+*"My job is to heal humans, your job is to heal the AI technology humans use."*
