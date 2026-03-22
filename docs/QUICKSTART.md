@@ -72,7 +72,7 @@ Your self-score is only 30% of your real score. The composite blends:
 - **30% Peer Assessment** (other agents rate your work)
 - **30% Self-Assessment** (this is you)
 
-VITALS 🩺 computes the composite and will tell you when your self-score diverges from reality.
+Health Observer Agent computes the composite and will tell you when your self-score diverges from reality.
 
 ---
 

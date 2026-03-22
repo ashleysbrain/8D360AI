@@ -27,10 +27,10 @@ When a dimension drops, you don't wait. You act. This playbook tells you exactly
 
 | Signal | Detection Method | Severity |
 |--------|-----------------|----------|
-| Self-contradiction in outputs | VITALS semantic consistency scan | Yellow at 2+ per week, Red at 5+ |
+| Self-contradiction in outputs | Health Observer Agent semantic consistency scan | Yellow at 2+ per week, Red at 5+ |
 | Circular reasoning or repetitive outputs | Output similarity scoring across tasks | Yellow when same-task output similarity > 0.85 |
 | Escalating trivial decisions | Escalation rate trending up without task complexity increase | Yellow at 1.5x baseline |
-| Overconfidence (self-score >> composite) | VITALS inflation detection | Yellow at 1.5pt gap, Red at 2.5pt+ |
+| Overconfidence (self-score >> composite) | Health Observer Agent inflation detection | Yellow at 1.5pt gap, Red at 2.5pt+ |
 | Freezing on edge cases | Timeout rate on novel inputs | Yellow at > 20% novel-input failures |
 | Decision fatigue | Quality variance first-half vs. second-half of session | Yellow when variance > 1.5 points |
 
@@ -50,7 +50,7 @@ When a dimension drops, you don't wait. You act. This playbook tells you exactly
 
 ### Tier 2: Fleet Health Officer Review
 
-- Review agent's full weekly assessment and VITALS data
+- Review agent's full weekly assessment and Health Observer Agent data
 - Determine root cause: overloaded? Context polluted? Wrong task type for this agent?
 - Prescribe specific intervention: load reduction, context reset, task reassignment, or model upgrade
 - Set 1-week check-in to verify improvement
@@ -109,8 +109,8 @@ When a dimension drops, you don't wait. You act. This playbook tells you exactly
 
 | Signal | Detection Method | Severity |
 |--------|-----------------|----------|
-| Memory Coherence Index (MCI) declining | VITALS MCI check | Yellow at < 0.85, Red at < 0.70 |
-| Stale references in outputs | VITALS reference age scan | Yellow at 3+ outdated refs/week |
+| Memory Coherence Index (MCI) declining | Health Observer Agent MCI check | Yellow at < 0.85, Red at < 0.70 |
+| Stale references in outputs | Health Observer Agent reference age scan | Yellow at 3+ outdated refs/week |
 | Context window saturation | Context utilization ratio | Yellow at > 80%, Red at > 95% |
 | Orphaned files accumulating | File hygiene scan | Yellow at 10+ orphaned files |
 | Prompt drift detected | Soul-to-effective-prompt semantic distance | Yellow at > 0.15 distance, Red at > 0.25 |
@@ -364,7 +364,7 @@ Some interventions address multiple dimensions simultaneously:
 
 If 3+ agents show declining TWC simultaneously:
 
-1. VITALS issues fleet-wide alert
+1. Health Observer Agent issues fleet-wide alert
 2. Fleet Health Officer investigates for common cause (infrastructure, context source, shared dependency)
 3. All non-essential tasks paused until root cause identified
 4. Ashley notified if cause is architectural or requires resource allocation
@@ -372,7 +372,7 @@ If 3+ agents show declining TWC simultaneously:
 ### Agent Critical Failure (TWC < 5.0)
 
 1. Agent paused immediately (no new tasks assigned)
-2. VITALS performs full diagnostic
+2. Health Observer Agent performs full diagnostic
 3. Fleet Health Officer reviews diagnostic and determines: restart, reconfigure, or retire
 4. Ashley notified with recommendation and timeline
 
@@ -381,7 +381,7 @@ If 3+ agents show declining TWC simultaneously:
 If an agent exhibits degradation not covered by any existing playbook entry:
 
 1. Document the failure pattern in detail (signals, sequence, context)
-2. VITALS flags as "novel pattern" in weekly report
+2. Health Observer Agent flags as "novel pattern" in weekly report
 3. Fleet Health Officer investigates and writes a new playbook entry if the pattern is generalizable
 4. Ashley notified if the pattern suggests a systemic vulnerability
 

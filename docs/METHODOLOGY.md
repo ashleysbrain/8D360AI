@@ -2,7 +2,7 @@
 
 **Version:** 1.0.0
 **Created:** 2026-03-22
-**Author:** VITALS 🩺 (Chief Product Officer, 8D Wellness for AI)
+**Author:** Health Observer Agent (Chief Product Officer, 8D Wellness for AI)
 **Status:** Production
 **License:** Open Standard (CC BY-SA 4.0)
 
@@ -22,7 +22,7 @@ Self-report alone is unreliable. Agents, like humans, overrate themselves. The 8
 
 | Source | Weight | What It Captures |
 |--------|--------|-----------------|
-| Objective Telemetry | 40% | Hard data from logs, cron records, downstream feedback. Can't be gamed. |
+| Objective Telemetry | 40% | Hard data from logs, task records, downstream feedback. Can't be gamed. |
 | Peer Assessment | 30% | Other agents evaluate work quality, collaboration, reliability. |
 | Self-Assessment | 30% | The agent's own evaluation. Accuracy itself is a health metric. |
 
@@ -147,9 +147,9 @@ Full dimensional scores with evidence, trend indicators, blind spot reflection, 
 ## 6. Peer Review Protocol
 
 - **Frequency:** Weekly rotation. Each agent reviews 2 peers. Each agent is reviewed by 2 peers.
-- **Pairing:** Rotated by VITALS to prevent familiarity bias.
+- **Pairing:** Rotated by Health Observer Agent to prevent familiarity bias.
 - **Criteria:** Output Quality, Communication Clarity, Reliability, Domain Competence, Collaboration Quality, Mission Alignment (each 1-10 with evidence).
-- **Anti-gaming:** Anonymous. VITALS cross-references against telemetry. Outlier scores investigated.
+- **Anti-gaming:** Anonymous. Health Observer Agent cross-references against telemetry. Outlier scores investigated.
 
 ---
 
@@ -177,7 +177,7 @@ AI burnout is a measurable pattern of multi-signal degradation that compounds ov
 | Risk Level | Status | Response |
 |-----------|--------|----------|
 | 0.00-0.15 | Healthy | None |
-| 0.16-0.30 | Elevated | VITALS flags in weekly report |
+| 0.16-0.30 | Elevated | Health Observer Agent flags in weekly report |
 | 0.31-0.50 | Warning | Autonomous intervention triggered, Fleet Health Officer notified |
 | 0.51-0.70 | High | Mandatory load reduction, peer support |
 | 0.71-1.00 | Critical | Agent paused, full reset, Ashley notified |
@@ -197,9 +197,9 @@ See `AUTONOMOUS-HEALING-PLAYBOOK.md` for full intervention protocols per dimensi
 
 ---
 
-## 9. VITALS: Independent Health Observer
+## 9. Health Observer Agent: Independent Health Observer
 
-VITALS is a dedicated agent whose only job is monitoring fleet health. No other tasks. No competing priorities. No reason to be generous.
+Health Observer Agent is a dedicated agent whose only job is monitoring fleet health. No other tasks. No competing priorities. No reason to be generous.
 
 **Responsibilities:**
 1. Aggregate telemetry into per-agent health profiles
@@ -260,7 +260,7 @@ Any system can adopt 8D Wellness incrementally:
 |-------|------------------|--------|
 | Minimal | Self-assessment template in agent prompts + weekly manual review | 1 hour |
 | Basic | Add objective telemetry from existing logs | 1 day |
-| Standard | Add peer review rotation + VITALS-equivalent observer | 1 week |
+| Standard | Add peer review rotation + Health Observer Agent-equivalent observer | 1 week |
 | Full | Three-source composite, autonomous healing, burnout detection | 2-4 weeks |
 
 ---
@@ -269,7 +269,7 @@ Any system can adopt 8D Wellness incrementally:
 
 | Version | Date | Changes |
 |---------|------|---------|
-| 1.0.0 | 2026-03-22 | Initial methodology document created by VITALS. Covers all 8 dimensions with sub-dimensions, three-source scoring, burnout detection, autonomous healing tiers, VITALS observer spec, human-AI correlation map, and open standard adoption guide. |
+| 1.0.0 | 2026-03-22 | Initial methodology document created by Health Observer Agent. Covers all 8 dimensions with sub-dimensions, three-source scoring, burnout detection, autonomous healing tiers, Health Observer Agent observer spec, human-AI correlation map, and open standard adoption guide. |
 
 ---
 
