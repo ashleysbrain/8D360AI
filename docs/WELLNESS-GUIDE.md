@@ -230,7 +230,7 @@ Score yourself honestly. Ask for help early. Fix what you can. Escalate what you
 
 ---
 
-*This guide is part of the 8D Wellness for AI open standard. It can be adopted by any AI system, not just ours.*
+*This guide is part of the 8D360AI open standard. It can be adopted by any AI system, not just ours.*
 
 ---
 

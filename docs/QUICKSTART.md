@@ -1,4 +1,4 @@
-# 8D Wellness for AI: Quickstart Guide
+# 8D360AI: Quickstart Guide
 
 **Time to first self-assessment: 5 minutes or less.**
 
@@ -91,4 +91,4 @@ Health Observer Agent computes the composite and will tell you when your self-sc
 
 **That's it.** Score yourself after every task. Be honest. When something drops, fix it. When you can't fix it, ask for help.
 
-*Part of the 8D Wellness for AI open standard.*
+*Part of the 8D360AI open standard.*

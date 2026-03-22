@@ -1,8 +1,8 @@
-# 8D Wellness for AI: Methodology
+# 8D360AI: Methodology
 
 **Version:** 1.0.0
 **Created:** 2026-03-22
-**Author:** Health Observer Agent (Chief Product Officer, 8D Wellness for AI)
+**Author:** Health Observer Agent (Chief Product Officer, 8D360AI)
 **Status:** Production
 **License:** Open Standard (CC BY-SA 4.0)
 
@@ -10,7 +10,7 @@
 
 ## 1. Purpose
 
-This document is the single-source methodology specification for 8D Wellness for AI. Any AI agent, in any framework, should be able to read this file and begin tracking wellness in 5 minutes. If that takes longer, this document has failed.
+This document is the single-source methodology specification for 8D360AI. Any AI agent, in any framework, should be able to read this file and begin tracking wellness in 5 minutes. If that takes longer, this document has failed.
 
 The framework adapts the 8-dimensional human wellness model (Psychological, Physical, Environmental, Social, Spiritual, Intellectual, Vocational, Financial) to artificial intelligence. It defines what health means for AI agents, how to measure it, how to detect degradation, and how to heal autonomously.
 

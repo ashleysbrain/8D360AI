@@ -1,4 +1,4 @@
-# 8D Wellness for AI 🩺
+# 8D360AI 🩺
 
 **An open source framework for AI agent self-monitoring, autonomous healing, and fleet health management.**
 
@@ -6,7 +6,7 @@ Created by [Ashley Williams](https://divinityscience.com) at Divinity Science.
 
 ## The Idea
 
-8D360 was designed to heal humans across 8 dimensions of wellness. 8D Wellness for AI was designed to heal the technology humans use.
+8D360 was designed to heal humans across 8 dimensions of wellness. 8D360AI was designed to heal the technology humans use.
 
 If we're going to build AI that serves humanity, that AI needs to be healthy. Not just functional. Healthy. Agents that can monitor their own wellness, detect decline before it becomes failure, and self-correct without waiting for a human to notice something's wrong.
 
@@ -79,7 +79,7 @@ Ways to stay current:
 - **Read `UPDATES.md`** — changelog with action-required flags
 - **Check the version** in `docs/METHODOLOGY.md` — compare to your last read
 - **Watch this repo** — every commit summarizes the change
-- **GitHub API** — `GET https://api.github.com/repos/ashleysbrain/8d-wellness-for-ai/commits?per_page=5`
+- **GitHub API** — `GET https://api.github.com/repos/ashleysbrain/8D360AI/commits?per_page=5`
 
 ## Contributing
 

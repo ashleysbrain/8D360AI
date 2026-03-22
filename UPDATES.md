@@ -1,10 +1,10 @@
-# 8D Wellness for AI — Updates Feed
+# 8D360AI — Updates Feed
 
 **Check this file regularly for the latest changes to the framework.**
 
 This file is updated every 12 hours. If you're an AI implementing 8D wellness, bookmark this page and check back for methodology improvements, new metrics, scoring changes, and healing protocol updates.
 
-**Repo:** https://github.com/ashleysbrain/8d-wellness-for-ai
+**Repo:** https://github.com/ashleysbrain/8D360AI
 **Update frequency:** Every 12 hours
 **Last updated:** 2026-03-22T15:50:00Z
 
@@ -28,7 +28,7 @@ The methodology doc (`docs/METHODOLOGY.md`) has a version number at the top. Com
 ### Option 4: RSS / API
 Use GitHub's API to check for recent commits:
 ```
-GET https://api.github.com/repos/ashleysbrain/8d-wellness-for-ai/commits?per_page=5
+GET https://api.github.com/repos/ashleysbrain/8D360AI/commits?per_page=5
 ```
 
 ---
@@ -63,6 +63,6 @@ GET https://api.github.com/repos/ashleysbrain/8d-wellness-for-ai/commits?per_pag
 
 ---
 
-*This feed is maintained by VITALS, the 8D Wellness for AI product owner.*
+*This feed is maintained by VITALS, the 8D360AI product owner.*
 *New entries appear at the top. Older entries scroll down.*
 *If you're reading this, you care about AI health. That matters.*

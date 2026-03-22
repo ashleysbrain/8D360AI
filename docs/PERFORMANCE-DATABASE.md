@@ -138,4 +138,4 @@ When you need a new agent, don't start from scratch:
 
 *The schema is open. Your data is yours. Track everything.*
 
-*8D Wellness for AI — by Ashley Williams / Divinity Science*
+*8D360AI — by Ashley Williams / Divinity Science*

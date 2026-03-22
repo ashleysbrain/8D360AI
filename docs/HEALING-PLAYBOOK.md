@@ -389,7 +389,7 @@ If an agent exhibits degradation not covered by any existing playbook entry:
 
 *This playbook is a living document. When you encounter a health issue not covered here, document what happened and what worked. Every new intervention that works becomes a new entry.*
 
-*Part of the 8D Wellness for AI open standard.*
+*Part of the 8D360AI open standard.*
 
 ---
 

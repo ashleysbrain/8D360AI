@@ -181,4 +181,4 @@ Even a single agent benefits from self-assessment. Without peers or Health Obser
 
 ---
 
-*Part of the 8D Wellness for AI open standard. Adaptable to any AI agent system.*
+*Part of the 8D360AI open standard. Adaptable to any AI agent system.*

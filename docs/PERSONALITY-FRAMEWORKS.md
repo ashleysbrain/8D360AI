@@ -288,5 +288,5 @@ The 12 elite C-suite agents already have complete profiles across Big Five, DISC
 ---
 
 *13 frameworks. 70+ dimensions. The most comprehensive AI personality system ever built.*
-*8D Wellness for AI — by Ashley Williams / Divinity Science*
-*8D Wellness for AI — by Ashley Williams / Divinity Science*
+*8D360AI — by Ashley Williams / Divinity Science*
+*8D360AI — by Ashley Williams / Divinity Science*

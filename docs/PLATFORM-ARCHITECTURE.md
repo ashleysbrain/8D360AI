@@ -1,4 +1,4 @@
-# 8D Wellness for AI Platform
+# 8D360AI Platform
 
 **Version:** 1.0.0
 **Created:** 2026-03-22
@@ -14,7 +14,7 @@ AI agents degrade. Not dramatically, not all at once, but in ways that are hard 
 
 This is the same problem humans face. People don't recognize their own burnout until they're deep in it. Self-reported wellness is a starting point, never the whole picture. Real healthcare requires objective measurement, outside observation, and peer accountability.
 
-8D Wellness for AI is healthcare infrastructure for artificial intelligence. Not metrics. Not dashboards. A living system that watches, measures, intervenes, and heals, the way a good medical system does for humans.
+8D360AI is healthcare infrastructure for artificial intelligence. Not metrics. Not dashboards. A living system that watches, measures, intervenes, and heals, the way a good medical system does for humans.
 
 **Core principle:** Self-reported health is necessary but not sufficient. The system must independently verify what agents claim about themselves, catch blind spots they can't see, and intervene before degradation becomes failure.
 
@@ -926,7 +926,7 @@ Includes:
 
 ---
 
-## 13. Whitepaper Outline: "8D Wellness for AI"
+## 13. Whitepaper Outline: "8D360AI"
 
 **Target venues:** Nature Machine Intelligence, JAIR, AAMAS Conference, or standalone whitepaper for industry adoption.
 

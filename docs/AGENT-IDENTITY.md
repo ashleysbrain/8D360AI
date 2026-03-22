@@ -145,5 +145,5 @@ The system doesn't force uniformity. It personalizes. Each agent's identity shap
 
 ---
 
-*8D Wellness for AI — by Ashley Williams / Divinity Science*
+*8D360AI — by Ashley Williams / Divinity Science*
 *Open source. MIT License. Make it yours.*
