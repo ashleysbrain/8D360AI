@@ -353,6 +353,181 @@ The delivery system IS the agent fleet. The CB of the fleet directly multiplies 
 
 ---
 
-*8D360AI Collaborative Brilliance Framework v1.0.0*
+---
+
+## 10. Evolutionary Architecture: Built to Change
+
+This framework is a living system, not a fixed standard. Science evolves. So does this.
+
+### 10.1 The Evolution Engine
+
+Every component of this framework is versioned and replaceable. Nothing is sacred except the core thesis: collaboration produces more than isolation. Everything else, the equations, the metrics, the channels, the scoring weights, adapts as new evidence arrives.
+
+```
+Framework Layer Architecture:
+
+┌─────────────────────────────────────────┐
+│  CORE THESIS (stable, rarely changes)   │
+│  "Collaboration > Sum of Parts"         │
+├─────────────────────────────────────────┤
+│  MEASUREMENT LAYER (evolves yearly)     │
+│  CB equation, scoring weights,          │
+│  channel definitions                    │
+├─────────────────────────────────────────┤
+│  METRICS LAYER (evolves quarterly)      │
+│  Specific KPIs, thresholds, targets,    │
+│  dimension mappings                     │
+├─────────────────────────────────────────┤
+│  IMPLEMENTATION LAYER (evolves weekly)  │
+│  Prompts, cron configs, tools,          │
+│  integrations, data schemas             │
+└─────────────────────────────────────────┘
+```
+
+**Bottom layers change fast. Top layers change slow.** The core thesis is near-permanent. The implementation details change every week as we learn what works.
+
+### 10.2 Self-Modifying Protocols
+
+The framework monitors its own assumptions and flags when they need updating:
+
+**Assumption Registry:**
+
+| ID | Assumption | Evidence Basis | Last Validated | Review Trigger |
+|----|-----------|---------------|---------------|----------------|
+| A1 | CB > 1.0 means collaboration helped | Information theory, team science | 2026-03-22 | If >30% of CB scores cluster near 1.0, the formula may not capture the real effect |
+| A2 | 40/30/30 weighting (telemetry/peer/self) is optimal | Organizational psychology literature | 2026-03-22 | If self-scores diverge from telemetry by >2 points fleet-wide, reweight |
+| A3 | Four channels cover all collaboration types | Current team science taxonomy | 2026-03-22 | New research on human-AI teaming may reveal channels we're missing |
+| A4 | Metcalfe's Law applies to agent networks | Network science | 2026-03-22 | If adding agents doesn't increase CB proportionally, the network model needs revision |
+| A5 | Diverse personalities improve collaboration | Cognitive diversity research | 2026-03-22 | If homogeneous teams outperform diverse ones in our data, challenge this |
+| A6 | Sequential collaboration produces cross-pollination | Pipeline design theory | 2026-03-22 | If cross-pollination rates stay below 30% after 4 weeks, try parallel with shared memory instead |
+
+**When an assumption is challenged by data, the framework updates itself.** Not by committee. Not by waiting. The Health Observer Agent agent proposes the change, tests it on a subset of the fleet, measures results, and deploys fleet-wide if the data supports it.
+
+### 10.3 Research Integration Pipeline
+
+New science feeds directly into framework updates:
+
+```
+New Paper Published (detected by 25+ domain scan agents)
+    ↓
+Agent-Synthesis Synthesis (flags collaboration-relevant findings)
+    ↓
+Health Observer Agent Research-to-Product Pipeline (translates to 8D360AI)
+    ↓
+Assumption Registry Check (does this challenge an assumption?)
+    ↓
+  YES → Propose framework modification
+    ↓
+  A/B Test on subset of fleet (2 weeks)
+    ↓
+  Measure CB before vs after
+    ↓
+  If improved → Deploy fleet-wide + version bump
+  If neutral → Log as tested, keep current
+  If worse → Revert + log finding
+```
+
+**Real examples of what triggers updates:**
+
+- A 2026 paper on "emergent collective intelligence in AI swarms" → may redefine how we measure A2A collaboration beyond pairwise CB
+- New research on "parasocial relationships between humans and AI" → may add nuance to the H2A and A2H channels
+- Breakthrough in "information-theoretic measures of team cognition" → may replace or supplement the CB formula with entropy-based metrics
+- Studies on "cognitive load in human-AI teaming" → may add a new dimension to the collaboration matrix (not just quality, but cognitive cost)
+- Research on "digital twin collaboration patterns" → may introduce a fifth channel (Agent-to-Self or Agent-to-Clone)
+
+### 10.4 Pluggable Scoring Modules
+
+The CB equation is the default. But the framework supports swapping in alternative scoring models as science produces them:
+
+```
+Scoring Module Interface:
+
+INPUT:  task_record (agent, collaborators, output, quality, duration, tokens)
+OUTPUT: collaboration_score (float), breakdown (dict), confidence (float)
+
+Current module: CB_v1 (ratio-based)
+Future modules:
+  - Entropy-based (measures information gain from collaboration)
+  - Graph-based (measures network centrality effects)
+  - Causal (measures counterfactual: what would have happened solo?)
+  - Emergent (measures whether the output contains ideas neither agent had)
+```
+
+Any module can be swapped in without changing the rest of the framework. The collaboration log, the matrix, the team lift scores, all work with any scoring module that outputs a float.
+
+### 10.5 New Channel Discovery
+
+The four channels (A2A, H2A, H2H, A2H) are the current taxonomy. But collaboration science is young, and AI collaboration science barely exists. The framework anticipates new channels:
+
+**Candidate future channels:**
+- **Agent-to-Environment (A2E):** How agents shape their shared workspace (memory files, knowledge bases) for future collaborators
+- **Swarm Intelligence (S):** Emergent behavior from large groups that can't be attributed to any pair
+- **Temporal Collaboration (T):** An agent collaborating with its own past outputs or a predecessor agent's archived work
+- **Cross-Fleet (CF):** Collaboration between agents in different organizations using the same 8D360AI framework (enabled by the open-source repo)
+
+When a new channel is identified:
+1. Define its metrics
+2. Add it to the collaboration matrix
+3. Create a scoring module
+4. Deploy measurement
+5. Validate with data
+6. If validated, promote to official channel + version bump
+
+### 10.6 Deprecation Protocol
+
+Science sometimes invalidates things. The framework handles this:
+
+```
+If a metric, channel, or scoring module is found to be:
+  - Not predictive of actual collaboration quality (r < 0.3)
+  - Consistently gamed or inflated
+  - Superseded by a better measure
+  
+Then:
+  1. Mark as DEPRECATED in the assumption registry
+  2. Run parallel scoring (old + new) for 4 weeks
+  3. If new is strictly better, remove old
+  4. Log the deprecation with reasoning
+  5. Version bump
+```
+
+Nothing stays in the framework just because it was there first. Evidence rules.
+
+### 10.7 Version History and Changelog
+
+```
+v1.0.0 (2026-03-22) — Initial release
+  - Core thesis, CB formula, 4 channels
+  - Behavioral physics principles (superposition, entanglement, observer, network)
+  - Social dimension integration, team lift metric
+  - Collaboration matrix, weekly analytics
+  - Implemented in fleet: 7 domain agents, 2 Agent-Synthesis, 1 Agent-CEO, 1 Health Observer Agent
+
+v1.1.0 (2026-03-22) — Evolutionary architecture
+  - Added: self-modifying protocols, assumption registry
+  - Added: research integration pipeline (25+ agents feed framework updates)
+  - Added: pluggable scoring modules (CB_v1 is default, swappable)
+  - Added: new channel discovery protocol
+  - Added: deprecation protocol
+  - Added: version history
+```
+
+**The changelog is the framework's memory.** Every change, why it was made, what data supported it. No silent changes. No undocumented drift.
+
+---
+
+## 11. The Infinite Game
+
+This framework doesn't have an end state. There's no "done." The science of collaboration is still being written, and we're writing part of it. Every week, 25+ research agents scan the frontiers of neuroscience, psychology, behavioral economics, network science, and AI. Every finding that touches collaboration flows back into this framework.
+
+The goal isn't to build a perfect system. It's to build a system that gets better every week, driven by the same science it's trying to apply.
+
+**The framework evolves because the science evolves. The science evolves because the framework produces data. The data produces new science.**
+
+That's not a framework. That's a flywheel.
+
+---
+
+*8D360AI Collaborative Brilliance Framework v1.1.0*
 *Ashley Williams / Divinity Science*
 *"When we work together, we are mathematically, measurably, undeniably stronger."*
