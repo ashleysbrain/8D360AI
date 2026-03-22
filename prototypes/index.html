@@ -6,146 +6,74 @@
 <title>Divinity Science — Website Concepts</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-body {
-  font-family: 'Inter', -apple-system, sans-serif;
-  background: #0A0A0F;
-  color: #E8E8F0;
-  min-height: 100vh;
-  padding: 80px 24px;
-}
-.container { max-width: 900px; margin: 0 auto; }
-h1 {
-  font-size: clamp(32px, 5vw, 48px);
-  font-weight: 700;
-  margin-bottom: 8px;
-  letter-spacing: -0.02em;
-}
-.subtitle {
-  font-size: 17px;
-  color: #94A3B8;
-  margin-bottom: 60px;
-  line-height: 1.6;
-}
-.concept-card {
-  display: block;
-  padding: 36px;
-  margin-bottom: 20px;
-  border: 1px solid rgba(255,255,255,0.08);
-  text-decoration: none;
-  color: inherit;
-  transition: all 0.4s;
-  position: relative;
-  overflow: hidden;
-}
-.concept-card:hover {
-  border-color: rgba(255,255,255,0.2);
-  transform: translateY(-2px);
-  box-shadow: 0 12px 40px rgba(0,0,0,0.3);
-}
-.concept-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 3px;
-}
-.card-oracle::before { background: linear-gradient(90deg, #0A0E1A, #C9A84C); }
-.card-meridian::before { background: linear-gradient(90deg, #FAFAF9, #0047AB); }
-.card-spectrum::before { background: linear-gradient(90deg, #6B21A8, #DC2626, #2563EB, #D97706, #0D9488, #16A34A, #CA8A04, #0891B2); }
-.card-atlas::before { background: linear-gradient(90deg, #2D1810, #C4553A, #6B8F71); }
-.card-luminary::before { background: linear-gradient(90deg, #7C3AED, #06B6D4, #10B981); }
-
-.concept-num {
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #666;
-  margin-bottom: 8px;
-}
-.concept-name {
-  font-size: 24px;
-  font-weight: 700;
-  margin-bottom: 4px;
-}
-.concept-tagline {
-  font-size: 14px;
-  color: #94A3B8;
-  margin-bottom: 12px;
-}
-.concept-desc {
-  font-size: 15px;
-  color: #666;
-  line-height: 1.6;
-}
-.concept-arrow {
-  position: absolute;
-  right: 36px; top: 50%;
-  transform: translateY(-50%);
-  font-size: 20px;
-  color: #444;
-  transition: all 0.3s;
-}
-.concept-card:hover .concept-arrow {
-  color: #E8E8F0;
-  transform: translateY(-50%) translateX(4px);
-}
-.footer-note {
-  margin-top: 48px;
-  font-size: 13px;
-  color: #555;
-  text-align: center;
-}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:#0A0A0F;color:#F0F4FF;min-height:100vh;padding:60px 40px}
+h1{font-size:clamp(32px,5vw,56px);font-weight:800;letter-spacing:-0.03em;margin-bottom:8px}
+.sub{font-size:16px;color:#94A3B8;margin-bottom:48px;max-width:600px;line-height:1.6}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;max-width:1200px}
+.card{padding:36px 28px;border:1px solid rgba(240,244,255,0.08);background:rgba(240,244,255,0.02);transition:all 0.4s cubic-bezier(0.16,1,0.3,1);text-decoration:none;color:#F0F4FF;display:block;position:relative;overflow:hidden}
+.card:hover{transform:translateY(-6px);border-color:rgba(240,244,255,0.2);box-shadow:0 20px 60px rgba(0,0,0,0.4)}
+.card-num{font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:16px;display:block}
+.card h2{font-size:24px;font-weight:700;letter-spacing:-0.02em;margin-bottom:8px}
+.card .vibe{font-size:13px;color:#94A3B8;margin-bottom:16px}
+.card .desc{font-size:14px;color:#64748B;line-height:1.6}
+.card:nth-child(1) .card-num{color:#C9A84C}
+.card:nth-child(2) .card-num{color:#0047AB}
+.card:nth-child(3) .card-num{color:#6B21A8}
+.card:nth-child(4) .card-num{color:#C4553A}
+.card:nth-child(5) .card-num{color:#7C3AED}
+.badge{display:inline-block;font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:4px 10px;border-radius:2px;margin-top:16px}
+.card:nth-child(1) .badge{background:rgba(201,168,76,0.15);color:#C9A84C}
+.card:nth-child(2) .badge{background:rgba(0,71,171,0.15);color:#0047AB}
+.card:nth-child(3) .badge{background:rgba(107,33,168,0.15);color:#6B21A8}
+.card:nth-child(4) .badge{background:rgba(196,85,58,0.15);color:#C4553A}
+.card:nth-child(5) .badge{background:rgba(124,58,237,0.15);color:#7C3AED}
+.footer-note{margin-top:48px;font-size:13px;color:#64748B;max-width:600px;line-height:1.6}
+@media(max-width:768px){body{padding:32px 20px}}
 </style>
 </head>
 <body>
-<div class="container">
-  <h1>Divinity Science</h1>
-  <p class="subtitle">Five distinct website concepts. Each a completely different creative direction.<br>Click any concept to preview.</p>
-
-  <a href="concept-1-oracle.html" class="concept-card card-oracle">
-    <div class="concept-num">Concept 01</div>
-    <div class="concept-name">ORACLE</div>
-    <div class="concept-tagline">Dark Academic</div>
-    <p class="concept-desc">Dark navy with gold accents. Animated SVG orbital diagram. Nature Medicine meets an observatory. Serif authority, scientific precision, institutional gravitas.</p>
-    <span class="concept-arrow">→</span>
+<h1>Divinity Science</h1>
+<p class="sub">Five website design concepts. Each is a fully differentiated creative direction. Click to explore.</p>
+<div class="grid">
+  <a href="concept-1-oracle.html" class="card">
+    <span class="card-num">Concept 01</span>
+    <h2>ORACLE</h2>
+    <div class="vibe">Dark Academic Observatory</div>
+    <div class="desc">Institutional authority meets scientific precision. Playfair Display serif, observatory navy, gold accents, orbital ring animations. Like Nature Medicine meets CERN.</div>
+    <span class="badge">Academic Credibility</span>
   </a>
-
-  <a href="concept-2-meridian.html" class="concept-card card-meridian">
-    <div class="concept-num">Concept 02</div>
-    <div class="concept-name">MERIDIAN</div>
-    <div class="concept-tagline">Minimal Editorial</div>
-    <p class="concept-desc">White with Science Blue. Giant "8" watermark. Bloomberg Terminal meets MIT Tech Review. Extreme typographic discipline, sharp edges, no decoration needed.</p>
-    <span class="concept-arrow">→</span>
+  <a href="concept-2-meridian.html" class="card">
+    <span class="card-num">Concept 02</span>
+    <h2>MERIDIAN</h2>
+    <div class="vibe">Surgical Editorial</div>
+    <div class="desc">Extreme typographic discipline. Giant Inter 900 headlines, character-by-character reveals, sharp edges, zero decoration. Bloomberg meets MIT Tech Review.</div>
+    <span class="badge">Editorial Precision</span>
   </a>
-
-  <a href="concept-3-spectrum.html" class="concept-card card-spectrum">
-    <div class="concept-num">Concept 03</div>
-    <div class="concept-name">SPECTRUM</div>
-    <div class="concept-tagline">8D Color System</div>
-    <p class="concept-desc">Each dimension gets its own color. Animated spectrum bar. Dark charcoal with vivid dimension colors. Periodic table meets color theory, scientific and systematic.</p>
-    <span class="concept-arrow">→</span>
+  <a href="concept-3-spectrum.html" class="card">
+    <span class="card-num">Concept 03</span>
+    <h2>SPECTRUM</h2>
+    <div class="vibe">8-Dimension Color System</div>
+    <div class="desc">Each dimension has its own color. Animated gradient bar, colored dimension cards with glow hovers, systematic visual taxonomy. Like a periodic table of wellness.</div>
+    <span class="badge">Visual System</span>
   </a>
-
-  <a href="concept-4-atlas.html" class="concept-card card-atlas">
-    <div class="concept-num">Concept 04</div>
-    <div class="concept-name">ATLAS</div>
-    <div class="concept-tagline">Cartographic Explorer</div>
-    <p class="concept-desc">Warm cream with terracotta and sage. SVG topographic contours and compass rose. An explorer's field journal, warm and intellectual. Charted territories metaphor throughout.</p>
-    <span class="concept-arrow">→</span>
+  <a href="concept-4-atlas.html" class="card">
+    <span class="card-num">Concept 04</span>
+    <h2>ATLAS</h2>
+    <div class="vibe">Cartographic Explorer</div>
+    <div class="desc">Scientific cartography meets field journal. Compass rose SVG, topographic contour backgrounds, expedition card layouts, dotted route connectors. National Geographic warmth.</div>
+    <span class="badge">Most Distinctive</span>
   </a>
-
-  <a href="concept-5-luminary.html" class="concept-card card-luminary">
-    <div class="concept-num">Concept 05</div>
-    <div class="concept-name">LUMINARY</div>
-    <div class="concept-tagline">Bioluminescent Dark Mode</div>
-    <p class="concept-desc">Near-black with violet and teal glow. Animated gradient orb, glassmorphism cards, neon hover effects. Stripe meets DeepMind meets Neuralink. The future, rendered.</p>
-    <span class="concept-arrow">→</span>
+  <a href="concept-5-luminary.html" class="card">
+    <span class="card-num">Concept 05</span>
+    <h2>LUMINARY</h2>
+    <div class="vibe">Bioluminescent Quantum</div>
+    <div class="desc">Dark void. Violet-teal gradient orb. Glassmorphism cards with neon glow. Floating particles. Gradient border buttons. Stripe meets Neuralink meets DeepMind.</div>
+    <span class="badge">Most Futuristic</span>
   </a>
-
-  <p class="footer-note">Divinity Science &copy; 2026. See TEAM-RECOMMENDATION.md for scoring and analysis.</p>
 </div>
+<p class="footer-note">Round 3 prototypes. Self-contained HTML with GSAP ScrollTrigger, Lenis smooth scrolling, text split reveals, noise textures, parallax layers, animated counters, and magnetic hover effects. All mobile responsive with prefers-reduced-motion support.</p>
 </body>
 </html>

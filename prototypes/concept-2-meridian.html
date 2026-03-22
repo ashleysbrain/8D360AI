@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="noise">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Divinity Science — MERIDIAN Concept</title>
+<meta name="description" content="Eight dimensions. One science. Total human wellness.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Inter+Tight:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -16,622 +17,499 @@
   --blue: #0047AB;
   --red: #C53030;
   --gray: #767676;
-  --line: #E0E0E0;
+  --light-gray: #F0F0F0;
+  --font-display: 'Inter', -apple-system, sans-serif;
+  --font-body: 'Lora', Georgia, serif;
+  --font-label: 'Inter Tight', -apple-system, sans-serif;
 }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: auto; }
+
 body {
-  font-family: 'Lora', Georgia, serif;
-  background: var(--bone);
-  color: var(--obsidian);
-  font-size: 19px;
-  line-height: 1.7;
-  overflow-x: hidden;
+  font-family: var(--font-body); background: var(--bone); color: var(--obsidian);
+  overflow-x: hidden; line-height: 1.7; -webkit-font-smoothing: antialiased;
 }
 
-.skip-link {
-  position: absolute; top: -100%; left: 16px;
-  background: var(--blue); color: #fff;
-  padding: 8px 16px; z-index: 9999;
-  font-family: 'Inter', sans-serif; font-size: 13px;
-  text-decoration: none;
-}
-.skip-link:focus { top: 16px; }
-
-h1, h2, h3 { font-family: 'Inter', sans-serif; line-height: 1.1; }
-h1 { font-size: clamp(48px, 8vw, 96px); font-weight: 700; letter-spacing: -0.02em; }
-h2 { font-size: clamp(32px, 5vw, 56px); font-weight: 600; letter-spacing: -0.01em; }
-h3 { font-size: clamp(20px, 2.5vw, 28px); font-weight: 600; }
-
-.label {
-  font-family: 'Inter', sans-serif;
-  font-size: 11px; font-weight: 700;
-  letter-spacing: 0.15em; text-transform: uppercase;
-  color: var(--gray);
-  margin-bottom: 20px; display: block;
+.noise::after {
+  content: ''; position: fixed; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  opacity: 0.02; pointer-events: none; z-index: 9999;
 }
 
-.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-section { padding: 80px 0; border-bottom: 1px solid var(--obsidian); }
-@media (min-width: 768px) { section { padding: 120px 0; } }
-
-/* Links */
 a { color: var(--blue); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
-/* NEW badge */
-.badge-new {
-  display: inline-block;
-  font-family: 'Inter', sans-serif;
-  font-size: 10px; font-weight: 700;
-  letter-spacing: 0.08em; text-transform: uppercase;
-  background: var(--red); color: #fff;
-  padding: 3px 8px; margin-left: 8px;
-  vertical-align: middle;
+.skip-link {
+  position: absolute; top: -100px; left: 0; background: var(--blue); color: white;
+  padding: 8px 16px; z-index: 10000; font-family: var(--font-label); font-size: 12px;
 }
+.skip-link:focus { top: 0; }
 
-/* ========== NAV ========== */
-.site-nav {
+/* NAV */
+.nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-  background: var(--bone);
-  border-bottom: 1px solid var(--obsidian);
-  padding: 0;
+  padding: 20px 48px; display: flex; align-items: center; justify-content: space-between;
+  background: var(--bone); border-bottom: 1px solid var(--obsidian);
+  transition: background 0.3s;
 }
-.nav-inner {
-  max-width: 1200px; margin: 0 auto; padding: 16px 24px;
-  display: flex; justify-content: space-between; align-items: center;
-}
-.nav-logo {
-  font-family: 'Inter', sans-serif;
-  font-size: 16px; font-weight: 600;
-  color: var(--obsidian); text-decoration: none;
-}
+.nav-logo { font-family: var(--font-display); font-size: 15px; font-weight: 600; letter-spacing: -0.02em; }
 .nav-links { display: flex; gap: 28px; list-style: none; align-items: center; }
-.nav-links a {
-  font-family: 'Inter', sans-serif;
-  font-size: 13px; font-weight: 600;
-  color: var(--obsidian); text-decoration: none;
-  position: relative;
-  transition: color 0.2s;
-}
-.nav-links a::after {
-  content: '';
-  position: absolute; left: 0; bottom: -4px;
-  width: 0; height: 2px;
-  background: var(--blue);
-  transition: width 0.3s;
-}
-.nav-links a:hover::after, .nav-links a:focus-visible::after { width: 100%; }
+.nav-links a { font-family: var(--font-label); font-size: 12px; font-weight: 600; color: var(--obsidian); text-transform: uppercase; letter-spacing: 0.08em; text-decoration: none; }
 .nav-links a:hover { color: var(--blue); text-decoration: none; }
-@media (max-width: 768px) {
-  .nav-links { display: none; }
-}
 
-/* ========== HERO ========== */
+/* HERO */
 .hero {
-  min-height: 100vh; display: flex; align-items: center;
-  padding-top: 80px; position: relative;
-  overflow: hidden;
+  min-height: 100vh; display: flex; flex-direction: column; justify-content: center;
+  padding: 140px 48px 80px; position: relative; overflow: hidden;
 }
 .hero-watermark {
-  position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -55%);
-  font-family: 'Inter', sans-serif;
-  font-size: clamp(200px, 40vw, 500px);
-  font-weight: 700;
-  color: #F0F0F0;
-  line-height: 1;
-  pointer-events: none;
-  user-select: none;
-  z-index: 0;
+  position: absolute; right: -5%; top: 50%; transform: translateY(-50%);
+  font-family: var(--font-display); font-weight: 900; font-size: clamp(200px, 50vw, 600px);
+  color: var(--light-gray); line-height: 1; pointer-events: none; user-select: none;
 }
-.hero-content {
-  position: relative; z-index: 1;
-  max-width: 800px; padding: 0 24px;
+.hero-label {
+  font-family: var(--font-label); font-size: 11px; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--gray); margin-bottom: 28px;
 }
-.hero .label { color: var(--gray); }
-.hero h1 { margin-bottom: 28px; }
+.hero h1 {
+  font-family: var(--font-display); font-weight: 900; line-height: 0.95;
+  letter-spacing: -0.04em; max-width: 900px; position: relative; z-index: 1;
+  font-size: clamp(48px, 12vw, 160px);
+}
+.hero h1 .char { display: inline-block; opacity: 0; }
 .hero-sub {
-  font-size: clamp(17px, 2vw, 19px);
-  color: #444; max-width: 620px;
-  line-height: 1.8; margin-bottom: 40px;
+  font-family: var(--font-body); font-size: clamp(17px, 1.6vw, 20px);
+  color: var(--gray); max-width: 600px; line-height: 1.8; margin-top: 32px;
 }
-.hero-links { display: flex; flex-direction: column; gap: 12px; }
-.hero-links a {
-  font-family: 'Inter', sans-serif;
-  font-size: 15px; font-weight: 600;
-  color: var(--blue); display: inline-flex;
-  align-items: center; gap: 6px;
-  transition: gap 0.3s;
+.hero-ctas {
+  display: flex; gap: 32px; margin-top: 40px; align-items: center;
 }
-.hero-links a:hover { gap: 12px; text-decoration: none; }
-
-/* ========== WHO WE ARE ========== */
-.who-grid {
-  display: grid; grid-template-columns: 1fr;
-  gap: 48px;
-}
-@media (min-width: 768px) {
-  .who-grid { grid-template-columns: 7fr 5fr; gap: 80px; }
-}
-.pull-quote-meridian {
-  font-family: 'Inter', sans-serif;
-  font-style: italic;
-  font-size: clamp(20px, 2.5vw, 24px);
-  color: var(--blue);
-  line-height: 1.6;
-  padding-left: 24px;
-  border-left: 3px solid var(--blue);
-}
-.founder-credit {
-  font-family: 'Inter', sans-serif;
-  font-size: 13px; font-weight: 600;
-  color: var(--gray); margin-top: 12px;
-}
-
-/* ========== 8 DIMENSIONS ========== */
-.dim-grid-meridian {
-  display: grid; grid-template-columns: 1fr;
-  gap: 0; margin-top: 48px;
-  border-top: 1px solid var(--obsidian);
-}
-@media (min-width: 768px) {
-  .dim-grid-meridian { grid-template-columns: 1fr 1fr; }
-}
-@media (min-width: 1024px) {
-  .dim-grid-meridian { grid-template-columns: 1fr 1fr 1fr 1fr; }
-}
-.dim-card-m {
-  padding: 32px 24px;
-  border-bottom: 1px solid var(--obsidian);
-  border-right: 1px solid transparent;
-  transition: background 0.3s;
-}
-@media (min-width: 768px) {
-  .dim-card-m { border-right: 1px solid var(--obsidian); }
-  .dim-card-m:nth-child(2n) { border-right: 1px solid transparent; }
-}
-@media (min-width: 1024px) {
-  .dim-card-m { border-right: 1px solid var(--obsidian); }
-  .dim-card-m:nth-child(4n) { border-right: 1px solid transparent; }
-}
-.dim-card-m:hover { background: rgba(0,71,171,0.03); }
-.dim-num {
-  font-family: 'Inter', sans-serif;
-  font-size: 11px; font-weight: 700;
-  color: var(--gray); letter-spacing: 0.1em;
-  margin-bottom: 8px;
-}
-.dim-name-m {
-  font-family: 'Inter', sans-serif;
-  font-size: 18px; font-weight: 600;
-  margin-bottom: 8px;
-}
-.dim-desc-m {
-  font-size: 15px; color: var(--gray); line-height: 1.6;
-  font-family: 'Lora', serif;
-}
-
-/* ========== QUBIT HEALTH ========== */
-.qubit-meridian {
-  display: grid; grid-template-columns: 1fr;
-  gap: 48px;
-}
-@media (min-width: 768px) {
-  .qubit-meridian { grid-template-columns: 5fr 7fr; gap: 60px; }
-}
-.callout-box {
-  background: #F0F0EE;
-  padding: 40px;
-  border: none;
-}
-.callout-box h3 { margin-bottom: 8px; }
-.callout-box .label { color: var(--gray); }
-.hierarchy-text {
-  font-family: 'Inter', sans-serif;
-  font-size: 15px; font-weight: 600;
-  color: var(--obsidian);
-  margin-top: 20px;
+.hero-ctas a {
+  font-family: var(--font-label); font-size: 13px; font-weight: 600; color: var(--blue);
   letter-spacing: 0.02em;
 }
-.hierarchy-text span { color: var(--blue); }
+.scroll-indicator {
+  position: absolute; bottom: 40px; left: 48px;
+  font-family: var(--font-label); font-size: 10px; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--gray); display: flex; align-items: center; gap: 12px;
+}
+.scroll-line { width: 48px; height: 1px; background: var(--obsidian); animation: scrollExpand 2s ease-in-out infinite; }
+@keyframes scrollExpand { 0%,100% { transform: scaleX(0.5); transform-origin: left; } 50% { transform: scaleX(1); } }
 
-/* ========== WAITLIST (INVERTED) ========== */
-.waitlist-meridian {
-  background: var(--obsidian); color: #fff;
-  border-bottom-color: var(--obsidian);
+/* SECTION SYSTEM */
+.section-border { width: 100%; height: 1px; background: var(--obsidian); }
+.section-label {
+  font-family: var(--font-label); font-size: 11px; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--gray); margin-bottom: 20px;
 }
-.waitlist-meridian h2 { color: #fff; }
-.waitlist-meridian p { color: #999; }
-.waitlist-center { max-width: 680px; margin: 0 auto; text-align: center; }
-.waitlist-form-m {
-  display: flex; gap: 0; margin-top: 32px;
-  max-width: 480px; margin-left: auto; margin-right: auto;
+h2 {
+  font-family: var(--font-display); font-weight: 700; font-size: clamp(28px, 4.5vw, 60px);
+  line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 24px;
 }
-.waitlist-form-m input[type="email"] {
-  flex: 1; padding: 16px 20px;
-  font-family: 'Lora', serif; font-size: 16px;
-  background: #222; border: 1px solid #444; border-right: none;
-  color: #fff; outline: none;
+.content-wrap { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+.reading-column { max-width: 680px; }
+
+/* WHO WE ARE */
+.who-section { padding: 100px 0; }
+.who-grid { display: grid; grid-template-columns: 7fr 5fr; gap: 80px; }
+.who-text p { font-size: 18px; line-height: 1.8; margin-bottom: 20px; color: rgba(17,17,17,0.75); }
+.who-pullquote {
+  font-family: var(--font-display); font-size: clamp(22px, 2.5vw, 34px); font-weight: 300;
+  font-style: italic; color: var(--blue); line-height: 1.4; padding-top: 40px;
 }
-.waitlist-form-m input:focus { border-color: var(--blue); }
-.waitlist-form-m input::placeholder { color: #666; }
-.waitlist-form-m button {
-  padding: 16px 28px;
-  font-family: 'Inter', sans-serif;
-  font-size: 13px; font-weight: 700;
-  letter-spacing: 0.05em;
-  background: var(--blue); color: #fff;
-  border: 1px solid var(--blue);
-  cursor: pointer;
+
+/* 8 DIMENSIONS */
+.dims-section { padding: 100px 0; }
+.dims-grid { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 48px; }
+.dim-cell {
+  padding: 28px 24px; border: 1px solid var(--obsidian); margin: -0.5px;
   transition: background 0.3s;
 }
-.waitlist-form-m button:hover { background: #0055CC; }
-.waitlist-fine-m {
-  font-family: 'Inter', sans-serif;
-  font-size: 12px; color: #555;
-  margin-top: 16px;
+.dim-cell:hover { background: rgba(0,71,171,0.03); }
+.dim-name {
+  font-family: var(--font-display); font-size: 16px; font-weight: 700;
+  margin-bottom: 8px; letter-spacing: -0.01em;
 }
-@media (max-width: 500px) {
-  .waitlist-form-m { flex-direction: column; }
-  .waitlist-form-m input { border-right: 1px solid #444; border-bottom: none; }
-}
+.dim-desc { font-size: 14px; color: var(--gray); line-height: 1.6; }
 
-/* ========== 8D360AI ========== */
-.framework-m-grid {
-  display: grid; grid-template-columns: 1fr;
-  gap: 48px; align-items: start;
+/* QUBIT HEALTH */
+.qubit-section { padding: 100px 0; }
+.qubit-grid { display: grid; grid-template-columns: 5fr 7fr; gap: 64px; align-items: start; }
+.qubit-callout {
+  background: var(--light-gray); padding: 40px; position: relative;
 }
-@media (min-width: 768px) {
-  .framework-m-grid { grid-template-columns: 1fr 1fr; }
-}
-.mono-block {
-  font-family: 'Inter', sans-serif;
-  font-size: 14px; line-height: 2;
-  padding: 32px;
-  background: #F5F5F3;
-  border: 1px solid var(--obsidian);
-  color: var(--obsidian);
-}
-.mono-block .dim-line { color: var(--gray); }
-.mono-block strong { font-weight: 700; }
+.qubit-callout h3 { font-family: var(--font-display); font-size: 28px; font-weight: 800; letter-spacing: -0.02em; }
+.qubit-callout .tag { font-family: var(--font-label); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gray); margin-top: 8px; }
+.qubit-flow { font-family: var(--font-label); font-size: 13px; margin-top: 20px; color: var(--gray); }
+.qubit-text p { font-size: 18px; line-height: 1.8; color: rgba(17,17,17,0.75); margin-bottom: 20px; }
 
-/* ========== WORK WITH US ========== */
-.work-rows { margin-top: 48px; }
+/* INVERTED WAITLIST */
+.waitlist-section {
+  padding: 120px 0; background: var(--obsidian); color: white; text-align: center;
+}
+.waitlist-section h2 { color: white; }
+.waitlist-section p { color: rgba(255,255,255,0.6); font-size: 18px; max-width: 560px; margin: 0 auto 32px; }
+.waitlist-form { display: flex; gap: 0; max-width: 460px; margin: 0 auto; }
+.waitlist-form input {
+  flex: 1; padding: 16px 20px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2);
+  border-right: none; color: white; font-family: var(--font-body); font-size: 15px; outline: none;
+}
+.waitlist-form input::placeholder { color: rgba(255,255,255,0.3); }
+.waitlist-form input:focus { border-color: var(--blue); }
+.waitlist-form button {
+  padding: 16px 28px; background: var(--blue); color: white; border: 1px solid var(--blue);
+  font-family: var(--font-label); font-size: 12px; font-weight: 700; letter-spacing: 0.08em;
+  text-transform: uppercase; cursor: pointer; transition: all 0.3s;
+}
+.waitlist-form button:hover { background: white; color: var(--obsidian); }
+.waitlist-note { font-family: var(--font-label); font-size: 11px; color: rgba(255,255,255,0.35); margin-top: 16px; }
+
+/* 8D360AI */
+.opensource-section { padding: 80px 0; text-align: center; }
+.opensource-section p { max-width: 600px; margin: 0 auto 24px; color: var(--gray); font-size: 17px; }
+.btn-sharp {
+  display: inline-block; padding: 14px 32px; background: var(--obsidian); color: white;
+  font-family: var(--font-label); font-size: 12px; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none;
+  transition: all 0.3s; border: 1px solid var(--obsidian);
+}
+.btn-sharp:hover { background: transparent; color: var(--obsidian); text-decoration: none; }
+
+/* WORK WITH US */
+.work-section { padding: 100px 0; }
 .work-row {
-  display: grid;
-  grid-template-columns: 48px 1fr;
-  gap: 24px;
-  padding: 32px 0;
-  border-bottom: 1px solid var(--line);
-  align-items: start;
-  transition: background 0.3s;
+  display: grid; grid-template-columns: 60px 1fr 3fr auto; gap: 24px;
+  padding: 36px 0; border-bottom: 1px solid var(--obsidian); align-items: baseline;
+  transition: background 0.3s; cursor: default;
 }
-.work-row:first-child { border-top: 1px solid var(--line); }
-.work-row:hover { background: rgba(0,71,171,0.02); }
-@media (min-width: 768px) {
-  .work-row { grid-template-columns: 48px 200px 1fr auto; align-items: center; }
-}
-.work-num {
-  font-family: 'Inter', sans-serif;
-  font-size: 14px; font-weight: 700;
-  color: var(--blue);
-}
-.work-title {
-  font-family: 'Inter', sans-serif;
-  font-size: 17px; font-weight: 600;
-}
-.work-desc-m { font-size: 16px; color: var(--gray); }
-.work-link {
-  font-family: 'Inter', sans-serif;
-  font-size: 13px; font-weight: 600;
-  color: var(--blue);
-  white-space: nowrap;
-}
+.work-row:first-child { border-top: 1px solid var(--obsidian); }
+.work-row:hover { background: rgba(0,71,171,0.02); padding-left: 12px; padding-right: 12px; }
+.work-num { font-family: var(--font-label); font-size: 13px; font-weight: 700; color: var(--gray); }
+.work-title { font-family: var(--font-display); font-size: 22px; font-weight: 700; letter-spacing: -0.02em; }
+.work-desc { font-size: 16px; color: var(--gray); }
+.work-link { font-family: var(--font-label); font-size: 12px; font-weight: 600; color: var(--blue); white-space: nowrap; }
 
-/* ========== PUBLICATIONS ========== */
-.pub-list-m { margin-top: 48px; }
-.pub-item-m {
-  padding: 28px 0;
-  border-bottom: 1px solid var(--line);
+/* PUBLICATIONS */
+.pubs-section { padding: 100px 0; background: var(--light-gray); }
+.pub-item {
+  padding: 28px 0; border-bottom: 1px solid rgba(17,17,17,0.1);
+  display: grid; grid-template-columns: 60px 1fr auto; gap: 20px; align-items: baseline;
 }
-.pub-item-m:first-child { border-top: 1px solid var(--line); }
-.pub-title-m {
-  font-family: 'Lora', serif;
-  font-size: clamp(17px, 2vw, 20px);
-  line-height: 1.5;
-  margin-bottom: 6px;
-}
-.pub-meta-m {
-  font-family: 'Inter', sans-serif;
-  font-size: 12px; color: var(--gray);
-  font-weight: 600;
-}
+.pub-num { font-family: var(--font-label); font-size: 12px; font-weight: 700; color: var(--gray); }
+.pub-title { font-family: var(--font-display); font-size: clamp(16px, 1.8vw, 22px); font-weight: 600; letter-spacing: -0.01em; line-height: 1.3; }
+.pub-year { font-family: var(--font-label); font-size: 12px; color: var(--gray); }
 
-/* ========== FOOTER ========== */
-.site-footer-m {
-  padding: 40px 0;
-  border-top: 1px solid var(--obsidian);
-  background: var(--bone);
+/* FOOTER */
+.footer {
+  padding: 40px 0; border-top: 1px solid var(--obsidian);
 }
-.footer-row {
-  display: flex; justify-content: space-between;
-  align-items: center; flex-wrap: wrap; gap: 16px;
+.footer-inner {
+  display: flex; justify-content: space-between; align-items: center;
+  font-family: var(--font-label); font-size: 12px; color: var(--gray);
 }
-.footer-logo-m {
-  font-family: 'Inter', sans-serif;
-  font-size: 14px; font-weight: 600;
-}
-.footer-nav-m {
-  display: flex; gap: 20px; list-style: none;
-}
-.footer-nav-m a {
-  font-family: 'Inter', sans-serif;
-  font-size: 12px; font-weight: 600;
-  color: var(--gray); text-decoration: none;
-}
-.footer-nav-m a:hover { color: var(--blue); text-decoration: underline; }
-.footer-copy-m {
-  font-family: 'Inter', sans-serif;
-  font-size: 12px; color: var(--gray);
-}
-.footer-tagline-m {
-  font-family: 'Lora', serif;
-  font-style: italic;
-  font-size: 15px; color: var(--gray);
-  text-align: center; margin-top: 24px;
-}
+.footer-links-row { display: flex; gap: 24px; }
+.footer-links-row a { color: var(--gray); font-size: 12px; text-decoration: none; }
+.footer-links-row a:hover { color: var(--obsidian); }
+.footer-tagline { font-family: var(--font-body); font-style: italic; font-size: 13px; color: var(--gray); }
 
-/* Focus */
-*:focus-visible {
-  outline: 2px solid var(--blue);
-  outline-offset: 4px;
+/* FOCUS */
+*:focus-visible { outline: 2px solid var(--blue); outline-offset: 4px; }
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .dims-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .nav { padding: 16px 24px; }
+  .nav-links { display: none; }
+  .hero { padding: 120px 24px 80px; }
+  .content-wrap { padding: 0 24px; }
+  .who-grid, .qubit-grid { grid-template-columns: 1fr; gap: 40px; }
+  .dims-grid { grid-template-columns: 1fr 1fr; }
+  .work-row { grid-template-columns: 1fr; gap: 8px; }
+  .pub-item { grid-template-columns: 1fr; gap: 4px; }
+  .hero-watermark { font-size: 200px; right: -20%; }
+  .footer-inner { flex-direction: column; gap: 16px; text-align: center; }
+}
+@media (max-width: 375px) {
+  .dims-grid { grid-template-columns: 1fr; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
-    animation-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important; animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+  .hero h1 .char { opacity: 1 !important; }
+  .scroll-line { animation: none; }
 }
 </style>
 </head>
 <body>
-<a href="#main" class="skip-link">Skip to main content</a>
+<a href="#main" class="skip-link">Skip to content</a>
 
-<nav class="site-nav" role="navigation" aria-label="Main navigation">
-  <div class="nav-inner">
-    <a href="#" class="nav-logo">Divinity Science</a>
-    <ul class="nav-links">
-      <li><a href="#who">Research</a></li>
-      <li><a href="#framework">Framework</a></li>
-      <li><a href="#qubit">Qubit Health</a></li>
-      <li><a href="#work">Contact</a></li>
-    </ul>
-  </div>
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-logo">Divinity Science</div>
+  <ul class="nav-links">
+    <li><a href="#who">Research</a></li>
+    <li><a href="#dimensions">Framework</a></li>
+    <li><a href="#qubit">Qubit Health</a></li>
+    <li><a href="#work">Contact</a></li>
+  </ul>
 </nav>
 
 <main id="main">
 
-<!-- HERO -->
-<section class="hero" aria-label="Hero" style="border-bottom:1px solid var(--obsidian);">
+<section class="hero" aria-label="Hero">
   <div class="hero-watermark" aria-hidden="true">8</div>
-  <div class="hero-content container">
-    <span class="label">Divinity Science / Research Lab &amp; Technology Firm</span>
-    <h1>Eight dimensions.<br>One science.<br>Total human wellness.</h1>
-    <p class="hero-sub">Divinity Science is an interdisciplinary research lab applying quantum theory, neuroscience, and behavioral science to the full spectrum of human health.</p>
-    <div class="hero-links">
-      <a href="#who">Explore our research →</a>
-      <a href="#framework">See the 8 dimensions →</a>
-    </div>
+  <div class="hero-label">Divinity Science: Research Lab &amp; Technology Firm</div>
+  <h1 id="hero-title">Eight dimensions. One science. Total human wellness.</h1>
+  <p class="hero-sub">Divinity Science is an interdisciplinary research lab applying quantum theory, neuroscience, and behavioral science to the full spectrum of human health.</p>
+  <div class="hero-ctas">
+    <a href="#who">Explore our research &rarr;</a>
+    <a href="#dimensions">See the 8 dimensions &rarr;</a>
+  </div>
+  <div class="scroll-indicator" aria-hidden="true">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
   </div>
 </section>
 
-<!-- WHO WE ARE -->
-<section id="who" aria-label="Who We Are">
-  <div class="container">
+<div class="section-border"></div>
+
+<section class="who-section reveal-section" id="who">
+  <div class="content-wrap">
     <div class="who-grid">
       <div>
-        <span class="label">Who We Are</span>
-        <h2>Research that changes what wellness means.</h2>
-        <p style="margin-top:24px;">Divinity Science sits at the intersection of quantum theory, neuroscience, behavioral science, and data science. We're building the scientific foundation for understanding human health across all 8 dimensions, not just the ones that are easy to measure.</p>
-        <p style="margin-top:16px;">This isn't wellness as most people understand it. It's wellness as science: testable, measurable, reproducible. Every dimension maps to specific biological and environmental systems with quantifiable outcomes.</p>
-        <p style="margin-top:16px;">The work is interdisciplinary by necessity. Human health doesn't respect the boundaries between academic departments. Neither do we.</p>
-        <p class="founder-credit" style="margin-top:24px;">Founded by Ashley Williams, Founder &amp; Chief of Research</p>
+        <div class="section-label">Who We Are</div>
+        <h2>We build the science that wellness should be built on.</h2>
+        <div class="who-text">
+          <p>Divinity Science is an interdisciplinary research lab and technology firm. Founded in 2023 by Ashley Williams, Founder and Chief of Research, we operate where quantum theory meets neuroscience meets behavioral science meets data science.</p>
+          <p>Our core output is the 8-Dimension Wellness Framework: a measurable, testable model for understanding total human health. Not philosophy. Not opinion. Science with falsifiable predictions and cross-dimensional correlation data.</p>
+          <p>Everything we build flows from this research. The framework isn't what we sell. It's the reason everything we sell works.</p>
+        </div>
       </div>
       <div>
-        <blockquote class="pull-quote-meridian">
-          "We're building the science that makes total human wellness possible. Then we're building the technology that delivers it."
-        </blockquote>
+        <p class="who-pullquote">"Wellness without measurement is just marketing. We measure."</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 8 DIMENSIONS -->
-<section id="framework" aria-label="The 8 Dimensions">
-  <div class="container">
-    <span class="label">The Framework</span>
+<div class="section-border"></div>
+
+<section class="dims-section reveal-section" id="dimensions">
+  <div class="content-wrap">
+    <div class="section-label">The Framework</div>
     <h2>Wellness is 8 things working together.</h2>
-    <div class="dim-grid-meridian">
-      <div class="dim-card-m">
-        <div class="dim-num">01</div>
-        <div class="dim-name-m">Psychological</div>
-        <p class="dim-desc-m">Emotional regulation, cognitive patterns, mental resilience.</p>
-      </div>
-      <div class="dim-card-m">
-        <div class="dim-num">02</div>
-        <div class="dim-name-m">Physical</div>
-        <p class="dim-desc-m">Movement, nutrition, sleep, biological systems.</p>
-      </div>
-      <div class="dim-card-m">
-        <div class="dim-num">03</div>
-        <div class="dim-name-m">Intellectual</div>
-        <p class="dim-desc-m">Continuous learning, creative problem-solving, cognitive growth.</p>
-      </div>
-      <div class="dim-card-m">
-        <div class="dim-num">04</div>
-        <div class="dim-name-m">Social</div>
-        <p class="dim-desc-m">Meaningful relationships, community, interpersonal dynamics.</p>
-      </div>
-      <div class="dim-card-m">
-        <div class="dim-num">05</div>
-        <div class="dim-name-m">Spiritual</div>
-        <p class="dim-desc-m">Purpose, meaning, alignment with personal values.</p>
-      </div>
-      <div class="dim-card-m">
-        <div class="dim-num">06</div>
-        <div class="dim-name-m">Vocational</div>
-        <p class="dim-desc-m">Professional fulfillment, skill development, career satisfaction.</p>
-      </div>
-      <div class="dim-card-m">
-        <div class="dim-num">07</div>
-        <div class="dim-name-m">Financial</div>
-        <p class="dim-desc-m">Economic stability, financial literacy, resource management.</p>
-      </div>
-      <div class="dim-card-m">
-        <div class="dim-num">08</div>
-        <div class="dim-name-m">Environmental</div>
-        <p class="dim-desc-m">Physical surroundings, ecological health, living conditions.</p>
-      </div>
+    <div class="dims-grid">
+      <div class="dim-cell"><div class="dim-name">Psychological</div><div class="dim-desc">Mental health, emotional regulation, cognitive patterns, neurological resilience.</div></div>
+      <div class="dim-cell"><div class="dim-name">Physical</div><div class="dim-desc">Physiological health, movement, nutrition, sleep architecture, biological markers.</div></div>
+      <div class="dim-cell"><div class="dim-name">Intellectual</div><div class="dim-desc">Cognitive growth, learning capacity, creative problem-solving, knowledge systems.</div></div>
+      <div class="dim-cell"><div class="dim-name">Social</div><div class="dim-desc">Interpersonal bonds, community integration, communication, relational health.</div></div>
+      <div class="dim-cell"><div class="dim-name">Spiritual</div><div class="dim-desc">Purpose, meaning-making, existential grounding, consciousness exploration.</div></div>
+      <div class="dim-cell"><div class="dim-name">Vocational</div><div class="dim-desc">Professional fulfillment, skill development, career alignment, productive contribution.</div></div>
+      <div class="dim-cell"><div class="dim-name">Financial</div><div class="dim-desc">Economic stability, resource management, wealth-building behaviors, financial literacy.</div></div>
+      <div class="dim-cell"><div class="dim-name">Environmental</div><div class="dim-desc">Physical surroundings, ecological connection, spatial design, environmental impact.</div></div>
     </div>
   </div>
 </section>
 
-<!-- QUBIT HEALTH -->
-<section id="qubit" aria-label="Qubit Health">
-  <div class="container">
-    <div class="qubit-meridian">
-      <div class="callout-box">
-        <span class="label">Technology Hub</span>
+<div class="section-border"></div>
+
+<section class="qubit-section reveal-section" id="qubit">
+  <div class="content-wrap">
+    <div class="qubit-grid">
+      <div class="qubit-callout">
         <h3>Qubit Health</h3>
-        <p class="hierarchy-text" style="margin-top:16px;">
-          Research → Technology → Product<br>
-          <span>Divinity Science → Qubit Health → QUBIT</span>
-        </p>
+        <div class="tag">Technology Development Hub</div>
+        <div class="qubit-flow">Research &rarr; Technology &rarr; Product</div>
       </div>
       <div>
-        <span class="label">Where Research Becomes Technology</span>
-        <h2 style="font-size:clamp(24px,4vw,40px);">The engineering arm of Divinity Science.</h2>
-        <p style="margin-top:20px;">Qubit Health translates peer-reviewed research into working systems and products. It's where the 8-Dimensional Wellness Framework becomes software that people can actually use.</p>
-        <p style="margin-top:16px;">Named after the quantum bit, the fundamental unit of quantum computing. Because understanding human wellness requires the same kind of multi-dimensional, non-binary thinking that quantum systems demand.</p>
+        <div class="section-label">Qubit Health</div>
+        <h2>Research becomes technology here.</h2>
+        <div class="qubit-text">
+          <p>Qubit Health is the technology arm of Divinity Science. Named after the quantum bit, the fundamental unit of quantum information, QH takes validated research and builds tools people can actually use.</p>
+          <p>The relationship is simple: Divinity Science discovers. Qubit Health engineers. QUBIT delivers. Every product traces back to published, testable research.</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- WAITLIST -->
-<section id="waitlist" class="waitlist-meridian" aria-label="QUBIT Waitlist">
-  <div class="container">
-    <div class="waitlist-center">
-      <span class="label" style="color:#666;">QUBIT / Flagship Product</span>
-      <h2>Your wellness. All 8 dimensions. One platform.</h2>
-      <p style="margin-top:20px;">QUBIT is the first platform built on the 8-Dimensional Wellness Framework. Personalized AI that learns your patterns, adapts to your life, and works to improve your specific 8D profile over time.</p>
-      <form class="waitlist-form-m" onsubmit="return false;">
-        <label for="email-meridian" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">Email address</label>
-        <input type="email" id="email-meridian" placeholder="Your email address" required>
-        <button type="submit">Join Waitlist</button>
-      </form>
-      <p class="waitlist-fine-m">Launching 2026. Be first.</p>
+<div class="section-border"></div>
+
+<section class="waitlist-section reveal-section" id="waitlist">
+  <div class="content-wrap">
+    <div class="section-label" style="color:rgba(255,255,255,0.4);">QUBIT: The Flagship Product</div>
+    <h2>Total wellness intelligence. All 8 dimensions.</h2>
+    <p>QUBIT is built by Qubit Health and grounded in Divinity Science research. It uses personalized AI to understand your patterns, track your progress, and help you improve across every dimension of health.</p>
+    <form class="waitlist-form" onsubmit="event.preventDefault();" aria-label="Waitlist signup">
+      <label for="email-meridian" style="position:absolute;width:1px;height:1px;overflow:hidden;">Email address</label>
+      <input type="email" id="email-meridian" placeholder="your@email.com" required>
+      <button type="submit">Join Waitlist</button>
+    </form>
+    <div class="waitlist-note">Launching 2026. Be first.</div>
+  </div>
+</section>
+
+<section class="opensource-section reveal-section" id="opensource">
+  <div class="content-wrap">
+    <div class="section-label">Open Source</div>
+    <h2>8D360AI</h2>
+    <p>The 8-Dimension Wellness Framework is open source. The science of human wellness shouldn't be locked behind paywalls.</p>
+    <a href="https://github.com/ashleysbrain/8D360AI" target="_blank" rel="noopener" class="btn-sharp magnetic">View on GitHub &rarr;</a>
+  </div>
+</section>
+
+<div class="section-border"></div>
+
+<section class="work-section reveal-section" id="work">
+  <div class="content-wrap">
+    <div class="section-label">Work With Us</div>
+    <h2>Three paths to collaboration.</h2>
+    <div class="work-row">
+      <span class="work-num">01</span>
+      <span class="work-title">Research Partnerships</span>
+      <span class="work-desc">Joint studies, shared datasets, co-authored publications with universities and labs.</span>
+      <a href="#" class="work-link">Propose &rarr;</a>
+    </div>
+    <div class="work-row">
+      <span class="work-num">02</span>
+      <span class="work-title">Framework Licensing</span>
+      <span class="work-desc">License the 8D framework for clinical, corporate, or educational settings.</span>
+      <a href="#" class="work-link">Learn more &rarr;</a>
+    </div>
+    <div class="work-row">
+      <span class="work-num">03</span>
+      <span class="work-title">Consulting</span>
+      <span class="work-desc">Strategic consulting on wellness technology, AI systems, and 8D implementation.</span>
+      <a href="#" class="work-link">Contact &rarr;</a>
     </div>
   </div>
 </section>
 
-<!-- 8D360AI -->
-<section aria-label="8D360AI Framework">
-  <div class="container">
-    <div class="framework-m-grid">
-      <div>
-        <span class="label">Open Source</span>
-        <h2 style="font-size:clamp(24px,4vw,40px);">8D360AI Framework</h2>
-        <p style="margin-top:20px;">The computational backbone of the 8-Dimensional Wellness Framework, open source and free to use. Scoring algorithms, dimension mapping, integration protocols.</p>
-        <p style="margin-top:16px;">Built for researchers who want to extend the science and developers who want to build on it.</p>
-        <a href="https://github.com/ashleysbrain/8D360AI" target="_blank" rel="noopener" style="display:inline-block;margin-top:20px;font-family:'Inter',sans-serif;font-size:14px;font-weight:600;">View on GitHub →</a>
-      </div>
-      <div class="mono-block">
-        <strong>8D360AI</strong><br><br>
-        <span class="dim-line">01 Psychological</span><br>
-        <span class="dim-line">02 Physical</span><br>
-        <span class="dim-line">03 Intellectual</span><br>
-        <span class="dim-line">04 Social</span><br>
-        <span class="dim-line">05 Spiritual</span><br>
-        <span class="dim-line">06 Vocational</span><br>
-        <span class="dim-line">07 Financial</span><br>
-        <span class="dim-line">08 Environmental</span><br><br>
-        <strong>Total Wellness = f(D1..D8)</strong>
-      </div>
-    </div>
-  </div>
-</section>
+<div class="section-border"></div>
 
-<!-- WORK WITH US -->
-<section id="work" aria-label="Work With Us">
-  <div class="container">
-    <span class="label">Work With Us</span>
-    <h2>Three ways to collaborate.</h2>
-    <div class="work-rows">
-      <div class="work-row">
-        <div class="work-num">01</div>
-        <div class="work-title">Research Partnerships</div>
-        <div class="work-desc-m">Joint research programs with universities and institutions. We bring the 8D framework, you bring domain expertise.</div>
-        <a href="#" class="work-link">Learn more →</a>
-      </div>
-      <div class="work-row">
-        <div class="work-num">02</div>
-        <div class="work-title">Framework Licensing</div>
-        <div class="work-desc-m">License the 8-Dimensional Wellness Framework for your products, platforms, or research programs.</div>
-        <a href="#" class="work-link">Learn more →</a>
-      </div>
-      <div class="work-row">
-        <div class="work-num">03</div>
-        <div class="work-title">Consulting</div>
-        <div class="work-desc-m">Strategic consulting for organizations building wellness technology. Architecture to implementation.</div>
-        <a href="#" class="work-link">Learn more →</a>
-      </div>
+<section class="pubs-section reveal-section" id="publications">
+  <div class="content-wrap">
+    <div class="section-label">Our Research</div>
+    <h2>Active research areas.</h2>
+    <p style="max-width:640px;color:var(--gray);font-size:17px;margin-bottom:40px;">Our research spans quantum biology, neuroscience, behavioral science, and data science. We're currently preparing publications across multiple peer-reviewed venues.</p>
+    <div class="pub-item">
+      <span class="pub-num">01</span>
+      <span class="pub-title">Quantum Approaches to Consciousness and Wellness</span>
+      <span class="pub-year">Active</span>
     </div>
-  </div>
-</section>
-
-<!-- PUBLICATIONS -->
-<section id="publications" aria-label="Selected Publications">
-  <div class="container">
-    <span class="label">Selected Publications</span>
-    <h2>Recent work.</h2>
-    <div class="pub-list-m">
-      <article class="pub-item-m">
-        <h3 class="pub-title-m">Quantum Coherence Models in Multi-Dimensional Wellness Assessment: A Theoretical Framework <span class="badge-new">NEW</span></h3>
-        <p class="pub-meta-m">Williams, A. (2026) — Divinity Science Working Papers</p>
-      </article>
-      <article class="pub-item-m">
-        <h3 class="pub-title-m">Cross-Dimensional Interference Patterns in Human Wellness: Evidence from 8D Longitudinal Analysis</h3>
-        <p class="pub-meta-m">Williams, A. (2026) — Divinity Science Working Papers</p>
-      </article>
-      <article class="pub-item-m">
-        <h3 class="pub-title-m">Adaptive AI Systems for Personalized Wellness: The 8D360 Architecture</h3>
-        <p class="pub-meta-m">Williams, A. (2026) — Divinity Science Technical Reports</p>
-      </article>
+    <div class="pub-item">
+      <span class="pub-num">02</span>
+      <span class="pub-title">Neuroscience of Multi-Dimensional Health Assessment</span>
+      <span class="pub-year">Active</span>
+    </div>
+    <div class="pub-item">
+      <span class="pub-num">03</span>
+      <span class="pub-title">AI-Driven Wellness Methodology and Behavioral Correlation</span>
+      <span class="pub-year">Active</span>
     </div>
   </div>
 </section>
 
 </main>
 
-<footer class="site-footer-m" role="contentinfo">
-  <div class="container">
-    <div class="footer-row">
-      <div class="footer-logo-m">Divinity Science</div>
-      <ul class="footer-nav-m">
-        <li><a href="#who">Research</a></li>
-        <li><a href="#framework">Framework</a></li>
-        <li><a href="#qubit">Qubit Health</a></li>
-        <li><a href="#work">Contact</a></li>
-      </ul>
-      <div class="footer-copy-m">&copy; 2026 Divinity Science</div>
+<footer class="footer">
+  <div class="content-wrap">
+    <div class="footer-inner">
+      <span>&copy; 2026 Divinity Science</span>
+      <span class="footer-tagline">Healthy people build healthier worlds.</span>
+      <div class="footer-links-row">
+        <a href="#who">Research</a>
+        <a href="#dimensions">Framework</a>
+        <a href="#qubit">Qubit Health</a>
+        <span>DS &rarr; QH &rarr; QUBIT</span>
+      </div>
     </div>
-    <p class="footer-tagline-m">"Healthy people build healthier worlds."</p>
   </div>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+<script>
+// Lenis smooth scroll
+const lenis = new Lenis({ duration: 1.0, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });
+function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+requestAnimationFrame(raf);
+lenis.on('scroll', ScrollTrigger.update);
+gsap.ticker.add((time) => lenis.raf(time * 1000));
+gsap.ticker.lagSmoothing(0);
+
+gsap.registerPlugin(ScrollTrigger);
+
+// Hero text: character-by-character reveal
+const heroTitle = document.getElementById('hero-title');
+const text = heroTitle.textContent;
+heroTitle.innerHTML = text.split('').map(c =>
+  c === ' ' ? ' ' : `<span class="char">${c}</span>`
+).join('');
+
+const heroTl = gsap.timeline({ delay: 0.2 });
+heroTl
+  .from('.hero-label', { opacity: 0, y: 15, duration: 0.6, ease: 'power3.out' })
+  .from('.hero h1 .char', { opacity: 0, y: 30, duration: 0.5, stagger: 0.015, ease: 'power3.out' }, '-=0.3')
+  .from('.hero-sub', { opacity: 0, y: 20, duration: 0.7, ease: 'power3.out' }, '-=0.3')
+  .from('.hero-ctas', { opacity: 0, y: 15, duration: 0.5, ease: 'power3.out' }, '-=0.3');
+
+// Giant 8 parallax
+gsap.to('.hero-watermark', {
+  y: -100, ease: 'none',
+  scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1 }
+});
+
+// Section reveals
+gsap.utils.toArray('.reveal-section').forEach(section => {
+  const children = section.querySelectorAll('.content-wrap > *');
+  gsap.from(children, {
+    opacity: 0, y: 40, duration: 0.8, stagger: 0.1, ease: 'power3.out',
+    scrollTrigger: { trigger: section, start: 'top 80%', toggleActions: 'play none none none' }
+  });
+});
+
+// Dimension cells stagger
+gsap.from('.dim-cell', {
+  opacity: 0, y: 25, duration: 0.6, stagger: 0.06, ease: 'power3.out',
+  scrollTrigger: { trigger: '.dims-grid', start: 'top 80%' }
+});
+
+// Work rows slide in
+gsap.from('.work-row', {
+  opacity: 0, x: -30, duration: 0.7, stagger: 0.12, ease: 'power3.out',
+  scrollTrigger: { trigger: '.work-section', start: 'top 75%' }
+});
+
+// Publication items reveal
+gsap.from('.pub-item', {
+  opacity: 0, x: -20, duration: 0.6, stagger: 0.1, ease: 'power3.out',
+  scrollTrigger: { trigger: '.pubs-section', start: 'top 75%' }
+});
+
+// Scroll indicator fade
+gsap.to('.scroll-indicator', {
+  opacity: 0,
+  scrollTrigger: { trigger: '.hero', start: 'top top', end: '+=200', scrub: 1 }
+});
+
+// Magnetic buttons
+document.querySelectorAll('.magnetic').forEach(el => {
+  el.addEventListener('mousemove', (e) => {
+    const rect = el.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+    gsap.to(el, { x: x * 0.15, y: y * 0.15, duration: 0.3, ease: 'power2.out' });
+  });
+  el.addEventListener('mouseleave', () => {
+    gsap.to(el, { x: 0, y: 0, duration: 0.5, ease: 'elastic.out(1, 0.3)' });
+  });
+});
+</script>
 </body>
 </html>
