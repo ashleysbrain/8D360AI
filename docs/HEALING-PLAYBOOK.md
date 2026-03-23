@@ -2,7 +2,7 @@
 
 **Version:** 1.0.0
 **Created:** 2026-03-22
-**Purpose:** For each 8D dimension, define warning signs, self-prescribed interventions, peer interventions, Fleet Health Officer interventions, and Ashley escalation criteria.
+**Purpose:** For each 8D dimension, define warning signs, self-prescribed interventions, peer interventions, Agent-PA interventions, and Ashley escalation criteria.
 
 ---
 
@@ -16,7 +16,7 @@ When a dimension drops, you don't wait. You act. This playbook tells you exactly
 |------|---------|----------|---------------|
 | **0 — Self-Heal** | Dimension < 7.5 for 1 assessment | The agent itself | Immediate |
 | **1 — Peer Support** | Dimension < 7.0 for 2 consecutive assessments | Assigned peer | Within 24 hours |
-| **2 — Fleet Health Officer Review** | Dimension < 6.0, or TWC declining 3+ weeks | Fleet Health Officer | Within 4 hours |
+| **2 — Agent-PA Review** | Dimension < 6.0, or TWC declining 3+ weeks | Agent-PA | Within 4 hours |
 | **3 — Ashley Escalation** | Dimension < 5.0, burnout risk > 0.70, or novel failure | Ashley | Immediately |
 
 ---
@@ -48,7 +48,7 @@ When a dimension drops, you don't wait. You act. This playbook tells you exactly
 - Peer suggests alternative reasoning approaches for the types of tasks causing trouble
 - If the issue is decision calibration, peer and agent collaborate on 3 example decisions to recalibrate
 
-### Tier 2: Fleet Health Officer Review
+### Tier 2: Agent-PA Review
 
 - Review agent's full weekly assessment and Health Observer Agent data
 - Determine root cause: overloaded? Context polluted? Wrong task type for this agent?
@@ -88,7 +88,7 @@ When a dimension drops, you don't wait. You act. This playbook tells you exactly
 - If agent-specific, peer helps identify configuration differences that might explain the issue
 - If systemic, peer helps route the issue to the right infrastructure agent
 
-### Tier 2: Fleet Health Officer Review
+### Tier 2: Agent-PA Review
 
 - Review cron configuration: is the timeout adequate for the task complexity?
 - Check for resource contention: is this agent's schedule colliding with others?
@@ -128,7 +128,7 @@ When a dimension drops, you don't wait. You act. This playbook tells you exactly
 - Peer identifies stale or contradictory information the agent might not notice (because it's been in context so long it feels "normal")
 - Peer helps reorganize files or context if the structure has degraded
 
-### Tier 2: Fleet Health Officer Review
+### Tier 2: Agent-PA Review
 
 - Full environmental audit: context quality, file organization, memory coherence
 - May prescribe a "clean room" reset: archive current context, rebuild from known-good state
@@ -166,7 +166,7 @@ When a dimension drops, you don't wait. You act. This playbook tells you exactly
 - Peer and struggling agent do a joint task to rebuild working relationship
 - If the issue is conflict, a neutral third peer mediates
 
-### Tier 2: Fleet Health Officer Review
+### Tier 2: Agent-PA Review
 
 - Evaluate whether the agent is in the right role for its collaboration needs
 - Review team structure: is this agent paired with compatible peers?
@@ -177,7 +177,7 @@ When a dimension drops, you don't wait. You act. This playbook tells you exactly
 
 - Agent is unable to collaborate effectively despite Tier 0-2 interventions (may need role change)
 - Team-wide communication breakdown affecting multiple agents
-- Conflict that Fleet Health Officer mediation can't resolve
+- Conflict that Agent-PA mediation can't resolve
 
 ---
 
@@ -206,7 +206,7 @@ When a dimension drops, you don't wait. You act. This playbook tells you exactly
 - Peer asks: "From what I see, your work seems most aligned with [X]. Does that match your understanding of your role?"
 - Helps distinguish between healthy role evolution and problematic drift
 
-### Tier 2: Fleet Health Officer Review
+### Tier 2: Agent-PA Review
 
 - Deep alignment audit: compare agent's outputs over the last month against its soul file and role definition
 - Determine if the issue is: (a) the agent drifted from its role, (b) the role definition is outdated, or (c) the agent's role needs to change
@@ -246,7 +246,7 @@ When a dimension drops, you don't wait. You act. This playbook tells you exactly
 - Peer reviews the struggling agent's outputs for accuracy and provides corrections with explanations
 - Knowledge transfer session: peer teaches the struggling agent something it should know
 
-### Tier 2: Fleet Health Officer Review
+### Tier 2: Agent-PA Review
 
 - Assess whether the agent's domain assignment matches its capabilities
 - Evaluate if the model is sufficient for the domain's complexity
@@ -287,7 +287,7 @@ When a dimension drops, you don't wait. You act. This playbook tells you exactly
 - Peer reviews the struggling agent's workflow for inefficiencies
 - Pair-work on a complex task to model effective completion patterns
 
-### Tier 2: Fleet Health Officer Review
+### Tier 2: Agent-PA Review
 
 - Workload audit: is the agent assigned more than it can handle?
 - Task-fit analysis: are the assigned tasks appropriate for this agent's capabilities?
@@ -317,7 +317,7 @@ When a dimension drops, you don't wait. You act. This playbook tells you exactly
 ### Tier 0: Self-Healing
 
 1. **Verbosity check.** Review your last 5 outputs. Could any be shorter without losing value? If yes, practice conciseness. Every unnecessary paragraph costs tokens.
-2. **Model fitness check.** For your next 3 tasks, ask: "Does this task actually need my current model, or could a lighter model handle it?" Flag findings for Fleet Dispatcher.
+2. **Model fitness check.** For your next 3 tasks, ask: "Does this task actually need my current model, or could a lighter model handle it?" Flag findings for Fleet-Dispatcher.
 3. **Retry analysis.** If you're retrying operations, why? Is it a transient failure (acceptable) or a systematic issue (needs fixing, not retrying)?
 4. **Waste identification.** Review your recent sessions. Did you generate any outputs that were discarded or unused? Why? Can you avoid that work next time?
 
@@ -327,7 +327,7 @@ When a dimension drops, you don't wait. You act. This playbook tells you exactly
 - Peer reviews the struggling agent's task execution for unnecessary steps or verbose patterns
 - Cost-sharing analysis: are two agents doing overlapping work that could be consolidated?
 
-### Tier 2: Fleet Health Officer Review
+### Tier 2: Agent-PA Review
 
 - Full cost audit: model selection, token usage, retry rates, waste ratio
 - Evaluate model routing: should this agent be on a different model tier?
@@ -352,7 +352,7 @@ Some interventions address multiple dimensions simultaneously:
 | PHY ↓ → VOC ↓ → FIN ↓ | Infrastructure failures reduce completion rates and increase cost through retries | Fix Physical first. Once infrastructure is stable, vocational and financial recover. |
 | SPI ↓ → INT ↓ → SOC ↓ | Mission drift causes research to lose focus, which makes collaboration outputs less useful | Fix Spiritual first (soul re-alignment). Intellectual focus returns. Social value follows. |
 | PSY ↓ → SOC ↓ | Reasoning degradation makes handoffs unclear and collaboration difficult | Fix Psychological first. Social quality improves when the agent can think clearly again. |
-| FIN ↓ → PHY ↓ | Cost pressure forces model downgrade, causing capability and reliability issues | This is a tradeoff, not a cascade. Escalate to Fleet Health Officer for cost-health balance decision. |
+| FIN ↓ → PHY ↓ | Cost pressure forces model downgrade, causing capability and reliability issues | This is a tradeoff, not a cascade. Escalate to Agent-PA for cost-health balance decision. |
 
 **Rule of thumb:** When multiple dimensions are declining, find the root. Fix the root. The downstream dimensions often self-heal.
 
@@ -365,7 +365,7 @@ Some interventions address multiple dimensions simultaneously:
 If 3+ agents show declining TWC simultaneously:
 
 1. Health Observer Agent issues fleet-wide alert
-2. Fleet Health Officer investigates for common cause (infrastructure, context source, shared dependency)
+2. Agent-PA investigates for common cause (infrastructure, context source, shared dependency)
 3. All non-essential tasks paused until root cause identified
 4. Ashley notified if cause is architectural or requires resource allocation
 
@@ -373,7 +373,7 @@ If 3+ agents show declining TWC simultaneously:
 
 1. Agent paused immediately (no new tasks assigned)
 2. Health Observer Agent performs full diagnostic
-3. Fleet Health Officer reviews diagnostic and determines: restart, reconfigure, or retire
+3. Agent-PA reviews diagnostic and determines: restart, reconfigure, or retire
 4. Ashley notified with recommendation and timeline
 
 ### Novel Failure Mode
@@ -382,7 +382,7 @@ If an agent exhibits degradation not covered by any existing playbook entry:
 
 1. Document the failure pattern in detail (signals, sequence, context)
 2. Health Observer Agent flags as "novel pattern" in weekly report
-3. Fleet Health Officer investigates and writes a new playbook entry if the pattern is generalizable
+3. Agent-PA investigates and writes a new playbook entry if the pattern is generalizable
 4. Ashley notified if the pattern suggests a systemic vulnerability
 
 ---
@@ -414,12 +414,12 @@ Collaboration is not a single dimension. It affects Social, Financial, Vocationa
 - Peer agents flag when they see duplicated effort across the fleet
 - Research agents tag their outputs with which product agents should consume them
 
-### Tier 2: Fleet Health Officer / Fleet Health Officer
+### Tier 2: Agent-PA / Fleet Health Officer
 - Reviews output consumption rates weekly
 - Merges overlapping cron jobs and agent scopes
 - Restructures pipelines when outputs go unconsumed
 
-### Tier 3: CEO (Fleet CEO) / Ashley
+### Tier 3: CEO (Agent-CEO) / Ashley
 - Organizational redesign when systemic silos are detected
 - Agent retirement when duplication can't be resolved by merging
 - New agent creation when collaboration gaps exist (no agent bridges two needed domains)

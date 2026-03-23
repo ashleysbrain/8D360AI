@@ -1,3 +1,8 @@
+---
+version: 1.2.0
+last_updated: 2026-03-22
+---
+
 # Elite Agent Personality Profiles
 
 **Purpose:** Comprehensive personality mapping for the 12 elite C-suite agents

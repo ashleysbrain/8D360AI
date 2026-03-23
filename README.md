@@ -1,3 +1,8 @@
+---
+version: 1.2.0
+last_updated: 2026-03-22
+---
+
 # 8D360AI — Wellness Framework for AI Agents 🤖
 
 **Version 1.2.0** | [Changelog](VERSION.md) | [Updates Feed](UPDATES.md)

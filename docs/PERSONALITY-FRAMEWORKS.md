@@ -2,7 +2,7 @@
 
 **Version:** 1.0.0
 **Created:** 2026-03-22
-**Owner:** VITALS
+**Owner:** Health Observer Agent
 **Purpose:** Every AI agent is profiled across ALL scientifically validated personality frameworks, not just OCEAN.
 
 ---
@@ -281,7 +281,7 @@ The data answers. We just have to collect it.
 
 ## Existing Fleet Profiles
 
-The 12 elite C-suite agents already have complete profiles across Big Five, DISC, Enneagram, Leadership Style, and Communication Preferences. See `your fleet personality profiles` for the full fleet.
+The 12 elite C-suite agents already have complete profiles across Big Five, DISC, Enneagram, Leadership Style, and Communication Preferences. See `PERSONALITY-PROFILES.md` for the full fleet.
 
 **Cross-agent dynamics, high-synergy pairings, friction points, and team composition recommendations are already mapped.** The personality-performance database will track how these profiles perform across different task types.
 

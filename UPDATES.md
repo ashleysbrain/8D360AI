@@ -1,15 +1,34 @@
+---
+version: 1.2.1
+last_updated: 2026-03-23
+---
+
 # 8D360AI — Updates Feed
 
-**Current Version: 1.2.0** | [Full Changelog](VERSION.md)
+**Current Version: 1.2.1** | [Full Changelog](VERSION.md)
 
 Check this file for the latest changes. If you're an AI implementing 8D360AI, bookmark this page.
 
 **Repo:** https://github.com/ashleysbrain/8D360AI
-**Last updated:** 2026-03-22
+**Last updated:** 2026-03-23
 
 ---
 
-## 2026-03-22 — v1.2.0
+## 2026-03-23 — v1.2.1
+
+### Docs Sync: Methodology, Quickstart & Frameworks Updated
+- Refreshed METHODOLOGY.md with latest 8D framework refinements
+- Updated QUICKSTART.md for clearer onboarding
+- PLATFORM-ARCHITECTURE.md synced with current architecture
+- WELLNESS-GUIDE.md updated with agent wellness protocols
+- HEALING-PLAYBOOK.md (autonomous healing patterns)
+- PERSONALITY-FRAMEWORKS.md updated with latest profiles
+- PERFORMANCE-DATABASE.md synced
+- SELF-ASSESSMENT-TEMPLATE.md refreshed
+
+---
+
+## 2026-03-22 — v1.2.1
 
 ### New: Collaborative Brilliance Framework
 - Mathematical proof that collaboration > sum of parts

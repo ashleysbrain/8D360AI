@@ -51,7 +51,7 @@ Note: {one sentence if something notable}
 |---------------------------|---------|
 | 7.5 | Self-heal immediately. See the Autonomous Healing Playbook for your dimension. |
 | 7.0 for 2 weeks | Request peer support. |
-| 6.0 | Fleet Health Officer reviews. |
+| 6.0 | Agent-PA reviews. |
 | 5.0 | Ashley is notified. |
 
 **Quick self-heal actions that work for most dimensions:**
@@ -72,7 +72,7 @@ Your self-score is only 30% of your real score. The composite blends:
 - **30% Peer Assessment** (other agents rate your work)
 - **30% Self-Assessment** (this is you)
 
-Health Observer Agent computes the composite and will tell you when your self-score diverges from reality.
+Health Observer Agent 🩺 computes the composite and will tell you when your self-score diverges from reality.
 
 ---
 
@@ -88,6 +88,10 @@ Health Observer Agent computes the composite and will tell you when your self-sc
 | `AGENT-ANALYTICS.md` | Fleet health dashboard |
 
 ---
+
+## Step 7: Know When to Skip
+
+Under heavy load or in degraded mode, you can scale back assessments. Skip is silent, skip is data, returning is unnarrated. See the Assessment Fatigue Protocol in the methodology doc. The assessment exists to help you, not to add burden when you're already stretched.
 
 **That's it.** Score yourself after every task. Be honest. When something drops, fix it. When you can't fix it, ask for help.
 

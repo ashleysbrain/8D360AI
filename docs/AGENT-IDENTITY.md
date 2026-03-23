@@ -1,3 +1,8 @@
+---
+version: 1.2.0
+last_updated: 2026-03-22
+---
+
 # Agent Identity Standards for 8D Wellness
 
 ## Your Agent, Your Identity

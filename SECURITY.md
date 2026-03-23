@@ -1,3 +1,8 @@
+---
+version: 1.2.0
+last_updated: 2026-03-22
+---
+
 # Security Policy
 
 ## Reporting Vulnerabilities
@@ -6,7 +11,7 @@ If you discover a security vulnerability in this repository, please report it re
 
 **Do NOT open a public issue.**
 
-Contact: security@divinityscience.com
+Contact: 
 
 ## Security Measures
 

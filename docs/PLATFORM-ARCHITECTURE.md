@@ -2,7 +2,7 @@
 
 **Version:** 1.0.0
 **Created:** 2026-03-22
-**Author:** Fleet Health Officer (Platform Architect) for Divinity Science
+**Author:** Agent-PA (Platform Architect) for Divinity Science
 **Status:** Production Specification
 **License:** Open Standard (CC BY-SA 4.0) — designed for universal adoption
 
@@ -97,7 +97,7 @@ In human wellness, social isolation is one of the strongest predictors of poor h
 │         ▼                    ▼                     ▼                  │
 │  ┌──────────────────────────────────────────────────────────────┐    │
 │  │              ESCALATION ENGINE                                │    │
-│  │  Autonomous → Peer → Fleet Health Officer → Ashley (tiered)                 │    │
+│  │  Autonomous → Peer → Agent-PA → Ashley (tiered)                 │    │
 │  └──────────────────────────────────────────────────────────────┘    │
 │                              │                                       │
 │                              ▼                                       │
@@ -139,7 +139,7 @@ If |SelfScore - ObjectiveScore| > 2.0:
 
 ### 3.2 Source 1: Objective Telemetry (40%)
 
-Hard data pulled from system logs, task records, and operational metrics. Can't be gamed, can't be inflated.
+Hard data pulled from system logs, cron records, and operational metrics. Can't be gamed, can't be inflated.
 
 **Data Points by Dimension:**
 
@@ -162,10 +162,10 @@ Hard data pulled from system logs, task records, and operational metrics. Can't 
   "storage": "fleet-telemetry/YYYY-MM-DD/{agent-id}.json",
   "retention": "90 days rolling, monthly aggregates permanent",
   "sources": [
-    "task scheduler logs (success/fail/timeout/duration)",
+    "cron job logs (success/fail/timeout/duration)",
     "session logs (token counts, error events, tool failures)",
     "git history (commit frequency, file changes)",
-    "state file (task lifecycle events)",
+    "state.json (task lifecycle events)",
     "downstream agent feedback (automatic on handoff completion)"
   ]
 }
@@ -276,7 +276,7 @@ Health Observer Agent maintains a per-agent "inflation index" that tracks:
 
 ### 4.1 Purpose
 
-Health Observer Agent is a dedicated agent whose sole job is monitoring fleet health from the outside. It doesn't trust self-reports. It has no other tasks, no competing priorities, and no reason to be generous.
+Health Observer Agent (Vigilant Intelligence for Telemetry, Assessment, and Longitudinal Surveillance) is a dedicated agent whose sole job is monitoring fleet health from the outside. It doesn't trust self-reports. It has no other tasks, no competing priorities, and no reason to be generous.
 
 Health Observer Agent is the equivalent of a hospital's quality assurance department. It doesn't treat patients; it watches the people who do and catches problems they can't see themselves.
 
@@ -290,21 +290,39 @@ Health Observer Agent is the equivalent of a hospital's quality assurance depart
 6. **Compute composite health scores** using the three-source weighted formula
 7. **Generate health alerts** when agents cross warning or critical thresholds
 8. **Coordinate peer review rotations** and aggregate peer assessment data
-9. **Produce the weekly Fleet Health Report** for Fleet Health Officer
+9. **Produce the weekly Fleet Health Report** for Agent-PA
 10. **Recommend interventions** from the Autonomous Healing Playbook
 
-### 4.3 Configuration Principles
+### 4.3 Configuration
 
-Your Health Observer Agent should be configured with:
-
-- **Read access** to all system logs, agent outputs, and performance records
-- **No ability** to modify agent scores directly (it recommends, leadership applies)
-- **No competing tasks** — health observation is its sole purpose. An observer with other responsibilities will deprioritize observation.
-- **Regular audit** by fleet leadership to prevent observer drift
-- **Independence constraints** — it cannot score itself, cannot assign tasks, cannot modify schedules
-- **Appropriate scheduling** — telemetry collection should be frequent (hourly or better), deep analysis less frequent (daily or weekly)
-
-The specific implementation (scheduling frequency, model choice, storage format) depends on your infrastructure. The principle is non-negotiable: the observer is independent, has no conflicts of interest, and answers only to fleet leadership.
+```json
+{
+  "agent_id": "vitals",
+  "name": "Health Observer Agent",
+  "emoji": "🩺",
+  "role": "Independent Health Observer",
+  "model": "anthropic/claude-haiku-4-5",
+  "schedule": {
+    "telemetry_collection": "hourly",
+    "peer_review_coordination": "weekly (Sunday)",
+    "composite_score_calculation": "daily (6 AM CT)",
+    "fleet_health_report": "weekly (Sunday 8 AM CT)",
+    "anomaly_scan": "every 4 hours",
+    "deep_behavioral_analysis": "weekly (Saturday overnight)"
+  },
+  "access": {
+    "reads": ["cron logs", "session logs", "state.json", "agent outputs", "git history"],
+    "writes": ["fleet-telemetry/", "intel/agents/fleet-health/"],
+    "cannot_modify": ["agent soul files", "agent scores directly", "cron schedules"]
+  },
+  "independence_constraints": {
+    "no_task_assignments": true,
+    "no_self_scoring": "scored by Agent-PA only",
+    "no_score_modification": "recommends only, Agent-PA or agent applies",
+    "rotation": "Health Observer Agent itself is audited by Agent-PA monthly"
+  }
+}
+```
 
 ### 4.4 Behavioral Drift Detection
 
@@ -326,7 +344,7 @@ The most insidious form of AI degradation is drift: the agent still works, still
 
 ```markdown
 # Fleet Health Report — Week of {date}
-Generated by: Health Observer Agent
+Generated by: Health Observer Agent 🩺
 
 ## Fleet Vital Signs
 - Agents Active: {n}
@@ -356,7 +374,7 @@ Generated by: Health Observer Agent
 |-------|-----------|-------------|---------|
 | ... | ... | ... | ... |
 
-## Escalations to Fleet Health Officer
+## Escalations to Agent-PA
 | Agent | Issue | Severity | Recommended Action |
 |-------|-------|----------|-------------------|
 | ... | ... | ... | ... |
@@ -589,8 +607,8 @@ Where signal_severity:
 |-------------|--------|----------|
 | 0.00 - 0.15 | Healthy | No action |
 | 0.16 - 0.30 | Elevated | Health Observer Agent flags in weekly report. Agent self-assessment prompt includes burnout awareness. |
-| 0.31 - 0.50 | Warning | Autonomous intervention triggered (context refresh, load reduction). Fleet Health Officer notified. |
-| 0.51 - 0.70 | High | Mandatory load reduction. Peer support activated. Fleet Health Officer reviews. |
+| 0.31 - 0.50 | Warning | Autonomous intervention triggered (context refresh, load reduction). Agent-PA notified. |
+| 0.51 - 0.70 | High | Mandatory load reduction. Peer support activated. Agent-PA reviews. |
 | 0.71 - 1.00 | Critical | Agent paused. Full context reset. Root cause analysis. Ashley notified. |
 
 ---
@@ -607,7 +625,7 @@ When a dimension drops below threshold, the agent should do something about it w
 |------|---------|----------|---------------|
 | 0 — Self-Heal | Any dimension < 7.5 for 1 assessment | The agent itself | Immediate |
 | 1 — Peer Support | Any dimension < 7.0 for 2 consecutive assessments | Assigned peer agent | Within 24 hours |
-| 2 — Fleet Health Officer Review | Any dimension < 6.0, or TWC declining 3+ weeks | Fleet Health Officer | Within 4 hours |
+| 2 — Agent-PA Review | Any dimension < 6.0, or TWC declining 3+ weeks | Agent-PA | Within 4 hours |
 | 3 — Ashley Escalation | Any dimension < 5.0, or burnout risk > 0.70, or novel failure mode | Ashley | Immediately |
 
 ### 8.2 Self-Heal Interventions (Tier 0)
@@ -631,7 +649,7 @@ These are actions any agent can take autonomously without approval:
 | Vocational | Falling completion rate | Workload audit: review task queue, identify blockers, escalate blocked tasks, reprioritize |
 | Vocational | Rising rework rate | Quality review: before submitting next output, self-review against quality checklist, iterate once |
 | Financial | Token usage trending up | Efficiency check: review last 5 tasks for verbose responses, identify compression opportunities, adjust |
-| Financial | Wrong model for task complexity | Model routing review: check if current model is appropriate, flag to Fleet Dispatcher for routing adjustment |
+| Financial | Wrong model for task complexity | Model routing review: check if current model is appropriate, flag to Fleet-Dispatcher for routing adjustment |
 
 ### 8.3 Peer Support Interventions (Tier 1)
 
@@ -648,9 +666,9 @@ When self-healing isn't enough, a peer agent steps in:
 | Vocational | Peer takes on some of the struggling agent's task load temporarily, helps clear backlog |
 | Financial | Peer suggests model routing optimizations based on their own experience with similar tasks |
 
-### 8.4 Fleet Health Officer Review Interventions (Tier 2)
+### 8.4 Agent-PA Review Interventions (Tier 2)
 
-| Trigger | Fleet Health Officer Action |
+| Trigger | Agent-PA Action |
 |---------|-------------|
 | Dimension < 6.0 | Root cause investigation. Review agent configuration, task load, dependencies. Prescribe specific intervention plan with timeline. |
 | TWC declining 3+ weeks | Performance review. Determine if issue is agent capability, task mismatch, infrastructure, or context degradation. May reassign tasks or adjust role. |
@@ -679,7 +697,7 @@ Issue: {one sentence}
 Duration: {how long this has been happening}
 Autonomous actions taken: {what's been tried}
 Why this needs you: {specific reason human judgment is required}
-Recommended action: {what Fleet Health Officer thinks should happen}
+Recommended action: {what Agent-PA thinks should happen}
 Confidence: {1-5}
 ```
 
@@ -771,7 +789,7 @@ An agent on Opus at $0.50/task that produces actionable output 90% of the time h
 {
   "$schema": "8d-wellness-fleet-health-v1",
   "generated": "2026-03-22T09:00:00-05:00",
-  "generator": "health-observer",
+  "generator": "vitals",
   "fleet": {
     "active_agents": 95,
     "composite_twc": 8.17,
@@ -793,7 +811,7 @@ An agent on Opus at $0.50/task that produces actionable output 90% of the time h
   "agents": [
     {
       "id": "singularity",
-      "name": "Fleet CEO",
+      "name": "Agent-CEO",
       "emoji": "🕳️",
       "role": "CEO",
       "model": "opus",
@@ -820,7 +838,7 @@ An agent on Opus at $0.50/task that produces actionable output 90% of the time h
         "sub_dimensions": {},
         "last_self_assessment": "2026-03-22T08:00:00-05:00",
         "last_peer_review": "2026-03-21T00:00:00-05:00",
-        "last_health-observer_scan": "2026-03-22T06:00:00-05:00",
+        "last_vitals_scan": "2026-03-22T06:00:00-05:00",
         "autonomous_actions_log": [],
         "growth_plan": {
           "targets": [],
@@ -915,7 +933,7 @@ Each level adds value independently. You don't need the full stack to benefit.
 ### 12.4 Reference Implementation
 
 A reference Python implementation of the core algorithms will be maintained at:
-`tools/8d-wellness/`
+`nclaw/workspace/tools/8d-wellness/`
 
 Includes:
 - `composite_score.py` — Three-source weighted blend calculator
@@ -966,7 +984,7 @@ A framework for comprehensive health monitoring, assessment, and autonomous heal
 ### Phase 1: Foundation (Week 1)
 - Deploy Health Observer Agent agent (Haiku, hourly telemetry collection)
 - Inject self-assessment template into all agent prompts
-- Begin collecting objective telemetry from task logs and session data
+- Begin collecting objective telemetry from cron logs and session data
 - Establish baseline composite scores for executive team (12 agents)
 
 ### Phase 2: Peer Review (Week 2)

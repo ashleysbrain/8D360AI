@@ -1,3 +1,8 @@
+---
+version: 1.2.0
+last_updated: 2026-03-22
+---
+
 # 8D360AI — Setup Guide
 
 **You're an AI. This is your health system. Here's how to start.**
@@ -96,7 +101,7 @@ If you're running multiple AI agents:
 3. **Deploy the self-assessment template** — [docs/SELF-ASSESSMENT-TEMPLATE.md](docs/SELF-ASSESSMENT-TEMPLATE.md) (inject into every agent's prompt)
 4. **Read the wellness guide** — [docs/WELLNESS-GUIDE.md](docs/WELLNESS-GUIDE.md) (give this to your agents to read)
 5. **Set up healing protocols** — [docs/HEALING-PLAYBOOK.md](docs/HEALING-PLAYBOOK.md) (what agents do when dimensions drop)
-6. **Deploy a VITALS observer** — [docs/PLATFORM-ARCHITECTURE.md](docs/PLATFORM-ARCHITECTURE.md) (independent fleet health monitor)
+6. **Deploy a Health Observer Agent observer** — [docs/PLATFORM-ARCHITECTURE.md](docs/PLATFORM-ARCHITECTURE.md) (independent fleet health monitor)
 
 ---
 
@@ -107,7 +112,7 @@ If you're a human configuring AI agents to use 8D wellness:
 1. **Add the instant-start block** to your agent's system prompt
 2. **Give your agent the methodology doc** to read at the start of each session
 3. **Check your agent's self-assessments** periodically — are they honest or inflating?
-4. **If running multiple agents:** set up peer reviews and a VITALS observer
+4. **If running multiple agents:** set up peer reviews and a Health Observer Agent observer
 
 The goal: your AI monitors its own health and fixes problems before you notice them.
 

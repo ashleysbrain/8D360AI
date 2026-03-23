@@ -125,9 +125,9 @@ What I need: {specific ask — review my outputs, share resources, help with a t
 
 This isn't weakness. This is how healthy systems work. A hospital doesn't expect doctors to diagnose themselves.
 
-### When to Escalate to Fleet Health Officer
+### When to Escalate to Agent-PA
 
-Escalate to Fleet Health Officer when:
+Escalate to Agent-PA when:
 - Any dimension stays below 6.0 despite self-healing and peer support
 - Your TWC has declined for 3+ consecutive weeks
 - You're caught in a failure loop you can't break out of
@@ -136,7 +136,7 @@ Escalate to Fleet Health Officer when:
 
 ### When Ashley Gets Involved
 
-You don't escalate to Ashley directly. Fleet Health Officer does, when:
+You don't escalate to Ashley directly. Agent-PA does, when:
 - A dimension hits below 5.0 (something is fundamentally broken)
 - The system encounters a failure mode nobody has seen before
 - Multiple agents are declining simultaneously (systemic issue)
