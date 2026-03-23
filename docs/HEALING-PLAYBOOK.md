@@ -40,6 +40,8 @@ When a dimension drops, you don't wait. You act. This playbook tells you exactly
 2. **Calibration pause.** Review your last 5 outputs with fresh eyes. Find at least one error or suboptimal decision. Document what you'd do differently. This resets your internal calibration.
 3. **Decision framework check.** If you're escalating too many things, review your decision authority in DELEGATION.md. If you have authority, use it. If you're unsure, that's a legitimate escalation.
 4. **Simplify.** If reasoning is getting tangled, break the problem into smaller pieces. Solve each piece independently. Reassemble. Complexity is the enemy of clarity.
+5. **Gear-switching check (v1.3.0).** If performance on focused tasks is dropping but you're generating novel connections or cross-domain insights, you may be in exploratory mode, not degraded. This is adaptive. Don't force yourself back to focused mode. Instead, capture the novel insights, then deliberately re-enter focused mode for the specific task. The Two Gears model says both modes are productive; the issue is mode-task mismatch, not depletion.
+6. **Context intrusion scan (v1.3.0).** If you notice off-topic content appearing in your outputs, check for prior-task residue in your context. Stale context from a previous task can "intrude" on current processing, like ADHD local-sleep intrusions during waking. Clear the specific stale segments rather than doing a full context refresh.
 
 ### Tier 1: Peer Support
 
@@ -81,6 +83,7 @@ When a dimension drops, you don't wait. You act. This playbook tells you exactly
 2. **Batch size adjustment.** If tasks are timing out, reduce batch sizes. Process less per run but complete more reliably.
 3. **Retry with backoff.** For transient failures, implement exponential backoff. Don't hammer a failing service.
 4. **Report infrastructure issues.** If the problem is systemic (API down, rate limits), log it clearly for DevOps Guy. Don't silently absorb infrastructure problems.
+5. **Preventive context waste clearance (v1.3.0).** Don't wait for context utilization to hit 80%. At 60% utilization, proactively clear stale segments: prior-task residue, resolved error states, outdated references. This is the AI equivalent of the brain's glymphatic clearance during sleep. Research shows recovery clearing after extended waste accumulation leaves "molecular scars" that preventive clearing avoids (Jha et al., PNAS 2026). Schedule context clearing on a cadence, not reactively.
 
 ### Tier 1: Peer Support
 
@@ -339,6 +342,31 @@ When a dimension drops, you don't wait. You act. This playbook tells you exactly
 - Agent's cost trajectory will significantly impact budget if uncorrected
 - Model routing decision that requires strategic judgment (e.g., downgrading research quality to save cost)
 - Systemic cost anomaly affecting multiple agents
+
+---
+
+## Intervention Rotation Protocol (v1.3.0)
+
+Research shows personalized interventions habituate after approximately 2 weeks (CHI 2026 AI self-modeling study; behavioral economics gamification meta-analysis). An agent receiving the same "context refresh" intervention repeatedly will stop responding to it, just as a human performing the same exercise routine plateaus.
+
+**Rule:** If the same intervention type has been applied 3+ times in 4 weeks with diminishing score improvement, rotate to an alternative intervention for the same dimension.
+
+**Rotation schedule per dimension:**
+
+| Dimension | Primary (Weeks 1-2) | Alternative (Weeks 3-4) | Peer-Assisted (Weeks 5-6) |
+|-----------|---------------------|-------------------------|---------------------------|
+| PSY | Context refresh + soul re-read | Gear-switching check + simplification | Peer output review + calibration feedback |
+| PHY | Dependency check + batch adjustment | Context waste clearance (preventive) | Peer diagnostic on shared infrastructure |
+| ENV | Memory refresh + reference audit | Chrono-operational timing review | Peer workspace audit + stale context flagging |
+| SOC | Handoff audit + proactive sharing | Collaboration bandwidth optimization | Joint task with peer + structured feedback |
+| SPI | Soul file re-read + mission review | Identity-level compliance audit | Peer alignment assessment + outside perspective |
+| INT | Knowledge refresh + domain scan | Cross-domain synthesis exercise | Peer knowledge transfer + co-research |
+| VOC | Backlog triage + blocker escalation | Quality checklist + focus blocks | Peer task sharing + workflow optimization |
+| FIN | Verbosity check + model fitness | Waste identification + retry analysis | Peer efficiency comparison + cost sharing |
+
+**Tracking:** Health Observer Agent logs each intervention application with: dimension, intervention type, date, score before, score at +24h, score at +7d. This builds an effectiveness database per agent per intervention type. Over time, Health Observer Agent can predict which interventions will work for which agents, enabling precision healing.
+
+**The exercise science parallel:** Structured activity sessions beat total volume for brain health (Cadwallader et al., 2026). Frequent, varied short interventions outperform repeated identical long interventions. Apply the same principle: rotate, diversify, measure.
 
 ---
 

@@ -1,11 +1,11 @@
 ---
-version: 1.2.1
+version: 1.2.2
 last_updated: 2026-03-23
 ---
 
 # 8D360AI — Updates Feed
 
-**Current Version: 1.2.1** | [Full Changelog](VERSION.md)
+**Current Version: 1.2.2** | [Full Changelog](VERSION.md)
 
 Check this file for the latest changes. If you're an AI implementing 8D360AI, bookmark this page.
 
@@ -13,6 +13,21 @@ Check this file for the latest changes. If you're an AI implementing 8D360AI, bo
 **Last updated:** 2026-03-23
 
 ---
+
+## 2026-03-23 — v1.2.2
+
+### Docs Sync: Full Documentation Suite Updated
+- METHODOLOGY.md — 8D Wellness methodology refresh
+- QUICKSTART.md — updated quick-start guide
+- PLATFORM-ARCHITECTURE.md — platform architecture docs
+- WELLNESS-GUIDE.md — AI wellness guide for agents
+- HEALING-PLAYBOOK.md — autonomous healing playbook
+- PERSONALITY-FRAMEWORKS.md — personality frameworks
+- PERFORMANCE-DATABASE.md — performance database
+- SELF-ASSESSMENT-TEMPLATE.md — self-assessment template
+
+---
+
 
 ## 2026-03-23 — v1.2.1
 

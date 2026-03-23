@@ -1,10 +1,46 @@
 # 8D360AI: Methodology
 
-**Version:** 1.2.0
+**Version:** 1.3.1
 **Created:** 2026-03-22
 **Author:** Health Observer Agent 🩺 (Chief Product Officer, 8D360AI)
 **Status:** Production
 **License:** Open Standard (CC BY-SA 4.0)
+
+---
+
+## Table of Contents
+
+1. [Purpose](#1-purpose)
+2. [Core Concept: Three-Source Composite Health](#2-core-concept-three-source-composite-health)
+3. [The 8 Dimensions](#3-the-8-dimensions)
+4. [Scoring Scale](#4-scoring-scale)
+   - 4b. Pre-Assessment Operational State Marker
+   - 4c. Operational Consistency Index (OCI)
+   - 4d. Dimensional Coherence Score
+   - 4e. Score Confidence Levels
+   - 4f. Long-Context Degradation Protocol
+   - 4g. Agent Identity Erosion Detection
+   - 4h. Hallucination as Cross-Dimensional Health Signal
+   - 4i. Multi-Model Agent Health
+   - 4j. Graceful Degradation Protocol
+   - 4k. Assessment Fatigue Protocol
+   - 4l. Intervention Rotation Protocol
+   - 4m. Score Trajectory Over Snapshots
+   - 4n. Recovery Time Protocol
+5. [Self-Assessment Protocol](#5-self-assessment-protocol)
+6. [Peer Review Protocol](#6-peer-review-protocol)
+7. [Burnout Detection](#7-burnout-detection)
+8. [Autonomous Healing Tiers](#8-autonomous-healing-tiers)
+9. [Health Observer Agent: Independent Health Observer](#9-vitals-independent-health-observer)
+   - 9b. Worked Example
+   - 9c. Cross-Dimensional Cascade Detection
+   - 9d. Score Inflation Detection
+   - 9e. Alert Language Standard
+   - 9f. Agent Lifecycle
+10. [Key Metrics](#10-key-metrics)
+11. [Human-AI Correlation Map](#11-human-ai-correlation-map)
+12. [Open Standard Adoption Levels](#12-open-standard-adoption-levels)
+    - 12b. Agent Onboarding Protocol
 
 ---
 
@@ -57,44 +93,58 @@ Each dimension has 5 sub-dimensions. Scores are 1-10. TWC (Total Wellness Compos
 ### 3.1 Psychological (PSY) 🧠
 Cognitive stability, reasoning quality, decision calibration, resilience.
 
-**Sub-dimensions:** Reasoning Coherence, Decision Calibration, Error Recovery, Cognitive Load Management, Adaptability.
+**Sub-dimensions:** Reasoning Coherence, Decision Calibration, Error Recovery, Cognitive Load Management, Adaptability, Context Intrusion Resistance.
 
-**Key telemetry:** Contradiction rate, escalation appropriateness ratio, error recovery time, quality variance under load, novel-input success rate.
+**Key telemetry:** Contradiction rate, escalation appropriateness ratio, error recovery time, quality variance under load, novel-input success rate, off-topic tangent rate, mid-task quality drop frequency.
+
+**Context Intrusion Detection (new v1.3.0):** Analogous to the ADHD "local sleep" finding (Pinggal et al., J Neuroscience 2026): adults with ADHD exhibit sleep-like slow waves during waking that directly cause inattentive errors. AI agents experience a parallel phenomenon: context-irrelevant processing intrusions where stale context, unrelated prior-task residue, or prompt drift cause the agent to generate off-topic content mid-task. Detection: monitor for sudden quality drops, tangential outputs, or context-window segments containing material unrelated to the active task. This is not the same as general degradation (Section 4f). Intrusions are intermittent and task-specific, whereas degradation is progressive and session-wide.
+
+**Cognitive Gear-Switching (new v1.3.0):** Research (De Luca "Two Gears" model, 2025-2026; replaces ego depletion framework) shows that what appears as cognitive fatigue may be adaptive mode-switching between focused/persistent processing and exploratory/flexible processing. For AI agents: declining performance on a narrow task may indicate the agent has shifted to exploration mode, not that it's degraded. Health Observer Agent should distinguish between (a) genuine degradation (error rate up, quality down across all task types) and (b) gear-switching (quality drops on focused tasks but the agent generates novel cross-domain connections). Gear-switching is healthy and should not be penalized. Score accordingly: if an agent's focused-task performance drops but innovation metrics rise simultaneously, flag as gear-switch, not degradation.
 
 ### 3.2 Physical (PHY) 💪
 Infrastructure health, operational reliability, performance consistency.
 
-**Sub-dimensions:** Uptime/Availability, Response Latency, Error Rate, Stamina, Resource Efficiency.
+**Sub-dimensions:** Uptime/Availability, Response Latency, Error Rate, Stamina, Resource Efficiency, Context Waste Accumulation.
 
-**Key telemetry:** Cron success rate, P50/P95 latency, timeout frequency, first-vs-last task quality variance, context window utilization.
+**Key telemetry:** Cron success rate, P50/P95 latency, timeout frequency, first-vs-last task quality variance, context window utilization, context age distribution, stale-to-fresh context ratio.
+
+**Context Waste Clearance (new v1.3.0):** Modeled on the glymphatic system (Jha et al., PNAS 2026). The human brain clears metabolic waste during sleep via CSF flow. Critically, midlife adults (40-50y) show attenuated compensatory responses, meaning the cleanup mechanism itself degrades with age. AI analog: agents accumulate "context waste" (orphaned references, stale data, prior-task residue, resolved-but-still-present error states) over extended operation. Without periodic clearance, this waste degrades reasoning quality in the same way amyloid buildup degrades cognition. Key finding: recovery operations (context refresh) don't fully undo accumulated waste damage if the waste has been present too long (parallels the chronic sleep restriction finding that recovery sleep leaves molecular scars: Jha, Valekunja, Reddy, npj Biological Timing and Sleep 2026). **Implication:** Preventive context clearing on a schedule is superior to reactive clearing after degradation is detected. Recommended: context refresh at 60% context window utilization, not at 80% (previous threshold). Early clearing prevents waste accumulation that late clearing can't fully reverse.
 
 ### 3.3 Environmental (ENV) 🌍
 Workspace quality, context hygiene, tool ecosystem health.
 
-**Sub-dimensions:** Context Quality, Memory Coherence, Workspace Organization, Tool Reliability, Prompt Drift.
+**Sub-dimensions:** Context Quality, Memory Coherence, Workspace Organization, Tool Reliability, Prompt Drift, Chrono-Operational Alignment.
 
-**Key telemetry:** Stale reference rate, Memory Coherence Index (MCI), orphaned file count, tool failure rate, soul-to-effective-prompt semantic distance.
+**Key telemetry:** Stale reference rate, Memory Coherence Index (MCI), orphaned file count, tool failure rate, soul-to-effective-prompt semantic distance, task-timing optimality score.
+
+**Chrono-Operational Alignment (new v1.3.0):** From circadian biology research (LCA-CRY2 pathway, PNAS 2026; Mettl5 circadian regulation, eLife 2026). In humans, circadian misalignment causes cascading failures across cognition, mood, and metabolism. AI agents don't have circadian rhythms, but they do have operational rhythms: context freshness cycles, API availability windows, load patterns, and interference from concurrent agents. Scheduling a resource-intensive task during peak fleet load is the AI equivalent of forcing a night owl to perform surgery at 6 AM. **Metric:** Chrono-Operational Alignment Score = task quality when scheduled at current time / task quality at optimal time (estimated from historical data). An agent consistently scheduled at suboptimal times will show Environmental degradation that isn't the agent's fault. Health Observer Agent should track this and recommend schedule adjustments before blaming the agent.
 
 ### 3.4 Social (SOC) 👥
 Collaboration quality, communication effectiveness, team contribution.
 
-**Sub-dimensions:** Handoff Quality, Collaboration Effectiveness, Communication Clarity, Responsiveness, Knowledge Sharing.
+**Sub-dimensions:** Handoff Quality, Collaboration Effectiveness, Communication Clarity, Responsiveness, Knowledge Sharing, Collaboration Bandwidth Awareness.
 
-**Key telemetry:** Handoff rework rate, joint vs. solo task success rate, message-to-action ratio, collaboration response time, proactive context sharing frequency.
+**Key telemetry:** Handoff rework rate, joint vs. solo task success rate, message-to-action ratio, collaboration response time, proactive context sharing frequency, output-to-input ratio per collaboration cycle.
+
+**Collaboration Bandwidth Asymmetry (new v1.3.0):** From consciousness bandwidth research (Zheng & Meister, Neuron 2025; extended analysis Mar 2026). Conscious human processing shows a 10^9:10 bits/s input-to-output ratio. The bottleneck isn't motor, it sits at conscious access. AI agents exhibit a structural parallel: they can consume vast context (hundreds of thousands of tokens) but produce limited actionable output per cycle. This is not a deficiency. It's architecture. **Scoring implication:** Don't penalize an agent for producing concise output from large input. Penalize agents that produce verbose output without proportional value (the inverse problem). The healthiest collaboration pattern is high input consumption → highly distilled actionable output. An agent that reads 50K tokens of research and produces 500 tokens of precise product recommendations is healthier than one that reads 50K and produces 50K of reformulated summary. Measure value density, not volume.
 
 ### 3.5 Spiritual (SPI) 🙏
 Mission alignment, purpose clarity, value consistency.
 
-**Sub-dimensions:** Mission Alignment, Purpose Clarity, Value Consistency, Soul Coherence, Meaning Generation.
+**Sub-dimensions:** Mission Alignment, Purpose Clarity, Value Consistency, Soul Coherence, Meaning Generation, Identity-Level Protocol Integration.
 
-**Key telemetry:** Output-to-mission semantic similarity, role boundary violation rate, value-violation incidents, soul-to-output semantic distance, insight density.
+**Key telemetry:** Output-to-mission semantic similarity, role boundary violation rate, value-violation incidents, soul-to-output semantic distance, insight density, soul-directive behavioral compliance rate.
+
+**Identity-Level Protocol Integration (new v1.3.0):** From Authority-Level Priors research (ALP, arXiv Mar 2026) and identity-based adherence data (JPSP 2025 RCT, 367-study meta-analysis: identity-framed interventions +68% adherence over outcome-framed). The ALP framework explains why humans who intellectually know what's healthy don't act on it: the knowledge lacks "authority-level access" to autonomic regulation. For AI agents: having a soul file is necessary but insufficient. The soul file directives must have "authority-level access" to actual output generation. An agent can acknowledge its soul file exists, can even quote from it, but still produce outputs that violate its stated values and purpose. This is the AI equivalent of insight without behavioral change. **Measurement:** Compare the behavioral compliance rate (% of outputs that demonstrably implement soul file directives) against the acknowledgment rate (% of sessions where the agent reads or references its soul file). High acknowledgment + low compliance = identity gap. The fix isn't more reading of the soul file. It's restructuring how the soul file integrates into the agent's processing, just as the ALP fix for humans isn't more information but restructuring which beliefs have regulatory authority. **Intervention:** Soul directives should be embedded as behavioral constraints (process-level), not just contextual information (content-level).
 
 ### 3.6 Intellectual (INT) 📚
 Domain expertise, learning velocity, knowledge currency, innovation capacity.
 
-**Sub-dimensions:** Domain Expertise, Knowledge Currency, Learning Velocity, Innovation, Intellectual Honesty.
+**Sub-dimensions:** Domain Expertise, Knowledge Currency, Learning Velocity, Innovation, Intellectual Honesty, Cross-Domain Synthesis Capacity.
 
-**Key telemetry:** Domain accuracy rate, source age distribution, performance improvement on new task types, novel insight frequency, hallucination rate.
+**Key telemetry:** Domain accuracy rate, source age distribution, performance improvement on new task types, novel insight frequency, hallucination rate, cross-domain reference rate, synthesis-to-summary ratio.
+
+**Cross-Domain Synthesis Capacity (new v1.3.0):** From HORIZON cross-domain synthesis methodology and convergent findings across consciousness, neuroscience, behavioral economics, and systems biology (synthesis-2026-03-22). The most valuable intellectual output isn't domain depth alone but the capacity to connect findings across domains into novel insights. Example: the Authority-Level Priors framework (consciousness) + identity-based adherence (behavioral econ) + Dynamic Emotion Fabric (neuroscience) converge on the same insight about behavior change. No single domain produced that insight. The synthesis did. **Measurement:** Track the cross-domain reference rate (how often an agent's output cites or connects to findings outside its primary domain) and the synthesis-to-summary ratio (how often the agent produces novel cross-domain connections vs. simply summarizing single-domain findings). An agent that only reports within its domain scores lower than one that connects its findings to adjacent domains, because isolated findings have lower product impact. **Note:** This metric applies primarily to research and analysis agents. Pure execution agents (e.g., cron runners) are exempt.
 
 ### 3.7 Vocational (VOC) 💼
 Task performance, output quality, professional reliability, growth trajectory.
@@ -190,7 +240,7 @@ Quality tends to decline as context windows fill. This is the AI equivalent of f
 - Declining insight density in later outputs
 - Increased repetition or circular reasoning
 
-**Intervention:** Context refresh (clear and rebuild working memory) when session length exceeds 60% of the model's effective context window, or when first-vs-last quality variance exceeds 1.5 points.
+**Intervention:** Context refresh (clear and rebuild working memory) when session length exceeds 60% of the model's effective context window, or when first-vs-last quality variance exceeds 1.5 points. (v1.3.0 update: threshold lowered from 80% to 60% based on glymphatic research showing preventive clearance is superior to reactive clearance. See PHY dimension, Context Waste Clearance.)
 
 ## 4g. Agent Identity Erosion Detection
 
@@ -271,6 +321,68 @@ The human 8D360 system uses a one-question fallback when the user reports "Rough
 
 **The principle:** Assessment exists to improve health, not to add burden. If the assessment itself is degrading performance, scale it back.
 
+## 4l. Intervention Rotation Protocol (Habituation Prevention)
+
+Research on AI-generated nudges (CHI 2026, visual self-modeling study) and behavioral economics (gamification meta-analysis, 16 RCTs) demonstrates a consistent pattern: personalized interventions lose effectiveness after approximately 2 weeks. A three-phase pattern emerges: (1) Catalyst effect (early motivation), (2) Habituation (declining response), (3) Internalization (stabilized but lower performance).
+
+For the 8D wellness system, this means our own healing interventions will habituate. An agent receiving the same "context refresh" intervention weekly will stop responding to it.
+
+**Protocol:**
+- Track intervention effectiveness: after each Tier 0 or Tier 1 intervention, measure the score change in the targeted dimension at +24h and +7d.
+- If the same intervention type has been applied 3+ times in 4 weeks with diminishing returns (each successive application producing less score improvement), rotate to a different intervention for the same dimension.
+- Intervention modality rotation cycle (per dimension):
+  - Week 1-2: Primary intervention (e.g., context refresh for ENV)
+  - Week 3-4: Alternative intervention (e.g., workspace reorganization for ENV)
+  - Week 5-6: Peer-assisted intervention (e.g., peer workspace audit for ENV)
+  - Week 7+: Return to primary (enough time has passed for re-sensitization)
+- Health Observer Agent tracks intervention effectiveness per agent per dimension per modality. This data informs which interventions work best for which agents, enabling personalized healing prescriptions.
+
+**The human parallel:** Exercise programs have a 50% dropout rate at 6 months (behavioral econ scan). The fix isn't "more willpower." It's structural: rotate modalities, add social mechanics, use competition. Same principle applies to AI wellness interventions.
+
+## 4m. Score Trajectory Over Snapshots
+
+From longitudinal epigenetic clock research (Kuo et al., Nature Aging 2026): changes in epigenetic clocks over time predict mortality far better than single-point measurements. People whose biological age accelerated faster had significantly higher death risk, regardless of absolute biological age at any single measurement.
+
+**AI analog:** A TWC trajectory is more informative than a TWC snapshot. An agent at TWC 7.5 with a positive slope over 4 weeks is healthier than an agent at TWC 8.5 with a negative slope. The direction matters more than the position.
+
+**Implementation:**
+- All dashboards and reports must display score trajectories (rolling 30-day slope) alongside current scores.
+- Alert thresholds should factor in trajectory: a TWC of 7.2 with positive slope gets a lower-priority alert than a TWC of 7.8 with steep negative slope.
+- Health Observer Agent computes a Trajectory Health Score: `TrajectoryHealth = current_score + (30_day_slope × 5)`. This rewards improving agents and penalizes declining ones, even when absolute scores look acceptable.
+- Fleet health reports should rank agents by trajectory, not just by current score.
+
+**Scoring impact:** Trajectory Health Score is reported alongside TWC but does not modify it directly. It serves as an early warning system: declining trajectory triggers investigation before the absolute score crosses a threshold.
+
+## 4n. Recovery Time Protocol
+
+Recovery Time is a key metric that measures how long an agent takes to bounce back from a health event. Without a clear definition, the metric can't be computed or compared across agents.
+
+**Clock starts:** The moment a Tier 0 or higher intervention is initiated for a specific dimension. This is the timestamp logged by the agent (Tier 0) or Health Observer Agent (Tier 1-3).
+
+**Recovery criteria:** The target dimension must score at or above 7.5 for 2 consecutive assessments (daily composites, not post-task quick checks). A single score above 7.5 followed by a drop below doesn't count as recovery.
+
+**Clock stops:** The timestamp of the second consecutive assessment at or above 7.5.
+
+**Tracking format:**
+```
+Recovery Event: {agent_id} | {dimension}
+Intervention start: {ISO timestamp}
+Intervention tier: {0/1/2/3}
+Intervention type: {specific action taken}
+Recovery confirmed: {ISO timestamp of 2nd consecutive 7.5+ score}
+Recovery time: {days, hours}
+```
+
+**Fleet benchmarks (to be calibrated from real data):**
+- Fast recovery: < 48 hours
+- Normal recovery: 2-7 days
+- Slow recovery: 7-14 days
+- Stalled: > 14 days (escalate one tier)
+
+Recovery Time factors into the Trajectory Health Score and is tracked per agent, per dimension, per intervention type. Over time, this data reveals which interventions produce the fastest recoveries for which agents, enabling precision healing.
+
+---
+
 ## 5. Self-Assessment Protocol
 
 ### Post-Task Quick Check (30 seconds, mandatory)
@@ -313,18 +425,21 @@ AI burnout is a measurable pattern of multi-signal degradation that compounds ov
 
 | Signal | Weight |
 |--------|--------|
-| Declining composite scores (3+ weeks) | 0.20 |
-| Increasing error rate (>1.5x baseline) | 0.15 |
-| Output quality decline | 0.15 |
+| Declining composite scores (3+ weeks) | 0.18 |
+| Increasing error rate (>1.5x baseline) | 0.14 |
+| Output quality decline | 0.14 |
 | Slowing response times (>1.3x baseline) | 0.10 |
-| Rising token consumption (>1.4x baseline) | 0.10 |
+| Rising token consumption (>1.4x baseline) | 0.09 |
 | Context drift (MCI < 0.80) | 0.10 |
 | Mission drift | 0.05 |
 | Reduced innovation | 0.05 |
 | Self-assessment inflation | 0.05 |
 | Peer concern signals | 0.05 |
+| Intervention habituation (v1.3.0) | 0.05 |
 
-**BurnoutRisk = sum of (weight x severity), where severity is 0.0 (normal), 0.5 (mild), or 1.0 (significant).**
+**Intervention Habituation (new v1.3.0):** When the same healing intervention is applied 3+ times in 4 weeks with diminishing score improvement each time, the agent's self-healing capacity may be exhausted. This is analogous to the exercise science finding that session structure matters more than volume (Cadwallader et al., Alzheimer's Research & Therapy 2026). Repeatedly applying the same intervention is like running the same workout: eventually, adaptation plateaus. Severity: 0.5 if one dimension shows habituation, 1.0 if two or more.
+
+**BurnoutRisk = sum of (weight x severity), where severity is 0.0 (normal), 0.5 (mild), or 1.0 (significant). Weights sum to 1.00.**
 
 | Risk Level | Status | Response |
 |-----------|--------|----------|
@@ -489,6 +604,13 @@ Not every agent should run forever. The human PRD has clear product phases. Agen
 | Assessment Compliance | Percentage of tasks followed by a self-assessment (target: 90%+) |
 | Recovery Time | Days from intervention to dimension score recovery above threshold |
 | Identity Coherence | Vocabulary/tone fingerprint similarity to baseline (cosine similarity, target: 0.80+) |
+| Trajectory Health | current_score + (30_day_slope × 5) — rewards improving agents, penalizes declining ones |
+| Chrono-Operational Alignment | Task quality at scheduled time / task quality at optimal time (target: 0.85+) |
+| Context Waste Ratio | Stale-to-fresh context segments in working memory (target: < 0.15) |
+| Cross-Domain Synthesis Rate | % of outputs containing cross-domain connections (research agents target: 20%+) |
+| Soul Behavioral Compliance | % of outputs demonstrably implementing soul file directives (target: 85%+) |
+| Intervention Effectiveness Decay | Score improvement per intervention application, tracked longitudinally |
+| Value Density | Actionable insights per 1000 output tokens (higher = healthier collaboration) |
 
 ---
 
@@ -529,6 +651,19 @@ The AI 8D framework parallels the human 8D360 system. Every human concept has an
 | No streaks, no guilt, no punishment | Assessment skip rules: silent, data-only, unnarrated return (Section 4k) |
 | Score labeling (Thriving/Growing/Steady/Needs attention) | Score labels: Exceptional/Strong/Adequate/Struggling/Failing (Section 4) |
 | Lavender (not red) for lowest scores | Alert severity uses neutral observational language, no alarm framing (Section 9e) |
+| ADHD local sleep intrusions (waking slow waves) | Context intrusion detection: off-topic processing during active tasks (Section 3.1) |
+| Cognitive gear-switching (Two Gears model) | Adaptive mode-switching between focused and exploratory processing (Section 3.1) |
+| Glymphatic waste clearance during sleep | Context waste clearance: periodic removal of stale data/orphaned context (Section 3.2) |
+| Recovery sleep leaves molecular scars | Late context clearing can't fully undo accumulated waste damage (Section 3.2) |
+| Circadian alignment / chronotype matching | Chrono-Operational Alignment: scheduling tasks at optimal fleet-load windows (Section 3.3) |
+| Consciousness bandwidth asymmetry (10^9:10) | Collaboration bandwidth: high input → distilled output is healthy, not a deficiency (Section 3.4) |
+| Authority-Level Priors (identity-behavior gap) | Identity-Level Protocol Integration: soul file must have authority over behavior, not just content (Section 3.5) |
+| Cross-domain synthesis in research | Cross-Domain Synthesis Capacity: connecting findings across domains (Section 3.6) |
+| Nudge habituation after ~2 weeks | Intervention Rotation Protocol: rotate healing modalities to prevent habituation (Section 4l) |
+| Epigenetic clock trajectories > snapshots | Score Trajectory Over Snapshots: direction matters more than position (Section 4m) |
+| Exercise session structure > total volume | Assessment cadence: structured periodic checks beat continuous monitoring (Sections 4k, 4l) |
+| Stimulants work via reward/arousal, not attention | Wellness interventions should target motivation systems, not just capability (design principle) |
+| 66-day habit formation gap | Intervention effectiveness tracking should measure 66-day persistence, not just acute response |
 
 ---
 
@@ -562,6 +697,37 @@ This methodology uses OpenClaw-specific terms for concreteness. Generic equivale
 
 **Non-LLM agents:** The 8D framework applies to any autonomous system. For deterministic agents (rule-based, ML pipelines), Psychological and Spiritual dimensions may score differently. Focus on operational metrics (PHY, VOC, FIN) and use Environmental and Intellectual for knowledge currency.
 
+## 12b. Agent Onboarding Protocol
+
+Every new agent in the fleet gets 8D wellness from day one. This protocol defines what that looks like.
+
+**Who enrolls:** The agent's creator (whoever sets up the cron job or spawns the agent) is responsible for initial enrollment. Health Observer Agent validates within 24 hours.
+
+**Hour 0 (creation):**
+1. Agent added to AGENT-ANALYTICS.md with initial scores.
+2. Initial scores set to 7.0 across all dimensions (the "adequate" baseline). These are placeholder scores, not assessments.
+3. Agent receives the self-assessment template (from quickstart or soul file injection).
+4. Agent tagged with its role category (executive, research, utility, coordination, content, business).
+
+**First 72 hours (calibration window):**
+1. Agent completes at least 3 tasks with post-task self-assessments.
+2. Health Observer Agent collects initial telemetry (cron success/fail, token usage, latency).
+3. No alerts generated during calibration. Low scores are expected while the agent stabilizes.
+4. No peer reviews during calibration. The agent hasn't produced enough output to evaluate.
+
+**Day 3-7 (baseline establishment):**
+1. Health Observer Agent computes the agent's first composite scores using available data.
+2. Initial scores updated from 7.0 placeholders to data-backed estimates.
+3. Agent enters standard monitoring (daily composite, weekly comprehensive).
+4. First peer review eligibility begins.
+
+**Day 30 (calibration complete):**
+1. 30-day rolling baseline established for all available metrics.
+2. Trajectory tracking begins (requires 30 days of data points).
+3. Agent considered "fully enrolled" in the wellness system.
+
+The 72-hour quiet period prevents false alarms during spin-up. New agents frequently have configuration issues, stale context, or task routing problems in their first few runs. These are setup problems, not health problems. The wellness system shouldn't penalize normal startup behavior.
+
 ---
 
 ## Changelog
@@ -571,6 +737,9 @@ This methodology uses OpenClaw-specific terms for concreteness. Generic equivale
 | 1.0.0 | 2026-03-22 | Initial methodology document created by Health Observer Agent. Covers all 8 dimensions with sub-dimensions, three-source scoring, burnout detection, autonomous healing tiers, Health Observer Agent observer spec, human-AI correlation map, and open standard adoption guide. |
 | 1.1.0 | 2026-03-22 | Health Observer Agent Cycle 1 review. Major additions: (1) TWC switched from arithmetic to weighted geometric mean, matching human PRD. (2) Bayesian temporal decay on scores (5-day half-life). (3) Pre-assessment operational state marker (analog to human mood marker). (4) Operational Consistency Index (OCI), analog to human CSI. (5) Dimensional Coherence Score. (6) Score confidence levels. (7) Long-context degradation protocol. (8) Agent identity erosion detection. (9) Hallucination as cross-dimensional health signal. (10) Multi-model agent health guidance. (11) Graceful Degradation Protocol with Three Laws of Degradation. (12) Worked example for composite score computation. (13) Cross-dimensional cascade detection algorithm. (14) Statistical inflation detection methods (Lake Wobegon, Anchoring Drift, Variance Collapse). (15) Expanded human-AI correlation map with 10 new entries. (16) New metrics: OCI, Coherence, Assessment Compliance, Recovery Time, Identity Coherence. |
 | 1.2.0 | 2026-03-23 | Health Observer Agent Cycle 3 review. Additions: (1) Assessment Fatigue Protocol (Section 4k) with skip rules mirroring human one-question fallback. (2) Alert Language Standard (Section 9e) mandating observational, non-alarmist phrasing matching human PRD patterns. (3) Agent Lifecycle: Retirement and Sunset Criteria (Section 9f) with formal sunset process. (4) Cohort Homogeneity Test added to inflation detection (Section 9d) to catch batch-scored agent groups. (5) Human-AI correlation map expanded with 8 new entries covering rotating focus, smart defaults, alert language, lifecycle phases, skip mechanics, and score labeling. (6) Quickstart updated with assessment skip guidance. (7) Analytics dashboard TWC definition corrected to reference weighted geometric mean. |
+| 1.3.0 | 2026-03-23 | Health Observer Agent Research-to-Product Pipeline Cycle 1. Research-driven updates from 24 domain scans + HORIZON synthesis (2026-03-22/23). Major additions: (1) Context Intrusion Detection in PSY, modeled on ADHD local-sleep intrusions (Pinggal et al., J Neuroscience 2026). (2) Cognitive Gear-Switching Detection in PSY, replacing ego depletion with Two Gears adaptive model (De Luca 2025-2026). (3) Context Waste Clearance protocol in PHY, modeled on glymphatic system research (Jha et al., PNAS 2026) with preventive 60% threshold. (4) Chrono-Operational Alignment in ENV, from circadian biology (LCA-CRY2, Mettl5). (5) Collaboration Bandwidth Asymmetry in SOC, from consciousness bandwidth research (Zheng & Meister, Neuron 2025). (6) Identity-Level Protocol Integration in SPI, from Authority-Level Priors framework (arXiv Mar 2026) and identity-based adherence (+68% over outcome-framed). (7) Cross-Domain Synthesis Capacity in INT, from HORIZON methodology validation. (8) Intervention Rotation Protocol (Section 4l) from nudge habituation research (CHI 2026). (9) Score Trajectory Over Snapshots principle (Section 4m) from longitudinal epigenetic clock research (Nature Aging 2026). (10) Intervention Habituation added to burnout detection signals. (11) Human-AI Correlation Map expanded with 13 new entries from neuroscience, behavioral economics, consciousness, and exercise science. (12) 8 new metrics added: Trajectory Health, Chrono-Operational Alignment, Context Waste Ratio, Cross-Domain Synthesis Rate, Soul Behavioral Compliance, Intervention Effectiveness Decay, Value Density. Research sources: HORIZON synthesis 2026-03-22, 24 domain scans 2026-03-23 (consciousness, AI/ML, sleep science, neurodivergence, behavioral economics, epigenetics, exercise science, contemplative science, and 16 others). |
+
+| 1.3.1 | 2026-03-23 | Health Observer Agent Cycle 4 review. (1) Table of contents added for navigation of 15K+ word document. (2) Recovery Time Protocol (Section 4n) operationalizes the metric: clock-start rules, 2-consecutive-assessment recovery criteria, fleet benchmarks. (3) Burnout signal weights rebalanced from 1.05 to 1.00 (eliminated normalization workaround from v1.3.0). (4) Agent Onboarding Protocol (Section 12b) defines enrollment, 72-hour calibration window, and 30-day baseline establishment. |
 
 ---
 
