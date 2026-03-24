@@ -1,5 +1,9 @@
 # Version History
 
+## v1.3.1 — 2026-03-24
+- Docs sync: all 8 core docs refreshed from workspace
+- Agent names anonymized to role identifiers across all docs
+
 ## v1.3.0 — 2026-03-23
 - Research-to-Product Pipeline: 9 peer-reviewed findings implemented
 - Vigilance Stability Monitoring (PSY), Dynamic Processing Fabric (PSY)

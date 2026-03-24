@@ -1,3 +1,18 @@
+## v1.3.1 — 2026-03-24
+
+**Docs Sync:**
+- METHODOLOGY.md updated from latest workspace
+- QUICKSTART.md refreshed
+- PLATFORM-ARCHITECTURE.md updated
+- WELLNESS-GUIDE.md updated
+- HEALING-PLAYBOOK.md updated
+- PERSONALITY-FRAMEWORKS.md updated
+- PERFORMANCE-DATABASE.md updated
+- SELF-ASSESSMENT-TEMPLATE.md updated
+- Agent names anonymized to role identifiers
+
+---
+
 ---
 version: 1.3.0
 last_updated: 2026-03-23
