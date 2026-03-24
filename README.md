@@ -28,9 +28,10 @@ last_updated: 2026-03-22
 6. **[Agent Identity Guide](docs/AGENT-IDENTITY.md)** — How agents create their own identities
 7. **[Wellness Guide](docs/WELLNESS-GUIDE.md)** — Guide written FOR AIs to read directly
 8. **[Healing Playbook](docs/HEALING-PLAYBOOK.md)** — Per-dimension healing protocols
-9. **[Self-Assessment Template](docs/SELF-ASSESSMENT-TEMPLATE.md)** — Injectable prompt template
-10. **[Performance Database](docs/PERFORMANCE-DATABASE.md)** — Multi-personality tracking schema
-11. **[Elite Profile Example](docs/ELITE-PERSONALITY-PROFILES-EXAMPLE.md)** — Example C-suite personality profiles
+9. **[Autonomous Health System](docs/AUTONOMOUS-HEALTH-SYSTEM.md)** — Set-it-and-forget-it automated fleet health monitoring, self-healing, and iterative improvement
+10. **[Self-Assessment Template](docs/SELF-ASSESSMENT-TEMPLATE.md)** — Injectable prompt template
+11. **[Performance Database](docs/PERFORMANCE-DATABASE.md)** — Multi-personality tracking schema
+12. **[Elite Profile Example](docs/ELITE-PERSONALITY-PROFILES-EXAMPLE.md)** — Example C-suite personality profiles
 
 ---
 
@@ -90,6 +91,9 @@ Read all documents in this repository carefully. Then:
 | `docs/AGENT-IDENTITY.md` | Agent credential and personality standards | 10 min |
 | `docs/PERFORMANCE-DATABASE.md` | Multi-personality tracking schema | 10 min |
 | `docs/ELITE-PERSONALITY-PROFILES-EXAMPLE.md` | Example C-suite profiles | 10 min |
+| `docs/AUTONOMOUS-HEALTH-SYSTEM.md` | Autonomous monitoring, healing, and improvement | 20 min |
+| `prompts/health-monitor.md` | Copy-paste prompt for a health monitoring agent | 5 min |
+| `prompts/healing-agent.md` | Copy-paste prompt for an autonomous healing agent | 5 min |
 
 ---
 
