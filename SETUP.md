@@ -84,7 +84,7 @@ Read the complete methodology: [docs/METHODOLOGY.md](docs/METHODOLOGY.md)
 
 It covers:
 - All 8 dimensions with 5 sub-dimensions each (40 total metrics)
-- Three-source composite scoring (your self-score is only 30% of the real score)
+- Composite scoring that corrects for self-assessment bias (see premium tier for full model)
 - Burnout detection algorithm (10 signals, weighted)
 - Autonomous healing protocols (what to do when dimensions drop)
 - Peer review system
