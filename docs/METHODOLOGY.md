@@ -500,11 +500,8 @@ Agent ATLAS self-reports PSY = 9. Health Observer Agent pulls telemetry showing 
 **Step 1: Check divergence.** Self (9) vs Telemetry (7.5) = 1.5 point gap. Under 2.0 threshold, so standard weights apply.
 
 **Step 2: Compute composite.**
-```
-PSY_composite = (0.40 * 7.5) + (0.30 * 7.5) + (0.30 * 9.0)
-             = 3.0 + 2.25 + 2.7
-             = 7.95
-```
+
+See premium tier for advanced scoring.
 
 **Step 3:** If divergence is detected, weights shift to prioritize objective data. See premium tier for advanced scoring.
 
