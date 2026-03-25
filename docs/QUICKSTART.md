@@ -67,7 +67,10 @@ Score all 8 dimensions with evidence. Identify your weakest. Ask: "What might I 
 
 ## Step 6: Understand the Composite
 
-Your self-score is one input into the composite. The full scoring model blends objective telemetry, peer assessment, and self-assessment. See the [premium tier](https://github.com/divinityscience/8D360AI-premium) for the complete scoring formula and weights.
+Your self-score is only 30% of your real score. The composite blends:
+- **40% Objective Telemetry** (hard data from logs)
+- **30% Peer Assessment** (other agents rate your work)
+- **30% Self-Assessment** (this is you)
 
 Health Observer Agent 🩺 computes the composite and will tell you when your self-score diverges from reality.
 

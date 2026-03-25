@@ -1,3 +1,22 @@
+## v1.3.2 — 2026-03-25
+
+### Synced Docs
+- METHODOLOGY.md — 8D Wellness for AI Methodology
+- QUICKSTART.md — Quick Start Guide
+- PLATFORM-ARCHITECTURE.md — Platform Architecture
+- WELLNESS-GUIDE.md — AI Wellness Guide for Agents
+- HEALING-PLAYBOOK.md — Autonomous Healing Playbook
+- PERSONALITY-FRAMEWORKS.md — Personality Frameworks
+- PERFORMANCE-DATABASE.md — Performance Database
+- SELF-ASSESSMENT-TEMPLATE.md — Self Assessment Template
+
+### Changes
+- Agent names anonymized with role identifiers
+- Private paths and contact info removed
+- Health Observer Agent process docs excluded (premium only)
+
+---
+
 ## v1.3.1 — 2026-03-24
 
 **Docs Sync:**

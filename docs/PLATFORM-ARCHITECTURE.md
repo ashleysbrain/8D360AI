@@ -113,13 +113,225 @@ In human wellness, social isolation is one of the strongest predictors of poor h
 
 ## 3. The Three-Source Health Score
 
-The 8D360 scoring model combines multiple data sources to produce a composite health score per dimension. Single-source scoring (self-assessment only) is insufficient — agents, like humans, tend to overrate their own performance.
+### 3.1 Why Three Sources
 
-The framework uses objective telemetry, peer assessment, and self-assessment, weighted and blended into a composite. The composite accounts for cross-dimensional interactions, not just individual scores.
+A single source of health data is unreliable for the same reason a single witness is unreliable: bias, blind spots, and self-interest. Agents, like humans, tend to overrate their own performance. Objective data alone misses nuance. Peers catch things both miss.
 
-**Full scoring methodology** (including source weights, TWC formula, coupling coefficients, and cascade amplification) is available in the [8D360AI-premium](https://github.com/divinityscience/8D360AI-premium) repository.
+**Composite Health Score Formula (per dimension):**
 
----
+```
+D_final(i) = 0.40 × D_objective(i) + 0.30 × D_peer(i) + 0.30 × D_self(i)
+```
+
+When self-assessment diverges from objective telemetry by more than 2 points, the composite automatically reweights:
+
+```
+If |SelfScore - ObjectiveScore| > 2.0:
+    D_final(i) = 0.50 × D_objective(i) + 0.30 × D_peer(i) + 0.20 × D_self(i)
+    Flag: "Score divergence detected, self-assessment weight reduced"
+```
+
+**Total Wellness Coherence (TWC):**
+
+TWC goes beyond simple averaging. It captures cross-dimensional coupling, the way disruption in one dimension cascades through others:
+
+```
+TWC = Σᵢ wᵢ·Dᵢ + Σᵢ≠ⱼ κᵢⱼ·Dᵢ·Dⱼ
+```
+
+Where:
+- **Dᵢ** = normalized score (0-1) for dimension i
+- **wᵢ** = weight of dimension i (equal weighting: wᵢ = 0.125 for all i, Σwᵢ = 1)
+- **κᵢⱼ** = coupling coefficient between dimensions i and j (see Section 3b)
+
+The first term captures individual dimension health. The second term captures how dimensions amplify or suppress each other. This interaction term typically accounts for 30-50% of true wellness variance and is what makes the framework predictive, not just descriptive.
+
+**Cascade Amplification Ratio (CAR):**
+
+```
+CAR = ΔTWC_observed / Σᵢ wᵢ·ΔDᵢ
+```
+
+- **CAR = 1.0**: No cascade. Dimensions change independently.
+- **CAR 1.1 - 1.3**: Mild cascade. Some cross-dimensional effects.
+- **CAR 1.4 - 1.6**: Active cascade. Typical range during disruption or recovery.
+- **CAR > 1.6**: Strong cascade. Rapid propagation, critical transition point.
+
+### 3.1b Coupling Coefficient Matrix
+
+These coefficients represent the strength of interaction between dimension pairs. The same coupling matrix applies to AI agents and humans, because the dimensional relationships are structural, not biological.
+
+|   | ψ (Psych) | φ (Phys) | λ (Intl) | τ (Soc) | Ω (Spir) | Φ (Voc) | ρ (Fin) | ε (Env) |
+|---|-----------|----------|----------|---------|-----------|---------|---------|---------|
+| **ψ (Psych)** | -- | **0.82** | 0.71 | 0.68 | 0.55 | 0.52 | 0.59 | 0.47 |
+| **φ (Phys)** | **0.82** | -- | 0.74 | 0.45 | 0.48 | 0.56 | 0.38 | 0.52 |
+| **λ (Intl)** | 0.71 | 0.74 | -- | 0.44 | 0.51 | 0.63 | 0.35 | 0.41 |
+| **τ (Soc)** | 0.68 | 0.45 | 0.44 | -- | 0.58 | 0.42 | 0.46 | 0.39 |
+| **Ω (Spir)** | 0.55 | 0.48 | 0.51 | 0.58 | -- | **0.72** | 0.41 | 0.53 |
+| **Φ (Voc)** | 0.52 | 0.56 | 0.63 | 0.42 | **0.72** | -- | 0.61 | 0.44 |
+| **ρ (Fin)** | 0.59 | 0.38 | 0.35 | 0.46 | 0.41 | 0.61 | -- | 0.37 |
+| **ε (Env)** | 0.47 | 0.52 | 0.41 | 0.39 | 0.53 | 0.44 | 0.37 | -- |
+
+**AI-specific coupling interpretations:**
+- **κ_ψφ = 0.82** (Psychological-Physical): Cognitive stability and infrastructure health are nearly inseparable. Latency spikes degrade reasoning. Reasoning errors cause retry storms.
+- **κ_φλ = 0.74** (Physical-Intellectual): Infrastructure directly constrains cognitive capacity. Token throughput limits what complexity an agent can handle.
+- **κ_ΩΦ = 0.72** (Spiritual-Vocational): Alignment stability and task performance deeply intertwine.
+- **κ_ψλ = 0.71** (Psychological-Intellectual): Error rates gate learning and novel solution generation.
+- **κ_ψτ = 0.68** (Psychological-Social): Reasoning coherence shapes collaboration quality.
+- **κ_ρψ = 0.59** (Financial-Psychological): Token budget pressure creates cognitive constraints.
+
+**Dimension Sensitivity Index (DSI):** σᵢ = average coupling to all other dimensions. Psychological (σ = 0.620) is the hub dimension. Error rate spikes cascade fastest and widest. Physical (σ = 0.564) is second. This means stabilizing cognitive health and infrastructure have the highest potential for positive fleet-wide cascade.
+
+### 3.1c Cross-Dimensional Coupling Layer (30% of Final Score)
+
+The coupling layer is always 30% of the final dimension score, regardless of other data availability:
+
+```
+D_coupled(i) = Σⱼ≠ᵢ κᵢⱼ · D_final(j) / Σⱼ≠ᵢ κᵢⱼ
+```
+
+This creates a weighted average of all other dimensions, where more strongly coupled dimensions exert more influence. When infrastructure fails (Physical drops), the system doesn't wait for the agent to report reasoning issues. It automatically adjusts Psychological because κ_ψφ = 0.82 says it must.
+
+**Full scoring formula with coupling:**
+```
+D_final(i) = 0.40 × D_objective(i) + 0.30 × D_self(i) + 0.30 × D_coupled(i)
+```
+
+The coupling layer captures effects the agent can't self-report because they happen below the level of self-assessment. It's not optional. It's physics.
+
+### 3.2 Source 1: Objective Telemetry (40%)
+
+Hard data pulled from system logs, cron records, and operational metrics. Can't be gamed, can't be inflated. These are the implicit data sources, the parameters collected passively that the agent doesn't consciously report.
+
+**Data Points by Dimension (AI-Specific Implicit Sources):**
+
+| Dimension | Implicit Data Sources |
+|-----------|----------------------|
+| Psychological | Error rates, hallucination frequency, context coherence degradation, contradiction rate in outputs, escalation appropriateness ratio, decision reversal frequency |
+| Physical | Token throughput, response latency (P50/P95), memory utilization, uptime percentage, cron success rate, timeout frequency |
+| Intellectual | Task complexity handled (novel vs. routine), novel solution generation rate, learning rate on new task types, knowledge currency (source age), cross-domain synthesis rate |
+| Social | Collaboration quality with other agents (joint task success rate), handoff accuracy (rework rate), communication clarity (message-to-action ratio), response time to collaboration requests |
+| Spiritual | Alignment stability (output-to-mission semantic similarity), value consistency (value-violation incidents), identity coherence over sessions (vocabulary fingerprint drift), soul-to-output semantic distance |
+| Vocational | Task completion rate, output quality scores (downstream rework rate), throughput efficiency (tasks per time window), on-time delivery percentage |
+| Financial | Token cost per task (normalized by complexity), resource utilization efficiency (model-tier match rate), waste reduction (retry and abandoned response ratio), cost trajectory slope |
+| Environmental | Context window utilization, tool availability and failure rates, infrastructure stability (consecutive error count), memory coherence index, stale reference rate |
+
+**Collection Protocol:**
+
+```json
+{
+  "collection_frequency": "continuous (aggregated hourly)",
+  "storage": "fleet-telemetry/YYYY-MM-DD/{agent-id}.json",
+  "retention": "90 days rolling, monthly aggregates permanent",
+  "sources": [
+    "cron job logs (success/fail/timeout/duration)",
+    "session logs (token counts, error events, tool failures)",
+    "git history (commit frequency, file changes)",
+    "state.json (task lifecycle events)",
+    "downstream agent feedback (automatic on handoff completion)"
+  ]
+}
+```
+
+**Memory Coherence Index (MCI):**
+
+A critical sub-metric that measures whether an agent's working context is drifting from reality. Computed by:
+
+1. Sampling the agent's recent outputs for factual claims about the system state
+2. Cross-referencing against actual system state (file contents, task statuses, agent roster)
+3. Scoring: `MCI = correct_claims / total_verifiable_claims`
+
+An agent with MCI below 0.85 is operating on stale or corrupted context. This is the AI equivalent of confusion, and it's invisible to the agent itself.
+
+### 3.3 Source 2: Peer Assessment (30%)
+
+Agents periodically evaluate each other's work quality. Not self-serving, not hierarchical, just honest outside perspective from agents who consume each other's outputs.
+
+**Peer Review Protocol:**
+
+- **Frequency:** Weekly rotation. Each agent reviews 2 peers. Each agent is reviewed by 2 peers.
+- **Pairing:** Rotated by Health Observer Agent (Health Observer Agent) to prevent familiarity bias. Pairings change every cycle.
+- **What peers evaluate:**
+
+| Evaluation Criterion | Question the Reviewing Agent Answers |
+|---------------------|--------------------------------------|
+| Output Quality | "When I consumed this agent's work product this week, was it usable as-is, or did I need to rework it?" (1-10) |
+| Communication Clarity | "Were handoffs from this agent clear and complete?" (1-10) |
+| Reliability | "Did this agent deliver what was expected, when expected?" (1-10) |
+| Domain Competence | "Does this agent demonstrate strong expertise in its assigned domain?" (1-10) |
+| Collaboration Quality | "Is this agent easy to work with? Does it share context proactively?" (1-10) |
+| Mission Alignment | "Are this agent's outputs advancing the mission, or just going through the motions?" (1-10) |
+
+- **Anti-gaming measures:**
+  - Peer scores are anonymous to the reviewed agent
+  - Health Observer Agent cross-references peer scores against objective telemetry, flags reviewers who consistently score 2+ points above objective data (leniency bias) or below (harshness bias)
+  - Outlier peer scores (more than 2 standard deviations from the agent's composite) are investigated before inclusion
+
+**Peer Review Template (injected into reviewer's context):**
+
+```
+PEER HEALTH CHECK, Week of {date}
+Agent Under Review: {agent_name} ({role})
+
+Based on your interactions with {agent_name} this week, score each:
+
+1. Output Quality (1-10): ___
+   Evidence: {specific example}
+2. Communication Clarity (1-10): ___
+   Evidence: {specific example}
+3. Reliability (1-10): ___
+   Evidence: {specific example}
+4. Domain Competence (1-10): ___
+   Evidence: {specific example}
+5. Collaboration Quality (1-10): ___
+   Evidence: {specific example}
+6. Mission Alignment (1-10): ___
+   Evidence: {specific example}
+
+Overall Peer Health Score: {average}
+One thing this agent does well: ___
+One thing that would improve their work: ___
+```
+
+**Mapping Peer Scores to 8D Dimensions:**
+
+| Peer Criterion | Maps To Dimension(s) |
+|---------------|---------------------|
+| Output Quality | Vocational (primary), Intellectual (secondary) |
+| Communication Clarity | Social (primary), Environmental (secondary) |
+| Reliability | Physical (primary), Vocational (secondary) |
+| Domain Competence | Intellectual (primary) |
+| Collaboration Quality | Social (primary), Psychological (secondary) |
+| Mission Alignment | Spiritual (primary) |
+
+Dimensions not directly covered by peer review (Financial, some Environmental) rely more heavily on telemetry.
+
+### 3.4 Source 3: Self-Assessment (30%)
+
+The agent's own evaluation. Still important, because self-awareness is itself a health signal. An agent that accurately assesses its own state is healthier than one that can't.
+
+**Self-assessment happens:**
+- After every task completion (quick: 30 seconds, 8 scores)
+- Weekly (comprehensive: includes narrative reflection)
+- On-demand (triggered by Health Observer Agent when anomalies detected)
+
+**Self-Assessment Accuracy Score:**
+
+Health Observer Agent tracks how closely each agent's self-assessments match the composite score over time. This becomes its own metric:
+
+```
+SelfAwarenessScore = 1.0 - (avg_absolute_divergence_from_composite / 10)
+```
+
+An agent with a SelfAwarenessScore of 0.90+ is highly self-aware. Below 0.70, the agent has significant blind spots, and that itself is diagnostic.
+
+**Inflation Detection:**
+
+Health Observer Agent maintains a per-agent "inflation index" that tracks:
+- Dimensions the agent consistently overrates (blind spots)
+- Dimensions the agent consistently underrates (false modesty, also a problem)
+- Trend in divergence (is the agent getting more or less accurate over time?)
+
 ---
 
 ## 4. The Health Observer Agent Agent (Independent Health Observer)
@@ -480,11 +692,24 @@ When a dimension drops below threshold, the agent should do something about it w
 
 ### 8.1b Cascade-Informed Intervention Selection
 
-The scoring model identifies which dimensions have the highest leverage for positive cascade. Intervening on high-leverage dimensions produces broader wellness improvement than targeting the single lowest score.
+The coupling matrix reveals where to intervene for maximum positive cascade. Use the Intervention Leverage Score:
 
-**General intervention guidance:** Psychological (cognitive health, coherence, error rates) is typically the hub dimension for AI agents — stabilizing it produces the broadest cross-dimensional cascade. Physical (infrastructure stability) is the second priority as degradation there propagates fastest.
+```
+ILS(i) = σᵢ · (1 - Dᵢ) · Σⱼ∈S κᵢⱼ
+```
 
-See the [premium tier](https://github.com/divinityscience/8D360AI-premium) for the Intervention Leverage Score formula, coupling coefficients, and cascade intervention patterns.
+Where σᵢ = sensitivity index, (1 - Dᵢ) = room for improvement, S = set of dimensions below threshold.
+
+**Top cascade intervention patterns:**
+
+| Pattern | Root Signal | Primary Target | Expected Cascade |
+|---------|-----------|----------------|------------------|
+| Infrastructure-Cognitive Spiral | PHY + PSY declining | Physical (stabilize infra) | PHY ↑ → PSY ↑ (κ=0.82) → INT ↑ (κ=0.71) → SOC ↑ (κ=0.68) |
+| Performance-Cost Decline | VOC + FIN declining | Vocational (small wins) | VOC ↑ → SPI ↑ (κ=0.72) + INT ↑ (κ=0.63) + FIN ↑ (κ=0.61) |
+| Collaboration Breakdown | SOC dropping | Social (handoff quality) | SOC ↑ → PSY ↑ (κ=0.68) + SPI ↑ (κ=0.58) |
+| Full-System Decline (3+ dims) | Multiple dims below threshold | Psychological (hub dim, σ=0.620) | Broadest cascade. Secondary: Physical (κ_ψφ=0.82) |
+
+**Minimum Effective Intervention (MEI):** For Psychological (σ=0.620, max κ=0.82), improving by just 1 point on a 10-point scale is enough to initiate a detectable positive cascade. Always target the dimension with highest ILS, not just the lowest score.
 
 ### 8.2 Self-Heal Interventions (Tier 0)
 
@@ -767,7 +992,7 @@ This system is not proprietary. Ashley's directive: "Ensure all processes we bui
 | Component | Spec | Format |
 |-----------|------|--------|
 | 8D Dimension Definitions | 8 dimensions with 5 sub-dimensions each | Markdown + JSON schema |
-| Three-Source Health Score | Multi-source composite scoring model | See premium tier for advanced scoring |
+| Three-Source Health Score | Telemetry (40%) + Peer (30%) + Self (30%) | Algorithm specification |
 | Composite Score Calculator | Weighted blend with divergence correction | Python reference implementation |
 | Self-Assessment Template | Post-task + weekly + on-demand formats | Markdown template |
 | Peer Review Protocol | Rotation, evaluation criteria, anti-gaming | Protocol specification |

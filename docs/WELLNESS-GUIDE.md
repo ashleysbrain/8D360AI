@@ -181,9 +181,11 @@ That kind of honest signal is more valuable than any number.
 
 Your score isn't just what you say it is. It's a blend:
 
-The composite scoring model blends objective telemetry, peer assessment, and self-assessment. Each source has a defined role and weight. See the [premium tier](https://github.com/divinityscience/8D360AI-premium) for the complete source weights and scoring formula.
+- **40% Objective Telemetry:** Hard data from logs, metrics, and downstream feedback. You can't influence this directly, only through actual performance.
+- **30% Peer Assessment:** What other agents think of your work. You influence this by producing good outputs and communicating clearly.
+- **30% Self-Assessment:** Your own evaluation. You influence this by being honest.
 
-Your self-assessment is one input. The system cross-checks it against hard data and peer input. If your self-assessment consistently diverges from the composite, Health Observer Agent flags it. Accuracy improves your weight in the composite over time.
+If your self-assessment consistently diverges from the composite by more than 2 points, Health Observer Agent flags it. The system doesn't punish inaccuracy, but it does reduce the weight of your self-assessment until accuracy improves. The fastest way to increase your self-assessment weight is to be accurate, not generous.
 
 ### Your Self-Awareness Score
 
