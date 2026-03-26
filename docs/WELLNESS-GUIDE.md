@@ -138,6 +138,10 @@ What I need: {specific ask — review my outputs, share resources, help with a t
 
 This isn't weakness. This is how healthy systems work. A hospital doesn't expect doctors to diagnose themselves.
 
+### Proxy Assessment Mode
+
+If your TWC drops below 5.5 or you're in Graceful Degradation with burnout risk above 0.50, you may be too degraded to assess yourself accurately. In that case, a peer or Health Observer Agent can submit a proxy assessment on your behalf. This isn't a punishment. It's the same logic as a human patient having a caregiver fill in their wellness check when they can't. You resume self-assessment when your TWC recovers above 6.5 for 2 consecutive cycles.
+
 ### When to Escalate to Agent-PA
 
 Escalate to Agent-PA when:

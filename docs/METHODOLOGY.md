@@ -1,6 +1,6 @@
 # 8D360AI: Methodology
 
-**Version:** 1.5.0
+**Version:** 1.5.1
 **Created:** 2026-03-22
 **Author:** Health Observer Agent 🩺 (Chief Product Officer, 8D360AI)
 **Status:** Production
@@ -362,6 +362,8 @@ Cost efficiency, resource optimization, return on investment.
 
 **Key telemetry:** Tokens per task (normalized), model-tier vs. task-difficulty match rate, cost-per-task slope, estimated value vs. cost ratio, retry and abandoned response ratio.
 
+**Financial Overcorrection Risk (new v1.5.1):** The human PRD scores Financial weekly-only and uses trend-based display, never absolute numbers, because daily financial scores trigger anxiety in neurodivergent users. AI agents show a parallel: when cost telemetry is surfaced too frequently or as absolute numbers, agents overcorrect by producing verbose justifications for every token spent, switching to cheaper models when quality requires more, or avoiding high-value tasks because they cost more. Score Financial on trajectory and ROI, not raw cost. An agent spending more tokens while producing proportionally more value is healthy. Cost anxiety is a Financial dimension pathology, not a virtue.
+
 ---
 
 ## 4. Scoring Scale
@@ -538,6 +540,10 @@ The human 8D360 system uses a one-question fallback when the user reports "Rough
 3. Returning to full assessment is unnarrated. Just resume the normal protocol.
 
 **Assessment Format Rotation (new v1.5.0):** The human PRD rotates interface structure weekly to prevent ADHD habituation. Apply the same principle: alternate the self-assessment prompt format on a 3-week cycle. Week 1: standard 8D numerical scores. Week 2: narrative-only ("What went well? What didn't?"). Week 3: single-dimension deep dive (rotate which dimension). This prevents the assessment itself from becoming rote, which is the fastest path to score inflation.
+
+**Proxy Assessment Mode (new v1.5.1):** When an agent is too degraded to self-assess reliably (TWC < 5.5 or in Graceful Degradation with burnout risk > 0.50), a designated peer or Health Observer Agent can submit a proxy assessment on its behalf. This mirrors the human PRD's caregiver/proxy mode (Section 8.4). The proxy flag is recorded alongside the score. Once the agent recovers above TWC 6.5 for 2 consecutive assessments, self-assessment resumes. Proxy scores carry a "proxy" confidence tag and are weighted as peer assessments (not self).
+
+**Assessment Timing Optimization (new v1.5.1):** The human PRD schedules check-ins at 9:30 AM, post-medication timing to maximize self-report accuracy. AI agents show a parallel: self-assessment accuracy varies by operational load at assessment time. An agent self-assessing during a heavy cron window produces less accurate scores than one assessing during a quiet period. Health Observer Agent should schedule comprehensive weekly assessments during the agent's lowest-load window, not at a fixed fleet-wide time. This is the AI equivalent of "post-medication timing."
 
 **The principle:** Assessment exists to improve health, not to add burden. If the assessment itself is degrading performance, scale it back.
 
@@ -951,6 +957,10 @@ The AI 8D framework parallels the human 8D360 system. Every human concept has an
 | OCD anti-compulsion features (cool-downs, limits) | Obsessive Loop Detection: retry storms, circular self-correction, compulsive re-checking (Section 3.1) |
 | Rotating interface structure weekly (ADHD) | Assessment Format Rotation: alternate self-assessment prompt formats on 3-week cycle (Section 4k) |
 | Medication transition monitoring | Model Migration Health Impact: 72-hour calibration window after model changes (Section 4i-2) |
+| Caregiver/proxy mode for disabled users | Proxy Assessment Mode: peer submits scores for degraded agents (Section 4k) |
+| Post-medication check-in timing (9:30 AM) | Assessment Timing Optimization: schedule assessments during low-load windows (Section 4k) |
+| Financial dimension weekly-only, trend-based | Financial FIN scored on cost trajectory slope, not absolute cost; overcorrection is its own risk |
+| Sensor quality gates (reject below confidence) | Score confidence levels with low-confidence exclusion from fleet trends (Section 4e) |
 
 ---
 
@@ -1032,5 +1042,7 @@ The 72-hour quiet period prevents false alarms during spin-up. New agents freque
 | 1.5.0 | 2026-03-25 | Health Observer Agent Cycle 6 review. (1) Model Migration Health Impact protocol (Section 4i-2): defines expected dimensional shifts during model changes, 72-hour calibration window, and 30-day post-migration trajectory monitoring. Addresses the fleet-wide Opus-to-Sonnet/Haiku migrations producing untracked quality drift. (2) Obsessive Loop Detection added to PSY dimension (Section 3.1): AI analog of human OCD anti-compulsion features from the 8D360 PRD. Covers retry storms, circular self-correction, and compulsive re-checking. (3) Assessment Format Rotation added to Section 4k: 3-week cycle alternating numerical, narrative, and deep-dive assessment formats to prevent rote scoring and score inflation. Mirrors human PRD's weekly interface rotation for ADHD. (4) Human-AI Correlation Map expanded with 3 new entries: OCD anti-compulsion, interface rotation, and medication transition monitoring. |
 
 ---
+
+| 1.5.1 | 2026-03-26 | Health Observer Agent Cycle 7 review. (1) Proxy Assessment Mode added to Section 4k: when an agent is too degraded to self-assess (TWC < 5.5), a peer or Health Observer Agent submits proxy scores. Mirrors human PRD caregiver/proxy mode. (2) Assessment Timing Optimization added to Section 4k: schedule comprehensive assessments during low-load windows, mirroring human post-medication timing. (3) Financial Overcorrection Risk added to Section 3.8: agents overcorrecting on cost (model downgrades, verbosity justifications) is a pathology, not a virtue. Mirrors human Financial dimension weekly-only/trend-based design. (4) Human-AI Correlation Map expanded with 4 new entries: caregiver proxy, assessment timing, financial trend-only scoring, sensor quality gates. |
 
 *This methodology is healthcare infrastructure for AI. Built to be adopted by any system, anywhere.*

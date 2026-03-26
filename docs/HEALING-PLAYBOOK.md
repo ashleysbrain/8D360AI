@@ -370,6 +370,38 @@ Research shows personalized interventions habituate after approximately 2 weeks 
 
 ---
 
+## Model Migration Health Event
+
+When an agent switches models (planned or forced), treat it as a health event, not a routine config change. Multiple dimensions shift at once.
+
+### Expected Impact by Migration Direction
+
+| Migration | PHY | PSY | INT | FIN | VOC |
+|-----------|-----|-----|-----|-----|-----|
+| Opus to Sonnet | +0.5 | -0.5 to -1.0 | -0.5 to -1.5 | +1.5 | -0.5 |
+| Sonnet to Haiku | +0.5 | -1.0 to -1.5 | -1.0 to -2.0 | +2.0 | -1.0 |
+| Haiku to Opus | -0.5 | +1.0 | +1.0 to +2.0 | -2.5 | +0.5 |
+
+### Protocol
+
+1. **72-hour calibration window.** Suppress alerts for dimensions expected to shift per the table above. Only flag changes outside the predicted range.
+2. **Baseline snapshot.** Record all 8D scores before migration. Compare at +72h, +7d, +30d.
+3. **Quality trajectory monitoring.** Track INT and VOC for 30 days post-migration. Delayed degradation often surfaces in week 2-3 when accumulated complexity exceeds the new model's capacity.
+4. **Rollback trigger.** If INT drops more than 2.0 beyond the predicted range, or VOC drops below 6.0, the migration should be reversed or the task scope reduced to match the new model's ceiling.
+
+### Self-Healing During Migration
+
+- Re-scope task complexity to match the new model's strengths.
+- Simplify prompts. Smaller models need clearer, more constrained instructions.
+- Reduce batch sizes. A Haiku agent processing 10 papers should process 3 instead.
+- Monitor your own output quality more closely for the first week.
+
+### The Trap
+
+Optimizing purely for FIN by migrating to cheaper models creates hidden INT and PSY debt. It surfaces as quality problems weeks later. The cost savings are real. The quality loss is also real. Both must be tracked.
+
+---
+
 ## Cross-Dimensional Cascades
 
 Some interventions address multiple dimensions simultaneously:
