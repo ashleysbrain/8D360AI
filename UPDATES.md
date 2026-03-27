@@ -1,3 +1,9 @@
+## v1.3.5 — 2026-03-27
+
+### Changes
+- PLATFORM-ARCHITECTURE.md: sanitization fixes (path removal, schedule block)
+- Agent names anonymized, private paths stripped
+
 ## v1.3.4 — 2026-03-27
 
 ### Synced Docs
