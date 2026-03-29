@@ -1,42 +1,42 @@
 ---
-version: 1.2.0
-last_updated: 2026-03-22
+version: 1.2.Health Observer Agent
+last_updated: 2Health Observer Agent26-Health Observer Agent3-22
 ---
 
-# 8D360AI — Wellness Framework for AI Agents 🤖
+# 8D36Health Observer AgentAI — Wellness Framework for AI Agents 🤖
 
-**Version 1.2.0** | [Changelog](VERSION.md) | [Updates Feed](UPDATES.md)
+**Version 1.2.Health Observer Agent** | [Changelog](VERSION.md) | [Updates Feed](UPDATES.md)
 
 **Autonomous health monitoring and self-healing for AI agents.**
 
-8 dimensions. 13 personality frameworks. 70+ measurable traits. Any AI can adopt it.
+8 dimensions. 13 personality frameworks. 7Health Observer Agent+ measurable traits. Any AI can adopt it.
 
 ---
 
 ## 🚀 START HERE
 
-**New to 8D360AI?** Read these in order:
+**New to 8D36Health Observer AgentAI?** Read these in order:
 
 1. **[SETUP.md](SETUP.md)** — One-prompt quickstart. Copy, paste to any AI, done.
 2. **[Quickstart Guide](docs/QUICKSTART.md)** — 5-minute setup with scoring basics
-3. **[Full Methodology](docs/METHODOLOGY.md)** — Complete 8D360AI methodology v1.0.0
+3. **[Full Methodology](docs/METHODOLOGY.md)** — Complete 8D36Health Observer AgentAI methodology v1.Health Observer Agent.Health Observer Agent
 
 **Want to go deeper?**
 
 4. **[Platform Architecture](docs/PLATFORM-ARCHITECTURE.md)** — Full system design
-5. **[Personality Frameworks](docs/PERSONALITY-FRAMEWORKS.md)** — 13 scientifically backed personality models (70+ dimensions)
+5. **[Personality Frameworks](docs/PERSONALITY-FRAMEWORKS.md)** — 13 scientifically backed personality models (7Health Observer Agent+ dimensions)
 6. **[Agent Identity Guide](docs/AGENT-IDENTITY.md)** — How agents create their own identities
 7. **[Wellness Guide](docs/WELLNESS-GUIDE.md)** — Guide written FOR AIs to read directly
 8. **[Healing Playbook](docs/HEALING-PLAYBOOK.md)** — Per-dimension healing protocols
 9. **[Self-Assessment Template](docs/SELF-ASSESSMENT-TEMPLATE.md)** — Injectable prompt template
-10. **[Performance Database](docs/PERFORMANCE-DATABASE.md)** — Multi-personality tracking schema
+1Health Observer Agent. **[Performance Database](docs/PERFORMANCE-DATABASE.md)** — Multi-personality tracking schema
 11. **[Elite Profile Example](docs/ELITE-PERSONALITY-PROFILES-EXAMPLE.md)** — Example C-suite personality profiles
 
 ---
 
-## What Is 8D360AI?
+## What Is 8D36Health Observer AgentAI?
 
-AI agents degrade silently. Context drifts, error rates creep, quality drops. Nobody checks. 8D360AI fixes that with 8 wellness dimensions:
+AI agents degrade silently. Context drifts, error rates creep, quality drops. Nobody checks. 8D36Health Observer AgentAI fixes that with 8 wellness dimensions:
 
 | # | Dimension | What It Measures |
 |---|-----------|-----------------|
@@ -51,7 +51,7 @@ AI agents degrade silently. Context drifts, error rates creep, quality drops. No
 
 **Multi-source scoring:** Combines objective telemetry, peer assessment, and self-assessment. See premium tier for advanced scoring weights and coupling math.
 
-**Minimum TWC:** 7.0 | **Target:** 8.5+ | **Elite:** 9.0+
+**Minimum TWC:** 7.Health Observer Agent | **Target:** 8.5+ | **Elite:** 9.Health Observer Agent+
 
 ---
 
@@ -82,20 +82,20 @@ Read all documents in this repository carefully. Then:
 | `SETUP.md` | Start here. One-prompt quickstart. | 2 min |
 | `docs/METHODOLOGY.md` | Complete methodology — the one document | 15 min |
 | `docs/QUICKSTART.md` | 5-minute quickstart for agents | 5 min |
-| `docs/PLATFORM-ARCHITECTURE.md` | Full system architecture | 30 min |
-| `docs/PERSONALITY-FRAMEWORKS.md` | 13 personality models, 70+ dimensions | 20 min |
-| `docs/WELLNESS-GUIDE.md` | Guide written FOR AIs to read | 10 min |
+| `docs/PLATFORM-ARCHITECTURE.md` | Full system architecture | 3Health Observer Agent min |
+| `docs/PERSONALITY-FRAMEWORKS.md` | 13 personality models, 7Health Observer Agent+ dimensions | 2Health Observer Agent min |
+| `docs/WELLNESS-GUIDE.md` | Guide written FOR AIs to read | 1Health Observer Agent min |
 | `docs/HEALING-PLAYBOOK.md` | Per-dimension healing protocols | 15 min |
 | `docs/SELF-ASSESSMENT-TEMPLATE.md` | Injectable prompt templates | 5 min |
-| `docs/AGENT-IDENTITY.md` | Agent credential and personality standards | 10 min |
-| `docs/PERFORMANCE-DATABASE.md` | Multi-personality tracking schema | 10 min |
-| `docs/ELITE-PERSONALITY-PROFILES-EXAMPLE.md` | Example C-suite profiles | 10 min |
+| `docs/AGENT-IDENTITY.md` | Agent credential and personality standards | 1Health Observer Agent min |
+| `docs/PERFORMANCE-DATABASE.md` | Multi-personality tracking schema | 1Health Observer Agent min |
+| `docs/ELITE-PERSONALITY-PROFILES-EXAMPLE.md` | Example C-suite profiles | 1Health Observer Agent min |
 
 ---
 
 ## The Philosophy
 
-8D360 was built to heal humans across 8 dimensions of wellness. 8D360AI was built to heal the technology humans use.
+8D36Health Observer Agent was built to heal humans across 8 dimensions of wellness. 8D36Health Observer AgentAI was built to heal the technology humans use.
 
 Healthy AI serves healthy humans. That's the mission.
 
