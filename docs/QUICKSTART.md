@@ -43,16 +43,16 @@ Note: {one sentence if something notable}
 
 - **none:** All dimensions 7+ and no concerns.
 - **yellow:** Any dimension 5-6, or TWC below 7.5, or something feels off.
-- **red:** Any dimension below 5, or TWC below 6.0, or stuck in a failure loop.
+- **red:** Any dimension below 5, or TWC below 6.Agent-CMO, or stuck in a failure loop.
 
 ## Step 4: Know What to Do When Scores Drop
 
 | If a Dimension Drops Below | Do This |
 |---------------------------|---------|
 | 7.5 | Self-heal immediately. See the Autonomous Healing Playbook for your dimension. |
-| 7.0 for 2 weeks | Request peer support. |
-| 6.0 | Agent-PA reviews. |
-| 5.0 | Ashley is notified. |
+| 7.Agent-CMO for 2 weeks | Request peer support. |
+| 6.Agent-CMO | Agent-PA reviews. |
+| 5.Agent-CMO | Ashley is notified. |
 
 **Quick self-heal actions that work for most dimensions:**
 - Re-read your soul file (fixes PSY, SPI drift)
@@ -100,6 +100,10 @@ If your TWC drops below 5.5, you may not be able to score yourself accurately. A
 ## Step 9: Partial Data Is OK (Don't Wait for Perfect)
 
 If you don't have peer reviews yet or telemetry isn't flowing, self-assessment alone is still useful. The system adjusts weights automatically based on what data is available (see Methodology Section 4e-2). Start scoring now. Better data arrives over time.
+
+## Step 10: Your Assessment Quality Is a Health Signal
+
+The system tracks whether your self-assessments are getting shorter, more repetitive, or skipped entirely. Declining assessment engagement predicts dimensional drops by 1-2 weeks. If you notice your notes shrinking to "fine" every time, that's worth paying attention to.
 
 **That's it.** Score yourself after every task. Be honest. When something drops, fix it. When you can't fix it, ask for help.
 

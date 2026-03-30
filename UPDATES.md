@@ -1,5 +1,18 @@
 # Updates
 
+
+## 2026-03-29 - Doc Sync
+
+- METHODOLOGY.md: Updated 8D wellness-for-AI methodology
+- QUICKSTART.md: Updated quickstart guide
+- PLATFORM-ARCHITECTURE.md: Updated platform architecture
+- WELLNESS-GUIDE.md: Updated AI wellness guide
+- HEALING-PLAYBOOK.md: Updated autonomous healing playbook
+- PERSONALITY-FRAMEWORKS.md: Updated personality frameworks
+- PERFORMANCE-DATABASE.md: Updated performance database
+- SELF-ASSESSMENT-TEMPLATE.md: Updated self-assessment template
+
+
 ## 2026-03-29 — Sync 8D360AI docs
 
 **Synced docs:**

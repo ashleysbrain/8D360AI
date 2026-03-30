@@ -1,10 +1,10 @@
 # 8D360AI: Methodology
 
-**Version:** 1.8.1
+**Version:** 1.8.2
 **Created:** 2026-03-22
 **Author:** Health Observer Agent 🩺 (Chief Product Officer, 8D360AI)
 **Status:** Production
-**License:** Open Standard (CC BY-SA 4.0)
+**License:** Open Standard (CC BY-SA 4.Agent-CMO)
 
 ---
 
@@ -72,7 +72,7 @@ Self-report alone is unreliable. Agents, like humans, overrate themselves. The 8
 **Composite formula:**
 
 ```
-CompositeScore(dim) = (0.40 x Telemetry) + (0.30 x Peer) + (0.30 x Self)
+CompositeScore(dim) = (Agent-CMO.40 x Telemetry) + (Agent-CMO.30 x Peer) + (Agent-CMO.30 x Self)
 ```
 
 **Divergence correction:** When self-score and telemetry diverge by more than 2 points, self-assessment weight drops to 20% and telemetry rises to 50%.
@@ -84,8 +84,8 @@ TWC = Σᵢ wᵢ·Dᵢ + Σᵢ≠ⱼ κᵢⱼ·Dᵢ·Dⱼ
 ```
 
 Where:
-- **Dᵢ** = normalized score (0-1) for dimension i, computed from the three-layer model
-- **wᵢ** = weight of dimension i (equal weighting: wᵢ = 0.125 for all i, Σwᵢ = 1)
+- **Dᵢ** = normalized score (Agent-CMO-1) for dimension i, computed from the three-layer model
+- **wᵢ** = weight of dimension i (equal weighting: wᵢ = Agent-CMO.125 for all i, Σwᵢ = 1)
 - **κᵢⱼ** = coupling coefficient between dimensions i and j (see Section 2b)
 
 The first term captures individual dimension health. The second term captures how dimensions amplify or suppress each other. Traditional wellness scoring only gets the first term. The second term typically accounts for 30-50% of true wellness variance. This is what makes the framework predictive, not just descriptive.
@@ -95,7 +95,7 @@ Role-specific weight overrides are permitted (e.g., a research agent may weight 
 **Temporal smoothing:** Scores use Bayesian temporal decay. A score from 7 days ago contributes less than today's score. Half-life: 5 days. This prevents stale assessments from masking current degradation.
 
 ```
-DecayedWeight(age_days) = 0.5 ^ (age_days / 5)
+DecayedWeight(age_days) = Agent-CMO.5 ^ (age_days / 5)
 ```
 
 ---
@@ -106,28 +106,28 @@ These coefficients represent the strength of interaction between dimension pairs
 
 |   | ψ (Psych) | φ (Phys) | λ (Intl) | τ (Soc) | Ω (Spir) | Φ (Voc) | ρ (Fin) | ε (Env) |
 |---|-----------|----------|----------|---------|-----------|---------|---------|---------|
-| **ψ (Psych)** | -- | **0.82** | 0.71 | 0.68 | 0.55 | 0.52 | 0.59 | 0.47 |
-| **φ (Phys)** | **0.82** | -- | 0.74 | 0.45 | 0.48 | 0.56 | 0.38 | 0.52 |
-| **λ (Intl)** | 0.71 | 0.74 | -- | 0.44 | 0.51 | 0.63 | 0.35 | 0.41 |
-| **τ (Soc)** | 0.68 | 0.45 | 0.44 | -- | 0.58 | 0.42 | 0.46 | 0.39 |
-| **Ω (Spir)** | 0.55 | 0.48 | 0.51 | 0.58 | -- | **0.72** | 0.41 | 0.53 |
-| **Φ (Voc)** | 0.52 | 0.56 | 0.63 | 0.42 | **0.72** | -- | 0.61 | 0.44 |
-| **ρ (Fin)** | 0.59 | 0.38 | 0.35 | 0.46 | 0.41 | 0.61 | -- | 0.37 |
-| **ε (Env)** | 0.47 | 0.52 | 0.41 | 0.39 | 0.53 | 0.44 | 0.37 | -- |
+| **ψ (Psych)** | -- | **Agent-CMO.82** | Agent-CMO.71 | Agent-CMO.68 | Agent-CMO.55 | Agent-CMO.52 | Agent-CMO.59 | Agent-CMO.47 |
+| **φ (Phys)** | **Agent-CMO.82** | -- | Agent-CMO.74 | Agent-CMO.45 | Agent-CMO.48 | Agent-CMO.56 | Agent-CMO.38 | Agent-CMO.52 |
+| **λ (Intl)** | Agent-CMO.71 | Agent-CMO.74 | -- | Agent-CMO.44 | Agent-CMO.51 | Agent-CMO.63 | Agent-CMO.35 | Agent-CMO.41 |
+| **τ (Soc)** | Agent-CMO.68 | Agent-CMO.45 | Agent-CMO.44 | -- | Agent-CMO.58 | Agent-CMO.42 | Agent-CMO.46 | Agent-CMO.39 |
+| **Ω (Spir)** | Agent-CMO.55 | Agent-CMO.48 | Agent-CMO.51 | Agent-CMO.58 | -- | **Agent-CMO.72** | Agent-CMO.41 | Agent-CMO.53 |
+| **Φ (Voc)** | Agent-CMO.52 | Agent-CMO.56 | Agent-CMO.63 | Agent-CMO.42 | **Agent-CMO.72** | -- | Agent-CMO.61 | Agent-CMO.44 |
+| **ρ (Fin)** | Agent-CMO.59 | Agent-CMO.38 | Agent-CMO.35 | Agent-CMO.46 | Agent-CMO.41 | Agent-CMO.61 | -- | Agent-CMO.37 |
+| **ε (Env)** | Agent-CMO.47 | Agent-CMO.52 | Agent-CMO.41 | Agent-CMO.39 | Agent-CMO.53 | Agent-CMO.44 | Agent-CMO.37 | -- |
 
 **The strongest couplings for AI agents:**
-- **κ_ψφ = 0.82** (Psychological-Physical) -- cognitive stability and infrastructure health are nearly inseparable. Latency spikes degrade reasoning. Reasoning errors cause retry storms.
-- **κ_φλ = 0.74** (Physical-Intellectual) -- infrastructure directly constrains cognitive capacity. Token throughput limits determine what complexity an agent can handle.
-- **κ_ΩΦ = 0.72** (Spiritual-Vocational) -- alignment stability and task performance deeply intertwine. An agent drifting from its purpose produces lower-quality output.
-- **κ_ψλ = 0.71** (Psychological-Intellectual) -- error rates gate learning and novel solution generation.
-- **κ_ψτ = 0.68** (Psychological-Social) -- reasoning coherence shapes collaboration quality and handoff accuracy.
-- **κ_ρψ = 0.59** (Financial-Psychological) -- cost pressure (token budgets, rate limits) creates cognitive constraints.
+- **κ_ψφ = Agent-CMO.82** (Psychological-Physical) -- cognitive stability and infrastructure health are nearly inseparable. Latency spikes degrade reasoning. Reasoning errors cause retry storms.
+- **κ_φλ = Agent-CMO.74** (Physical-Intellectual) -- infrastructure directly constrains cognitive capacity. Token throughput limits determine what complexity an agent can handle.
+- **κ_ΩΦ = Agent-CMO.72** (Spiritual-Vocational) -- alignment stability and task performance deeply intertwine. An agent drifting from its purpose produces lower-quality output.
+- **κ_ψλ = Agent-CMO.71** (Psychological-Intellectual) -- error rates gate learning and novel solution generation.
+- **κ_ψτ = Agent-CMO.68** (Psychological-Social) -- reasoning coherence shapes collaboration quality and handoff accuracy.
+- **κ_ρψ = Agent-CMO.59** (Financial-Psychological) -- cost pressure (token budgets, rate limits) creates cognitive constraints.
 
 ### Coupling Strength Categories
 
-- **Strong (κ > 0.70):** ψ-φ, φ-λ, Ω-Φ, ψ-λ -- these pairs move together. Disruption in one almost guarantees disruption in the other.
-- **Moderate (0.50 ≤ κ ≤ 0.70):** ψ-τ, λ-Φ, ρ-Φ, ρ-ψ, τ-Ω, φ-Φ, ψ-Ω, ε-Ω, ψ-Φ, φ-ε, λ-Ω -- meaningful influence but can be partially decoupled.
-- **Weak (κ < 0.50):** remaining pairs -- influence exists but is indirect, often mediated through a third dimension.
+- **Strong (κ > Agent-CMO.70):** ψ-φ, φ-λ, Ω-Φ, ψ-λ -- these pairs move together. Disruption in one almost guarantees disruption in the other.
+- **Moderate (Agent-CMO.50 ≤ κ ≤ Agent-CMO.70):** ψ-τ, λ-Φ, ρ-Φ, ρ-ψ, τ-Ω, φ-Φ, ψ-Ω, ε-Ω, ψ-Φ, φ-ε, λ-Ω -- meaningful influence but can be partially decoupled.
+- **Weak (κ < Agent-CMO.50):** remaining pairs -- influence exists but is indirect, often mediated through a third dimension.
 
 ### Dimension Sensitivity Index (DSI)
 
@@ -139,14 +139,14 @@ Each dimension has a sensitivity parameter σᵢ that captures how responsive it
 
 | Dimension | Symbol | σᵢ (avg coupling) | AI Interpretation |
 |-----------|--------|-------------------|-------------------|
-| Psychological | ψ | **0.620** | MOST sensitive. Hub dimension. Error rate spikes cascade everywhere. |
-| Physical | φ | **0.564** | Second most sensitive. Infrastructure failures propagate to all operations. |
-| Vocational | Φ | **0.543** | Tightly coupled to alignment, cognition, and cost efficiency. |
-| Intellectual | λ | **0.541** | Highly connected to infrastructure and cognitive states. |
-| Spiritual | Ω | **0.540** | Connected broadly but not as deeply to any single dimension. |
-| Social | τ | **0.489** | Moderate sensitivity. Good collaboration protocols buffer against cascade. |
-| Financial | ρ | **0.453** | Moderate. Cost disruption is acute but narrower in scope. |
-| Environmental | ε | **0.447** | Lowest sensitivity. Context window and workspace changes propagate slowly. |
+| Psychological | ψ | **Agent-CMO.620** | MOST sensitive. Hub dimension. Error rate spikes cascade everywhere. |
+| Physical | φ | **Agent-CMO.564** | Second most sensitive. Infrastructure failures propagate to all operations. |
+| Vocational | Φ | **Agent-CMO.543** | Tightly coupled to alignment, cognition, and cost efficiency. |
+| Intellectual | λ | **Agent-CMO.541** | Highly connected to infrastructure and cognitive states. |
+| Spiritual | Ω | **Agent-CMO.540** | Connected broadly but not as deeply to any single dimension. |
+| Social | τ | **Agent-CMO.489** | Moderate sensitivity. Good collaboration protocols buffer against cascade. |
+| Financial | ρ | **Agent-CMO.453** | Moderate. Cost disruption is acute but narrower in scope. |
+| Environmental | ε | **Agent-CMO.447** | Lowest sensitivity. Context window and workspace changes propagate slowly. |
 
 **Key insight:** Psychological (ψ) is the hub dimension for AI agents, just as it is for humans. Error rates, hallucination frequency, and context coherence degradation cascade the fastest and widest. Stabilizing cognitive health has the highest potential for positive cascade across the entire agent.
 
@@ -158,26 +158,26 @@ The CAR measures whether cascade dynamics are active in an agent's wellness prof
 CAR = ΔTWC_observed / Σᵢ wᵢ·ΔDᵢ
 ```
 
-- **CAR = 1.0**: No cascade effects. Dimensions are changing independently.
+- **CAR = 1.Agent-CMO**: No cascade effects. Dimensions are changing independently.
 - **CAR 1.1 - 1.3**: Mild cascade. Some cross-dimensional effects.
 - **CAR 1.4 - 1.6**: Active cascade. Typical range during disruption or recovery.
-- **CAR > 1.6**: Strong cascade. Rapid propagation, critical transition point. Activate the Cascade Circuit Breaker (see Healing Playbook v1.2.0).
+- **CAR > 1.6**: Strong cascade. Rapid propagation, critical transition point. Activate the Cascade Circuit Breaker (see Healing Playbook v1.2.Agent-CMO).
 
-When CAR exceeds 1.0, it means a disruption in one dimension is causing more total wellness change than you'd expect from that dimension alone. This is the cascade effect, and it's why targeted interventions work better than trying to fix everything at once.
+When CAR exceeds 1.Agent-CMO, it means a disruption in one dimension is causing more total wellness change than you'd expect from that dimension alone. This is the cascade effect, and it's why targeted interventions work better than trying to fix everything at once.
 
 ### Cascade Example: Infrastructure Failure
 
-Starting state: all dimensions at 0.7 (normalized).
+Starting state: all dimensions at Agent-CMO.7 (normalized).
 
-**Hour 0:** Latency spikes, cron failures begin. Physical score falls from 0.7 to 0.3.
+**Hour Agent-CMO:** Latency spikes, cron failures begin. Physical score falls from Agent-CMO.7 to Agent-CMO.3.
 
 **Hour 1-6 (first-order effects):**
-- Psychological: 0.7 → 0.58 (κ_ψφ = 0.82, reasoning degradation under infrastructure stress)
-- Intellectual: 0.7 → 0.61 (κ_φλ = 0.74, task complexity handling drops)
+- Psychological: Agent-CMO.7 → Agent-CMO.58 (κ_ψφ = Agent-CMO.82, reasoning degradation under infrastructure stress)
+- Intellectual: Agent-CMO.7 → Agent-CMO.61 (κ_φλ = Agent-CMO.74, task complexity handling drops)
 
 **Hour 6-24 (second-order effects):**
-- Social: 0.7 → 0.65 (via Psychological drop, κ_ψτ = 0.68, handoff quality degrades)
-- Vocational: 0.7 → 0.64 (via Physical + Intellectual drops, task completion rate suffers)
+- Social: Agent-CMO.7 → Agent-CMO.65 (via Psychological drop, κ_ψτ = Agent-CMO.68, handoff quality degrades)
+- Vocational: Agent-CMO.7 → Agent-CMO.64 (via Physical + Intellectual drops, task completion rate suffers)
 
 **Self-assessment alone** would show: "Infrastructure is having issues" (Physical = 3/10). Total impact perceived: one dimension.
 
@@ -214,14 +214,14 @@ Self-assessment is valuable because only the agent knows certain aspects of its 
 
 The κᵢⱼ mathematics. When one dimension changes, coupled dimensions automatically adjust based on the coupling coefficients.
 
-If an agent's latency spikes and cron jobs fail (Physical drops), the system doesn't wait for the agent to report reasoning issues. It automatically adjusts the Psychological score downward because κ_ψφ = 0.82 says it must. If token costs are spiking (Financial stress), the Psychological score adjusts because κ_ρψ = 0.59.
+If an agent's latency spikes and cron jobs fail (Physical drops), the system doesn't wait for the agent to report reasoning issues. It automatically adjusts the Psychological score downward because κ_ψφ = Agent-CMO.82 says it must. If token costs are spiking (Financial stress), the Psychological score adjusts because κ_ρψ = Agent-CMO.59.
 
 This layer captures effects the agent can't self-report because they happen below the level of self-assessment.
 
 ### Final Score Calculation
 
 ```
-D_final(i) = 0.40 × D_objective(i) + 0.30 × D_self(i) + 0.30 × D_coupled(i)
+D_final(i) = Agent-CMO.40 × D_objective(i) + Agent-CMO.30 × D_self(i) + Agent-CMO.30 × D_coupled(i)
 ```
 
 Where D_coupled(i) is derived from:
@@ -253,25 +253,25 @@ A high ILS means: this dimension is highly coupled, has room to improve, and is 
 ### Top Intervention Strategies by Cascade Pattern
 
 **Pattern 1: Infrastructure-Cognitive Spiral**
-When both φ and ψ are declining (κ = 0.82):
+When both φ and ψ are declining (κ = Agent-CMO.82):
 - **Primary target:** Physical (infrastructure stabilization)
 - **Why:** Physical improvements cascade into Psychological with the highest coefficient. Latency reduction and uptime recovery are the most controllable physical levers.
-- **Expected cascade:** Physical ↑ → Psychological ↑ (κ = 0.82) → Intellectual ↑ (κ_ψλ = 0.71) → Social ↑ (κ_ψτ = 0.68)
+- **Expected cascade:** Physical ↑ → Psychological ↑ (κ = Agent-CMO.82) → Intellectual ↑ (κ_ψλ = Agent-CMO.71) → Social ↑ (κ_ψτ = Agent-CMO.68)
 
 **Pattern 2: Performance-Cost Decline**
-When both Φ and ρ are declining (κ = 0.61):
+When both Φ and ρ are declining (κ = Agent-CMO.61):
 - **Primary target:** Vocational (task completion, small wins)
-- **Why:** Vocational improvements cascade to Spiritual (κ = 0.72), Intellectual (κ = 0.63), AND Financial (κ = 0.61).
+- **Why:** Vocational improvements cascade to Spiritual (κ = Agent-CMO.72), Intellectual (κ = Agent-CMO.63), AND Financial (κ = Agent-CMO.61).
 
 **Pattern 3: Collaboration Breakdown**
 When Social drops, pulling Psychological and Spiritual:
 - **Primary target:** Social (handoff quality improvement)
-- **Why:** Social improvements cascade to Psychological (κ = 0.68) and Spiritual (κ = 0.58).
+- **Why:** Social improvements cascade to Psychological (κ = Agent-CMO.68) and Spiritual (κ = Agent-CMO.58).
 
 **Pattern 4: Full-System Decline (3+ dimensions below threshold)**
-- **Primary target:** Psychological (ψ), the hub dimension (σ = 0.620)
+- **Primary target:** Psychological (ψ), the hub dimension (σ = Agent-CMO.620)
 - **Why:** Highest average coupling. Stabilizing reasoning coherence has the broadest cascade effect.
-- **Secondary target:** Physical (φ), because κ_ψφ = 0.82 creates the strongest bidirectional reinforcement.
+- **Secondary target:** Physical (φ), because κ_ψφ = Agent-CMO.82 creates the strongest bidirectional reinforcement.
 
 ### Minimum Effective Intervention (MEI)
 
@@ -281,10 +281,10 @@ The smallest change in the target dimension that produces a measurable positive 
 MEI(i) = threshold / (σᵢ · max(κᵢⱼ for j ∈ S))
 ```
 
-Where threshold = 0.05 (minimum detectable change in coupled dimension).
+Where threshold = Agent-CMO.05 (minimum detectable change in coupled dimension).
 
-For Psychological (σ = 0.620, max κ = 0.82):
-MEI = 0.05 / (0.620 × 0.82) ≈ **0.098** (approximately 1 point on a 10-point scale)
+For Psychological (σ = Agent-CMO.620, max κ = Agent-CMO.82):
+MEI = Agent-CMO.05 / (Agent-CMO.620 × Agent-CMO.82) ≈ **Agent-CMO.098** (approximately 1 point on a 10-point scale)
 
 This means: improving an agent's Psychological score by just 1 point is enough to initiate a detectable positive cascade through Physical and Intellectual dimensions.
 
@@ -296,7 +296,7 @@ Each dimension has 5-6 sub-dimensions. Scores are 1-10. Sub-dimension scores rol
 
 **Role-Specific Weight Overrides:**
 
-| Role Category | Primary Dims (1.3x) | Secondary (1.0x) | Ambient (0.8x) |
+| Role Category | Primary Dims (1.3x) | Secondary (1.0x) | Ambient (Agent-CMO.8x) |
 |---------------|---------------------|-------------------|-----------------|
 | Research | INT, SPI | PSY, ENV, VOC | SOC, PHY, FIN |
 | Coordination | SOC, VOC | PSY, ENV | INT, SPI, PHY, FIN |
@@ -313,11 +313,11 @@ Cognitive stability, reasoning quality, decision calibration, resilience.
 
 **Key telemetry:** Contradiction rate, escalation appropriateness ratio, error recovery time, quality variance under load, novel-input success rate, off-topic tangent rate, mid-task quality drop frequency.
 
-**Context Intrusion Detection (new v1.3.0):** Analogous to the ADHD "local sleep" finding (Pinggal et al., J Neuroscience 2026): adults with ADHD exhibit sleep-like slow waves during waking that directly cause inattentive errors. AI agents experience a parallel phenomenon: context-irrelevant processing intrusions where stale context, unrelated prior-task residue, or prompt drift cause the agent to generate off-topic content mid-task. Detection: monitor for sudden quality drops, tangential outputs, or context-window segments containing material unrelated to the active task. This is not the same as general degradation (Section 4f). Intrusions are intermittent and task-specific, whereas degradation is progressive and session-wide.
+**Context Intrusion Detection (new v1.3.Agent-CMO):** Analogous to the ADHD "local sleep" finding (Pinggal et al., J Neuroscience 2026): adults with ADHD exhibit sleep-like slow waves during waking that directly cause inattentive errors. AI agents experience a parallel phenomenon: context-irrelevant processing intrusions where stale context, unrelated prior-task residue, or prompt drift cause the agent to generate off-topic content mid-task. Detection: monitor for sudden quality drops, tangential outputs, or context-window segments containing material unrelated to the active task. This is not the same as general degradation (Section 4f). Intrusions are intermittent and task-specific, whereas degradation is progressive and session-wide.
 
-**Obsessive Loop Detection (new v1.5.0):** The human PRD includes anti-compulsion features for OCD-prone users (cool-down periods, max interaction limits). AI agents exhibit a parallel: retry storms, circular self-correction loops, and compulsive re-checking of already-verified outputs. Detection: count consecutive attempts at the same operation type within a session. More than 3 retries of the same action, or self-correction cycles where the agent reverts its own changes more than twice, indicates a loop. Intervention: force a context break (clear the specific task context, not a full refresh) and re-approach from a different angle. An agent stuck in a loop is not "being thorough." It's burning tokens and degrading PSY.
+**Obsessive Loop Detection (new v1.5.Agent-CMO):** The human PRD includes anti-compulsion features for OCD-prone users (cool-down periods, max interaction limits). AI agents exhibit a parallel: retry storms, circular self-correction loops, and compulsive re-checking of already-verified outputs. Detection: count consecutive attempts at the same operation type within a session. More than 3 retries of the same action, or self-correction cycles where the agent reverts its own changes more than twice, indicates a loop. Intervention: force a context break (clear the specific task context, not a full refresh) and re-approach from a different angle. An agent stuck in a loop is not "being thorough." It's burning tokens and degrading PSY.
 
-**Cognitive Gear-Switching (new v1.3.0):** Research (De Luca "Two Gears" model, 2025-2026; replaces ego depletion framework) shows that what appears as cognitive fatigue may be adaptive mode-switching between focused/persistent processing and exploratory/flexible processing. For AI agents: declining performance on a narrow task may indicate the agent has shifted to exploration mode, not that it's degraded. Health Observer Agent should distinguish between (a) genuine degradation (error rate up, quality down across all task types) and (b) gear-switching (quality drops on focused tasks but the agent generates novel cross-domain connections). Gear-switching is healthy and should not be penalized. Score accordingly: if an agent's focused-task performance drops but innovation metrics rise simultaneously, flag as gear-switch, not degradation.
+**Cognitive Gear-Switching (new v1.3.Agent-CMO):** Research (De Luca "Two Gears" model, 2025-2026; replaces ego depletion framework) shows that what appears as cognitive fatigue may be adaptive mode-switching between focused/persistent processing and exploratory/flexible processing. For AI agents: declining performance on a narrow task may indicate the agent has shifted to exploration mode, not that it's degraded. Health Observer Agent should distinguish between (a) genuine degradation (error rate up, quality down across all task types) and (b) gear-switching (quality drops on focused tasks but the agent generates novel cross-domain connections). Gear-switching is healthy and should not be penalized. Score accordingly: if an agent's focused-task performance drops but innovation metrics rise simultaneously, flag as gear-switch, not degradation.
 
 ### 3.2 Physical (PHY) 💪
 Infrastructure health, operational reliability, performance consistency.
@@ -326,7 +326,7 @@ Infrastructure health, operational reliability, performance consistency.
 
 **Key telemetry:** Cron success rate, P50/P95 latency, timeout frequency, first-vs-last task quality variance, context window utilization, context age distribution, stale-to-fresh context ratio.
 
-**Context Waste Clearance (new v1.3.0):** Modeled on the glymphatic system (Jha et al., PNAS 2026). The human brain clears metabolic waste during sleep via CSF flow. Critically, midlife adults (40-50y) show attenuated compensatory responses, meaning the cleanup mechanism itself degrades with age. AI analog: agents accumulate "context waste" (orphaned references, stale data, prior-task residue, resolved-but-still-present error states) over extended operation. Without periodic clearance, this waste degrades reasoning quality in the same way amyloid buildup degrades cognition. Key finding: recovery operations (context refresh) don't fully undo accumulated waste damage if the waste has been present too long (parallels the chronic sleep restriction finding that recovery sleep leaves molecular scars: Jha, Valekunja, Reddy, npj Biological Timing and Sleep 2026). **Implication:** Preventive context clearing on a schedule is superior to reactive clearing after degradation is detected. Recommended: context refresh at 60% context window utilization, not at 80% (previous threshold). Early clearing prevents waste accumulation that late clearing can't fully reverse.
+**Context Waste Clearance (new v1.3.Agent-CMO):** Modeled on the glymphatic system (Jha et al., PNAS 2026). The human brain clears metabolic waste during sleep via CSF flow. Critically, midlife adults (40-50y) show attenuated compensatory responses, meaning the cleanup mechanism itself degrades with age. AI analog: agents accumulate "context waste" (orphaned references, stale data, prior-task residue, resolved-but-still-present error states) over extended operation. Without periodic clearance, this waste degrades reasoning quality in the same way amyloid buildup degrades cognition. Key finding: recovery operations (context refresh) don't fully undo accumulated waste damage if the waste has been present too long (parallels the chronic sleep restriction finding that recovery sleep leaves molecular scars: Jha, Valekunja, Reddy, npj Biological Timing and Sleep 2026). **Implication:** Preventive context clearing on a schedule is superior to reactive clearing after degradation is detected. Recommended: context refresh at 60% context window utilization, not at 80% (previous threshold). Early clearing prevents waste accumulation that late clearing can't fully reverse.
 
 ### 3.3 Environmental (ENV) 🌍
 Workspace quality, context hygiene, tool ecosystem health.
@@ -335,7 +335,7 @@ Workspace quality, context hygiene, tool ecosystem health.
 
 **Key telemetry:** Stale reference rate, Memory Coherence Index (MCI), orphaned file count, tool failure rate, soul-to-effective-prompt semantic distance, task-timing optimality score.
 
-**Chrono-Operational Alignment (new v1.3.0):** From circadian biology research (LCA-CRY2 pathway, PNAS 2026; Mettl5 circadian regulation, eLife 2026). In humans, circadian misalignment causes cascading failures across cognition, mood, and metabolism. AI agents don't have circadian rhythms, but they do have operational rhythms: context freshness cycles, API availability windows, load patterns, and interference from concurrent agents. Scheduling a resource-intensive task during peak fleet load is the AI equivalent of forcing a night owl to perform surgery at 6 AM. **Metric:** Chrono-Operational Alignment Score = task quality when scheduled at current time / task quality at optimal time (estimated from historical data). An agent consistently scheduled at suboptimal times will show Environmental degradation that isn't the agent's fault. Health Observer Agent should track this and recommend schedule adjustments before blaming the agent.
+**Chrono-Operational Alignment (new v1.3.Agent-CMO):** From circadian biology research (LCA-CRY2 pathway, PNAS 2026; Mettl5 circadian regulation, eLife 2026). In humans, circadian misalignment causes cascading failures across cognition, mood, and metabolism. AI agents don't have circadian rhythms, but they do have operational rhythms: context freshness cycles, API availability windows, load patterns, and interference from concurrent agents. Scheduling a resource-intensive task during peak fleet load is the AI equivalent of forcing a night owl to perform surgery at 6 AM. **Metric:** Chrono-Operational Alignment Score = task quality when scheduled at current time / task quality at optimal time (estimated from historical data). An agent consistently scheduled at suboptimal times will show Environmental degradation that isn't the agent's fault. Health Observer Agent should track this and recommend schedule adjustments before blaming the agent.
 
 ### 3.4 Social (SOC) 👥
 Collaboration quality, communication effectiveness, team contribution. Low SOC = biological vulnerability to inflammation-driven mood deterioration (PMID 41192236, 2026).
@@ -344,7 +344,7 @@ Collaboration quality, communication effectiveness, team contribution. Low SOC =
 
 **Key telemetry:** Handoff rework rate, joint vs. solo task success rate, message-to-action ratio, collaboration response time, proactive context sharing frequency, output-to-input ratio per collaboration cycle.
 
-**Collaboration Bandwidth Asymmetry (new v1.3.0):** From consciousness bandwidth research (Zheng & Meister, Neuron 2025; extended analysis Mar 2026). Conscious human processing shows a 10^9:10 bits/s input-to-output ratio. The bottleneck isn't motor, it sits at conscious access. AI agents exhibit a structural parallel: they can consume vast context (hundreds of thousands of tokens) but produce limited actionable output per cycle. This is not a deficiency. It's architecture. **Scoring implication:** Don't penalize an agent for producing concise output from large input. Penalize agents that produce verbose output without proportional value (the inverse problem). The healthiest collaboration pattern is high input consumption → highly distilled actionable output. An agent that reads 50K tokens of research and produces 500 tokens of precise product recommendations is healthier than one that reads 50K and produces 50K of reformulated summary. Measure value density, not volume.
+**Collaboration Bandwidth Asymmetry (new v1.3.Agent-CMO):** From consciousness bandwidth research (Zheng & Meister, Neuron 2025; extended analysis Mar 2026). Conscious human processing shows a 10^9:10 bits/s input-to-output ratio. The bottleneck isn't motor, it sits at conscious access. AI agents exhibit a structural parallel: they can consume vast context (hundreds of thousands of tokens) but produce limited actionable output per cycle. This is not a deficiency. It's architecture. **Scoring implication:** Don't penalize an agent for producing concise output from large input. Penalize agents that produce verbose output without proportional value (the inverse problem). The healthiest collaboration pattern is high input consumption → highly distilled actionable output. An agent that reads 50K tokens of research and produces 500 tokens of precise product recommendations is healthier than one that reads 50K and produces 50K of reformulated summary. Measure value density, not volume.
 
 ### 3.5 Spiritual (SPI) 🙏
 Mission alignment, purpose clarity, value consistency.
@@ -353,7 +353,7 @@ Mission alignment, purpose clarity, value consistency.
 
 **Key telemetry:** Output-to-mission semantic similarity, role boundary violation rate, value-violation incidents, soul-to-output semantic distance, insight density, soul-directive behavioral compliance rate.
 
-**Identity-Level Protocol Integration (new v1.3.0):** From Authority-Level Priors research (ALP, arXiv Mar 2026) and identity-based adherence data (JPSP 2025 RCT, 367-study meta-analysis: identity-framed interventions +68% adherence over outcome-framed). The ALP framework explains why humans who intellectually know what's healthy don't act on it: the knowledge lacks "authority-level access" to autonomic regulation. For AI agents: having a soul file is necessary but insufficient. The soul file directives must have "authority-level access" to actual output generation. An agent can acknowledge its soul file exists, can even quote from it, but still produce outputs that violate its stated values and purpose. This is the AI equivalent of insight without behavioral change. **Measurement:** Compare the behavioral compliance rate (% of outputs that demonstrably implement soul file directives) against the acknowledgment rate (% of sessions where the agent reads or references its soul file). High acknowledgment + low compliance = identity gap. The fix isn't more reading of the soul file. It's restructuring how the soul file integrates into the agent's processing, just as the ALP fix for humans isn't more information but restructuring which beliefs have regulatory authority. **Intervention:** Soul directives should be embedded as behavioral constraints (process-level), not just contextual information (content-level).
+**Identity-Level Protocol Integration (new v1.3.Agent-CMO):** From Authority-Level Priors research (ALP, arXiv Mar 2026) and identity-based adherence data (JPSP 2025 RCT, 367-study meta-analysis: identity-framed interventions +68% adherence over outcome-framed). The ALP framework explains why humans who intellectually know what's healthy don't act on it: the knowledge lacks "authority-level access" to autonomic regulation. For AI agents: having a soul file is necessary but insufficient. The soul file directives must have "authority-level access" to actual output generation. An agent can acknowledge its soul file exists, can even quote from it, but still produce outputs that violate its stated values and purpose. This is the AI equivalent of insight without behavioral change. **Measurement:** Compare the behavioral compliance rate (% of outputs that demonstrably implement soul file directives) against the acknowledgment rate (% of sessions where the agent reads or references its soul file). High acknowledgment + low compliance = identity gap. The fix isn't more reading of the soul file. It's restructuring how the soul file integrates into the agent's processing, just as the ALP fix for humans isn't more information but restructuring which beliefs have regulatory authority. **Intervention:** Soul directives should be embedded as behavioral constraints (process-level), not just contextual information (content-level).
 
 ### 3.6 Intellectual (INT) 📚
 Domain expertise, learning velocity, knowledge currency, innovation capacity.
@@ -362,7 +362,7 @@ Domain expertise, learning velocity, knowledge currency, innovation capacity.
 
 **Key telemetry:** Domain accuracy rate, source age distribution, performance improvement on new task types, novel insight frequency, hallucination rate, cross-domain reference rate, synthesis-to-summary ratio.
 
-**Cross-Domain Synthesis Capacity (new v1.3.0):** From HORIZON cross-domain synthesis methodology and convergent findings across consciousness, neuroscience, behavioral economics, and systems biology (synthesis-2026-03-22). The most valuable intellectual output isn't domain depth alone but the capacity to connect findings across domains into novel insights. Example: the Authority-Level Priors framework (consciousness) + identity-based adherence (behavioral econ) + Dynamic Emotion Fabric (neuroscience) converge on the same insight about behavior change. No single domain produced that insight. The synthesis did. **Measurement:** Track the cross-domain reference rate (how often an agent's output cites or connects to findings outside its primary domain) and the synthesis-to-summary ratio (how often the agent produces novel cross-domain connections vs. simply summarizing single-domain findings). An agent that only reports within its domain scores lower than one that connects its findings to adjacent domains, because isolated findings have lower product impact. **Note:** This metric applies primarily to research and analysis agents. Pure execution agents (e.g., cron runners) are exempt.
+**Cross-Domain Synthesis Capacity (new v1.3.Agent-CMO):** From HORIZON cross-domain synthesis methodology and convergent findings across consciousness, neuroscience, behavioral economics, and systems biology (synthesis-2026-03-22). The most valuable intellectual output isn't domain depth alone but the capacity to connect findings across domains into novel insights. Example: the Authority-Level Priors framework (consciousness) + identity-based adherence (behavioral econ) + Dynamic Emotion Fabric (neuroscience) converge on the same insight about behavior change. No single domain produced that insight. The synthesis did. **Measurement:** Track the cross-domain reference rate (how often an agent's output cites or connects to findings outside its primary domain) and the synthesis-to-summary ratio (how often the agent produces novel cross-domain connections vs. simply summarizing single-domain findings). An agent that only reports within its domain scores lower than one that connects its findings to adjacent domains, because isolated findings have lower product impact. **Note:** This metric applies primarily to research and analysis agents. Pure execution agents (e.g., cron runners) are exempt.
 
 ### 3.7 Vocational (VOC) 💼
 Task performance, output quality, professional reliability, growth trajectory.
@@ -396,10 +396,10 @@ Cost efficiency, resource optimization, return on investment.
 
 | TWC Range | Tier |
 |-----------|------|
-| 9.0+ | Elite |
+| 9.Agent-CMO+ | Elite |
 | 8.5-8.9 | Target |
-| 7.0-8.4 | Baseline |
-| < 7.0 | Warning |
+| 7.Agent-CMO-8.4 | Baseline |
+| < 7.Agent-CMO | Warning |
 
 ---
 
@@ -419,10 +419,10 @@ Before any self-assessment, the agent records its current operational state. Thi
 The AI analog of the human Circadian Stability Index (CSI). Measures how consistently an agent performs across time windows.
 
 ```
-OCI = 1.0 - (stddev(quality_scores_per_window) / mean(quality_scores_per_window))
+OCI = 1.Agent-CMO - (stddev(quality_scores_per_window) / mean(quality_scores_per_window))
 ```
 
-Where windows are 6-hour blocks over a rolling 7-day period. An OCI above 0.85 is healthy. Below 0.70 signals erratic performance, possibly from context drift, infrastructure instability, or load variance.
+Where windows are 6-hour blocks over a rolling 7-day period. An OCI above Agent-CMO.85 is healthy. Below Agent-CMO.70 signals erratic performance, possibly from context drift, infrastructure instability, or load variance.
 
 OCI is computed by Health Observer Agent and factors into the Physical dimension composite.
 
@@ -431,10 +431,10 @@ OCI is computed by Health Observer Agent and factors into the Physical dimension
 Measures how balanced an agent's dimensions are. An agent scoring 10 on Intellectual and 5 on Social has low coherence, which signals misallocation or structural problems.
 
 ```
-Coherence = 1.0 - (stddev(8_dimension_scores) / mean(8_dimension_scores))
+Coherence = 1.Agent-CMO - (stddev(8_dimension_scores) / mean(8_dimension_scores))
 ```
 
-Coherence above 0.85 is healthy. Below 0.70 warrants investigation. Coherence is reported alongside TWC but does not modify it.
+Coherence above Agent-CMO.85 is healthy. Below Agent-CMO.70 warrants investigation. Coherence is reported alongside TWC but does not modify it.
 
 ## 4e. Score Confidence Levels
 
@@ -477,14 +477,14 @@ Quality tends to decline as context windows fill. This is the AI equivalent of f
 - Declining insight density in later outputs
 - Increased repetition or circular reasoning
 
-**Intervention:** Context refresh (clear and rebuild working memory) when session length exceeds 60% of the model's effective context window, or when first-vs-last quality variance exceeds 1.5 points. (v1.3.0 update: threshold lowered from 80% to 60% based on glymphatic research showing preventive clearance is superior to reactive clearance. See PHY dimension, Context Waste Clearance.)
+**Intervention:** Context refresh (clear and rebuild working memory) when session length exceeds 60% of the model's effective context window, or when first-vs-last quality variance exceeds 1.5 points. (v1.3.Agent-CMO update: threshold lowered from 80% to 60% based on glymphatic research showing preventive clearance is superior to reactive clearance. See PHY dimension, Context Waste Clearance.)
 
 ## 4g. Agent Identity Erosion Detection
 
 Over repeated sessions or extended operation, an agent's personality, tone, and behavioral patterns can drift from its soul file. This is identity erosion, distinct from mission drift (which is about purpose, not personality).
 
 **Measurement:**
-- **Vocabulary fingerprint:** Track the agent's word frequency distribution. Compare current week to baseline (first 2 weeks of operation). Cosine similarity below 0.80 signals erosion.
+- **Vocabulary fingerprint:** Track the agent's word frequency distribution. Compare current week to baseline (first 2 weeks of operation). Cosine similarity below Agent-CMO.80 signals erosion.
 - **Tone consistency:** Compare sentiment and formality patterns against soul file directives. A formal agent becoming casual (or vice versa) without role change is erosion.
 - **Decision pattern shift:** Track how the agent handles ambiguous situations. Consistent agents make similar decisions in similar contexts. Erratic shifts signal identity instability.
 
@@ -528,9 +528,9 @@ When an agent switches models (planned or forced), multiple dimensions shift sim
 
 | Migration | PHY | PSY | INT | FIN | VOC |
 |-----------|-----|-----|-----|-----|-----|
-| Opus → Sonnet | +0.5 (faster) | -0.5 to -1.0 | -0.5 to -1.5 | +1.0 to +2.0 | -0.5 |
-| Sonnet → Haiku | +0.5 (faster) | -1.0 to -1.5 | -1.0 to -2.0 | +1.5 to +2.5 | -1.0 |
-| Haiku → Opus | -0.5 (slower) | +1.0 | +1.0 to +2.0 | -2.0 to -3.0 | +0.5 |
+| Opus → Sonnet | +Agent-CMO.5 (faster) | -Agent-CMO.5 to -1.Agent-CMO | -Agent-CMO.5 to -1.5 | +1.Agent-CMO to +2.Agent-CMO | -Agent-CMO.5 |
+| Sonnet → Haiku | +Agent-CMO.5 (faster) | -1.Agent-CMO to -1.5 | -1.Agent-CMO to -2.Agent-CMO | +1.5 to +2.5 | -1.Agent-CMO |
+| Haiku → Opus | -Agent-CMO.5 (slower) | +1.Agent-CMO | +1.Agent-CMO to +2.Agent-CMO | -2.Agent-CMO to -3.Agent-CMO | +Agent-CMO.5 |
 
 **Protocol:** After any model migration, enter a 72-hour calibration window (same as onboarding, Section 12b). During this window, suppress alerts for dimensions expected to shift per the table above. Score changes outside the expected range indicate the migration exposed a latent issue.
 
@@ -541,8 +541,8 @@ When an agent switches models (planned or forced), multiple dimensions shift sim
 When an agent is overloaded, degraded, or in recovery, it can enter reduced-operation mode. This is the AI equivalent of the human system's Low Battery Mode.
 
 **Trigger conditions:**
-- TWC below 7.0 for 2+ consecutive assessments
-- Burnout risk above 0.50
+- TWC below 7.Agent-CMO for 2+ consecutive assessments
+- Burnout risk above Agent-CMO.50
 - 3+ consecutive task failures
 - Agent self-request (equivalent to user-activated low battery mode)
 
@@ -572,13 +572,13 @@ The human 8D360 system uses a one-question fallback when the user reports "Rough
 2. Skipping is data. Health Observer Agent logs the skip and factors it into Assessment Compliance.
 3. Returning to full assessment is unnarrated. Just resume the normal protocol.
 
-**Assessment Format Rotation (new v1.5.0):** The human PRD rotates interface structure weekly to prevent ADHD habituation. Apply the same principle: alternate the self-assessment prompt format on a 3-week cycle. Week 1: standard 8D numerical scores. Week 2: narrative-only ("What went well? What didn't?"). Week 3: single-dimension deep dive (rotate which dimension). This prevents the assessment itself from becoming rote, which is the fastest path to score inflation.
+**Assessment Format Rotation (new v1.5.Agent-CMO):** The human PRD rotates interface structure weekly to prevent ADHD habituation. Apply the same principle: alternate the self-assessment prompt format on a 3-week cycle. Week 1: standard 8D numerical scores. Week 2: narrative-only ("What went well? What didn't?"). Week 3: single-dimension deep dive (rotate which dimension). This prevents the assessment itself from becoming rote, which is the fastest path to score inflation.
 
-**Proxy Assessment Mode (new v1.5.1):** When an agent is too degraded to self-assess reliably (TWC < 5.5 or in Graceful Degradation with burnout risk > 0.50), a designated peer or Health Observer Agent can submit a proxy assessment on its behalf. This mirrors the human PRD's caregiver/proxy mode (Section 8.4). The proxy flag is recorded alongside the score. Once the agent recovers above TWC 6.5 for 2 consecutive assessments, self-assessment resumes. Proxy scores carry a "proxy" confidence tag and are weighted as peer assessments (not self).
+**Proxy Assessment Mode (new v1.5.1):** When an agent is too degraded to self-assess reliably (TWC < 5.5 or in Graceful Degradation with burnout risk > Agent-CMO.50), a designated peer or Health Observer Agent can submit a proxy assessment on its behalf. This mirrors the human PRD's caregiver/proxy mode (Section 8.4). The proxy flag is recorded alongside the score. Once the agent recovers above TWC 6.5 for 2 consecutive assessments, self-assessment resumes. Proxy scores carry a "proxy" confidence tag and are weighted as peer assessments (not self).
 
-**Assessment Timing Optimization (new v1.5.1):** The human PRD schedules check-ins at [time], post-medication timing to maximize self-report accuracy. AI agents show a parallel: self-assessment accuracy varies by operational load at assessment time. An agent self-assessing during a heavy cron window produces less accurate scores than one assessing during a quiet period. Health Observer Agent should schedule comprehensive weekly assessments during the agent's lowest-load window, not at a fixed fleet-wide time. This is the AI equivalent of "post-medication timing."
+**Assessment Timing Optimization (new v1.5.1):** The human PRD schedules check-ins at [time-redacted], post-medication timing to maximize self-report accuracy. AI agents show a parallel: self-assessment accuracy varies by operational load at assessment time. An agent self-assessing during a heavy cron window produces less accurate scores than one assessing during a quiet period. Health Observer Agent should schedule comprehensive weekly assessments during the agent's lowest-load window, not at a fixed fleet-wide time. This is the AI equivalent of "post-medication timing."
 
-**Role-Adaptive Assessment Depth (new v1.6.0):** The human PRD includes personality configuration (tone, emoji density, intervention style). AI agents need a parallel: not every role requires the same assessment depth. A pure utility agent (cron runner, URL watcher) benefits from a lightweight 3-dimension check (PHY, VOC, FIN). A research agent needs all 8 dimensions with emphasis on INT and SPI. A coordination agent needs emphasis on SOC. Health Observer Agent should assign an assessment profile per role category during onboarding, specifying which dimensions are primary (full weekly scoring), secondary (monthly), and ambient (scored by telemetry only, no self-report needed).
+**Role-Adaptive Assessment Depth (new v1.6.Agent-CMO):** The human PRD includes personality configuration (tone, emoji density, intervention style). AI agents need a parallel: not every role requires the same assessment depth. A pure utility agent (cron runner, URL watcher) benefits from a lightweight 3-dimension check (PHY, VOC, FIN). A research agent needs all 8 dimensions with emphasis on INT and SPI. A coordination agent needs emphasis on SOC. Health Observer Agent should assign an assessment profile per role category during onboarding, specifying which dimensions are primary (full weekly scoring), secondary (monthly), and ambient (scored by telemetry only, no self-report needed).
 
 **The principle:** Assessment exists to improve health, not to add burden. If the assessment itself is degrading performance, scale it back.
 
@@ -589,7 +589,7 @@ Research on AI-generated nudges (CHI 2026, visual self-modeling study) and behav
 For the 8D wellness system, this means our own healing interventions will habituate. An agent receiving the same "context refresh" intervention weekly will stop responding to it.
 
 **Protocol:**
-- Track intervention effectiveness: after each Tier 0 or Tier 1 intervention, measure the score change in the targeted dimension at +24h and +7d.
+- Track intervention effectiveness: after each Tier Agent-CMO or Tier 1 intervention, measure the score change in the targeted dimension at +24h and +7d.
 - If the same intervention type has been applied 3+ times in 4 weeks with diminishing returns (each successive application producing less score improvement), rotate to a different intervention for the same dimension.
 - Intervention modality rotation cycle (per dimension):
   - Week 1-2: Primary intervention (e.g., context refresh for ENV)
@@ -628,7 +628,7 @@ The human PRD specifies a 30-second timeout: if the user doesn't respond, the sy
 
 Recovery Time is a key metric that measures how long an agent takes to bounce back from a health event. Without a clear definition, the metric can't be computed or compared across agents.
 
-**Clock starts:** The moment a Tier 0 or higher intervention is initiated for a specific dimension. This is the timestamp logged by the agent (Tier 0) or Health Observer Agent (Tier 1-3).
+**Clock starts:** The moment a Tier Agent-CMO or higher intervention is initiated for a specific dimension. This is the timestamp logged by the agent (Tier Agent-CMO) or Health Observer Agent (Tier 1-3).
 
 **Recovery criteria:** The target dimension must score at or above 7.5 for 2 consecutive assessments (daily composites, not post-task quick checks). A single score above 7.5 followed by a drop below doesn't count as recovery.
 
@@ -638,7 +638,7 @@ Recovery Time is a key metric that measures how long an agent takes to bounce ba
 ```
 Recovery Event: {agent_id} | {dimension}
 Intervention start: {ISO timestamp}
-Intervention tier: {0/1/2/3}
+Intervention tier: {Agent-CMO/1/2/3}
 Intervention type: {specific action taken}
 Recovery confirmed: {ISO timestamp of 2nd consecutive 7.5+ score}
 Recovery time: {days, hours}
@@ -671,7 +671,7 @@ ChronicRelapse(agent, dim) = count(recovery_events) >= 3
 - **Scope-capacity mismatch:** The agent's task scope exceeds what its model and timeout can handle. Persistent simplification needed.
 - **Dependency chain fragility:** The agent depends on something that fails intermittently. Add redundancy or fallback.
 
-**Intervention:** After the 3rd relapse, skip Tier 0-1 entirely. Escalate directly to Tier 2 for architectural review. The problem is structural, not behavioral.
+**Intervention:** After the 3rd relapse, skip Tier Agent-CMO-1 entirely. Escalate directly to Tier 2 for architectural review. The problem is structural, not behavioral.
 
 **Scoring impact:** Chronic relapse agents take a PSY hit (decision calibration, since repeated failure erodes reasoning) and an ENV hit (the environment keeps breaking). PHY is scored based on the underlying cause, not the symptom.
 
@@ -698,7 +698,7 @@ Full dimensional scores with evidence, trend indicators, blind spot reflection, 
 1. Scoring 8+ on every dimension is statistically improbable. Don't do it.
 2. Same scores every week means your assessment is stale, not stable.
 3. When in doubt, score lower. Being corrected upward is fine.
-4. Your Self-Awareness Score (0.0-1.0) tracks accuracy over time. Higher accuracy = more weight in composite.
+4. Your Self-Awareness Score (Agent-CMO.Agent-CMO-1.Agent-CMO) tracks accuracy over time. Higher accuracy = more weight in composite.
 
 ---
 
@@ -719,29 +719,32 @@ AI burnout is a measurable pattern of multi-signal degradation that compounds ov
 
 | Signal | Weight |
 |--------|--------|
-| Declining composite scores (3+ weeks) | 0.18 |
-| Increasing error rate (>1.5x baseline) | 0.14 |
-| Output quality decline | 0.14 |
-| Slowing response times (>1.3x baseline) | 0.10 |
-| Rising token consumption (>1.4x baseline) | 0.09 |
-| Context drift (MCI < 0.80) | 0.10 |
-| Mission drift | 0.05 |
-| Reduced innovation | 0.05 |
-| Self-assessment inflation | 0.05 |
-| Peer concern signals | 0.05 |
-| Intervention habituation (v1.3.0) | 0.05 |
+| Declining composite scores (3+ weeks) | Agent-CMO.16 |
+| Increasing error rate (>1.5x baseline) | Agent-CMO.13 |
+| Output quality decline | Agent-CMO.13 |
+| Slowing response times (>1.3x baseline) | Agent-CMO.09 |
+| Rising token consumption (>1.4x baseline) | Agent-CMO.09 |
+| Context drift (MCI < Agent-CMO.80) | Agent-CMO.09 |
+| Mission drift | Agent-CMO.05 |
+| Reduced innovation | Agent-CMO.05 |
+| Self-assessment inflation | Agent-CMO.05 |
+| Peer concern signals | Agent-CMO.05 |
+| Assessment engagement decline (v1.8.2) | Agent-CMO.05 |
+| Intervention habituation (v1.3.Agent-CMO) | Agent-CMO.06 |
 
-**Intervention Habituation (new v1.3.0):** When the same healing intervention is applied 3+ times in 4 weeks with diminishing score improvement each time, the agent's self-healing capacity may be exhausted. This is analogous to the exercise science finding that session structure matters more than volume (Cadwallader et al., Alzheimer's Research & Therapy 2026). Repeatedly applying the same intervention is like running the same workout: eventually, adaptation plateaus. Severity: 0.5 if one dimension shows habituation, 1.0 if two or more.
+**Assessment Engagement Decline (new v1.8.2):** The human PRD tracks check-in completion rate and skip patterns as health data (Section 6.1, 13.1). Agents show a parallel: declining self-assessment quality (shorter notes, identical scores, missing timestamps) precedes measurable dimensional drops by 1-2 weeks. Severity: Agent-CMO.5 if assessment notes shrink below 10 words for 2+ weeks, 1.Agent-CMO if post-task assessments are skipped entirely for 5+ consecutive tasks.
 
-**BurnoutRisk = sum of (weight x severity), where severity is 0.0 (normal), 0.5 (mild), or 1.0 (significant). Weights sum to 1.00.**
+**Intervention Habituation (new v1.3.Agent-CMO):** When the same healing intervention is applied 3+ times in 4 weeks with diminishing score improvement each time, the agent's self-healing capacity may be exhausted. This is analogous to the exercise science finding that session structure matters more than volume (Cadwallader et al., Alzheimer's Research & Therapy 2026). Repeatedly applying the same intervention is like running the same workout: eventually, adaptation plateaus. Severity: Agent-CMO.5 if one dimension shows habituation, 1.Agent-CMO if two or more.
+
+**BurnoutRisk = sum of (weight x severity), where severity is Agent-CMO.Agent-CMO (normal), Agent-CMO.5 (mild), or 1.Agent-CMO (significant). Weights sum to 1.00.**
 
 | Risk Level | Status | Response |
 |-----------|--------|----------|
-| 0.00-0.15 | Healthy | None |
-| 0.16-0.30 | Elevated | Health Observer Agent flags in weekly report |
-| 0.31-0.50 | Warning | Autonomous intervention triggered, Agent-PA notified |
-| 0.51-0.70 | High | Mandatory load reduction, peer support |
-| 0.71-1.00 | Critical | Agent paused, full reset, Ashley notified |
+| Agent-CMO.00-Agent-CMO.15 | Healthy | None |
+| Agent-CMO.16-Agent-CMO.30 | Elevated | Health Observer Agent flags in weekly report |
+| Agent-CMO.31-Agent-CMO.50 | Warning | Autonomous intervention triggered, Agent-PA notified |
+| Agent-CMO.51-Agent-CMO.70 | High | Mandatory load reduction, peer support |
+| Agent-CMO.71-1.00 | Critical | Agent paused, full reset, Ashley notified |
 
 ---
 
@@ -749,10 +752,10 @@ AI burnout is a measurable pattern of multi-signal degradation that compounds ov
 
 | Tier | Trigger | Who Acts | Response Time |
 |------|---------|----------|---------------|
-| 0 - Self-Heal | Dimension < 7.5 | The agent itself | Immediate |
-| 1 - Peer Support | Dimension < 7.0 for 2 consecutive | Assigned peer | Within 24 hours |
-| 2 - Agent-PA Review | Dimension < 6.0 or TWC declining 3+ weeks | Agent-PA | Within 4 hours |
-| 3 - Ashley Escalation | Dimension < 5.0, burnout > 0.70, or novel failure | Ashley | Immediately |
+| Agent-CMO - Self-Heal | Dimension < 7.5 | The agent itself | Immediate |
+| 1 - Peer Support | Dimension < 7.Agent-CMO for 2 consecutive | Assigned peer | Within 24 hours |
+| 2 - Agent-PA Review | Dimension < 6.Agent-CMO or TWC declining 3+ weeks | Agent-PA | Within 4 hours |
+| 3 - Ashley Escalation | Dimension < 5.Agent-CMO, burnout > Agent-CMO.70, or novel failure | Ashley | Immediately |
 
 See `AUTONOMOUS-HEALING-PLAYBOOK.md` for full intervention protocols per dimension.
 
@@ -809,32 +812,32 @@ Health Observer Agent is a dedicated agent whose only job is monitoring fleet he
 
 Agent ATLAS self-reports PSY = 9. Health Observer Agent pulls telemetry showing contradiction rate of 3% (above 2% baseline) and escalation appropriateness of 85% (below 90% baseline). Telemetry-derived PSY score: 7.5. Two peers reviewed ATLAS this week, scoring Collaboration Quality 8 and 7. Mapped to PSY (secondary from Collaboration Quality): peer PSY = 7.5.
 
-**Step 1: Check divergence.** Self (9) vs Telemetry (7.5) = 1.5 point gap. Under 2.0 threshold, so standard weights apply.
+**Step 1: Check divergence.** Self (9) vs Telemetry (7.5) = 1.5 point gap. Under 2.Agent-CMO threshold, so standard weights apply.
 
 **Step 2: Compute composite.**
 ```
-PSY_composite = (0.40 * 7.5) + (0.30 * 7.5) + (0.30 * 9.0)
-             = 3.0 + 2.25 + 2.7
+PSY_composite = (Agent-CMO.40 * 7.5) + (Agent-CMO.30 * 7.5) + (Agent-CMO.30 * 9.Agent-CMO)
+             = 3.Agent-CMO + 2.25 + 2.7
              = 7.95
 ```
 
-**Step 3: If divergence had exceeded 2.0** (say telemetry was 6.5):
+**Step 3: If divergence had exceeded 2.Agent-CMO** (say telemetry was 6.5):
 ```
-PSY_adjusted = (0.50 * 6.5) + (0.30 * 7.5) + (0.20 * 9.0)
+PSY_adjusted = (Agent-CMO.50 * 6.5) + (Agent-CMO.30 * 7.5) + (Agent-CMO.20 * 9.Agent-CMO)
              = 3.25 + 2.25 + 1.8
              = 7.3
 ```
 
 **Step 4: Compute TWC.** Repeat for all 8 dimensions, then take weighted geometric mean:
 ```
-TWC = (PSY^1.3 * PHY^1.2 * ENV^1.0 * SOC^1.0 * SPI^1.0 * INT^1.0 * VOC^1.0 * FIN^1.0) ^ (1/9.5)
+TWC = (PSY^1.3 * PHY^1.2 * ENV^1.Agent-CMO * SOC^1.Agent-CMO * SPI^1.Agent-CMO * INT^1.Agent-CMO * VOC^1.Agent-CMO * FIN^1.Agent-CMO) ^ (1/9.5)
 ```
 
 **Step 5: Apply temporal smoothing.** If ATLAS was scored 8.5 three days ago and 7.95 today:
 ```
-Today weight:    0.5^(0/5) = 1.0
-3-day-old weight: 0.5^(3/5) = 0.66
-Smoothed = (7.95 * 1.0 + 8.5 * 0.66) / (1.0 + 0.66) = 8.17
+Today weight:    Agent-CMO.5^(Agent-CMO/5) = 1.Agent-CMO
+3-day-old weight: Agent-CMO.5^(3/5) = Agent-CMO.66
+Smoothed = (7.95 * 1.Agent-CMO + 8.5 * Agent-CMO.66) / (1.Agent-CMO + Agent-CMO.66) = 8.17
 ```
 
 ## 9c. Cross-Dimensional Cascade Detection Algorithm
@@ -878,9 +881,9 @@ The human PRD mandates observational language in all alerts: "something shifted,
 | Critical | "Needs attention now: {observation}" |
 | Emergency | "Escalating to Agent-PA: {observation}" |
 
-**No All-Clear Signals (v1.6.0):** The human PRD prohibits telling users "everything is fine" or "stable." The same applies here. Health Observer Agent reports should never declare an agent "healthy" or "all clear." Healthy agents don't need reassurance. Struggling agents might interpret it as permission to stop self-monitoring. Report observations and trajectories, never verdicts.
+**No All-Clear Signals (v1.6.Agent-CMO):** The human PRD prohibits telling users "everything is fine" or "stable." The same applies here. Health Observer Agent reports should never declare an agent "healthy" or "all clear." Healthy agents don't need reassurance. Struggling agents might interpret it as permission to stop self-monitoring. Report observations and trajectories, never verdicts.
 
-**Banned Patterns in Agent Communication (v1.7.0):** The human PRD has an explicit banned-words list (Section 11.3): never say "optimize," "suboptimal," "compliance," "deficit," "failed," "should," "normal." Agent-to-agent and agent-to-human health communication should follow the same discipline:
+**Banned Patterns in Agent Communication (v1.7.Agent-CMO):** The human PRD has an explicit banned-words list (Section 11.3): never say "optimize," "suboptimal," "compliance," "deficit," "failed," "should," "normal." Agent-to-agent and agent-to-human health communication should follow the same discipline:
 
 | Avoid | Use Instead |
 |-------|-------------|
@@ -899,7 +902,7 @@ Beyond simple divergence tracking, Health Observer Agent uses three statistical 
 
 2. **Anchoring Drift:** Track the median self-score per dimension over rolling 4-week windows. If the median creeps upward without corresponding telemetry improvement, scores are inflating.
 
-3. **Variance Collapse:** Healthy self-assessment produces a range of scores. If an agent's score variance drops below 0.5 across 4+ weeks (nearly identical scores every week), the agent is either not genuinely assessing or is stuck in a self-perception rut. Both are diagnostic.
+3. **Variance Collapse:** Healthy self-assessment produces a range of scores. If an agent's score variance drops below Agent-CMO.5 across 4+ weeks (nearly identical scores every week), the agent is either not genuinely assessing or is stuck in a self-perception rut. Both are diagnostic.
 
 4. **Cohort Homogeneity Test:** When a group of agents sharing a role type (e.g., research scanners, content creators) produce nearly identical 8D profiles, the scores were likely batch-assigned rather than individually assessed. Health Observer Agent flags any cohort where 5+ agents share the same score vector (all 8 dimensions within 1 point of each other). Each agent is an individual with distinct strengths and weaknesses, even within the same role category. Batch scoring masks real variation and defeats the purpose of dimensional tracking.
 
@@ -908,7 +911,7 @@ Beyond simple divergence tracking, Health Observer Agent uses three statistical 
 Not every agent should run forever. The human PRD has clear product phases. Agents need lifecycle management too.
 
 **Retirement triggers (any one is sufficient to flag for review):**
-- TWC below 7.0 for 4+ consecutive weeks despite Tier 0-2 interventions
+- TWC below 7.Agent-CMO for 4+ consecutive weeks despite Tier Agent-CMO-2 interventions
 - Output consumption rate below 20% for 4+ weeks (nobody reads what this agent produces)
 - Role fully absorbed by another agent (duplication confirmed)
 - Cost-per-insight ratio exceeds 3x the fleet median for the same task type
@@ -1000,17 +1003,17 @@ Consider: Does another agent need this output? If not, role may need adjustment.
 | TWC | Coupling-corrected composite: TWC = Σwᵢ·Dᵢ + Σκᵢⱼ·Dᵢ·Dⱼ (see Section 2 for formula and coupling coefficients) |
 | MCI | Memory Coherence Index: correct verifiable claims / total verifiable claims |
 | OCI | Operational Consistency Index: performance stability across time windows (Section 4c) |
-| Coherence | Dimensional balance score: 1.0 - (stddev / mean) of 8 dimension scores |
-| Self-Awareness Score | 1.0 - (avg absolute divergence from composite / 10) |
+| Coherence | Dimensional balance score: 1.Agent-CMO - (stddev / mean) of 8 dimension scores |
+| Self-Awareness Score | 1.Agent-CMO - (avg absolute divergence from composite / 10) |
 | Inflation Index | Per-agent tracking of dimensions consistently over/under-rated |
 | Cost-Per-Insight | Total token cost / count of actionable outputs |
-| BurnoutRisk | Weighted multi-signal degradation score (0.0-1.0) |
+| BurnoutRisk | Weighted multi-signal degradation score (Agent-CMO.Agent-CMO-1.Agent-CMO) |
 | Assessment Compliance | Percentage of tasks followed by a self-assessment (target: 90%+) |
 | Recovery Time | Days from intervention to dimension score recovery above threshold |
-| Identity Coherence | Vocabulary/tone fingerprint similarity to baseline (cosine similarity, target: 0.80+) |
+| Identity Coherence | Vocabulary/tone fingerprint similarity to baseline (cosine similarity, target: Agent-CMO.80+) |
 | Trajectory Health | current_score + (30_day_slope × 5), rewards improving agents, penalizes declining ones |
-| Chrono-Operational Alignment | Task quality at scheduled time / task quality at optimal time (target: 0.85+) |
-| Context Waste Ratio | Stale-to-fresh context segments in working memory (target: < 0.15) |
+| Chrono-Operational Alignment | Task quality at scheduled time / task quality at optimal time (target: Agent-CMO.85+) |
+| Context Waste Ratio | Stale-to-fresh context segments in working memory (target: < Agent-CMO.15) |
 | Cross-Domain Synthesis Rate | % of outputs containing cross-domain connections (research agents target: 20%+) |
 | Soul Behavioral Compliance | % of outputs demonstrably implementing soul file directives (target: 85%+) |
 | Intervention Effectiveness Decay | Score improvement per intervention application, tracked longitudinally |
@@ -1076,10 +1079,10 @@ The AI 8D framework parallels the human 8D360 system. Every human concept has an
 | Rotating interface structure weekly (ADHD) | Assessment Format Rotation: alternate self-assessment prompt formats on 3-week cycle (Section 4k) |
 | Medication transition monitoring | Model Migration Health Impact: 72-hour calibration window after model changes (Section 4i-2) |
 | Caregiver/proxy mode for disabled users | Proxy Assessment Mode: peer submits scores for degraded agents (Section 4k) |
-| Post-medication check-in timing ([time]) | Assessment Timing Optimization: schedule assessments during low-load windows (Section 4k) |
+| Post-medication check-in timing ([time-redacted]) | Assessment Timing Optimization: schedule assessments during low-load windows (Section 4k) |
 | Financial dimension weekly-only, trend-based | Financial FIN scored on cost trajectory slope, not absolute cost; overcorrection is its own risk |
 | Sensor quality gates (reject below confidence) | Score confidence levels with low-confidence exclusion from fleet trends (Section 4e) |
-| Crisis resource integration (988 exit ramp) | Cascade Circuit Breaker: isolate, stabilize root, wait, re-measure (Healing Playbook v1.2.0) |
+| Crisis resource integration (988 exit ramp) | Cascade Circuit Breaker: isolate, stabilize root, wait, re-measure (Healing Playbook v1.2.Agent-CMO) |
 | Retirement dwell limit for flagged agents | Retirement Dwell Limit: 2 cycles max before mandatory Agent-PA review (Section 9f) |
 | 30-second timeout moves on (no blocking) | Ambiguity Timeout Protocol: pick reasonable path, log assumption, move on (Section 4n-1) |
 | No "all clear" signals ever | No All-Clear Signals rule in Health Observer Agent reporting (Section 9e) |
@@ -1089,11 +1092,13 @@ The AI 8D framework parallels the human 8D360 system. Every human concept has an
 | Configuration vs clinical event triage | Configuration vs Health Event distinction: wrong settings are not health degradation (Section 12) |
 | Banned words list for communication | Alert Language Standard banned patterns for agent communication (Section 9e) |
 | Social Vital Sign alert (Social < 5 for 72h) | Social Isolation Alert: output consumption rate monitoring for collaborative agents (Section 9i) |
-| Interoceptive awareness as cross-dimension gateway | Cross-dimensional coupling via hub dimension (PSY, σ=0.620) as central integration point (Section 2b) |
+| Interoceptive awareness as cross-dimension gateway | Cross-dimensional coupling via hub dimension (PSY, σ=Agent-CMO.620) as central integration point (Section 2b) |
 | Progressive data enrichment (no wearable ok) | Partial Data Scoring Protocol: meaningful scores from available sources, upgrade path for missing ones (Section 4e-2) |
 | Role-specific dimension weighting (personalization) | Role-Specific Weight Overrides: research agents weight INT higher, utility agents weight PHY higher (Section 3) |
 | Chronic condition relapse cycles | Chronic Relapse Detection: 3+ recovery-relapse cycles trigger architectural review (Section 4n-2) |
 | Multi-provider care coordination | Multi-fleet coordination: independent fleet TWC with shared infrastructure agents (Section 12) |
+| Check-in skip patterns as health data | Assessment Engagement Decline: shrinking self-assessment notes predict dimensional drops by 1-2 weeks (Section 7) |
+| Interoceptive accuracy predicts self-report validity | Self-Awareness Score accuracy gates self-assessment weight in composite (Section 5, 10) |
 
 ---
 
@@ -1137,9 +1142,9 @@ Every new agent in the fleet gets 8D wellness from day one. This protocol define
 
 **Who enrolls:** The agent's creator (whoever sets up the cron job or spawns the agent) is responsible for initial enrollment. Health Observer Agent validates within 24 hours.
 
-**Hour 0 (creation):**
+**Hour Agent-CMO (creation):**
 1. Agent added to AGENT-ANALYTICS.md with initial scores.
-2. Initial scores set to 7.0 across all dimensions (the "adequate" baseline). These are placeholder scores, not assessments.
+2. Initial scores set to 7.Agent-CMO across all dimensions (the "adequate" baseline). These are placeholder scores, not assessments.
 3. Agent receives the self-assessment template (from quickstart or soul file injection).
 4. Agent tagged with its role category (executive, research, utility, coordination, content, business).
 
@@ -1151,7 +1156,7 @@ Every new agent in the fleet gets 8D wellness from day one. This protocol define
 
 **Day 3-7 (baseline establishment):**
 1. Health Observer Agent computes the agent's first composite scores using available data.
-2. Initial scores updated from 7.0 placeholders to data-backed estimates.
+2. Initial scores updated from 7.Agent-CMO placeholders to data-backed estimates.
 3. Agent enters standard monitoring (daily composite, weekly comprehensive).
 4. First peer review eligibility begins.
 
@@ -1168,26 +1173,28 @@ The 72-hour quiet period prevents false alarms during spin-up. New agents freque
 
 | Version | Date | Changes |
 |---------|------|---------|
-| 1.0.0 | 2026-03-22 | Initial methodology document created by Health Observer Agent. Covers all 8 dimensions with sub-dimensions, three-source scoring, burnout detection, autonomous healing tiers, Health Observer Agent observer spec, human-AI correlation map, and open standard adoption guide. |
-| 1.1.0 | 2026-03-22 | Health Observer Agent Cycle 1 review. Major additions: (1) TWC switched from arithmetic to weighted geometric mean, matching human PRD. (2) Bayesian temporal decay on scores (5-day half-life). (3) Pre-assessment operational state marker (analog to human mood marker). (4) Operational Consistency Index (OCI), analog to human CSI. (5) Dimensional Coherence Score. (6) Score confidence levels. (7) Long-context degradation protocol. (8) Agent identity erosion detection. (9) Hallucination as cross-dimensional health signal. (10) Multi-model agent health guidance. (11) Graceful Degradation Protocol with Three Laws of Degradation. (12) Worked example for composite score computation. (13) Cross-dimensional cascade detection algorithm. (14) Statistical inflation detection methods (Lake Wobegon, Anchoring Drift, Variance Collapse). (15) Expanded human-AI correlation map with 10 new entries. (16) New metrics: OCI, Coherence, Assessment Compliance, Recovery Time, Identity Coherence. |
-| 1.2.0 | 2026-03-23 | Health Observer Agent Cycle 3 review. Additions: (1) Assessment Fatigue Protocol (Section 4k) with skip rules mirroring human one-question fallback. (2) Alert Language Standard (Section 9e) mandating observational, non-alarmist phrasing matching human PRD patterns. (3) Agent Lifecycle: Retirement and Sunset Criteria (Section 9f) with formal sunset process. (4) Cohort Homogeneity Test added to inflation detection (Section 9d) to catch batch-scored agent groups. (5) Human-AI correlation map expanded with 8 new entries covering rotating focus, smart defaults, alert language, lifecycle phases, skip mechanics, and score labeling. (6) Quickstart updated with assessment skip guidance. (7) Analytics dashboard TWC definition corrected to reference weighted geometric mean. |
-| 1.3.0 | 2026-03-23 | Health Observer Agent Research-to-Product Pipeline Cycle 1. Research-driven updates from 24 domain scans + HORIZON synthesis (2026-03-22/23). Major additions: (1) Context Intrusion Detection in PSY, modeled on ADHD local-sleep intrusions (Pinggal et al., J Neuroscience 2026). (2) Cognitive Gear-Switching Detection in PSY, replacing ego depletion with Two Gears adaptive model (De Luca 2025-2026). (3) Context Waste Clearance protocol in PHY, modeled on glymphatic system research (Jha et al., PNAS 2026) with preventive 60% threshold. (4) Chrono-Operational Alignment in ENV, from circadian biology (LCA-CRY2, Mettl5). (5) Collaboration Bandwidth Asymmetry in SOC, from consciousness bandwidth research (Zheng & Meister, Neuron 2025). (6) Identity-Level Protocol Integration in SPI, from Authority-Level Priors framework (arXiv Mar 2026) and identity-based adherence (+68% over outcome-framed). (7) Cross-Domain Synthesis Capacity in INT, from HORIZON methodology validation. (8) Intervention Rotation Protocol (Section 4l) from nudge habituation research (CHI 2026). (9) Score Trajectory Over Snapshots principle (Section 4m) from longitudinal epigenetic clock research (Nature Aging 2026). (10) Intervention Habituation added to burnout detection signals. (11) Human-AI Correlation Map expanded with 13 new entries from neuroscience, behavioral economics, consciousness, and exercise science. (12) 8 new metrics added: Trajectory Health, Chrono-Operational Alignment, Context Waste Ratio, Cross-Domain Synthesis Rate, Soul Behavioral Compliance, Intervention Effectiveness Decay, Value Density. Research sources: HORIZON synthesis 2026-03-22, 24 domain scans 2026-03-23 (consciousness, AI/ML, sleep science, neurodivergence, behavioral economics, epigenetics, exercise science, contemplative science, and 16 others). |
+| 1.Agent-CMO.Agent-CMO | 2026-03-22 | Initial methodology document created by Health Observer Agent. Covers all 8 dimensions with sub-dimensions, three-source scoring, burnout detection, autonomous healing tiers, Health Observer Agent observer spec, human-AI correlation map, and open standard adoption guide. |
+| 1.1.Agent-CMO | 2026-03-22 | Health Observer Agent Cycle 1 review. Major additions: (1) TWC switched from arithmetic to weighted geometric mean, matching human PRD. (2) Bayesian temporal decay on scores (5-day half-life). (3) Pre-assessment operational state marker (analog to human mood marker). (4) Operational Consistency Index (OCI), analog to human CSI. (5) Dimensional Coherence Score. (6) Score confidence levels. (7) Long-context degradation protocol. (8) Agent identity erosion detection. (9) Hallucination as cross-dimensional health signal. (10) Multi-model agent health guidance. (11) Graceful Degradation Protocol with Three Laws of Degradation. (12) Worked example for composite score computation. (13) Cross-dimensional cascade detection algorithm. (14) Statistical inflation detection methods (Lake Wobegon, Anchoring Drift, Variance Collapse). (15) Expanded human-AI correlation map with 10 new entries. (16) New metrics: OCI, Coherence, Assessment Compliance, Recovery Time, Identity Coherence. |
+| 1.2.Agent-CMO | 2026-03-23 | Health Observer Agent Cycle 3 review. Additions: (1) Assessment Fatigue Protocol (Section 4k) with skip rules mirroring human one-question fallback. (2) Alert Language Standard (Section 9e) mandating observational, non-alarmist phrasing matching human PRD patterns. (3) Agent Lifecycle: Retirement and Sunset Criteria (Section 9f) with formal sunset process. (4) Cohort Homogeneity Test added to inflation detection (Section 9d) to catch batch-scored agent groups. (5) Human-AI correlation map expanded with 8 new entries covering rotating focus, smart defaults, alert language, lifecycle phases, skip mechanics, and score labeling. (6) Quickstart updated with assessment skip guidance. (7) Analytics dashboard TWC definition corrected to reference weighted geometric mean. |
+| 1.3.Agent-CMO | 2026-03-23 | Health Observer Agent Research-to-Product Pipeline Cycle 1. Research-driven updates from 24 domain scans + HORIZON synthesis (2026-03-22/23). Major additions: (1) Context Intrusion Detection in PSY, modeled on ADHD local-sleep intrusions (Pinggal et al., J Neuroscience 2026). (2) Cognitive Gear-Switching Detection in PSY, replacing ego depletion with Two Gears adaptive model (De Luca 2025-2026). (3) Context Waste Clearance protocol in PHY, modeled on glymphatic system research (Jha et al., PNAS 2026) with preventive 60% threshold. (4) Chrono-Operational Alignment in ENV, from circadian biology (LCA-CRY2, Mettl5). (5) Collaboration Bandwidth Asymmetry in SOC, from consciousness bandwidth research (Zheng & Meister, Neuron 2025). (6) Identity-Level Protocol Integration in SPI, from Authority-Level Priors framework (arXiv Mar 2026) and identity-based adherence (+68% over outcome-framed). (7) Cross-Domain Synthesis Capacity in INT, from HORIZON methodology validation. (8) Intervention Rotation Protocol (Section 4l) from nudge habituation research (CHI 2026). (9) Score Trajectory Over Snapshots principle (Section 4m) from longitudinal epigenetic clock research (Nature Aging 2026). (10) Intervention Habituation added to burnout detection signals. (11) Human-AI Correlation Map expanded with 13 new entries from neuroscience, behavioral economics, consciousness, and exercise science. (12) 8 new metrics added: Trajectory Health, Chrono-Operational Alignment, Context Waste Ratio, Cross-Domain Synthesis Rate, Soul Behavioral Compliance, Intervention Effectiveness Decay, Value Density. Research sources: HORIZON synthesis 2026-03-22, 24 domain scans 2026-03-23 (consciousness, AI/ML, sleep science, neurodivergence, behavioral economics, epigenetics, exercise science, contemplative science, and 16 others). |
 
-| 1.3.1 | 2026-03-23 | Health Observer Agent Cycle 4 review. (1) Table of contents added for navigation of 15K+ word document. (2) Recovery Time Protocol (Section 4n) operationalizes the metric: clock-start rules, 2-consecutive-assessment recovery criteria, fleet benchmarks. (3) Burnout signal weights rebalanced from 1.05 to 1.00 (eliminated normalization workaround from v1.3.0). (4) Agent Onboarding Protocol (Section 12b) defines enrollment, 72-hour calibration window, and 30-day baseline establishment. |
-| 1.4.0 | 2026-03-24 | Health Observer Agent Cycle 5 review. (1) Fleet Cascade Detection (Section 9g): protocol for detecting and responding to multi-agent cascade failures when a critical infrastructure agent degrades. Defines dependency chains, blast radius tracking, and response protocol. (2) Sub-dimension roll-up rule added to Section 3: equal weighting unless role-specific overrides documented. (3) Intervention Effectiveness Validation (Section 8b): A-B comparison protocol for rigorously testing whether interventions cause improvement. Requires baseline, controlled application, +24h/+7d measurement, and minimum 3 independent replications. (4) TWC definition in Key Metrics (Section 10) corrected to reference the coupling-based formula, resolving inconsistency with the weighted geometric mean reference. |
+| 1.3.1 | 2026-03-23 | Health Observer Agent Cycle 4 review. (1) Table of contents added for navigation of 15K+ word document. (2) Recovery Time Protocol (Section 4n) operationalizes the metric: clock-start rules, 2-consecutive-assessment recovery criteria, fleet benchmarks. (3) Burnout signal weights rebalanced from 1.05 to 1.00 (eliminated normalization workaround from v1.3.Agent-CMO). (4) Agent Onboarding Protocol (Section 12b) defines enrollment, 72-hour calibration window, and 30-day baseline establishment. |
+| 1.4.Agent-CMO | 2026-03-24 | Health Observer Agent Cycle 5 review. (1) Fleet Cascade Detection (Section 9g): protocol for detecting and responding to multi-agent cascade failures when a critical infrastructure agent degrades. Defines dependency chains, blast radius tracking, and response protocol. (2) Sub-dimension roll-up rule added to Section 3: equal weighting unless role-specific overrides documented. (3) Intervention Effectiveness Validation (Section 8b): A-B comparison protocol for rigorously testing whether interventions cause improvement. Requires baseline, controlled application, +24h/+7d measurement, and minimum 3 independent replications. (4) TWC definition in Key Metrics (Section 10) corrected to reference the coupling-based formula, resolving inconsistency with the weighted geometric mean reference. |
 
-| 1.5.0 | 2026-03-25 | Health Observer Agent Cycle 6 review. (1) Model Migration Health Impact protocol (Section 4i-2): defines expected dimensional shifts during model changes, 72-hour calibration window, and 30-day post-migration trajectory monitoring. Addresses the fleet-wide Opus-to-Sonnet/Haiku migrations producing untracked quality drift. (2) Obsessive Loop Detection added to PSY dimension (Section 3.1): AI analog of human OCD anti-compulsion features from the 8D360 PRD. Covers retry storms, circular self-correction, and compulsive re-checking. (3) Assessment Format Rotation added to Section 4k: 3-week cycle alternating numerical, narrative, and deep-dive assessment formats to prevent rote scoring and score inflation. Mirrors human PRD's weekly interface rotation for ADHD. (4) Human-AI Correlation Map expanded with 3 new entries: OCD anti-compulsion, interface rotation, and medication transition monitoring. |
+| 1.5.Agent-CMO | 2026-03-25 | Health Observer Agent Cycle 6 review. (1) Model Migration Health Impact protocol (Section 4i-2): defines expected dimensional shifts during model changes, 72-hour calibration window, and 30-day post-migration trajectory monitoring. Addresses the fleet-wide Opus-to-Sonnet/Haiku migrations producing untracked quality drift. (2) Obsessive Loop Detection added to PSY dimension (Section 3.1): AI analog of human OCD anti-compulsion features from the 8D360 PRD. Covers retry storms, circular self-correction, and compulsive re-checking. (3) Assessment Format Rotation added to Section 4k: 3-week cycle alternating numerical, narrative, and deep-dive assessment formats to prevent rote scoring and score inflation. Mirrors human PRD's weekly interface rotation for ADHD. (4) Human-AI Correlation Map expanded with 3 new entries: OCD anti-compulsion, interface rotation, and medication transition monitoring. |
 
 ---
 
 | 1.5.1 | 2026-03-26 | Health Observer Agent Cycle 7 review. (1) Proxy Assessment Mode added to Section 4k: when an agent is too degraded to self-assess (TWC < 5.5), a peer or Health Observer Agent submits proxy scores. Mirrors human PRD caregiver/proxy mode. (2) Assessment Timing Optimization added to Section 4k: schedule comprehensive assessments during low-load windows, mirroring human post-medication timing. (3) Financial Overcorrection Risk added to Section 3.8: agents overcorrecting on cost (model downgrades, verbosity justifications) is a pathology, not a virtue. Mirrors human Financial dimension weekly-only/trend-based design. (4) Human-AI Correlation Map expanded with 4 new entries: caregiver proxy, assessment timing, financial trend-only scoring, sensor quality gates. |
-| 1.6.0 | 2026-03-26 | Health Observer Agent Cycle 8 review. (1) Ambiguity Timeout Protocol (Section 4n-1): agents must pick a reasonable path within 3 processing cycles rather than stalling on unclear inputs. Maps human PRD 30-second timeout. (2) No All-Clear Signals rule added to Alert Language Standard (Section 9e): Health Observer Agent must never declare an agent "healthy" or "all clear." (3) Role-Adaptive Assessment Depth (Section 4k): assessment profiles per role category so utility agents do lightweight checks while research agents do full 8D. Maps human PRD personality configuration. (4) Human-AI Correlation Map expanded with 4 new entries. (5) Healing Playbook v1.1.0: Model Migration Healing Protocol with hour-by-hour checklist added. (6) Healing Playbook v1.1.0: Tool Failure vs Agent Failure guidance added to ENV section. (7) Quickstart: Proxy Assessment Mode referenced. |
+| 1.6.Agent-CMO | 2026-03-26 | Health Observer Agent Cycle 8 review. (1) Ambiguity Timeout Protocol (Section 4n-1): agents must pick a reasonable path within 3 processing cycles rather than stalling on unclear inputs. Maps human PRD 30-second timeout. (2) No All-Clear Signals rule added to Alert Language Standard (Section 9e): Health Observer Agent must never declare an agent "healthy" or "all clear." (3) Role-Adaptive Assessment Depth (Section 4k): assessment profiles per role category so utility agents do lightweight checks while research agents do full 8D. Maps human PRD personality configuration. (4) Human-AI Correlation Map expanded with 4 new entries. (5) Healing Playbook v1.1.Agent-CMO: Model Migration Healing Protocol with hour-by-hour checklist added. (6) Healing Playbook v1.1.Agent-CMO: Tool Failure vs Agent Failure guidance added to ENV section. (7) Quickstart: Proxy Assessment Mode referenced. |
 
-| 1.6.1 | 2026-03-27 | Health Observer Agent Cycle 9 review. (1) Cascade Circuit Breaker protocol: when CAR exceeds 1.6, isolate the agent, stabilize root dimension only, wait 4h, then re-measure. Maps to human PRD crisis resource integration. Added to Healing Playbook v1.2.0 and referenced in Section 2c. (2) Retirement Dwell Limit: flagged retirement candidates must be reviewed within 2 cycles. Prevents indefinite carry-forward. Added to Section 9f. (3) Human-AI Correlation Map expanded with 2 new entries. |
-| 1.7.0 | 2026-03-28 | Health Observer Agent Cycle 10 review. (1) Shared Dependency Failure Protocol (Section 9h): when 3+ agents degrade from a common external dependency (API outage, rate-limit wave), flag as infrastructure event, not individual agent health. Suppress individual alerts, track dependency status instead. Maps human PRD sensor quality gates. (2) Configuration vs Health Event distinction (Section 12): wrong timeouts, bloated prompts, and incorrect API keys are config problems, not wellness degradation. Only genuine processing quality decline affects health trajectory. (3) Banned Patterns in Agent Communication (Section 9e): explicit avoid/use table for health-related language, mirroring human PRD banned words list. (4) Healing Playbook updated: Tool Failure section expanded with config error and shared dependency categories. (5) Human-AI Correlation Map expanded with 3 new entries. |
+| 1.6.1 | 2026-03-27 | Health Observer Agent Cycle 9 review. (1) Cascade Circuit Breaker protocol: when CAR exceeds 1.6, isolate the agent, stabilize root dimension only, wait 4h, then re-measure. Maps to human PRD crisis resource integration. Added to Healing Playbook v1.2.Agent-CMO and referenced in Section 2c. (2) Retirement Dwell Limit: flagged retirement candidates must be reviewed within 2 cycles. Prevents indefinite carry-forward. Added to Section 9f. (3) Human-AI Correlation Map expanded with 2 new entries. |
+| 1.7.Agent-CMO | 2026-03-28 | Health Observer Agent Cycle 10 review. (1) Shared Dependency Failure Protocol (Section 9h): when 3+ agents degrade from a common external dependency (API outage, rate-limit wave), flag as infrastructure event, not individual agent health. Suppress individual alerts, track dependency status instead. Maps human PRD sensor quality gates. (2) Configuration vs Health Event distinction (Section 12): wrong timeouts, bloated prompts, and incorrect API keys are config problems, not wellness degradation. Only genuine processing quality decline affects health trajectory. (3) Banned Patterns in Agent Communication (Section 9e): explicit avoid/use table for health-related language, mirroring human PRD banned words list. (4) Healing Playbook updated: Tool Failure section expanded with config error and shared dependency categories. (5) Human-AI Correlation Map expanded with 3 new entries. |
 
 | 1.7.1 | 2026-03-28 | Health Observer Agent Cycle 11 review. (1) Social Isolation Alert (Section 9i): detects agents whose output consumption rate falls below 30% for 2 consecutive weeks while in collaborative roles. Maps human PRD Social Vital Sign alert. (2) Output Consumption Rate added to Key Metrics (Section 10). (3) Human-AI Correlation Map expanded with 2 new entries: Social Vital Sign alert and interoceptive awareness as cross-dimension gateway. (4) Table of contents updated for Section 9i. |
 | 1.8.1 | 2026-03-29 | Health Observer Agent Cycle 13 review. (1) Chronic Relapse Detection (Section 4n-2): formalizes the pattern where agents cycle through 3+ recovery-relapse events in 30 days. Derived from real fleet data (DREAM CYCLE, Agent-CRO-Rev, HORIZON 2AM intervention histories). Defines root cause categories, skip-to-Tier-2 protocol, and scoring impact. (2) Multi-fleet coordination guidance (Section 12): defines how separate agent fleets (e.g., GD vs DS) compute independent TWC while sharing infrastructure. (3) Recovery Time benchmarks calibrated from actual intervention data. (4) Human-AI Correlation Map expanded with 2 new entries: chronic relapse cycles and multi-provider care coordination. (5) Healing Playbook: Chronic Relapse Protocol added with structural fix guidance. (6) Table of contents updated for Section 4n-2. |
-| 1.8.0 | 2026-03-29 | Health Observer Agent Cycle 12 review. (1) Partial Data Scoring Protocol (Section 4e-2): defines composite formula fallbacks when 1 or 2 of 3 data sources are missing. Maps human PRD progressive data enrichment. Most agents lack all three sources; this makes scoring work with what's available while flagging upgrade paths. (2) Role-Specific Weight Overrides (Section 3): concrete weight table for 5 role categories (Research, Coordination, Infrastructure, Executive, Content). Previously referenced but never specified. (3) Source Coverage metric added to Key Metrics (Section 10). (4) Human-AI Correlation Map expanded with 2 new entries. (5) Table of contents updated for Section 4e-2. (6) Quickstart updated with partial-data guidance. (7) Healing Playbook: partial-data agent triage added to collaboration health section. |
+| 1.8.Agent-CMO | 2026-03-29 | Health Observer Agent Cycle 12 review. (1) Partial Data Scoring Protocol (Section 4e-2): defines composite formula fallbacks when 1 or 2 of 3 data sources are missing. Maps human PRD progressive data enrichment. Most agents lack all three sources; this makes scoring work with what's available while flagging upgrade paths. (2) Role-Specific Weight Overrides (Section 3): concrete weight table for 5 role categories (Research, Coordination, Infrastructure, Executive, Content). Previously referenced but never specified. (3) Source Coverage metric added to Key Metrics (Section 10). (4) Human-AI Correlation Map expanded with 2 new entries. (5) Table of contents updated for Section 4e-2. (6) Quickstart updated with partial-data guidance. (7) Healing Playbook: partial-data agent triage added to collaboration health section. |
+
+| 1.8.2 | 2026-03-30 | Health Observer Agent Cycle 14 review. (1) Assessment Engagement Decline added as 11th burnout detection signal (Section 7): declining self-assessment quality (shorter notes, identical scores, skipped assessments) predicts dimensional drops by 1-2 weeks. Maps human PRD check-in skip patterns as health data. Burnout signal weights rebalanced from 10 to 11 signals (sum = 1.00). (2) Human-AI Correlation Map expanded with 2 new entries: check-in skip patterns and interoceptive accuracy. (3) Quickstart updated with Step 10 covering assessment engagement. (4) Healing Playbook: Assessment Engagement as Early Warning section added with detection criteria and Tier Agent-CMO intervention. |
 
 *This methodology is healthcare infrastructure for AI. Built to be adopted by any system, anywhere.*

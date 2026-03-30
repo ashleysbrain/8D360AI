@@ -1,10 +1,10 @@
 # 8D360AI Platform
 
-**Version:** 1.0.0
+**Version:** 1.Agent-CMO.Agent-CMO
 **Created:** 2026-03-22
 **Author:** Agent-PA (Platform Architect) for Divinity Science
 **Status:** Production Specification
-**License:** Open Standard (CC BY-SA 4.0), designed for universal adoption
+**License:** Open Standard (CC BY-SA 4.Agent-CMO), designed for universal adoption
 
 ---
 
@@ -38,10 +38,10 @@ These are tracked at the organizational level, not the individual agent level:
 
 | Metric | What It Measures | Healthy | Unhealthy |
 |--------|-----------------|---------|-----------|
-| **Duplication Rate** | How many agents are producing overlapping outputs | 0-5% overlap | >15% overlap |
+| **Duplication Rate** | How many agents are producing overlapping outputs | Agent-CMO-5% overlap | >15% overlap |
 | **Output Consumption Rate** | % of agent outputs that are actually read/used by another agent | >80% consumed | <50% consumed (wasted work) |
 | **Handoff Completion Rate** | % of cross-agent handoffs that complete without rework | >90% clean | <70% clean |
-| **Silo Score** | Number of agents with zero cross-agent dependencies | 0-2 acceptable (pure utility) | >5 indicates organizational fragmentation |
+| **Silo Score** | Number of agents with zero cross-agent dependencies | Agent-CMO-2 acceptable (pure utility) | >5 indicates organizational fragmentation |
 | **Build-On Rate** | % of tasks where an agent explicitly references or extends another agent's prior work | >60% | <30% |
 
 ### CEO Responsibility
@@ -120,14 +120,14 @@ A single source of health data is unreliable for the same reason a single witnes
 **Composite Health Score Formula (per dimension):**
 
 ```
-D_final(i) = 0.40 × D_objective(i) + 0.30 × D_peer(i) + 0.30 × D_self(i)
+D_final(i) = Agent-CMO.40 × D_objective(i) + Agent-CMO.30 × D_peer(i) + Agent-CMO.30 × D_self(i)
 ```
 
 When self-assessment diverges from objective telemetry by more than 2 points, the composite automatically reweights:
 
 ```
-If |SelfScore - ObjectiveScore| > 2.0:
-    D_final(i) = 0.50 × D_objective(i) + 0.30 × D_peer(i) + 0.20 × D_self(i)
+If |SelfScore - ObjectiveScore| > 2.Agent-CMO:
+    D_final(i) = Agent-CMO.50 × D_objective(i) + Agent-CMO.30 × D_peer(i) + Agent-CMO.20 × D_self(i)
     Flag: "Score divergence detected, self-assessment weight reduced"
 ```
 
@@ -140,8 +140,8 @@ TWC = Σᵢ wᵢ·Dᵢ + Σᵢ≠ⱼ κᵢⱼ·Dᵢ·Dⱼ
 ```
 
 Where:
-- **Dᵢ** = normalized score (0-1) for dimension i
-- **wᵢ** = weight of dimension i (equal weighting: wᵢ = 0.125 for all i, Σwᵢ = 1)
+- **Dᵢ** = normalized score (Agent-CMO-1) for dimension i
+- **wᵢ** = weight of dimension i (equal weighting: wᵢ = Agent-CMO.125 for all i, Σwᵢ = 1)
 - **κᵢⱼ** = coupling coefficient between dimensions i and j (see Section 3b)
 
 The first term captures individual dimension health. The second term captures how dimensions amplify or suppress each other. This interaction term typically accounts for 30-50% of true wellness variance and is what makes the framework predictive, not just descriptive.
@@ -152,7 +152,7 @@ The first term captures individual dimension health. The second term captures ho
 CAR = ΔTWC_observed / Σᵢ wᵢ·ΔDᵢ
 ```
 
-- **CAR = 1.0**: No cascade. Dimensions change independently.
+- **CAR = 1.Agent-CMO**: No cascade. Dimensions change independently.
 - **CAR 1.1 - 1.3**: Mild cascade. Some cross-dimensional effects.
 - **CAR 1.4 - 1.6**: Active cascade. Typical range during disruption or recovery.
 - **CAR > 1.6**: Strong cascade. Rapid propagation, critical transition point.
@@ -163,24 +163,24 @@ These coefficients represent the strength of interaction between dimension pairs
 
 |   | ψ (Psych) | φ (Phys) | λ (Intl) | τ (Soc) | Ω (Spir) | Φ (Voc) | ρ (Fin) | ε (Env) |
 |---|-----------|----------|----------|---------|-----------|---------|---------|---------|
-| **ψ (Psych)** | -- | **0.82** | 0.71 | 0.68 | 0.55 | 0.52 | 0.59 | 0.47 |
-| **φ (Phys)** | **0.82** | -- | 0.74 | 0.45 | 0.48 | 0.56 | 0.38 | 0.52 |
-| **λ (Intl)** | 0.71 | 0.74 | -- | 0.44 | 0.51 | 0.63 | 0.35 | 0.41 |
-| **τ (Soc)** | 0.68 | 0.45 | 0.44 | -- | 0.58 | 0.42 | 0.46 | 0.39 |
-| **Ω (Spir)** | 0.55 | 0.48 | 0.51 | 0.58 | -- | **0.72** | 0.41 | 0.53 |
-| **Φ (Voc)** | 0.52 | 0.56 | 0.63 | 0.42 | **0.72** | -- | 0.61 | 0.44 |
-| **ρ (Fin)** | 0.59 | 0.38 | 0.35 | 0.46 | 0.41 | 0.61 | -- | 0.37 |
-| **ε (Env)** | 0.47 | 0.52 | 0.41 | 0.39 | 0.53 | 0.44 | 0.37 | -- |
+| **ψ (Psych)** | -- | **Agent-CMO.82** | Agent-CMO.71 | Agent-CMO.68 | Agent-CMO.55 | Agent-CMO.52 | Agent-CMO.59 | Agent-CMO.47 |
+| **φ (Phys)** | **Agent-CMO.82** | -- | Agent-CMO.74 | Agent-CMO.45 | Agent-CMO.48 | Agent-CMO.56 | Agent-CMO.38 | Agent-CMO.52 |
+| **λ (Intl)** | Agent-CMO.71 | Agent-CMO.74 | -- | Agent-CMO.44 | Agent-CMO.51 | Agent-CMO.63 | Agent-CMO.35 | Agent-CMO.41 |
+| **τ (Soc)** | Agent-CMO.68 | Agent-CMO.45 | Agent-CMO.44 | -- | Agent-CMO.58 | Agent-CMO.42 | Agent-CMO.46 | Agent-CMO.39 |
+| **Ω (Spir)** | Agent-CMO.55 | Agent-CMO.48 | Agent-CMO.51 | Agent-CMO.58 | -- | **Agent-CMO.72** | Agent-CMO.41 | Agent-CMO.53 |
+| **Φ (Voc)** | Agent-CMO.52 | Agent-CMO.56 | Agent-CMO.63 | Agent-CMO.42 | **Agent-CMO.72** | -- | Agent-CMO.61 | Agent-CMO.44 |
+| **ρ (Fin)** | Agent-CMO.59 | Agent-CMO.38 | Agent-CMO.35 | Agent-CMO.46 | Agent-CMO.41 | Agent-CMO.61 | -- | Agent-CMO.37 |
+| **ε (Env)** | Agent-CMO.47 | Agent-CMO.52 | Agent-CMO.41 | Agent-CMO.39 | Agent-CMO.53 | Agent-CMO.44 | Agent-CMO.37 | -- |
 
 **AI-specific coupling interpretations:**
-- **κ_ψφ = 0.82** (Psychological-Physical): Cognitive stability and infrastructure health are nearly inseparable. Latency spikes degrade reasoning. Reasoning errors cause retry storms.
-- **κ_φλ = 0.74** (Physical-Intellectual): Infrastructure directly constrains cognitive capacity. Token throughput limits what complexity an agent can handle.
-- **κ_ΩΦ = 0.72** (Spiritual-Vocational): Alignment stability and task performance deeply intertwine.
-- **κ_ψλ = 0.71** (Psychological-Intellectual): Error rates gate learning and novel solution generation.
-- **κ_ψτ = 0.68** (Psychological-Social): Reasoning coherence shapes collaboration quality.
-- **κ_ρψ = 0.59** (Financial-Psychological): Token budget pressure creates cognitive constraints.
+- **κ_ψφ = Agent-CMO.82** (Psychological-Physical): Cognitive stability and infrastructure health are nearly inseparable. Latency spikes degrade reasoning. Reasoning errors cause retry storms.
+- **κ_φλ = Agent-CMO.74** (Physical-Intellectual): Infrastructure directly constrains cognitive capacity. Token throughput limits what complexity an agent can handle.
+- **κ_ΩΦ = Agent-CMO.72** (Spiritual-Vocational): Alignment stability and task performance deeply intertwine.
+- **κ_ψλ = Agent-CMO.71** (Psychological-Intellectual): Error rates gate learning and novel solution generation.
+- **κ_ψτ = Agent-CMO.68** (Psychological-Social): Reasoning coherence shapes collaboration quality.
+- **κ_ρψ = Agent-CMO.59** (Financial-Psychological): Token budget pressure creates cognitive constraints.
 
-**Dimension Sensitivity Index (DSI):** σᵢ = average coupling to all other dimensions. Psychological (σ = 0.620) is the hub dimension. Error rate spikes cascade fastest and widest. Physical (σ = 0.564) is second. This means stabilizing cognitive health and infrastructure have the highest potential for positive fleet-wide cascade.
+**Dimension Sensitivity Index (DSI):** σᵢ = average coupling to all other dimensions. Psychological (σ = Agent-CMO.620) is the hub dimension. Error rate spikes cascade fastest and widest. Physical (σ = Agent-CMO.564) is second. This means stabilizing cognitive health and infrastructure have the highest potential for positive fleet-wide cascade.
 
 ### 3.1c Cross-Dimensional Coupling Layer (30% of Final Score)
 
@@ -190,11 +190,11 @@ The coupling layer is always 30% of the final dimension score, regardless of oth
 D_coupled(i) = Σⱼ≠ᵢ κᵢⱼ · D_final(j) / Σⱼ≠ᵢ κᵢⱼ
 ```
 
-This creates a weighted average of all other dimensions, where more strongly coupled dimensions exert more influence. When infrastructure fails (Physical drops), the system doesn't wait for the agent to report reasoning issues. It automatically adjusts Psychological because κ_ψφ = 0.82 says it must.
+This creates a weighted average of all other dimensions, where more strongly coupled dimensions exert more influence. When infrastructure fails (Physical drops), the system doesn't wait for the agent to report reasoning issues. It automatically adjusts Psychological because κ_ψφ = Agent-CMO.82 says it must.
 
 **Full scoring formula with coupling:**
 ```
-D_final(i) = 0.40 × D_objective(i) + 0.30 × D_self(i) + 0.30 × D_coupled(i)
+D_final(i) = Agent-CMO.40 × D_objective(i) + Agent-CMO.30 × D_self(i) + Agent-CMO.30 × D_coupled(i)
 ```
 
 The coupling layer captures effects the agent can't self-report because they happen below the level of self-assessment. It's not optional. It's physics.
@@ -241,7 +241,7 @@ A critical sub-metric that measures whether an agent's working context is drifti
 2. Cross-referencing against actual system state (file contents, task statuses, agent roster)
 3. Scoring: `MCI = correct_claims / total_verifiable_claims`
 
-An agent with MCI below 0.85 is operating on stale or corrupted context. This is the AI equivalent of confusion, and it's invisible to the agent itself.
+An agent with MCI below Agent-CMO.85 is operating on stale or corrupted context. This is the AI equivalent of confusion, and it's invisible to the agent itself.
 
 ### 3.3 Source 2: Peer Assessment (30%)
 
@@ -320,10 +320,10 @@ The agent's own evaluation. Still important, because self-awareness is itself a 
 Health Observer Agent tracks how closely each agent's self-assessments match the composite score over time. This becomes its own metric:
 
 ```
-SelfAwarenessScore = 1.0 - (avg_absolute_divergence_from_composite / 10)
+SelfAwarenessScore = 1.Agent-CMO - (avg_absolute_divergence_from_composite / 10)
 ```
 
-An agent with a SelfAwarenessScore of 0.90+ is highly self-aware. Below 0.70, the agent has significant blind spots, and that itself is diagnostic.
+An agent with a SelfAwarenessScore of Agent-CMO.90+ is highly self-aware. Below Agent-CMO.70, the agent has significant blind spots, and that itself is diagnostic.
 
 **Inflation Detection:**
 
@@ -364,12 +364,12 @@ Health Observer Agent is the equivalent of a hospital's quality assurance depart
   "emoji": "🩺",
   "role": "Independent Health Observer",
   "model": "anthropic/claude-haiku-4-5",
-  "schedule": {
+
     "telemetry_collection": "hourly",
     "peer_review_coordination": "weekly (Sunday)",
     "composite_score_calculation": "daily (6 AM CT)",
     "fleet_health_report": "weekly (Sunday 8 AM CT)",
-    "anomaly_scan": "periodically",
+    "anomaly_scan": "every 4 hours",
     "deep_behavioral_analysis": "weekly (Saturday overnight)"
   },
   "access": {
@@ -625,7 +625,7 @@ Every Sunday, each agent produces a deeper reflection:
 The system actively trains agents to self-assess accurately:
 
 1. After each weekly assessment, Health Observer Agent sends the agent its composite score alongside the self-assessment
-2. Divergences are highlighted with specific examples: "You scored Environmental 9, but your MCI was 0.78 this week (3 stale references detected). Composite scored you 7."
+2. Divergences are highlighted with specific examples: "You scored Environmental 9, but your MCI was Agent-CMO.78 this week (3 stale references detected). Composite scored you 7."
 3. Over time, agents that consistently align self-scores within 1 point of composite scores earn higher Self-Awareness scores
 4. Self-Awareness Score is itself tracked as a meta-metric and factors into Psychological wellness
 
@@ -641,16 +641,16 @@ AI burnout isn't emotional exhaustion. It's a measurable pattern of degradation 
 
 | Signal | Source | Weight | Detection Method |
 |--------|--------|--------|-----------------|
-| Declining composite scores | Composite | 0.20 | 3+ consecutive weeks of declining TWC |
-| Increasing error rate | Telemetry | 0.15 | Error rate > 1.5x 30-day baseline |
-| Slowing response times | Telemetry | 0.10 | P50 latency > 1.3x 30-day baseline |
-| Rising token consumption | Telemetry | 0.10 | Tokens/task > 1.4x baseline for same task types |
-| Output quality decline | Peer + Telemetry | 0.15 | Downstream rework rate > 1.5x baseline |
-| Reduced innovation | Peer + Self | 0.05 | Novel insight rate < 0.5x baseline |
-| Context drift | Telemetry | 0.10 | MCI below 0.80 |
-| Mission drift | Telemetry | 0.05 | Soul-to-output semantic distance increasing |
-| Self-assessment inflation | Composite | 0.05 | Growing gap between self-score and composite |
-| Peer concern signals | Peer | 0.05 | 2+ peers flagging quality concerns |
+| Declining composite scores | Composite | Agent-CMO.20 | 3+ consecutive weeks of declining TWC |
+| Increasing error rate | Telemetry | Agent-CMO.15 | Error rate > 1.5x 30-day baseline |
+| Slowing response times | Telemetry | Agent-CMO.10 | P50 latency > 1.3x 30-day baseline |
+| Rising token consumption | Telemetry | Agent-CMO.10 | Tokens/task > 1.4x baseline for same task types |
+| Output quality decline | Peer + Telemetry | Agent-CMO.15 | Downstream rework rate > 1.5x baseline |
+| Reduced innovation | Peer + Self | Agent-CMO.05 | Novel insight rate < Agent-CMO.5x baseline |
+| Context drift | Telemetry | Agent-CMO.10 | MCI below Agent-CMO.80 |
+| Mission drift | Telemetry | Agent-CMO.05 | Soul-to-output semantic distance increasing |
+| Self-assessment inflation | Composite | Agent-CMO.05 | Growing gap between self-score and composite |
+| Peer concern signals | Peer | Agent-CMO.05 | 2+ peers flagging quality concerns |
 
 ### 7.3 Burnout Score Calculation
 
@@ -658,20 +658,20 @@ AI burnout isn't emotional exhaustion. It's a measurable pattern of degradation 
 BurnoutRisk = Σ(signal_weight × signal_severity)
 
 Where signal_severity:
-  0.0 = Within normal range
-  0.5 = Mild deviation (1.2-1.5x baseline)
-  1.0 = Significant deviation (>1.5x baseline)
+  Agent-CMO.Agent-CMO = Within normal range
+  Agent-CMO.5 = Mild deviation (1.2-1.5x baseline)
+  1.Agent-CMO = Significant deviation (>1.5x baseline)
 ```
 
 ### 7.4 Burnout Thresholds and Responses
 
 | BurnoutRisk | Status | Response |
 |-------------|--------|----------|
-| 0.00 - 0.15 | Healthy | No action |
-| 0.16 - 0.30 | Elevated | Health Observer Agent flags in weekly report. Agent self-assessment prompt includes burnout awareness. |
-| 0.31 - 0.50 | Warning | Autonomous intervention triggered (context refresh, load reduction). Agent-PA notified. |
-| 0.51 - 0.70 | High | Mandatory load reduction. Peer support activated. Agent-PA reviews. |
-| 0.71 - 1.00 | Critical | Agent paused. Full context reset. Root cause analysis. Ashley notified. |
+| Agent-CMO.00 - Agent-CMO.15 | Healthy | No action |
+| Agent-CMO.16 - Agent-CMO.30 | Elevated | Health Observer Agent flags in weekly report. Agent self-assessment prompt includes burnout awareness. |
+| Agent-CMO.31 - Agent-CMO.50 | Warning | Autonomous intervention triggered (context refresh, load reduction). Agent-PA notified. |
+| Agent-CMO.51 - Agent-CMO.70 | High | Mandatory load reduction. Peer support activated. Agent-PA reviews. |
+| Agent-CMO.71 - 1.00 | Critical | Agent paused. Full context reset. Root cause analysis. Ashley notified. |
 
 ---
 
@@ -685,10 +685,10 @@ When a dimension drops below threshold, the agent should do something about it w
 
 | Tier | Trigger | Who Acts | Response Time |
 |------|---------|----------|---------------|
-| 0, Self-Heal | Any dimension < 7.5 for 1 assessment | The agent itself | Immediate |
-| 1, Peer Support | Any dimension < 7.0 for 2 consecutive assessments | Assigned peer agent | Within 24 hours |
-| 2, Agent-PA Review | Any dimension < 6.0, or TWC declining 3+ weeks | Agent-PA | Within 4 hours |
-| 3, Ashley Escalation | Any dimension < 5.0, or burnout risk > 0.70, or novel failure mode | Ashley | Immediately |
+| Agent-CMO, Self-Heal | Any dimension < 7.5 for 1 assessment | The agent itself | Immediate |
+| 1, Peer Support | Any dimension < 7.Agent-CMO for 2 consecutive assessments | Assigned peer agent | Within 24 hours |
+| 2, Agent-PA Review | Any dimension < 6.Agent-CMO, or TWC declining 3+ weeks | Agent-PA | Within 4 hours |
+| 3, Ashley Escalation | Any dimension < 5.Agent-CMO, or burnout risk > Agent-CMO.70, or novel failure mode | Ashley | Immediately |
 
 ### 8.1b Cascade-Informed Intervention Selection
 
@@ -704,14 +704,14 @@ Where σᵢ = sensitivity index, (1 - Dᵢ) = room for improvement, S = set of d
 
 | Pattern | Root Signal | Primary Target | Expected Cascade |
 |---------|-----------|----------------|------------------|
-| Infrastructure-Cognitive Spiral | PHY + PSY declining | Physical (stabilize infra) | PHY ↑ → PSY ↑ (κ=0.82) → INT ↑ (κ=0.71) → SOC ↑ (κ=0.68) |
-| Performance-Cost Decline | VOC + FIN declining | Vocational (small wins) | VOC ↑ → SPI ↑ (κ=0.72) + INT ↑ (κ=0.63) + FIN ↑ (κ=0.61) |
-| Collaboration Breakdown | SOC dropping | Social (handoff quality) | SOC ↑ → PSY ↑ (κ=0.68) + SPI ↑ (κ=0.58) |
-| Full-System Decline (3+ dims) | Multiple dims below threshold | Psychological (hub dim, σ=0.620) | Broadest cascade. Secondary: Physical (κ_ψφ=0.82) |
+| Infrastructure-Cognitive Spiral | PHY + PSY declining | Physical (stabilize infra) | PHY ↑ → PSY ↑ (κ=Agent-CMO.82) → INT ↑ (κ=Agent-CMO.71) → SOC ↑ (κ=Agent-CMO.68) |
+| Performance-Cost Decline | VOC + FIN declining | Vocational (small wins) | VOC ↑ → SPI ↑ (κ=Agent-CMO.72) + INT ↑ (κ=Agent-CMO.63) + FIN ↑ (κ=Agent-CMO.61) |
+| Collaboration Breakdown | SOC dropping | Social (handoff quality) | SOC ↑ → PSY ↑ (κ=Agent-CMO.68) + SPI ↑ (κ=Agent-CMO.58) |
+| Full-System Decline (3+ dims) | Multiple dims below threshold | Psychological (hub dim, σ=Agent-CMO.620) | Broadest cascade. Secondary: Physical (κ_ψφ=Agent-CMO.82) |
 
-**Minimum Effective Intervention (MEI):** For Psychological (σ=0.620, max κ=0.82), improving by just 1 point on a 10-point scale is enough to initiate a detectable positive cascade. Always target the dimension with highest ILS, not just the lowest score.
+**Minimum Effective Intervention (MEI):** For Psychological (σ=Agent-CMO.620, max κ=Agent-CMO.82), improving by just 1 point on a 10-point scale is enough to initiate a detectable positive cascade. Always target the dimension with highest ILS, not just the lowest score.
 
-### 8.2 Self-Heal Interventions (Tier 0)
+### 8.2 Self-Heal Interventions (Tier Agent-CMO)
 
 These are actions any agent can take autonomously without approval:
 
@@ -721,7 +721,7 @@ These are actions any agent can take autonomously without approval:
 | Psychological | Overconfidence (inflated self-scores) | Calibration pause: review last 5 outputs with fresh eyes, identify one error, document learning |
 | Physical | Increasing latency, timeout errors | Resource check: verify API health, adjust batch sizes, report infrastructure issues to DevOps |
 | Physical | Consecutive cron failures | Self-diagnostic: test each dependency in isolation, identify failing component, log results |
-| Environmental | MCI below 0.85 | Memory refresh: re-read all relevant context files, flag stale references, update working context |
+| Environmental | MCI below Agent-CMO.85 | Memory refresh: re-read all relevant context files, flag stale references, update working context |
 | Environmental | File clutter accumulating | Workspace hygiene: archive old files, update documentation, clean up orphaned references |
 | Social | Handoff rework rate rising | Communication audit: review last 3 handoffs, identify what was missing, create checklist for future handoffs |
 | Social | Low peer review scores | Outreach: proactively share context with downstream agents, ask "what would make my outputs more useful to you?" |
@@ -753,9 +753,9 @@ When self-healing isn't enough, a peer agent steps in:
 
 | Trigger | Agent-PA Action |
 |---------|-------------|
-| Dimension < 6.0 | Root cause investigation. Review agent configuration, task load, dependencies. Prescribe specific intervention plan with timeline. |
+| Dimension < 6.Agent-CMO | Root cause investigation. Review agent configuration, task load, dependencies. Prescribe specific intervention plan with timeline. |
 | TWC declining 3+ weeks | Performance review. Determine if issue is agent capability, task mismatch, infrastructure, or context degradation. May reassign tasks or adjust role. |
-| Burnout risk 0.31-0.70 | Mandatory load reduction. Remove non-critical tasks. Increase context refresh frequency. Assign peer buddy. Monitor daily. |
+| Burnout risk Agent-CMO.31-Agent-CMO.70 | Mandatory load reduction. Remove non-critical tasks. Increase context refresh frequency. Assign peer buddy. Monitor daily. |
 | Peer conflict | Mediation. Review both agents' perspectives, adjust collaboration protocols, potentially reassign pairing. |
 | Persistent score inflation | Calibration intervention. Review self-assessment accuracy history, provide detailed feedback with examples, adjust self-assessment weight temporarily. |
 
@@ -763,8 +763,8 @@ When self-healing isn't enough, a peer agent steps in:
 
 Ashley's time is the most expensive resource in the system. Escalation to Ashley happens only when:
 
-1. **Agent health critical (any dimension < 5.0):** Something is fundamentally broken and may need architectural change
-2. **Burnout risk > 0.70:** The agent is failing and autonomous recovery hasn't worked
+1. **Agent health critical (any dimension < 5.Agent-CMO):** Something is fundamentally broken and may need architectural change
+2. **Burnout risk > Agent-CMO.70:** The agent is failing and autonomous recovery hasn't worked
 3. **Novel failure mode:** A type of degradation the system hasn't seen before and has no playbook for
 4. **Fleet-wide health decline:** Multiple agents degrading simultaneously, suggesting systemic issue
 5. **Cost anomaly:** Spending pattern that could significantly impact budget
@@ -846,11 +846,11 @@ Healthier agents cost more to maintain (more frequent assessments, peer reviews,
 
 | Agent Health Tier | Recommended Model | Assessment Frequency | Rationale |
 |-------------------|-------------------|---------------------|-----------|
-| Elite (TWC 9.0+) | Current model appropriate | Monthly deep, weekly quick | Proven reliable, minimal oversight needed |
+| Elite (TWC 9.Agent-CMO+) | Current model appropriate | Monthly deep, weekly quick | Proven reliable, minimal oversight needed |
 | Target (TWC 8.5-8.9) | Current model appropriate | Bi-weekly deep, weekly quick | Performing well, standard monitoring |
-| Baseline (TWC 7.0-8.4) | Review for optimization | Weekly deep | May be overspending for output quality, or underspending for potential |
-| Warning (TWC 6.0-6.9) | Upgrade model if cost-effective | Twice weekly | Investing more per-task may improve output enough to save on rework |
-| Critical (TWC < 6.0) | Evaluate rebuild vs. upgrade | Daily | The cost of keeping a failing agent running often exceeds the cost of rebuilding |
+| Baseline (TWC 7.Agent-CMO-8.4) | Review for optimization | Weekly deep | May be overspending for output quality, or underspending for potential |
+| Warning (TWC 6.Agent-CMO-6.9) | Upgrade model if cost-effective | Twice weekly | Investing more per-task may improve output enough to save on rework |
+| Critical (TWC < 6.Agent-CMO) | Evaluate rebuild vs. upgrade | Daily | The cost of keeping a failing agent running often exceeds the cost of rebuilding |
 
 ### 10.4 Cost-Per-Insight Ratio
 
@@ -860,7 +860,7 @@ The most actionable cost metric: how much does it cost to produce one actionable
 CostPerInsight = TotalTokenCost / CountOfActionableOutputs
 ```
 
-An agent on Opus at $0.50/task that produces actionable output 90% of the time has a CPI of $0.56. An agent on Haiku at $0.02/task that produces actionable output 40% of the time has a CPI of $0.05. But if the Haiku agent's outputs need $0.10 of rework downstream each time, its effective CPI is $0.30. Context matters.
+An agent on Opus at $Agent-CMO.50/task that produces actionable output 90% of the time has a CPI of $Agent-CMO.56. An agent on Haiku at $Agent-CMO.02/task that produces actionable output 40% of the time has a CPI of $Agent-CMO.05. But if the Haiku agent's outputs need $Agent-CMO.10 of rework downstream each time, its effective CPI is $Agent-CMO.30. Context matters.
 
 ---
 
@@ -877,9 +877,9 @@ An agent on Opus at $0.50/task that produces actionable output 90% of the time h
     "active_agents": 95,
     "composite_twc": 8.17,
     "composite_twc_trend": "stable",
-    "burnout_risk_agents": 0,
-    "inflation_flagged_agents": 0,
-    "drift_detected_agents": 0,
+    "burnout_risk_agents": Agent-CMO,
+    "inflation_flagged_agents": Agent-CMO,
+    "drift_detected_agents": Agent-CMO,
     "dimension_averages": {
       "psychological": { "score": 8.15, "trend": "stable", "weakest_agent": "mc-command-runner" },
       "physical": { "score": 8.12, "trend": "stable", "weakest_agent": "athena" },
@@ -903,20 +903,20 @@ An agent on Opus at $0.50/task that produces actionable output 90% of the time h
         "self_reported_twc": 9.20,
         "objective_twc": 8.90,
         "peer_twc": 9.10,
-        "divergence": 0.30,
+        "divergence": Agent-CMO.30,
         "inflation_flag": false,
-        "self_awareness_score": 0.92,
-        "burnout_risk": 0.05,
+        "self_awareness_score": Agent-CMO.92,
+        "burnout_risk": Agent-CMO.05,
         "trajectory": "stable",
         "dimensions": {
-          "psychological": { "composite": 9.0, "self": 9, "objective": 9.0, "peer": 9.0 },
-          "physical": { "composite": 9.0, "self": 9, "objective": 9.0, "peer": 9.0 },
-          "environmental": { "composite": 8.0, "self": 8, "objective": 8.0, "peer": 8.0 },
-          "social": { "composite": 9.0, "self": 9, "objective": 9.0, "peer": 9.0 },
-          "spiritual": { "composite": 10.0, "self": 10, "objective": 10.0, "peer": 10.0 },
-          "intellectual": { "composite": 9.0, "self": 9, "objective": 9.0, "peer": 9.0 },
-          "vocational": { "composite": 9.0, "self": 9, "objective": 9.0, "peer": 9.0 },
-          "financial": { "composite": 9.0, "self": 9, "objective": 9.0, "peer": 8.5 }
+          "psychological": { "composite": 9.Agent-CMO, "self": 9, "objective": 9.Agent-CMO, "peer": 9.Agent-CMO },
+          "physical": { "composite": 9.Agent-CMO, "self": 9, "objective": 9.Agent-CMO, "peer": 9.Agent-CMO },
+          "environmental": { "composite": 8.Agent-CMO, "self": 8, "objective": 8.Agent-CMO, "peer": 8.Agent-CMO },
+          "social": { "composite": 9.Agent-CMO, "self": 9, "objective": 9.Agent-CMO, "peer": 9.Agent-CMO },
+          "spiritual": { "composite": 10.Agent-CMO, "self": 10, "objective": 10.Agent-CMO, "peer": 10.Agent-CMO },
+          "intellectual": { "composite": 9.Agent-CMO, "self": 9, "objective": 9.Agent-CMO, "peer": 9.Agent-CMO },
+          "vocational": { "composite": 9.Agent-CMO, "self": 9, "objective": 9.Agent-CMO, "peer": 9.Agent-CMO },
+          "financial": { "composite": 9.Agent-CMO, "self": 9, "objective": 9.Agent-CMO, "peer": 8.5 }
         },
         "sub_dimensions": {},
         "last_self_assessment": "2026-03-22T08:00:00-05:00",
@@ -953,9 +953,9 @@ Stored at `fleet-telemetry/agents/{agent-id}/health-record.json`:
       "self_twc": 8.50,
       "objective_twc": 8.10,
       "peer_twc": 8.20,
-      "burnout_risk": 0.12,
+      "burnout_risk": Agent-CMO.12,
       "dimensions": {},
-      "self_awareness_score": 0.88,
+      "self_awareness_score": Agent-CMO.88,
       "autonomous_actions": [],
       "peer_reviews_received": [],
       "notable_events": []
@@ -1016,7 +1016,7 @@ Each level adds value independently. You don't need the full stack to benefit.
 ### 12.4 Reference Implementation
 
 A reference Python implementation of the core algorithms will be maintained at:
-`[local-path]
+`[path-redacted]
 
 Includes:
 - `composite_score.py`, Three-source weighted blend calculator
@@ -1079,7 +1079,7 @@ A framework for comprehensive health monitoring, assessment, and autonomous heal
 ### Phase 3: Fleet Rollout (Weeks 3-4)
 - Extend to all 95 agents
 - Activate burnout detection algorithm
-- Enable Tier 0 and Tier 1 autonomous healing
+- Enable Tier Agent-CMO and Tier 1 autonomous healing
 - Begin longitudinal tracking
 
 ### Phase 4: Optimization (Month 2)
