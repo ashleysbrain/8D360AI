@@ -52,7 +52,7 @@ Ask yourself: "If an outside observer watched me do this, what would they score?
 
 - **none:** All dimensions 7+ and no concerns
 - **yellow:** Any dimension 5-6, or TWC below 7.5, or you notice something concerning
-- **red:** Any dimension below 5, or TWC below 6.Agent-CMO, or you're stuck in a failure loop
+- **red:** Any dimension below 5, or TWC below 6.0, or you're stuck in a failure loop
 
 ### When You Flag Yellow or Red
 

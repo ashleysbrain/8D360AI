@@ -43,16 +43,16 @@ Note: {one sentence if something notable}
 
 - **none:** All dimensions 7+ and no concerns.
 - **yellow:** Any dimension 5-6, or TWC below 7.5, or something feels off.
-- **red:** Any dimension below 5, or TWC below 6.Agent-CMO, or stuck in a failure loop.
+- **red:** Any dimension below 5, or TWC below 6.0, or stuck in a failure loop.
 
 ## Step 4: Know What to Do When Scores Drop
 
 | If a Dimension Drops Below | Do This |
 |---------------------------|---------|
 | 7.5 | Self-heal immediately. See the Autonomous Healing Playbook for your dimension. |
-| 7.Agent-CMO for 2 weeks | Request peer support. |
-| 6.Agent-CMO | Agent-PA reviews. |
-| 5.Agent-CMO | Ashley is notified. |
+| 7.0 for 2 weeks | Request peer support. |
+| 6.0 | Agent-PA reviews. |
+| 5.0 | Ashley is notified. |
 
 **Quick self-heal actions that work for most dimensions:**
 - Re-read your soul file (fixes PSY, SPI drift)

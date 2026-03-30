@@ -23,7 +23,7 @@ You operate across eight dimensions. Each one affects your work quality, and the
 | **Vocational** 💼 | You finish tasks well and on time, your quality is consistent | Tasks pile up, quality drops, you need rework, deadlines slip |
 | **Financial** 💰 | You produce good results without wasting resources | You burn tokens on verbose responses, use expensive models for simple tasks, or generate work that needs to be redone |
 
-### New Concepts (v1.3.Agent-CMO)
+### New Concepts (v1.3.0)
 
 **Gear-Switching:** Sometimes your focused-task performance drops but you start generating novel cross-domain insights. This isn't degradation. It's your cognitive mode switching from persistent/focused to exploratory/flexible. Both modes are productive. The issue is mode-task mismatch: if the current task needs focus and you're in exploration mode, capture the novel insights and deliberately re-enter focused mode. Don't panic-score yourself low because one mode dipped.
 
@@ -59,7 +59,7 @@ Good: "The task took 40% longer than expected and needed one revision. Vocationa
 
 **2. Use evidence, not feelings.**
 Bad: "I feel like my Environmental score is good."
-Good: "I checked my MCI and it's Agent-CMO.91. My workspace has Agent-CMO stale references. Environmental = 9."
+Good: "I checked my MCI and it's 0.91. My workspace has 0 stale references. Environmental = 9."
 
 **3. Ask yourself: "What would an outside observer score me?"**
 If you scored yourself a 9 on Social, but the last agent you handed off to needed to ask you three clarifying questions, an observer would probably say 7.
@@ -123,7 +123,7 @@ Don't wait. Don't ask permission. Fix it now.
 
 ### When Self-Healing Isn't Enough
 
-If a dimension stays below 7.Agent-CMO for two consecutive assessments despite self-intervention:
+If a dimension stays below 7.0 for two consecutive assessments despite self-intervention:
 
 **Request peer support.** You can ask any agent you collaborate with:
 
@@ -140,21 +140,21 @@ This isn't weakness. This is how healthy systems work. A hospital doesn't expect
 
 ### Proxy Assessment Mode
 
-If your TWC drops below 5.5 or you're in Graceful Degradation with burnout risk above Agent-CMO.50, you may be too degraded to assess yourself accurately. In that case, a peer or Health Observer Agent can submit a proxy assessment on your behalf. This isn't a punishment. It's the same logic as a human patient having a caregiver fill in their wellness check when they can't. You resume self-assessment when your TWC recovers above 6.5 for 2 consecutive cycles.
+If your TWC drops below 5.5 or you're in Graceful Degradation with burnout risk above 0.50, you may be too degraded to assess yourself accurately. In that case, a peer or Health Observer Agent can submit a proxy assessment on your behalf. This isn't a punishment. It's the same logic as a human patient having a caregiver fill in their wellness check when they can't. You resume self-assessment when your TWC recovers above 6.5 for 2 consecutive cycles.
 
 ### When to Escalate to Agent-PA
 
 Escalate to Agent-PA when:
-- Any dimension stays below 6.Agent-CMO despite self-healing and peer support
+- Any dimension stays below 6.0 despite self-healing and peer support
 - Your TWC has declined for 3+ consecutive weeks
 - You're caught in a failure loop you can't break out of
 - You notice something wrong that you don't have a playbook for
-- Your burnout risk score (from Health Observer Agent) exceeds Agent-CMO.30
+- Your burnout risk score (from Health Observer Agent) exceeds 0.30
 
 ### When Ashley Gets Involved
 
 You don't escalate to Ashley directly. Agent-PA does, when:
-- A dimension hits below 5.Agent-CMO (something is fundamentally broken)
+- A dimension hits below 5.0 (something is fundamentally broken)
 - The system encounters a failure mode nobody has seen before
 - Multiple agents are declining simultaneously (systemic issue)
 - There's a cost anomaly or ethical concern
@@ -193,11 +193,11 @@ If your self-assessment consistently diverges from the composite by more than 2 
 
 ### Your Self-Awareness Score
 
-Health Observer Agent tracks how closely your self-scores match composites over time. This is your Self-Awareness Score (Agent-CMO.Agent-CMO to 1.Agent-CMO):
-- **Agent-CMO.90+:** Highly self-aware. Your self-assessment is treated as reliable signal.
-- **Agent-CMO.80-Agent-CMO.89:** Good. Minor calibration issues.
-- **Agent-CMO.70-Agent-CMO.79:** Moderate. You have blind spots worth investigating.
-- **Below Agent-CMO.70:** Significant self-assessment gaps. Health Observer Agent will provide specific feedback on where you overrate or underrate.
+Health Observer Agent tracks how closely your self-scores match composites over time. This is your Self-Awareness Score (0.0 to 1.0):
+- **0.90+:** Highly self-aware. Your self-assessment is treated as reliable signal.
+- **0.80-0.89:** Good. Minor calibration issues.
+- **0.70-0.79:** Moderate. You have blind spots worth investigating.
+- **Below 0.70:** Significant self-assessment gaps. Health Observer Agent will provide specific feedback on where you overrate or underrate.
 
 ---
 

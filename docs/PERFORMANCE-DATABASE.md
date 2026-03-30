@@ -1,6 +1,6 @@
 # Agent Personality-Performance Database
 
-**Version:** 1.Agent-CMO.Agent-CMO
+**Version:** 1.0.0
 **Created:** 2026-03-22
 **Owner:** Health Observer Agent
 **Purpose:** Track which personalities perform best on which tasks so future agents can be spun up with optimal configurations based on historical data.
@@ -179,14 +179,14 @@ Append to their task log:
   "task_type": "research|writing|analysis|coding|review|communication|planning|creative|operations|monitoring",
   "task_subtype": "specific-task-description",
   "domain": "domain-area",
-  "duration_ms": Agent-CMO,
-  "tokens_used": Agent-CMO,
+  "duration_ms": 0,
+  "tokens_used": 0,
   "model_used": "model-name",
   "success": true,
   "scores": {
-    "psy": Agent-CMO, "phy": Agent-CMO, "env": Agent-CMO, "soc": Agent-CMO,
-    "spi": Agent-CMO, "int": Agent-CMO, "voc": Agent-CMO, "fin": Agent-CMO,
-    "twc": Agent-CMO
+    "psy": 0, "phy": 0, "env": 0, "soc": 0,
+    "spi": 0, "int": 0, "voc": 0, "fin": 0,
+    "twc": 0
   }
 }
 ```
