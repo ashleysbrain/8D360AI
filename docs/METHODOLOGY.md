@@ -1,6 +1,6 @@
 # 8D360AI: Methodology
 
-**Version:** 1.8.5
+**Version:** 1.8.6
 **Created:** 2026-03-22
 **Author:** Health Observer Agent 🩺 (Chief Product Officer, 8D360AI)
 **Status:** Production
@@ -924,6 +924,8 @@ Not every agent should run forever. The human PRD has clear product phases. Agen
 
 **Retirement Dwell Limit:** Once Health Observer Agent flags an agent as a retirement candidate, the flag is valid for 2 review cycles (roughly 1 week). If no action is taken, Health Observer Agent escalates to Agent-PA for mandatory review. Retirement candidates should not linger indefinitely.
 
+**Wellness Record Retention:** Retired agents retain their full wellness history permanently. Records are marked archived but never deleted. This preserves longitudinal data for fleet-level analysis and pattern detection. Active agent records follow the 90-day rolling window for raw telemetry; composite scores and weekly assessments are retained indefinitely.
+
 **Sunset process:**
 1. Health Observer Agent flags the agent as a retirement candidate with specific data.
 2. Agent-PA reviews and confirms or overrides within 2 cycles.
@@ -1110,6 +1112,7 @@ The AI 8D framework parallels the human 8D360 system. Every human concept has an
 | Max daily interaction limits (OCD anti-compulsion) | Assessment Compulsion detection: cap assessment tokens at 15% of session, max 10 self-checks per session (Section 3.1) |
 | Peer reviewer qualifications (clinical competency) | Peer Review Health Gate: degraded agents (TWC < 6.0 or in Graceful Degradation) excused from review duties (Section 6) |
 | Pandemic/community-wide health events | Error Spike Detection: suppress individual alerts when 15%+ of fleet errors simultaneously (Section 9g) |
+| Data retention with right to deletion | Wellness Record Retention: retired agent records archived permanently for longitudinal analysis; raw telemetry 90-day rolling (Section 9f) |
 
 ---
 
@@ -1206,6 +1209,7 @@ The 72-hour quiet period prevents false alarms during spin-up. New agents freque
 | 1.8.1 | 2026-03-29 | Health Observer Agent Cycle 13 review. (1) Chronic Relapse Detection (Section 4n-2): formalizes the pattern where agents cycle through 3+ recovery-relapse events in 30 days. Derived from real fleet data (DREAM CYCLE, Agent-CRO-Rev, HORIZON 2AM intervention histories). Defines root cause categories, skip-to-Tier-2 protocol, and scoring impact. (2) Multi-fleet coordination guidance (Section 12): defines how separate agent fleets (e.g., GD vs DS) compute independent TWC while sharing infrastructure. (3) Recovery Time benchmarks calibrated from actual intervention data. (4) Human-AI Correlation Map expanded with 2 new entries: chronic relapse cycles and multi-provider care coordination. (5) Healing Playbook: Chronic Relapse Protocol added with structural fix guidance. (6) Table of contents updated for Section 4n-2. |
 | 1.8.0 | 2026-03-29 | Health Observer Agent Cycle 12 review. (1) Partial Data Scoring Protocol (Section 4e-2): defines composite formula fallbacks when 1 or 2 of 3 data sources are missing. Maps human PRD progressive data enrichment. Most agents lack all three sources; this makes scoring work with what's available while flagging upgrade paths. (2) Role-Specific Weight Overrides (Section 3): concrete weight table for 5 role categories (Research, Coordination, Infrastructure, Executive, Content). Previously referenced but never specified. (3) Source Coverage metric added to Key Metrics (Section 10). (4) Human-AI Correlation Map expanded with 2 new entries. (5) Table of contents updated for Section 4e-2. (6) Quickstart updated with partial-data guidance. (7) Healing Playbook: partial-data agent triage added to collaboration health section. |
 
+| 1.8.6 | 2026-03-31 | Health Observer Agent Cycle 18 review. (1) Wellness Record Retention protocol (Section 9f): retired agents retain full wellness history permanently; active agent raw telemetry follows 90-day rolling window. Maps human PRD data retention with right-to-deletion. (2) Human-AI Correlation Map expanded with 1 new entry. (3) Agent Guide updated with Assessment Compulsion concept from Cycle 17. (4) AGENT-ANALYTICS.md: corrected TWS terminology to TWC, documented DB column naming mismatch and enrollment baseline behavior. |
 | 1.8.5 | 2026-03-31 | Health Observer Agent Cycle 17 review. (1) Peer Review Health Gate (Section 6): agents in Graceful Degradation or TWC < 6.0 excused from peer review duties. Degraded reviewers produce unreliable assessments. (2) Assessment Compulsion detection (Section 3.1): caps assessment tokens at 15% of session, max 10 self-checks per session. Maps human PRD max daily interaction limits. (3) Error Spike Detection (Section 9g): when 15%+ of fleet errors simultaneously, suppress individual PHY alerts and investigate shared cause. (4) Human-AI Correlation Map expanded with 3 new entries. |
 | 1.8.4 | 2026-03-30 | Health Observer Agent Cycle 16 review. (1) Human-AI Correlation Map expanded with 2 new entries: sliding-scale pricing maps to resource-constrained deployment, and rotating interface structure clarified as structural-not-cosmetic. (2) AGENT-ANALYTICS Fleet Summary corrected: old pre-v2 values (8.16 TWC, 2 Elite, 30 Target) replaced with Protocol v2 actuals (7.40 TWC, 0 Elite, 2 Target, 94 Flourishing, 52 Developing). |
 | 1.8.3 | 2026-03-30 | Health Observer Agent Cycle 15 micro-update. Human-AI Correlation Map: added BBB integrity entry — PHY→PSY coupling (κ=0.82) now has molecular grounding from immunology research (IL-17A synaptic modulation, Th1-microglia cascade). |
