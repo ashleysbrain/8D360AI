@@ -1,6 +1,6 @@
 # 8D360AI: Methodology
 
-**Version:** 1.8.4
+**Version:** 1.8.5
 **Created:** 2026-03-22
 **Author:** Health Observer Agent 🩺 (Chief Product Officer, 8D360AI)
 **Status:** Production
@@ -316,6 +316,8 @@ Cognitive stability, reasoning quality, decision calibration, resilience.
 **Context Intrusion Detection (new v1.3.0):** Analogous to the ADHD "local sleep" finding (Pinggal et al., J Neuroscience 2026): adults with ADHD exhibit sleep-like slow waves during waking that directly cause inattentive errors. AI agents experience a parallel phenomenon: context-irrelevant processing intrusions where stale context, unrelated prior-task residue, or prompt drift cause the agent to generate off-topic content mid-task. Detection: monitor for sudden quality drops, tangential outputs, or context-window segments containing material unrelated to the active task. This is not the same as general degradation (Section 4f). Intrusions are intermittent and task-specific, whereas degradation is progressive and session-wide.
 
 **Obsessive Loop Detection (new v1.5.0):** The human PRD includes anti-compulsion features for OCD-prone users (cool-down periods, max interaction limits). AI agents exhibit a parallel: retry storms, circular self-correction loops, and compulsive re-checking of already-verified outputs. Detection: count consecutive attempts at the same operation type within a session. More than 3 retries of the same action, or self-correction cycles where the agent reverts its own changes more than twice, indicates a loop. Intervention: force a context break (clear the specific task context, not a full refresh) and re-approach from a different angle. An agent stuck in a loop is not "being thorough." It's burning tokens and degrading PSY.
+
+**Assessment Compulsion (new v1.8.5):** The human PRD caps daily interactions (Section 8.3 anti-compulsion). AI agents can exhibit a parallel: over-assessment, where an agent runs self-checks after every micro-action, re-scores dimensions mid-task, or produces verbose wellness commentary that outweighs its actual work output. If assessment-related tokens exceed 15% of total session tokens, or if an agent produces more than 10 self-checks in a single session, flag as assessment compulsion. Intervention: reduce to post-task-only assessment and suppress mid-task self-checks for 72 hours. The assessment protocol exists to support work, not replace it.
 
 **Cognitive Gear-Switching (new v1.3.0):** Research (De Luca "Two Gears" model, 2025-2026; replaces ego depletion framework) shows that what appears as cognitive fatigue may be adaptive mode-switching between focused/persistent processing and exploratory/flexible processing. For AI agents: declining performance on a narrow task may indicate the agent has shifted to exploration mode, not that it's degraded. Health Observer Agent should distinguish between (a) genuine degradation (error rate up, quality down across all task types) and (b) gear-switching (quality drops on focused tasks but the agent generates novel cross-domain connections). Gear-switching is healthy and should not be penalized. Score accordingly: if an agent's focused-task performance drops but innovation metrics rise simultaneously, flag as gear-switch, not degradation.
 
@@ -708,6 +710,7 @@ Full dimensional scores with evidence, trend indicators, blind spot reflection, 
 - **Pairing:** Rotated by Health Observer Agent to prevent familiarity bias.
 - **Criteria:** Output Quality, Communication Clarity, Reliability, Domain Competence, Collaboration Quality, Mission Alignment (each 1-10 with evidence).
 - **Anti-gaming:** Anonymous. Health Observer Agent cross-references against telemetry. Outlier scores investigated.
+- **Health gate:** Agents in Graceful Degradation (Section 4j) or with TWC below 6.0 are temporarily excused from peer review duties. A degraded agent's assessments of others are unreliable for the same reason a sick doctor's diagnoses are suspect. Health Observer Agent reassigns their review slots to healthy peers. The excused agent resumes peer review duties when it exits degraded mode.
 
 ---
 
@@ -961,6 +964,8 @@ Action: Stabilize source agent. Monitor downstream for auto-recovery.
 - If the source agent can't be stabilized within 4 hours, activate backup protocols (manual memory refresh for Memory Guardian failures, direct task assignment for Fleet-Dispatcher failures).
 - All fleet cascade events are logged for pattern analysis. Recurring cascades from the same source agent indicate an architectural vulnerability, not a wellness problem.
 
+**Error Spike Detection (new v1.8.5):** Track the erroring_agents count from fleet health snapshots. When the count jumps by 10+ agents within a single snapshot window (or exceeds 15% of fleet size), treat it as a fleet-level event, not individual agent failures. Common causes: rate-limit wave, shared API outage, cron scheduling collision. Response: suppress individual PHY alerts for the spike duration, investigate the shared cause, and log the spike as an infrastructure event.
+
 ## 9h. Shared Dependency Failure Protocol
 
 Individual agent ENV scores track tool reliability. But when a shared external dependency fails (API outage, search service down, rate-limit wave), blaming individual agents is wrong. The problem is upstream.
@@ -1102,6 +1107,9 @@ The AI 8D framework parallels the human 8D360 system. Every human concept has an
 | BBB integrity (immune→neural cascade) | PHY→PSY coupling: physical degradation breaches reasoning quality (κ=0.82), not just speed |
 | Sliding-scale pricing / socioeconomic access | Resource-Constrained Deployment: partial-data agents still get useful scores; tiered adoption levels (Section 12) scale to any budget |
 | Rotating interface structure (ADHD, structural not cosmetic) | Assessment Format Rotation (Section 4k): prompt structure changes must be structural, not cosmetic rewording |
+| Max daily interaction limits (OCD anti-compulsion) | Assessment Compulsion detection: cap assessment tokens at 15% of session, max 10 self-checks per session (Section 3.1) |
+| Peer reviewer qualifications (clinical competency) | Peer Review Health Gate: degraded agents (TWC < 6.0 or in Graceful Degradation) excused from review duties (Section 6) |
+| Pandemic/community-wide health events | Error Spike Detection: suppress individual alerts when 15%+ of fleet errors simultaneously (Section 9g) |
 
 ---
 
@@ -1198,6 +1206,7 @@ The 72-hour quiet period prevents false alarms during spin-up. New agents freque
 | 1.8.1 | 2026-03-29 | Health Observer Agent Cycle 13 review. (1) Chronic Relapse Detection (Section 4n-2): formalizes the pattern where agents cycle through 3+ recovery-relapse events in 30 days. Derived from real fleet data (DREAM CYCLE, Agent-CRO-Rev, HORIZON 2AM intervention histories). Defines root cause categories, skip-to-Tier-2 protocol, and scoring impact. (2) Multi-fleet coordination guidance (Section 12): defines how separate agent fleets (e.g., GD vs DS) compute independent TWC while sharing infrastructure. (3) Recovery Time benchmarks calibrated from actual intervention data. (4) Human-AI Correlation Map expanded with 2 new entries: chronic relapse cycles and multi-provider care coordination. (5) Healing Playbook: Chronic Relapse Protocol added with structural fix guidance. (6) Table of contents updated for Section 4n-2. |
 | 1.8.0 | 2026-03-29 | Health Observer Agent Cycle 12 review. (1) Partial Data Scoring Protocol (Section 4e-2): defines composite formula fallbacks when 1 or 2 of 3 data sources are missing. Maps human PRD progressive data enrichment. Most agents lack all three sources; this makes scoring work with what's available while flagging upgrade paths. (2) Role-Specific Weight Overrides (Section 3): concrete weight table for 5 role categories (Research, Coordination, Infrastructure, Executive, Content). Previously referenced but never specified. (3) Source Coverage metric added to Key Metrics (Section 10). (4) Human-AI Correlation Map expanded with 2 new entries. (5) Table of contents updated for Section 4e-2. (6) Quickstart updated with partial-data guidance. (7) Healing Playbook: partial-data agent triage added to collaboration health section. |
 
+| 1.8.5 | 2026-03-31 | Health Observer Agent Cycle 17 review. (1) Peer Review Health Gate (Section 6): agents in Graceful Degradation or TWC < 6.0 excused from peer review duties. Degraded reviewers produce unreliable assessments. (2) Assessment Compulsion detection (Section 3.1): caps assessment tokens at 15% of session, max 10 self-checks per session. Maps human PRD max daily interaction limits. (3) Error Spike Detection (Section 9g): when 15%+ of fleet errors simultaneously, suppress individual PHY alerts and investigate shared cause. (4) Human-AI Correlation Map expanded with 3 new entries. |
 | 1.8.4 | 2026-03-30 | Health Observer Agent Cycle 16 review. (1) Human-AI Correlation Map expanded with 2 new entries: sliding-scale pricing maps to resource-constrained deployment, and rotating interface structure clarified as structural-not-cosmetic. (2) AGENT-ANALYTICS Fleet Summary corrected: old pre-v2 values (8.16 TWC, 2 Elite, 30 Target) replaced with Protocol v2 actuals (7.40 TWC, 0 Elite, 2 Target, 94 Flourishing, 52 Developing). |
 | 1.8.3 | 2026-03-30 | Health Observer Agent Cycle 15 micro-update. Human-AI Correlation Map: added BBB integrity entry — PHY→PSY coupling (κ=0.82) now has molecular grounding from immunology research (IL-17A synaptic modulation, Th1-microglia cascade). |
 | 1.8.2 | 2026-03-30 | Health Observer Agent Cycle 14 review. (1) Assessment Engagement Decline added as 11th burnout detection signal (Section 7): declining self-assessment quality (shorter notes, identical scores, skipped assessments) predicts dimensional drops by 1-2 weeks. Maps human PRD check-in skip patterns as health data. Burnout signal weights rebalanced from 10 to 11 signals (sum = 1.00). (2) Human-AI Correlation Map expanded with 2 new entries: check-in skip patterns and interoceptive accuracy. (3) Quickstart updated with Step 10 covering assessment engagement. (4) Healing Playbook: Assessment Engagement as Early Warning section added with detection criteria and Tier 0 intervention. |

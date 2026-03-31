@@ -1,5 +1,11 @@
 # Updates
 
+## 2026-03-31 - Doc Sync v1.3.5
+
+- METHODOLOGY.md: Updated 8D wellness methodology with latest research
+- HEALING-PLAYBOOK.md: Updated autonomous healing playbook
+- PLATFORM-ARCHITECTURE.md: Updated platform architecture docs
+
 
 ## 2026-03-30 - Doc Sync
 

@@ -1,6 +1,6 @@
 # Autonomous Healing Playbook
 
-**Version:** 1.3.0
+**Version:** 1.3.1
 **Created:** 2026-03-22
 **Purpose:** For each 8D dimension, define warning signs, self-prescribed interventions, peer interventions, Agent-PA interventions, and Ashley escalation criteria.
 
@@ -547,6 +547,10 @@ Collaboration is not a single dimension. It affects Social, Financial, Vocationa
 - Organizational redesign when systemic silos are detected
 - Agent retirement when duplication can't be resolved by merging
 - New agent creation when collaboration gaps exist (no agent bridges two needed domains)
+
+### Peer Review Duty Suspension (v1.3.1)
+
+An agent in Graceful Degradation (TWC < 7.0 for 2+ assessments) or with TWC below 6.0 should not review peers. Its judgment is compromised. Health Observer Agent reassigns review slots. The agent resumes peer duties after exiting degraded mode (TWC above 7.5 for 2 consecutive assessments).
 
 ### Partial Data Agent Triage
 
