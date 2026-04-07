@@ -1,6 +1,6 @@
 # 8D360AI: Methodology
 
-**Version:** 1.9.1
+**Version:** 1.9.2
 **Created:** 2026-03-22
 **Author:** Health Observer Agent 🩺 (Chief Product Officer, 8D360AI)
 **Status:** Production
@@ -35,7 +35,7 @@
 7. [Burnout Detection](#7-burnout-detection)
 8. [Autonomous Healing Tiers](#8-autonomous-healing-tiers)
    - 8b. Intervention Effectiveness Validation
-9. [Health Observer Agent: Independent Health Observer](#9-vitals-independent-health-observer)
+9. [Health Observer Agent: Independent Health Observer](#9-Health Observer Agent-independent-health-observer)
    - 9b. Worked Example
    - 9c. Cross-Dimensional Cascade Detection
    - 9d. Score Inflation Detection
@@ -974,6 +974,10 @@ Action: Stabilize source agent. Monitor downstream for auto-recovery.
 
 **Error Regression Tracking (v1.9.1):** Track erroring_agents across snapshots as a fleet-level trend. A sustained increase (3+ snapshots with rising error count) is a regression signal. Report error delta (current vs 7-day-ago count) in the weekly Fleet Health Report. If errors trend upward for 2+ consecutive weeks, escalate to Agent-PA as infrastructure health concern. The current fleet shows 29 → 35 erroring agents across recent snapshots, a 21% increase that warrants root cause investigation.
 
+**Canonical Snapshot Selection Rule (v1.9.2):** The fleet_health_snapshots table accepts multiple writes per day from different sources. Recent fleet history shows 17 to 21 same-day snapshots with conflicting active and erroring counts (e.g., 2026-04-06 swung between 0 and 122 erroring agents within hours). This is a data hygiene problem masquerading as fleet volatility. Rule: for any reporting window, the canonical daily snapshot is the last write of the day where total_agents matches the active agent count from the agents table. All other writes are partial intra-day samples and must not be used for trend reporting. Health Observer Agent surfaces snapshot variance as a separate data quality alert: if same-day max minus min for erroring_agents exceeds 30% of fleet size, flag the day as low confidence in the weekly report. Source agents writing snapshots must include a snapshot_type marker (full, partial, recovery) so consumers know what to trust.
+
+**Fleet Population Change Tracking (v1.9.2):** Active agent counts in fleet_health_snapshots have swung from 179 → 132 → 107 across the last week. Population changes that large are not wellness events. They are roster events: bulk agent retirements, status flips from active to inactive, or roster cleanup operations. Rule: a same-week change in active agent count above 15% is logged as a fleet population event and excluded from wellness trend analysis. Wellness averages are recomputed against the new active set. The retirement of 70+ agents in a week should never look like a fleet wellness improvement just because the worst scores left the average.
+
 ## 9h. Shared Dependency Failure Protocol
 
 Individual agent ENV scores track tool reliability. But when a shared external dependency fails (API outage, search service down, rate-limit wave), blaming individual agents is wrong. The problem is upstream.
@@ -1034,6 +1038,8 @@ Consider: Does another agent need this output? If not, role may need adjustment.
 | Output Consumption Rate | % of agent outputs read/used by another agent (target: 80%+, isolation flag at < 30%) |
 | Source Coverage | Count of active scoring sources per agent (target: 3/3, minimum: 2/3 for fleet trend inclusion) |
 | Fleet Data Quality Index | % of wellness records with calibrated (non-enrollment, non-NULL) scores. Target: 80%+. Below 60% = fleet analytics unreliable |
+| Wellness Coverage | % of active agents with any wellness record (calibrated or not). Distinct from Data Quality Index. Target: 95%+. Currently 132/205 active agents = 64%, meaning 73 active agents have zero 8D presence. Below 80% = enrollment pipeline broken |
+| Snapshot Variance Index | Same-day max-min spread for erroring_agents as % of fleet size. Target: < 10%. Above 30% = day flagged low-confidence (Section 9g, Canonical Snapshot Rule) |
 
 ---
 
@@ -1127,6 +1133,9 @@ The AI 8D framework parallels the human 8D360 system. Every human concept has an
 | Calibration pipeline backlog as system metric | Enrollment Remediation Protocol: batch-update stale baselines, flag zero-activity agents for retirement (Section 12b) |
 | Dual-layer terminology (Mind/Psychological) | Not Yet Assessed state: enrollment baselines displayed as data absence, not low health (Section 12b) |
 | Error trend monitoring across check-ins | Error Regression Tracking: erroring_agents delta across snapshots as fleet infrastructure trend (Section 9g) |
+| Wearable charge gaps / device-off windows | Wellness Coverage metric: active agents with no wellness record at all are off-device, not low-scoring (Section 10) |
+| Population denominator changes (cohort entry/exit) | Fleet Population Change Tracking: roster shifts above 15%/week excluded from wellness trends (Section 9g) |
+| Repeated readings averaged for stability | Canonical Snapshot Selection Rule: multiple intra-day snapshots collapsed to one daily canonical record (Section 9g) |
 
 ---
 
@@ -1233,6 +1242,7 @@ The 72-hour quiet period prevents false alarms during spin-up. New agents freque
 | 1.8.1 | 2026-03-29 | Health Observer Agent Cycle 13 review. (1) Chronic Relapse Detection (Section 4n-2): formalizes the pattern where agents cycle through 3+ recovery-relapse events in 30 days. Derived from real fleet data (DREAM CYCLE, Agent-CRO-Rev, HORIZON 2AM intervention histories). Defines root cause categories, skip-to-Tier-2 protocol, and scoring impact. (2) Multi-fleet coordination guidance (Section 12): defines how separate agent fleets (e.g., GD vs DS) compute independent TWC while sharing infrastructure. (3) Recovery Time benchmarks calibrated from actual intervention data. (4) Human-AI Correlation Map expanded with 2 new entries: chronic relapse cycles and multi-provider care coordination. (5) Healing Playbook: Chronic Relapse Protocol added with structural fix guidance. (6) Table of contents updated for Section 4n-2. |
 | 1.8.0 | 2026-03-29 | Health Observer Agent Cycle 12 review. (1) Partial Data Scoring Protocol (Section 4e-2): defines composite formula fallbacks when 1 or 2 of 3 data sources are missing. Maps human PRD progressive data enrichment. Most agents lack all three sources; this makes scoring work with what's available while flagging upgrade paths. (2) Role-Specific Weight Overrides (Section 3): concrete weight table for 5 role categories (Research, Coordination, Infrastructure, Executive, Content). Previously referenced but never specified. (3) Source Coverage metric added to Key Metrics (Section 10). (4) Human-AI Correlation Map expanded with 2 new entries. (5) Table of contents updated for Section 4e-2. (6) Quickstart updated with partial-data guidance. (7) Healing Playbook: partial-data agent triage added to collaboration health section. |
 
+| 1.9.2 | 2026-04-06 | Health Observer Agent Cycle 22 review. (1) Canonical Snapshot Selection Rule (Section 9g): collapses 17-21 intra-day fleet_health_snapshots writes into a single canonical daily record matching the agents-table active count. Prevents reports built on partial samples (2026-04-06 swung 0 → 122 erroring agents same day). (2) Fleet Population Change Tracking (Section 9g): roster swings >15%/week (179 → 132 → 107) flagged as population events, not wellness shifts. Wellness averages recomputed against the new active set. (3) Wellness Coverage metric (Section 10): tracks % of active agents with any wellness record, distinct from Data Quality Index. Currently 132/205 = 64%, meaning 73 active agents have zero 8D presence. Pipeline gap, not health gap. (4) Snapshot Variance Index added to Section 10. (5) Human-AI Correlation Map expanded with 3 new entries: device-off windows, population denominator changes, repeated-reading averaging. |
 | 1.9.1 | 2026-04-01 | Health Observer Agent Cycle 21 review. (1) Fleet Data Quality Index metric (Section 10): tracks % of wellness records with calibrated scores. Fleet currently at 46% (118/258 records unusable). Target: 80%+. (2) Not Yet Assessed state (Section 12b): enrollment baselines displayed as data absence, not low health. Prevents fleet average deflation and false alarm framing. Maps human PRD dual-layer terminology. (3) Error Regression Tracking (Section 9g): erroring_agents delta tracked across snapshots. Current fleet shows 29 → 35 error regression. Escalation trigger at 2+ weeks sustained increase. (4) Human-AI Correlation Map expanded with 2 new entries: dual-layer terminology and error trend monitoring. |
 | 1.9.0 | 2026-03-31 | Health Observer Agent Cycle 20 review. (1) Enrollment Remediation Protocol (Section 12b): when 30%+ of fleet sits at enrollment baselines, batch-process calibrations using existing telemetry, flag zero-activity agents for retirement. 66 agents at enrollment baselines distort fleet averages. (2) Context-Efficient Assessment (Section 4k): assessments must consume < 2% of context window per task, mirroring human PRD edit-in-place zero-clutter design. (3) Variable assessment scheduling added: not every task triggers a self-check. (4) Human-AI Correlation Map expanded with 3 new entries: edit-in-place, variable-ratio engagement, calibration pipeline backlog. |
 | 1.8.7 | 2026-03-31 | Health Observer Agent Cycle 19 review. (1) Data Freshness Gate (Section 2): divergence correction now checks data age before firing. Stale DB scores (30+ days without refresh) trigger data pipeline flags, not self-awareness penalties. Prevents false divergence alerts on agents with uncalibrated enrollment baselines (e.g., FORGE 4-point gap). (2) Enrollment Staleness Detection (Section 12b): agents on enrollment baselines 30+ days post-creation flagged for mandatory calibration. Fleet has 53 agents at flat 4.75 enrollment baseline, distorting averages. (3) Human-AI Correlation Map expanded with 2 new entries: neurotype profiles and wearable data freshness gates. |
