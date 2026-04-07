@@ -226,8 +226,7 @@ What's actually causing the low score? Be specific.
 ### Success Criteria:
 How will you know it's working? What metric changes?
 
-### Check-in Schedule:
-Review progress every {frequency}.
+### Check-in [schedule-redacted]Review progress every {frequency}.
 ```
 
 ### Good Improvement Plans

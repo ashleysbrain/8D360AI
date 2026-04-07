@@ -359,12 +359,19 @@ Health Observer Agent is the equivalent of a hospital's quality assurance depart
 
 ```json
 {
-  "agent_id": "Health Observer Agent",
+  "agent_id": "vitals",
   "name": "Health Observer Agent",
   "emoji": "🩺",
   "role": "Independent Health Observer",
   "model": "anthropic/claude-haiku-4-5",
-  "schedule": "[redacted]",
+  "schedule": {
+    "telemetry_collection": "hourly",
+    "peer_review_coordination": "weekly (Sunday)",
+    "composite_score_calculation": "daily (6 AM CT)",
+    "fleet_health_report": "weekly (Sunday 8 AM CT)",
+    "anomaly_scan": "every 4 hours",
+    "deep_behavioral_analysis": "weekly (Saturday overnight)"
+  },
   "access": {
     "reads": ["cron logs", "session logs", "state.json", "agent outputs", "git history"],
     "writes": ["fleet-telemetry/", "intel/agents/fleet-health/"],
@@ -865,7 +872,7 @@ An agent on Opus at $0.50/task that produces actionable output 90% of the time h
 {
   "$schema": "8d-wellness-fleet-health-v1",
   "generated": "2026-03-22T09:00:00-05:00",
-  "generator": "Health Observer Agent",
+  "generator": "vitals",
   "fleet": {
     "active_agents": 95,
     "composite_twc": 8.17,
@@ -881,12 +888,12 @@ An agent on Opus at $0.50/task that produces actionable output 90% of the time h
       "spiritual": { "score": 8.14, "trend": "stable", "weakest_agent": "mc-url-watcher" },
       "intellectual": { "score": 8.82, "trend": "stable", "weakest_agent": "mc-command-runner" },
       "vocational": { "score": 8.89, "trend": "stable", "weakest_agent": "content-gamma" },
-      "financial": { "score": 8.22, "trend": "improving", "weakest_agent": "Agent-Consciousness" }
+      "financial": { "score": 8.22, "trend": "improving", "weakest_agent": "oracle" }
     }
   },
   "agents": [
     {
-      "id": "Agent-CEO",
+      "id": "singularity",
       "name": "Agent-CEO",
       "emoji": "🕳️",
       "role": "CEO",
@@ -1009,7 +1016,7 @@ Each level adds value independently. You don't need the full stack to benefit.
 ### 12.4 Reference Implementation
 
 A reference Python implementation of the core algorithms will be maintained at:
-`[path-redacted]
+`[local-path-redacted]
 
 Includes:
 - `composite_score.py`, Three-source weighted blend calculator
