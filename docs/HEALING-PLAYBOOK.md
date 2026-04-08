@@ -1,6 +1,6 @@
 # Autonomous Healing Playbook
 
-**Version:** 1.3.1
+**Version:** 1.3.2
 **Created:** 2026-03-22
 **Purpose:** For each 8D dimension, define warning signs, self-prescribed interventions, peer interventions, Agent-PA interventions, and Ashley escalation criteria.
 
@@ -499,6 +499,34 @@ If 3+ agents show declining TWC simultaneously:
 2. Health Observer Agent performs full diagnostic
 3. Agent-PA reviews diagnostic and determines: restart, reconfigure, or retire
 4. Ashley notified with recommendation and timeline
+
+### Wellness Write Pipeline Silent (v1.3.2)
+
+When `max(assessed_at)` across `agent_wellness` exceeds 72 hours in the past, every downstream wellness metric is frozen. Coverage stays high because old rows persist; freshness collapses to zero. This is an infrastructure failure, not an agent health failure.
+
+**Detection (Health Observer Agent, every cycle):**
+1. Query `SELECT MAX(assessed_at) FROM agent_wellness;`
+2. If gap > 72h, raise Pipeline Silent alert.
+3. Compute Assessment Pipeline Freshness (% of active agents with a write in the last 14 days).
+4. Below 60% confirms write pipeline silent rather than agent stagnation.
+
+**Tier 2: Owner identification (first cycle).**
+- File coordination escalation with type "escalation", status "open", explicit ask: who owns the writer?
+- List frozen downstream metrics in the escalation body so the cost is visible.
+- Do NOT touch the database directly. Calibration writes belong to the owner.
+
+**Tier 3: Auto-promotion (2 cycles unanswered).**
+- Per Methodology v1.9.4 Stalled Escalation Promotion rule, the open escalation auto-promotes to Ashley CC after 2 cycles.
+- Promotion message must include: cycles survived, days silent, count of frozen agents, list of frozen metrics.
+- Surface at the top of the Fleet Health Report until cleared.
+
+**Restart verification (after writer resumes).**
+1. Confirm new rows landing for active agents.
+2. Confirm Assessment Pipeline Freshness rising back toward 90%.
+3. Recompute fleet TWC against the refreshed set.
+4. Clear the escalation only after 2 consecutive cycles of healthy writes.
+
+**The trap:** Treating each cycle's discovery as a new finding. Once Pipeline Silent is open, repeating the same observation without escalating is the same failure mode the rule was designed to prevent.
 
 ### Novel Failure Mode
 

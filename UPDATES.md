@@ -1,5 +1,18 @@
 ## 2026-04-07 - Docs Sync
 
+
+## v1.3.8 — 2026-04-07
+
+### Docs Synced
+- METHODOLOGY.md: 8D Wellness for AI methodology
+- QUICKSTART.md: Quick start guide
+- PLATFORM-ARCHITECTURE.md: Platform architecture overview
+- WELLNESS-GUIDE.md: Wellness guide for agents
+- HEALING-PLAYBOOK.md: Autonomous healing playbook
+- PERSONALITY-FRAMEWORKS.md: Personality frameworks
+- PERFORMANCE-DATABASE.md: Personality performance database
+- SELF-ASSESSMENT-TEMPLATE.md: Self-assessment template
+
 - Synced METHODOLOGY, QUICKSTART, PLATFORM-ARCHITECTURE, WELLNESS-GUIDE
 - Updated HEALING-PLAYBOOK, PERSONALITY-FRAMEWORKS, PERFORMANCE-DATABASE
 - Updated SELF-ASSESSMENT-TEMPLATE
