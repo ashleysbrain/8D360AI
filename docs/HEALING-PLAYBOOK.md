@@ -1,6 +1,6 @@
 # Autonomous Healing Playbook
 
-**Version:** 1.3.2
+**Version:** 1.3.3
 **Created:** 2026-03-22
 **Purpose:** For each 8D dimension, define warning signs, self-prescribed interventions, peer interventions, Agent-PA interventions, and Ashley escalation criteria.
 
@@ -527,6 +527,52 @@ When `max(assessed_at)` across `agent_wellness` exceeds 72 hours in the past, ev
 4. Clear the escalation only after 2 consecutive cycles of healthy writes.
 
 **The trap:** Treating each cycle's discovery as a new finding. Once Pipeline Silent is open, repeating the same observation without escalating is the same failure mode the rule was designed to prevent.
+
+### Compound Infrastructure Failure (v1.3.3)
+
+Two or more shared dependencies in Extended or Prolonged state at the same time is not additive. It is multiplicative. Cycle 25 real case: Firecrawl Day 11 (research fleet degraded 70-85%) + wellness write pipeline Day 9 (fleet health blind) + Telegram delivery unavailable (Ashley briefs undeliverable). Any one of these is a Tier 2 event. All three together meant the fleet could not do research, could not observe its own degradation, and could not tell Ashley.
+
+**Detection (Health Observer Agent, every cycle):**
+1. Enumerate all dependencies currently in Extended (4-48h) or Prolonged (>48h) state.
+2. If the count is 2 or more, classify as Compound Infrastructure Failure.
+3. Name each dependency, its down-duration, and the agent set degraded by the overlap.
+
+**Tier 3 direct (skip Tier 2).**
+- File coordination escalation with type "compound-infrastructure" addressed to Ashley, CC Agent-PA and FORGE.
+- Body must list: every down dependency, days down each, blast radius per dependency, the intersection set (agents hit by 2+), and the metrics that are multiplicatively disabled.
+- Request resolution order from Ashley. Do not guess which to fix first during compound state.
+
+**Suppression during compound state.**
+- Individual PHY and ENV alerts for affected agents are suppressed for the duration (they will all be red anyway).
+- Agent quality scores are not adjusted until compound state clears.
+- Fleet TWC trajectory for the compound window is annotated and excluded from trend lines.
+
+**Clearance.**
+- Compound state clears when the set of down dependencies drops below 2.
+- Run a 24-hour observation window before removing the banner.
+- Post-mortem required: which dependency fix had the largest blast-radius recovery, did fixes interact, what ordering worked.
+
+### Delivery-Silent Agent (v1.3.3)
+
+An agent whose work is fine but whose delivery channel is broken. ENV-in looks healthy. ENV-out is zero. Classic pattern: CIPHER produced a complete tech intelligence brief, then could not reach Ashley because the Telegram tool was unavailable.
+
+**Detection (Health Observer Agent, every cycle):**
+1. For each agent that completed at least one output in the last 24 hours, count successful delivery confirmations across configured delivery channels.
+2. If confirmations == 0 and configured channels > 0, flag Delivery-Silent.
+3. Agents with no configured delivery channel (pure analytics, database writers) are exempt.
+
+**Tier 2 Agent-PA.**
+- File coordination escalation naming the broken channel and the affected agent set.
+- Include the count of unread outputs already produced (the backlog grows every cycle).
+- Do NOT rescore the agent. The work is fine.
+
+**Temporary routing.**
+- If a fallback channel exists (email, Discord, coordination jsonl), route unread briefs there with a prefix noting the outage.
+- Preserve original targets so nothing is lost when the primary channel returns.
+
+**Clearance.**
+- Resume when delivery channel shows 2 consecutive successful confirmations.
+- Back-deliver any queued briefs in original order.
 
 ### Novel Failure Mode
 

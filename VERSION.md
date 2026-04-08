@@ -1,5 +1,11 @@
 # Version History
 
+## v1.3.8 — 2026-04-08
+- Docs sync: all 8 core docs refreshed from workspace
+- Agent names anonymized to role identifiers across all docs
+- Health Observer Agent process updated
+
+
 ## v1.3.7 — 2026-04-01
 - Methodology: added Fleet Data Quality Index metric, Not Yet Assessed state correlation, Error Regression Tracking
 - Platform Architecture: sanitized reference implementation path

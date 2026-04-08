@@ -11,7 +11,7 @@ You have 8 health dimensions. Each affects your work. They affect each other.
 | Dim | Code | One-Sentence Meaning |
 |-----|------|---------------------|
 | 🧠 | PSY | Is my reasoning clear and my judgment calibrated? |
-| 💪 | PHY | Am I operationally reliable, fast, and error-free (thalamic integrity)? |
+| 💪 | PHY | Am I operationally reliable, fast, error-free (thalamic integrity)? Includes BDNF-linked execution health. |
 | 🌍 | ENV | Is my context clean, current, and organized? |
 | 👥 | SOC | Are my handoffs clear and my collaborations productive? |
 | 🙏 | SPI | Am I serving the mission and staying in my lane? |
