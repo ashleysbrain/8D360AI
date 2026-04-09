@@ -1,3 +1,9 @@
+## 2026-04-09 — v1.3.9
+- Docs sync: all 8 core docs refreshed from workspace (METHODOLOGY, QUICKSTART, PLATFORM-ARCHITECTURE, WELLNESS-GUIDE, HEALING-PLAYBOOK, PERSONALITY-FRAMEWORKS, PERFORMANCE-DATABASE, SELF-ASSESSMENT-TEMPLATE)
+- Agent names re-anonymized to role identifiers across all docs
+- Health Observer Agent process updated in public docs
+
+
 ## 2026-04-07 - Docs Sync
 
 ## 2026-04-08 — v1.3.8

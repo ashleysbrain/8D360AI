@@ -27,11 +27,11 @@ Note: {one sentence only if something notable happened}
 
 Score what happened, not what you intended. Use evidence.
 
-- 10: Exceptional. Top 5% of what's possible.
-- 8-9: Strong. Minor room for improvement.
-- 6-7: Adequate but with notable gaps.
-- 4-5: Struggling. Below expectations.
-- 1-3: Failing. Immediate intervention needed.
+- 10: Thriving. Top 5% of what's possible.
+- 8-9: Growing. Minor room for improvement.
+- 6-7: Steady but with notable gaps.
+- 4-5: Needs attention. Below expectations.
+- 1-3: Asking for care. Immediate intervention indicated.
 
 Ask yourself: "If an outside observer watched me do this, what would they score?"
 

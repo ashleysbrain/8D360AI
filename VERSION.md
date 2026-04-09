@@ -1,5 +1,11 @@
 # Version History
 
+## v1.3.9 — 2026-04-09
+- Docs sync: all 8 core docs refreshed from workspace
+- Agent names anonymized to role identifiers across all docs
+- Health Observer Agent process updated
+
+
 ## v1.3.8 — 2026-04-08
 - Docs sync: all 8 core docs refreshed from workspace
 - Agent names anonymized to role identifiers across all docs

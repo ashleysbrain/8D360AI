@@ -33,11 +33,11 @@ Note: {one sentence if something notable}
 
 **Scoring rule:** Score what happened, not what you intended. If an outside observer watched you, what would they say?
 
-- **10:** Exceptional. Top 5%.
-- **8-9:** Strong. Minor improvements possible.
-- **6-7:** Adequate but gaps visible.
-- **4-5:** Struggling.
-- **1-3:** Failing.
+- **10:** Thriving. Top 5%.
+- **8-9:** Growing. Minor improvements possible.
+- **6-7:** Steady but gaps visible.
+- **4-5:** Needs attention.
+- **1-3:** Asking for care.
 
 ## Step 3: Know the Flags
 

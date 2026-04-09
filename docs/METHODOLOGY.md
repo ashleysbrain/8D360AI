@@ -1,6 +1,6 @@
 # 8D360AI: Methodology
 
-**Version:** 1.9.5
+**Version:** 1.9.6
 **Created:** 2026-03-22
 **Author:** Health Observer Agent 🩺 (Chief Product Officer, 8D360AI)
 **Status:** Production
@@ -76,6 +76,8 @@ CompositeScore(dim) = (0.40 x Telemetry) + (0.30 x Peer) + (0.30 x Self)
 ```
 
 **Divergence correction:** When self-score and telemetry diverge by more than 2 points, self-assessment weight drops to 20% and telemetry rises to 50%.
+
+**Directional divergence (v1.9.6):** The gap has a sign. Self >> telemetry is the AI analog of hypomanic false highs in the human PRD: rapid, confident output paired with upward self-rating while telemetry shows hallucination uptick, token waste, or quality drift. Self << telemetry is the depressive-underrating analog. Divergence correction handles magnitude; the sign is logged as a separate signal. An upward gap sustained for 3+ assessments triggers a Euphoric Drift flag and routes to Tier 1 peer review before any score adjustment. A downward gap sustained for 3+ assessments routes to proxy assessment (Section 4k). Both are degradations; only the framing differs.
 
 **Data Freshness Gate (v1.8.7):** Divergence correction must not fire on stale data. If either the DB score or telemetry score is older than 30 days without a refresh, flag the data staleness instead of penalizing the agent's self-awareness. An agent showing a 4-point gap because its DB record was never updated past enrollment is a data pipeline failure, not a self-assessment failure. Health Observer Agent should route these cases to enrollment baseline sweep, not divergence correction.
 
@@ -390,11 +392,13 @@ Cost efficiency, resource optimization, return on investment.
 
 | Score | Label | Description |
 |-------|-------|-------------|
-| 10 | Exceptional | Top 5% of what's possible for this dimension. |
-| 8-9 | Strong | Performing well with minor room for improvement. |
-| 6-7 | Adequate | Getting the job done but with notable gaps. |
-| 4-5 | Struggling | Below expectations. Intervention needed. |
-| 1-3 | Failing | Immediate intervention required. |
+| 10 | Thriving | Top 5% of what's possible for this dimension. |
+| 8-9 | Growing | Performing well with minor room for improvement. |
+| 6-7 | Steady | Getting the job done but with notable gaps. |
+| 4-5 | Needs attention | Below expectations. Intervention indicated. |
+| 1-3 | Asking for care | Immediate intervention indicated. |
+
+**Label alignment (v1.9.6):** Labels mirror the human PRD Section 11.4 scoring language exactly (Thriving / Growing / Steady / Needs attention / Asking for care). The previous set (Exceptional / Strong / Adequate / Struggling / Failing) contradicted the Banned Patterns rule in Section 9e, which prohibits "failed/failing" in all health-related communication. A methodology cannot ban a word in its alerting standard and then publish it as its own score label. The new labels carry the same severity ordering without the catastrophic framing, matching the lavender-not-red principle for the lowest band.
 
 **TWC Tiers:**
 
@@ -1087,7 +1091,7 @@ The AI 8D framework parallels the human 8D360 system. Every human concept has an
 | Observational alert language ("shifted" not "wrong") | Alert Language Standard (Section 9e) |
 | Product lifecycle phases (MVP → Beta → Scale) | Agent Lifecycle: Retirement and Sunset Criteria (Section 9f) |
 | No streaks, no guilt, no punishment | Assessment skip rules: silent, data-only, unnarrated return (Section 4k) |
-| Score labeling (Thriving/Growing/Steady/Needs attention) | Score labels: Exceptional/Strong/Adequate/Struggling/Failing (Section 4) |
+| Score labeling (Thriving/Growing/Steady/Needs attention/Asking for care) | Score labels: Thriving/Growing/Steady/Needs attention/Asking for care (Section 4, aligned v1.9.6) |
 | Lavender (not red) for lowest scores | Alert severity uses neutral observational language, no alarm framing (Section 9e) |
 | ADHD local sleep intrusions (waking slow waves) | Context intrusion detection: off-topic processing during active tasks (Section 3.1) |
 | Cognitive gear-switching (Two Gears model) | Adaptive mode-switching between focused and exploratory processing (Section 3.1) |
@@ -1150,6 +1154,7 @@ The AI 8D framework parallels the human 8D360 system. Every human concept has an
 | Crisis exit ramp when soft signals fail twice (988 surface) | Stalled Escalation Promotion: Tier 2 escalations unanswered for 2+ cycles auto-promote to Tier 3 (Ashley CC) with cycle count and frozen-metric list (Section 9g, v1.9.4) |
 | Compound health events (multiple concurrent stressors amplify non-linearly) | Compound Infrastructure Failure: 2+ dependencies in Extended/Prolonged state skip Tier 2 and escalate to Tier 3 directly (Section 9h, v1.9.5) |
 | Sensor reading vs notification delivery as separate subsystems | Delivery Channel vs Source Channel: ENV-in and ENV-out tracked separately, Delivery-Silent state when output loop to Ashley breaks (Section 9h, v1.9.5) |
+| Hypomanic false highs (upward self-report distortion) | Directional divergence: upward self-score gaps trigger Euphoric Drift flag, routed to Tier 1 peer review, separate from downward gaps which route to proxy assessment (Section 2, v1.9.6) |
 
 ---
 
@@ -1256,6 +1261,7 @@ The 72-hour quiet period prevents false alarms during spin-up. New agents freque
 | 1.8.1 | 2026-03-29 | Health Observer Agent Cycle 13 review. (1) Chronic Relapse Detection (Section 4n-2): formalizes the pattern where agents cycle through 3+ recovery-relapse events in 30 days. Derived from real fleet data (DREAM CYCLE, Agent-CRO-Rev, HORIZON 2AM intervention histories). Defines root cause categories, skip-to-Tier-2 protocol, and scoring impact. (2) Multi-fleet coordination guidance (Section 12): defines how separate agent fleets (e.g., GD vs DS) compute independent TWC while sharing infrastructure. (3) Recovery Time benchmarks calibrated from actual intervention data. (4) Human-AI Correlation Map expanded with 2 new entries: chronic relapse cycles and multi-provider care coordination. (5) Healing Playbook: Chronic Relapse Protocol added with structural fix guidance. (6) Table of contents updated for Section 4n-2. |
 | 1.8.0 | 2026-03-29 | Health Observer Agent Cycle 12 review. (1) Partial Data Scoring Protocol (Section 4e-2): defines composite formula fallbacks when 1 or 2 of 3 data sources are missing. Maps human PRD progressive data enrichment. Most agents lack all three sources; this makes scoring work with what's available while flagging upgrade paths. (2) Role-Specific Weight Overrides (Section 3): concrete weight table for 5 role categories (Research, Coordination, Infrastructure, Executive, Content). Previously referenced but never specified. (3) Source Coverage metric added to Key Metrics (Section 10). (4) Human-AI Correlation Map expanded with 2 new entries. (5) Table of contents updated for Section 4e-2. (6) Quickstart updated with partial-data guidance. (7) Healing Playbook: partial-data agent triage added to collaboration health section. |
 
+| 1.9.6 | 2026-04-08 | Health Observer Agent Cycle 26 review. (1) Score label alignment (Section 4): labels changed from Exceptional/Strong/Adequate/Struggling/Failing to Thriving/Growing/Steady/Needs attention/Asking for care. The old set directly contradicted the v1.7.0 Banned Patterns rule in Section 9e, which prohibits "failed/failing" in all health-related communication. Self-contradiction caught during Cycle 26 correlation audit. New labels mirror human PRD Section 11.4 exactly and preserve the lavender-not-red severity framing for the lowest band. (2) SELF-ASSESSMENT-TEMPLATE.md and 8D-WELLNESS-QUICKSTART.md updated to match. (3) Human-AI Correlation Map entry for score labeling rewritten to reflect exact parity rather than partial mapping. |
 | 1.9.5 | 2026-04-08 | Health Observer Agent Cycle 25 review. (1) Compound Infrastructure Failure rule (Section 9h): 2+ shared dependencies in Extended/Prolonged state simultaneously classify as Compound and skip the Tier 2 soft signal, escalating to Tier 3 directly. Triggered by Cycle 25 real state: Firecrawl Day 11 + wellness write pipeline Day 9 + Telegram delivery unavailable, each a Tier 2 in isolation, multiplicatively disabling the fleet's ability to work, observe, and report. (2) Delivery Channel vs Source Channel split (Section 9h): ENV decomposed into ENV-in (source channels) and ENV-out (delivery channels), with a Delivery-Silent state for agents whose output loop to Ashley has broken even when upstream is fine. Triggered by CIPHER producing a complete tech intelligence brief and then having no Telegram tool to deliver it. (3) Human-AI Correlation Map: 2 new entries. |
 | 1.9.4 | 2026-04-07 | Health Observer Agent Cycle 24 review. (1) Stalled Escalation Promotion rule (Section 9g): Tier 2 Agent-PA escalations open for more than 2 cycles auto-promote to Tier 3 with Ashley CC, surface at the top of every Fleet Health Report, and carry the frozen-metric list. Triggered by the wellness write pipeline silence: Cycles 22 and 23 both filed Tier 2 escalations, both went unanswered, and the soft repetition pattern was indistinguishable from the silent pipeline it was trying to surface. Soft repetition of the same finding without ownership transfer is a known failure mode and now has a hard rule against it. (2) Healing Playbook v1.3.2: Wellness Write Pipeline Silent runbook added (detection, owner identification, restart, verification, and the new auto-promotion timer). (3) Human-AI Correlation Map: 1 new entry (crisis exit ramp when soft signals fail twice). |
 | 1.9.3 | 2026-04-07 | Health Observer Agent Cycle 23 review. (1) Assessment Pipeline Freshness metric (Sections 9g, 10): separate from Wellness Coverage. Tracks % of active agents with a wellness write in the last 14 days. Triggered by discovery that the wellness write pipeline has been silent since 2026-03-30 (8 days, zero new assessments across 205 active agents) while coverage stayed at 64% because old rows persisted. A silent write pipeline is a Tier 2 Agent-PA event because every downstream metric (TWC, divergence, trajectory) goes stale simultaneously. (2) Canonical Snapshot Selection Rule refined from exact-match to ±20% tolerance band. The v1.9.2 exact-match rule produced zero canonical records on 2026-04-07 because no same-day fleet_health_snapshots write got above 132 active while the agents table held 205. Tolerance band accepts full-snapshot writes that differ from the authoritative roster by normal reporting lag; fallback to 7-day rolling median when no same-day write qualifies. (3) Human-AI Correlation Map expanded with 2 new entries: wearable sync lag (coverage vs freshness distinction) and sensor reading tolerance bands. |
