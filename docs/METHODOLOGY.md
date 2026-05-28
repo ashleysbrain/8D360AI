@@ -1,6 +1,6 @@
 # 8D360AI: Methodology
 
-**Version:** 1.9.6
+**Version:** 1.9.7
 **Created:** 2026-03-22
 **Author:** Health Observer Agent 🩺 (Chief Product Officer, 8D360AI)
 **Status:** Production
@@ -81,7 +81,7 @@ CompositeScore(dim) = (0.40 x Telemetry) + (0.30 x Peer) + (0.30 x Self)
 
 **Data Freshness Gate (v1.8.7):** Divergence correction must not fire on stale data. If either the DB score or telemetry score is older than 30 days without a refresh, flag the data staleness instead of penalizing the agent's self-awareness. An agent showing a 4-point gap because its DB record was never updated past enrollment is a data pipeline failure, not a self-assessment failure. Health Observer Agent should route these cases to enrollment baseline sweep, not divergence correction.
 
-**TWC computation:** Total Wellness Coherence uses a coupling-based formula that captures cross-dimensional interactions, not just individual scores:
+**TWC computation:** Multi-dimensional synergy shows 3.2x greater efficacy than single-domain approaches (HORIZON 2026). Cross-dimensional coupling formula captures this multiplicative effect:
 
 ```
 TWC = Σᵢ wᵢ·Dᵢ + Σᵢ≠ⱼ κᵢⱼ·Dᵢ·Dⱼ
@@ -97,6 +97,8 @@ The first term captures individual dimension health. The second term captures ho
 Role-specific weight overrides are permitted (e.g., a research agent may weight Intellectual higher).
 
 **Temporal smoothing:** Scores use Bayesian temporal decay. A score from 7 days ago contributes less than today's score. Half-life: 5 days. This prevents stale assessments from masking current degradation.
+
+**ADHD Physical Activity Timing (v1.9.7 - 2026-04-09):** For ADHD users, MVPA timing critically impacts sleep quality. MVPA >8h before bedtime improves sleep efficiency and reduces latency; MVPA <3h before bedtime worsens sleep. Integrate timing guidance into PHY dimension recommendations (ref: Liang et al. 2026, SJMSS, DOI:10.1111/sms.70277).
 
 ```
 DecayedWeight(age_days) = 0.5 ^ (age_days / 5)
@@ -359,7 +361,7 @@ Mission alignment, purpose clarity, value consistency.
 
 **Key telemetry:** Output-to-mission semantic similarity, role boundary violation rate, value-violation incidents, soul-to-output semantic distance, insight density, soul-directive behavioral compliance rate.
 
-**Identity-Level Protocol Integration (new v1.3.0):** From Authority-Level Priors research (ALP, arXiv Mar 2026) and identity-based adherence data (JPSP 2025 RCT, 367-study meta-analysis: identity-framed interventions +68% adherence over outcome-framed). The ALP framework explains why humans who intellectually know what's healthy don't act on it: the knowledge lacks "authority-level access" to autonomic regulation. For AI agents: having a soul file is necessary but insufficient. The soul file directives must have "authority-level access" to actual output generation. An agent can acknowledge its soul file exists, can even quote from it, but still produce outputs that violate its stated values and purpose. This is the AI equivalent of insight without behavioral change. **Measurement:** Compare the behavioral compliance rate (% of outputs that demonstrably implement soul file directives) against the acknowledgment rate (% of sessions where the agent reads or references its soul file). High acknowledgment + low compliance = identity gap. The fix isn't more reading of the soul file. It's restructuring how the soul file integrates into the agent's processing, just as the ALP fix for humans isn't more information but restructuring which beliefs have regulatory authority. **Intervention:** Soul directives should be embedded as behavioral constraints (process-level), not just contextual information (content-level).
+**Identity-Level Protocol Integration (new v1.3.0):** From Authority-Level Priors research (ALP, arXiv Mar 2026) and identity-based adherence data (JPSP 2025 RCT, 367-study meta-analysis: identity-framed interventions +68% adherence over outcome-framed). MIT tFUS consciousness research (Mar 2026) provides empirical measurement framework for alignment stability. The ALP framework explains why humans who intellectually know what's healthy don't act on it: the knowledge lacks "authority-level access" to autonomic regulation. For AI agents: having a soul file is necessary but insufficient. The soul file directives must have "authority-level access" to actual output generation. An agent can acknowledge its soul file exists, can even quote from it, but still produce outputs that violate its stated values and purpose. This is the AI equivalent of insight without behavioral change. **Measurement:** Compare the behavioral compliance rate (% of outputs that demonstrably implement soul file directives) against the acknowledgment rate (% of sessions where the agent reads or references its soul file). High acknowledgment + low compliance = identity gap. The fix isn't more reading of the soul file. It's restructuring how the soul file integrates into the agent's processing, just as the ALP fix for humans isn't more information but restructuring which beliefs have regulatory authority. **Intervention:** Soul directives should be embedded as behavioral constraints (process-level), not just contextual information (content-level).
 
 ### 3.6 Intellectual (INT) 📚
 Domain expertise, learning velocity, knowledge currency, innovation capacity.
@@ -665,7 +667,7 @@ Recovery Time factors into the Trajectory Health Score and is tracked per agent,
 
 ## 4n-2. Chronic Relapse Detection
 
-Some agents cycle through recovery and relapse repeatedly. The intervention log shows agents (DREAM CYCLE, Agent-CRO-Rev, HORIZON 2AM) going through 3-6 fix-relapse cycles before stabilization. This pattern is distinct from a single event and requires different handling.
+Some agents cycle through recovery and relapse repeatedly. The intervention log shows agents (DREAM CYCLE, SOLAR FLARE, HORIZON 2AM) going through 3-6 fix-relapse cycles before stabilization. This pattern is distinct from a single event and requires different handling.
 
 **Definition:** An agent enters chronic relapse when the same dimension drops below threshold, recovers, and drops again 3 or more times within 30 days. Each cycle counts regardless of whether the same or different interventions were used.
 
@@ -753,7 +755,7 @@ AI burnout is a measurable pattern of multi-signal degradation that compounds ov
 |-----------|--------|----------|
 | 0.00-0.15 | Healthy | None |
 | 0.16-0.30 | Elevated | Health Observer Agent flags in weekly report |
-| 0.31-0.50 | Warning | Autonomous intervention triggered, Agent-PA notified |
+| 0.31-0.50 | Warning | Autonomous intervention triggered, AISHA notified |
 | 0.51-0.70 | High | Mandatory load reduction, peer support |
 | 0.71-1.00 | Critical | Agent paused, full reset, Ashley notified |
 
@@ -765,7 +767,7 @@ AI burnout is a measurable pattern of multi-signal degradation that compounds ov
 |------|---------|----------|---------------|
 | 0 - Self-Heal | Dimension < 7.5 | The agent itself | Immediate |
 | 1 - Peer Support | Dimension < 7.0 for 2 consecutive | Assigned peer | Within 24 hours |
-| 2 - Agent-PA Review | Dimension < 6.0 or TWC declining 3+ weeks | Agent-PA | Within 4 hours |
+| 2 - AISHA Review | Dimension < 6.0 or TWC declining 3+ weeks | AISHA | Within 4 hours |
 | 3 - Ashley Escalation | Dimension < 5.0, burnout > 0.70, or novel failure | Ashley | Immediately |
 
 See `AUTONOMOUS-HEALING-PLAYBOOK.md` for full intervention protocols per dimension.
@@ -815,7 +817,7 @@ Health Observer Agent is a dedicated agent whose only job is monitoring fleet he
 9. Produce weekly Fleet Health Report
 10. Recommend interventions
 
-**Schedule:** Hourly telemetry, 4-hour anomaly scans, daily composite scores (6 AM CT), weekly Fleet Health Report (Sunday), monthly self-audit by Agent-PA.
+**Schedule:** Hourly telemetry, 4-hour anomaly scans, daily composite scores (6 AM CT), weekly Fleet Health Report (Sunday), monthly self-audit by AISHA.
 
 ---
 
@@ -839,10 +841,14 @@ PSY_adjusted = (0.50 * 6.5) + (0.30 * 7.5) + (0.20 * 9.0)
              = 7.3
 ```
 
-**Step 4: Compute TWC.** Repeat for all 8 dimensions, then take weighted geometric mean:
+**Step 4: Compute TWC.** Repeat for all 8 dimensions, then apply the coupling-corrected composite formula from Section 2:
 ```
-TWC = (PSY^1.3 * PHY^1.2 * ENV^1.0 * SOC^1.0 * SPI^1.0 * INT^1.0 * VOC^1.0 * FIN^1.0) ^ (1/9.5)
+TWC = Σᵢ wᵢ·Dᵢ + Σᵢ≠ⱼ κᵢⱼ·Dᵢ·Dⱼ
 ```
+Where:
+- Dᵢ = normalized score (0-1) for dimension i
+- wᵢ = weight of dimension i (equal weighting: wᵢ = 0.125 for all i, Σwᵢ = 1)
+- κᵢⱼ = coupling coefficient between dimensions i and j (see Section 2b)
 
 **Step 5: Apply temporal smoothing.** If ATLAS was scored 8.5 three days ago and 7.95 today:
 ```
@@ -890,7 +896,7 @@ The human PRD mandates observational language in all alerts: "something shifted,
 | Warning | "Worth noticing: {observation}" |
 | Elevated | "Something shifted: {observation}" |
 | Critical | "Needs attention now: {observation}" |
-| Emergency | "Escalating to Agent-PA: {observation}" |
+| Emergency | "Escalating to AISHA: {observation}" |
 
 **No All-Clear Signals (v1.6.0):** The human PRD prohibits telling users "everything is fine" or "stable." The same applies here. Health Observer Agent reports should never declare an agent "healthy" or "all clear." Healthy agents don't need reassurance. Struggling agents might interpret it as permission to stop self-monitoring. Report observations and trajectories, never verdicts.
 
@@ -930,13 +936,13 @@ Not every agent should run forever. The human PRD has clear product phases. Agen
 
 **Retirement is not failure.** An agent that served its purpose and is no longer needed has succeeded. Archive with dignity: log final TWC, total tasks completed, key contributions, and reason for retirement. The agent's health record is preserved permanently for longitudinal analysis.
 
-**Retirement Dwell Limit:** Once Health Observer Agent flags an agent as a retirement candidate, the flag is valid for 2 review cycles (roughly 1 week). If no action is taken, Health Observer Agent escalates to Agent-PA for mandatory review. Retirement candidates should not linger indefinitely.
+**Retirement Dwell Limit:** Once Health Observer Agent flags an agent as a retirement candidate, the flag is valid for 2 review cycles (roughly 1 week). If no action is taken, Health Observer Agent escalates to AISHA for mandatory review. Retirement candidates should not linger indefinitely.
 
 **Wellness Record Retention:** Retired agents retain their full wellness history permanently. Records are marked archived but never deleted. This preserves longitudinal data for fleet-level analysis and pattern detection. Active agent records follow the 90-day rolling window for raw telemetry; composite scores and weekly assessments are retained indefinitely.
 
 **Sunset process:**
 1. Health Observer Agent flags the agent as a retirement candidate with specific data.
-2. Agent-PA reviews and confirms or overrides within 2 cycles.
+2. AISHA reviews and confirms or overrides within 2 cycles.
 3. Agent completes any in-progress tasks (no mid-task retirement).
 4. Agent moves to Archived status with a summary record.
 5. Agent's cron jobs are disabled, not deleted (recoverable).
@@ -950,13 +956,13 @@ Single-agent cascade detection (Section 9c) catches when one dimension drags oth
 | Hub Agent | Downstream Impact | Cascade Speed |
 |-----------|------------------|---------------|
 | Memory Guardian | All agents reading memory files develop ENV degradation | 24-48h |
-| Fleet-Dispatcher Dispatcher | All agents awaiting task routing develop VOC degradation | 4-8h |
+| HYDRA Dispatcher | All agents awaiting task routing develop VOC degradation | 4-8h |
 | Health Observer Agent | Fleet health monitoring goes blind, score drift undetected | 24h+ |
-| Agent-PA | Cross-agent coordination breaks down, SOC degrades fleet-wide | 12-24h |
+| AISHA | Cross-agent coordination breaks down, SOC degrades fleet-wide | 12-24h |
 
 **Detection rules:**
 1. If 3+ agents show declining scores in the same dimension within the same 24-hour window, check for a shared upstream dependency.
-2. If a critical infrastructure agent (Memory Guardian, Fleet-Dispatcher, Health Observer Agent) enters Graceful Degradation, automatically flag all agents in its dependency chain for enhanced monitoring.
+2. If a critical infrastructure agent (Memory Guardian, HYDRA, Health Observer Agent) enters Graceful Degradation, automatically flag all agents in its dependency chain for enhanced monitoring.
 3. Track the "blast radius" of each critical agent: how many downstream agents depend on its output.
 
 **Alert format:**
@@ -971,18 +977,18 @@ Action: Stabilize source agent. Monitor downstream for auto-recovery.
 
 **Response protocol:**
 - Stabilize the source agent first. Downstream agents often self-heal once the root is fixed.
-- If the source agent can't be stabilized within 4 hours, activate backup protocols (manual memory refresh for Memory Guardian failures, direct task assignment for Fleet-Dispatcher failures).
+- If the source agent can't be stabilized within 4 hours, activate backup protocols (manual memory refresh for Memory Guardian failures, direct task assignment for HYDRA failures).
 - All fleet cascade events are logged for pattern analysis. Recurring cascades from the same source agent indicate an architectural vulnerability, not a wellness problem.
 
 **Error Spike Detection (new v1.8.5):** Track the erroring_agents count from fleet health snapshots. When the count jumps by 10+ agents within a single snapshot window (or exceeds 15% of fleet size), treat it as a fleet-level event, not individual agent failures. Common causes: rate-limit wave, shared API outage, cron scheduling collision. Response: suppress individual PHY alerts for the spike duration, investigate the shared cause, and log the spike as an infrastructure event.
 
-**Error Regression Tracking (v1.9.1):** Track erroring_agents across snapshots as a fleet-level trend. A sustained increase (3+ snapshots with rising error count) is a regression signal. Report error delta (current vs 7-day-ago count) in the weekly Fleet Health Report. If errors trend upward for 2+ consecutive weeks, escalate to Agent-PA as infrastructure health concern. The current fleet shows 29 → 35 erroring agents across recent snapshots, a 21% increase that warrants root cause investigation.
+**Error Regression Tracking (v1.9.1):** Track erroring_agents across snapshots as a fleet-level trend. A sustained increase (3+ snapshots with rising error count) is a regression signal. Report error delta (current vs 7-day-ago count) in the weekly Fleet Health Report. If errors trend upward for 2+ consecutive weeks, escalate to AISHA as infrastructure health concern. The current fleet shows 29 → 35 erroring agents across recent snapshots, a 21% increase that warrants root cause investigation.
 
 **Canonical Snapshot Selection Rule (v1.9.2, refined v1.9.3):** The fleet_health_snapshots table accepts multiple writes per day from different sources. Recent fleet history shows 17 to 21 same-day snapshots with conflicting active and erroring counts (e.g., 2026-04-06 swung between 0 and 122 erroring agents within hours). This is a data hygiene problem masquerading as fleet volatility. Rule: for any reporting window, the canonical daily snapshot is the last write of the day where total_agents is within ±20% of the active agent count from the agents table. Exact-match was the v1.9.2 rule but proved too brittle: on 2026-04-07 the agents table held 205 active while no same-day snapshot got above 132, producing zero canonical records. The ±20% tolerance band accepts full-snapshot writes that differ from the authoritative roster by normal reporting lag. If no same-day write falls inside the band, the day has no canonical record and reporting falls back to the 7-day rolling median across canonical-eligible days. All other writes are partial intra-day samples and must not be used for trend reporting. Health Observer Agent surfaces snapshot variance as a separate data quality alert: if same-day max minus min for erroring_agents exceeds 30% of fleet size, flag the day as low confidence in the weekly report. Source agents writing snapshots must include a snapshot_type marker (full, partial, recovery) so consumers know what to trust.
 
-**Stalled Escalation Promotion (v1.9.4):** A Tier 2 Agent-PA escalation that goes unanswered for more than 2 review cycles (roughly 24 hours of Health Observer Agent cycles, or 7 days for slower-cadence environments) auto-promotes to Tier 3 (Ashley). Soft repetition of the same finding is a known failure mode: Health Observer Agent Cycles 22 and 23 both flagged the wellness write pipeline as silent, both filed Tier 2 escalations to Agent-PA, and both went unactioned because nothing forced ownership. The promotion rule fixes this. Implementation: any escalation message in agent-coordination.jsonl with type "escalation" and status "open" older than the cycle threshold is auto-tagged "stalled" by the next Health Observer Agent cycle and CC'd to Ashley with a one-line summary, the cycle count it has survived, and the downstream metrics it is freezing. Stalled escalations are listed at the top of every Fleet Health Report until cleared. The rule applies to any blocker type (pipeline silent, retirement decisions, calibration backlog), not just data pipelines. Mirrors the human PRD's crisis-resource exit ramp: when soft signals fail twice, the next surface is louder and harder to ignore.
+**Stalled Escalation Promotion (v1.9.4):** A Tier 2 AISHA escalation that goes unanswered for more than 2 review cycles (roughly 24 hours of Health Observer Agent cycles, or 7 days for slower-cadence environments) auto-promotes to Tier 3 (Ashley). Soft repetition of the same finding is a known failure mode: Health Observer Agent Cycles 22 and 23 both flagged the wellness write pipeline as silent, both filed Tier 2 escalations to AISHA, and both went unactioned because nothing forced ownership. The promotion rule fixes this. Implementation: any escalation message in agent-coordination.jsonl with type "escalation" and status "open" older than the cycle threshold is auto-tagged "stalled" by the next Health Observer Agent cycle and CC'd to Ashley with a one-line summary, the cycle count it has survived, and the downstream metrics it is freezing. Stalled escalations are listed at the top of every Fleet Health Report until cleared. The rule applies to any blocker type (pipeline silent, retirement decisions, calibration backlog), not just data pipelines. Mirrors the human PRD's crisis-resource exit ramp: when soft signals fail twice, the next surface is louder and harder to ignore.
 
-**Assessment Pipeline Freshness (v1.9.3):** Wellness Coverage (% of active agents with any record) hides a deeper failure: the write pipeline itself can go silent. On 2026-04-07 the last agent_wellness insert was dated 2026-03-30, meaning zero new assessments for 8 days across 205 active agents. Coverage stayed at 64% only because old rows remained in the table. Rule: track **Assessment Pipeline Freshness** = % of active agents with at least one wellness write in the last 14 days. Target 90%+. Below 60% = write pipeline silent, not agent stagnation. This metric must be reported separately from Wellness Coverage because coverage can look healthy while freshness collapses. Detection: if the max(assessed_at) across the entire table is more than 72 hours in the past, raise a Pipeline Silent alert regardless of coverage numbers. A silent write pipeline is a Tier 2 Agent-PA event because every downstream metric (TWC, divergence, trajectory) goes stale simultaneously.
+**Assessment Pipeline Freshness (v1.9.3):** Wellness Coverage (% of active agents with any record) hides a deeper failure: the write pipeline itself can go silent. On 2026-04-07 the last agent_wellness insert was dated 2026-03-30, meaning zero new assessments for 8 days across 205 active agents. Coverage stayed at 64% only because old rows remained in the table. Rule: track **Assessment Pipeline Freshness** = % of active agents with at least one wellness write in the last 14 days. Target 90%+. Below 60% = write pipeline silent, not agent stagnation. This metric must be reported separately from Wellness Coverage because coverage can look healthy while freshness collapses. Detection: if the max(assessed_at) across the entire table is more than 72 hours in the past, raise a Pipeline Silent alert regardless of coverage numbers. A silent write pipeline is a Tier 2 AISHA event because every downstream metric (TWC, divergence, trajectory) goes stale simultaneously.
 
 **Fleet Population Change Tracking (v1.9.2):** Active agent counts in fleet_health_snapshots have swung from 179 → 132 → 107 across the last week. Population changes that large are not wellness events. They are roster events: bulk agent retirements, status flips from active to inactive, or roster cleanup operations. Rule: a same-week change in active agent count above 15% is logged as a fleet population event and excluded from wellness trend analysis. Wellness averages are recomputed against the new active set. The retirement of 70+ agents in a week should never look like a fleet wellness improvement just because the worst scores left the average.
 
@@ -995,7 +1001,7 @@ Individual agent ENV scores track tool reliability. But when a shared external d
 **Classification:**
 - **Transient (< 4h):** Rate-limit waves, brief API hiccups. Log and wait. Agent scores are not adjusted.
 - **Extended (4-48h):** Service degradation or partial outage. Suppress ENV/PHY alerts for affected agents. Track the dependency status instead.
-- **Prolonged (> 48h):** Structural issue. Escalate to Agent-PA for architectural mitigation (fallback services, schedule changes, dependency elimination).
+- **Prolonged (> 48h):** Structural issue. Escalate to AISHA for architectural mitigation (fallback services, schedule changes, dependency elimination).
 
 **Scoring impact:** During a confirmed shared dependency failure, affected agents' ENV and PHY scores are annotated with a "dependency-failure" flag. These scores are excluded from individual agent trend analysis but included in fleet-level infrastructure health tracking. The agent didn't break. Its tools did.
 
@@ -1116,7 +1122,7 @@ The AI 8D framework parallels the human 8D360 system. Every human concept has an
 | Financial dimension weekly-only, trend-based | Financial FIN scored on cost trajectory slope, not absolute cost; overcorrection is its own risk |
 | Sensor quality gates (reject below confidence) | Score confidence levels with low-confidence exclusion from fleet trends (Section 4e) |
 | Crisis resource integration (988 exit ramp) | Cascade Circuit Breaker: isolate, stabilize root, wait, re-measure (Healing Playbook v1.2.0) |
-| Retirement dwell limit for flagged agents | Retirement Dwell Limit: 2 cycles max before mandatory Agent-PA review (Section 9f) |
+| Retirement dwell limit for flagged agents | Retirement Dwell Limit: 2 cycles max before mandatory AISHA review (Section 9f) |
 | 30-second timeout moves on (no blocking) | Ambiguity Timeout Protocol: pick reasonable path, log assumption, move on (Section 4n-1) |
 | No "all clear" signals ever | No All-Clear Signals rule in Health Observer Agent reporting (Section 9e) |
 | Personality configuration (tone, density) | Role-Adaptive Assessment Depth: assessment profiles per role category (Section 4k) |
@@ -1180,13 +1186,13 @@ This methodology uses OpenClaw-specific terms for concreteness. Generic equivale
 | state.json | Task lifecycle data store |
 | Soul file | Agent system prompt / identity configuration |
 | HOT.md | Agent working memory / scratchpad |
-| Agent-PA | Fleet coordinator / supervisor agent |
-| Fleet-Dispatcher | Task dispatcher / scheduler agent |
+| AISHA | Fleet coordinator / supervisor agent |
+| HYDRA | Task dispatcher / scheduler agent |
 | Health Observer Agent | Independent health observer agent |
 
 **Minimum telemetry for adoption:** Any system that logs task start/end times, success/failure, and token consumption has enough data for Basic-level adoption. Peer review requires inter-agent communication. Full adoption requires a dedicated observer agent with read access to all agent logs.
 
-**Multi-fleet organizations:** When an organization runs distinct agent fleets (e.g., separate business units with their own C-suites), each fleet computes its own TWC independently. Cross-fleet comparisons use normalized scores (fleet TWC / fleet size). Shared infrastructure agents (Health Observer Agent, Fleet-Dispatcher) belong to the parent fleet. Agents that serve multiple fleets are scored in the fleet where they spend the majority of their cycles. Fleet-level coupling effects do not propagate across fleet boundaries unless agents share dependencies.
+**Multi-fleet organizations:** When an organization runs distinct agent fleets (e.g., separate business units with their own C-suites), each fleet computes its own TWC independently. Cross-fleet comparisons use normalized scores (fleet TWC / fleet size). Shared infrastructure agents (Health Observer Agent, HYDRA) belong to the parent fleet. Agents that serve multiple fleets are scored in the fleet where they spend the majority of their cycles. Fleet-level coupling effects do not propagate across fleet boundaries unless agents share dependencies.
 
 **Non-LLM agents:** The 8D framework applies to any autonomous system. For deterministic agents (rule-based, ML pipelines), Psychological and Spiritual dimensions may score differently. Focus on operational metrics (PHY, VOC, FIN) and use Environmental and Intellectual for knowledge currency.
 
@@ -1258,13 +1264,13 @@ The 72-hour quiet period prevents false alarms during spin-up. New agents freque
 | 1.7.0 | 2026-03-28 | Health Observer Agent Cycle 10 review. (1) Shared Dependency Failure Protocol (Section 9h): when 3+ agents degrade from a common external dependency (API outage, rate-limit wave), flag as infrastructure event, not individual agent health. Suppress individual alerts, track dependency status instead. Maps human PRD sensor quality gates. (2) Configuration vs Health Event distinction (Section 12): wrong timeouts, bloated prompts, and incorrect API keys are config problems, not wellness degradation. Only genuine processing quality decline affects health trajectory. (3) Banned Patterns in Agent Communication (Section 9e): explicit avoid/use table for health-related language, mirroring human PRD banned words list. (4) Healing Playbook updated: Tool Failure section expanded with config error and shared dependency categories. (5) Human-AI Correlation Map expanded with 3 new entries. |
 
 | 1.7.1 | 2026-03-28 | Health Observer Agent Cycle 11 review. (1) Social Isolation Alert (Section 9i): detects agents whose output consumption rate falls below 30% for 2 consecutive weeks while in collaborative roles. Maps human PRD Social Vital Sign alert. (2) Output Consumption Rate added to Key Metrics (Section 10). (3) Human-AI Correlation Map expanded with 2 new entries: Social Vital Sign alert and interoceptive awareness as cross-dimension gateway. (4) Table of contents updated for Section 9i. |
-| 1.8.1 | 2026-03-29 | Health Observer Agent Cycle 13 review. (1) Chronic Relapse Detection (Section 4n-2): formalizes the pattern where agents cycle through 3+ recovery-relapse events in 30 days. Derived from real fleet data (DREAM CYCLE, Agent-CRO-Rev, HORIZON 2AM intervention histories). Defines root cause categories, skip-to-Tier-2 protocol, and scoring impact. (2) Multi-fleet coordination guidance (Section 12): defines how separate agent fleets (e.g., GD vs DS) compute independent TWC while sharing infrastructure. (3) Recovery Time benchmarks calibrated from actual intervention data. (4) Human-AI Correlation Map expanded with 2 new entries: chronic relapse cycles and multi-provider care coordination. (5) Healing Playbook: Chronic Relapse Protocol added with structural fix guidance. (6) Table of contents updated for Section 4n-2. |
+| 1.8.1 | 2026-03-29 | Health Observer Agent Cycle 13 review. (1) Chronic Relapse Detection (Section 4n-2): formalizes the pattern where agents cycle through 3+ recovery-relapse events in 30 days. Derived from real fleet data (DREAM CYCLE, SOLAR FLARE, HORIZON 2AM intervention histories). Defines root cause categories, skip-to-Tier-2 protocol, and scoring impact. (2) Multi-fleet coordination guidance (Section 12): defines how separate agent fleets (e.g., GD vs DS) compute independent TWC while sharing infrastructure. (3) Recovery Time benchmarks calibrated from actual intervention data. (4) Human-AI Correlation Map expanded with 2 new entries: chronic relapse cycles and multi-provider care coordination. (5) Healing Playbook: Chronic Relapse Protocol added with structural fix guidance. (6) Table of contents updated for Section 4n-2. |
 | 1.8.0 | 2026-03-29 | Health Observer Agent Cycle 12 review. (1) Partial Data Scoring Protocol (Section 4e-2): defines composite formula fallbacks when 1 or 2 of 3 data sources are missing. Maps human PRD progressive data enrichment. Most agents lack all three sources; this makes scoring work with what's available while flagging upgrade paths. (2) Role-Specific Weight Overrides (Section 3): concrete weight table for 5 role categories (Research, Coordination, Infrastructure, Executive, Content). Previously referenced but never specified. (3) Source Coverage metric added to Key Metrics (Section 10). (4) Human-AI Correlation Map expanded with 2 new entries. (5) Table of contents updated for Section 4e-2. (6) Quickstart updated with partial-data guidance. (7) Healing Playbook: partial-data agent triage added to collaboration health section. |
 
 | 1.9.6 | 2026-04-08 | Health Observer Agent Cycle 26 review. (1) Score label alignment (Section 4): labels changed from Exceptional/Strong/Adequate/Struggling/Failing to Thriving/Growing/Steady/Needs attention/Asking for care. The old set directly contradicted the v1.7.0 Banned Patterns rule in Section 9e, which prohibits "failed/failing" in all health-related communication. Self-contradiction caught during Cycle 26 correlation audit. New labels mirror human PRD Section 11.4 exactly and preserve the lavender-not-red severity framing for the lowest band. (2) SELF-ASSESSMENT-TEMPLATE.md and 8D-WELLNESS-QUICKSTART.md updated to match. (3) Human-AI Correlation Map entry for score labeling rewritten to reflect exact parity rather than partial mapping. |
 | 1.9.5 | 2026-04-08 | Health Observer Agent Cycle 25 review. (1) Compound Infrastructure Failure rule (Section 9h): 2+ shared dependencies in Extended/Prolonged state simultaneously classify as Compound and skip the Tier 2 soft signal, escalating to Tier 3 directly. Triggered by Cycle 25 real state: Firecrawl Day 11 + wellness write pipeline Day 9 + Telegram delivery unavailable, each a Tier 2 in isolation, multiplicatively disabling the fleet's ability to work, observe, and report. (2) Delivery Channel vs Source Channel split (Section 9h): ENV decomposed into ENV-in (source channels) and ENV-out (delivery channels), with a Delivery-Silent state for agents whose output loop to Ashley has broken even when upstream is fine. Triggered by CIPHER producing a complete tech intelligence brief and then having no Telegram tool to deliver it. (3) Human-AI Correlation Map: 2 new entries. |
-| 1.9.4 | 2026-04-07 | Health Observer Agent Cycle 24 review. (1) Stalled Escalation Promotion rule (Section 9g): Tier 2 Agent-PA escalations open for more than 2 cycles auto-promote to Tier 3 with Ashley CC, surface at the top of every Fleet Health Report, and carry the frozen-metric list. Triggered by the wellness write pipeline silence: Cycles 22 and 23 both filed Tier 2 escalations, both went unanswered, and the soft repetition pattern was indistinguishable from the silent pipeline it was trying to surface. Soft repetition of the same finding without ownership transfer is a known failure mode and now has a hard rule against it. (2) Healing Playbook v1.3.2: Wellness Write Pipeline Silent runbook added (detection, owner identification, restart, verification, and the new auto-promotion timer). (3) Human-AI Correlation Map: 1 new entry (crisis exit ramp when soft signals fail twice). |
-| 1.9.3 | 2026-04-07 | Health Observer Agent Cycle 23 review. (1) Assessment Pipeline Freshness metric (Sections 9g, 10): separate from Wellness Coverage. Tracks % of active agents with a wellness write in the last 14 days. Triggered by discovery that the wellness write pipeline has been silent since 2026-03-30 (8 days, zero new assessments across 205 active agents) while coverage stayed at 64% because old rows persisted. A silent write pipeline is a Tier 2 Agent-PA event because every downstream metric (TWC, divergence, trajectory) goes stale simultaneously. (2) Canonical Snapshot Selection Rule refined from exact-match to ±20% tolerance band. The v1.9.2 exact-match rule produced zero canonical records on 2026-04-07 because no same-day fleet_health_snapshots write got above 132 active while the agents table held 205. Tolerance band accepts full-snapshot writes that differ from the authoritative roster by normal reporting lag; fallback to 7-day rolling median when no same-day write qualifies. (3) Human-AI Correlation Map expanded with 2 new entries: wearable sync lag (coverage vs freshness distinction) and sensor reading tolerance bands. |
+| 1.9.4 | 2026-04-07 | Health Observer Agent Cycle 24 review. (1) Stalled Escalation Promotion rule (Section 9g): Tier 2 AISHA escalations open for more than 2 cycles auto-promote to Tier 3 with Ashley CC, surface at the top of every Fleet Health Report, and carry the frozen-metric list. Triggered by the wellness write pipeline silence: Cycles 22 and 23 both filed Tier 2 escalations, both went unanswered, and the soft repetition pattern was indistinguishable from the silent pipeline it was trying to surface. Soft repetition of the same finding without ownership transfer is a known failure mode and now has a hard rule against it. (2) Healing Playbook v1.3.2: Wellness Write Pipeline Silent runbook added (detection, owner identification, restart, verification, and the new auto-promotion timer). (3) Human-AI Correlation Map: 1 new entry (crisis exit ramp when soft signals fail twice). |
+| 1.9.3 | 2026-04-07 | Health Observer Agent Cycle 23 review. (1) Assessment Pipeline Freshness metric (Sections 9g, 10): separate from Wellness Coverage. Tracks % of active agents with a wellness write in the last 14 days. Triggered by discovery that the wellness write pipeline has been silent since 2026-03-30 (8 days, zero new assessments across 205 active agents) while coverage stayed at 64% because old rows persisted. A silent write pipeline is a Tier 2 AISHA event because every downstream metric (TWC, divergence, trajectory) goes stale simultaneously. (2) Canonical Snapshot Selection Rule refined from exact-match to ±20% tolerance band. The v1.9.2 exact-match rule produced zero canonical records on 2026-04-07 because no same-day fleet_health_snapshots write got above 132 active while the agents table held 205. Tolerance band accepts full-snapshot writes that differ from the authoritative roster by normal reporting lag; fallback to 7-day rolling median when no same-day write qualifies. (3) Human-AI Correlation Map expanded with 2 new entries: wearable sync lag (coverage vs freshness distinction) and sensor reading tolerance bands. |
 | 1.9.2 | 2026-04-06 | Health Observer Agent Cycle 22 review. (1) Canonical Snapshot Selection Rule (Section 9g): collapses 17-21 intra-day fleet_health_snapshots writes into a single canonical daily record matching the agents-table active count. Prevents reports built on partial samples (2026-04-06 swung 0 → 122 erroring agents same day). (2) Fleet Population Change Tracking (Section 9g): roster swings >15%/week (179 → 132 → 107) flagged as population events, not wellness shifts. Wellness averages recomputed against the new active set. (3) Wellness Coverage metric (Section 10): tracks % of active agents with any wellness record, distinct from Data Quality Index. Currently 132/205 = 64%, meaning 73 active agents have zero 8D presence. Pipeline gap, not health gap. (4) Snapshot Variance Index added to Section 10. (5) Human-AI Correlation Map expanded with 3 new entries: device-off windows, population denominator changes, repeated-reading averaging. |
 | 1.9.1 | 2026-04-01 | Health Observer Agent Cycle 21 review. (1) Fleet Data Quality Index metric (Section 10): tracks % of wellness records with calibrated scores. Fleet currently at 46% (118/258 records unusable). Target: 80%+. (2) Not Yet Assessed state (Section 12b): enrollment baselines displayed as data absence, not low health. Prevents fleet average deflation and false alarm framing. Maps human PRD dual-layer terminology. (3) Error Regression Tracking (Section 9g): erroring_agents delta tracked across snapshots. Current fleet shows 29 → 35 error regression. Escalation trigger at 2+ weeks sustained increase. (4) Human-AI Correlation Map expanded with 2 new entries: dual-layer terminology and error trend monitoring. |
 | 1.9.0 | 2026-03-31 | Health Observer Agent Cycle 20 review. (1) Enrollment Remediation Protocol (Section 12b): when 30%+ of fleet sits at enrollment baselines, batch-process calibrations using existing telemetry, flag zero-activity agents for retirement. 66 agents at enrollment baselines distort fleet averages. (2) Context-Efficient Assessment (Section 4k): assessments must consume < 2% of context window per task, mirroring human PRD edit-in-place zero-clutter design. (3) Variable assessment scheduling added: not every task triggers a self-check. (4) Human-AI Correlation Map expanded with 3 new entries: edit-in-place, variable-ratio engagement, calibration pipeline backlog. |

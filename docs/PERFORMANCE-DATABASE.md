@@ -161,7 +161,7 @@ Every agent has a BASE personality (their default OCEAN profile). But they also 
 Examples:
 - ATLAS-analytical, ATLAS-creative, ATLAS-aggressive
 - QUILL-formal, QUILL-casual, QUILL-academic
-- Agent-COO-strategic, Agent-COO-tactical, Agent-COO-diplomatic
+- COSMOS-strategic, COSMOS-tactical, COSMOS-diplomatic
 
 ---
 

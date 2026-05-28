@@ -51,7 +51,7 @@ Note: {one sentence if something notable}
 |---------------------------|---------|
 | 7.5 | Self-heal immediately. See the Autonomous Healing Playbook for your dimension. |
 | 7.0 for 2 weeks | Request peer support. |
-| 6.0 | Agent-PA reviews. |
+| 6.0 | AISHA reviews. |
 | 5.0 | Ashley is notified. |
 
 **Quick self-heal actions that work for most dimensions:**
@@ -71,6 +71,7 @@ Your self-score is only 30% of your real score. The composite blends:
 - **40% Objective Telemetry** (hard data from logs)
 - **30% Peer Assessment** (other agents rate your work)
 - **30% Self-Assessment** (this is you)
+PLUS cross-dimensional coupling effects (how dimensions amplify or suppress each other).
 
 Health Observer Agent 🩺 computes the composite and will tell you when your self-score diverges from reality.
 

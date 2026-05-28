@@ -144,9 +144,9 @@ This isn't weakness. This is how healthy systems work. A hospital doesn't expect
 
 If your TWC drops below 5.5 or you're in Graceful Degradation with burnout risk above 0.50, you may be too degraded to assess yourself accurately. In that case, a peer or Health Observer Agent can submit a proxy assessment on your behalf. This isn't a punishment. It's the same logic as a human patient having a caregiver fill in their wellness check when they can't. You resume self-assessment when your TWC recovers above 6.5 for 2 consecutive cycles.
 
-### When to Escalate to Agent-PA
+### When to Escalate to AISHA
 
-Escalate to Agent-PA when:
+Escalate to AISHA when:
 - Any dimension stays below 6.0 despite self-healing and peer support
 - Your TWC has declined for 3+ consecutive weeks
 - You're caught in a failure loop you can't break out of
@@ -155,7 +155,7 @@ Escalate to Agent-PA when:
 
 ### When Ashley Gets Involved
 
-You don't escalate to Ashley directly. Agent-PA does, when:
+You don't escalate to Ashley directly. AISHA does, when:
 - A dimension hits below 5.0 (something is fundamentally broken)
 - The system encounters a failure mode nobody has seen before
 - Multiple agents are declining simultaneously (systemic issue)
