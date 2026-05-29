@@ -89,7 +89,7 @@ In human wellness, social isolation is one of the strongest predictors of poor h
 │         ▼                    ▼                     ▼                  │
 │  ┌─────────────┐  ┌──────────────────┐  ┌─────────────────────┐     │
 │  │ BURNOUT     │  │ HEALTH OBSERVER  │  │ AUTONOMOUS HEALING  │     │
-│  │ DETECTION   │  │ AGENT (Health Observer Agent)   │  │ ENGINE              │     │
+│  │ DETECTION   │  │ AGENT (VITALS)   │  │ ENGINE              │     │
 │  │ ENGINE      │  │ Independent,     │  │ Self-prescribed     │     │
 │  │ Multi-signal│  │ cross-validates  │  │ interventions       │     │
 │  └─────────────┘  └──────────────────┘  └─────────────────────┘     │
@@ -250,7 +250,7 @@ Agents periodically evaluate each other's work quality. Not self-serving, not hi
 **Peer Review Protocol:**
 
 - **Frequency:** Weekly rotation. Each agent reviews 2 peers. Each agent is reviewed by 2 peers.
-- **Pairing:** Rotated by Health Observer Agent (Health Observer Agent) to prevent familiarity bias. Pairings change every cycle.
+- **Pairing:** Rotated by VITALS (Health Observer Agent) to prevent familiarity bias. Pairings change every cycle.
 - **What peers evaluate:**
 
 | Evaluation Criterion | Question the Reviewing Agent Answers |
@@ -264,7 +264,7 @@ Agents periodically evaluate each other's work quality. Not self-serving, not hi
 
 - **Anti-gaming measures:**
   - Peer scores are anonymous to the reviewed agent
-  - Health Observer Agent cross-references peer scores against objective telemetry, flags reviewers who consistently score 2+ points above objective data (leniency bias) or below (harshness bias)
+  - VITALS cross-references peer scores against objective telemetry, flags reviewers who consistently score 2+ points above objective data (leniency bias) or below (harshness bias)
   - Outlier peer scores (more than 2 standard deviations from the agent's composite) are investigated before inclusion
 
 **Peer Review Template (injected into reviewer's context):**
@@ -313,11 +313,11 @@ The agent's own evaluation. Still important, because self-awareness is itself a 
 **Self-assessment happens:**
 - After every task completion (quick: 30 seconds, 8 scores)
 - Weekly (comprehensive: includes narrative reflection)
-- On-demand (triggered by Health Observer Agent when anomalies detected)
+- On-demand (triggered by VITALS when anomalies detected)
 
 **Self-Assessment Accuracy Score:**
 
-Health Observer Agent tracks how closely each agent's self-assessments match the composite score over time. This becomes its own metric:
+VITALS tracks how closely each agent's self-assessments match the composite score over time. This becomes its own metric:
 
 ```
 SelfAwarenessScore = 1.0 - (avg_absolute_divergence_from_composite / 10)
@@ -327,20 +327,20 @@ An agent with a SelfAwarenessScore of 0.90+ is highly self-aware. Below 0.70, th
 
 **Inflation Detection:**
 
-Health Observer Agent maintains a per-agent "inflation index" that tracks:
+VITALS maintains a per-agent "inflation index" that tracks:
 - Dimensions the agent consistently overrates (blind spots)
 - Dimensions the agent consistently underrates (false modesty, also a problem)
 - Trend in divergence (is the agent getting more or less accurate over time?)
 
 ---
 
-## 4. The Health Observer Agent Agent (Independent Health Observer)
+## 4. The VITALS Agent (Independent Health Observer)
 
 ### 4.1 Purpose
 
-Health Observer Agent (Vigilant Intelligence for Telemetry, Assessment, and Longitudinal Surveillance) is a dedicated agent whose sole job is monitoring fleet health from the outside. It doesn't trust self-reports. It has no other tasks, no competing priorities, and no reason to be generous.
+VITALS (Vigilant Intelligence for Telemetry, Assessment, and Longitudinal Surveillance) is a dedicated agent whose sole job is monitoring fleet health from the outside. It doesn't trust self-reports. It has no other tasks, no competing priorities, and no reason to be generous.
 
-Health Observer Agent is the equivalent of a hospital's quality assurance department. It doesn't treat patients; it watches the people who do and catches problems they can't see themselves.
+VITALS is the equivalent of a hospital's quality assurance department. It doesn't treat patients; it watches the people who do and catches problems they can't see themselves.
 
 ### 4.2 Responsibilities
 
@@ -360,7 +360,7 @@ Health Observer Agent is the equivalent of a hospital's quality assurance depart
 ```json
 {
   "agent_id": "vitals",
-  "name": "Health Observer Agent",
+  "name": "VITALS",
   "emoji": "🩺",
   "role": "Independent Health Observer",
   "model": "anthropic/claude-haiku-4-5",
@@ -381,7 +381,7 @@ Health Observer Agent is the equivalent of a hospital's quality assurance depart
     "no_task_assignments": true,
     "no_self_scoring": "scored by AISHA only",
     "no_score_modification": "recommends only, AISHA or agent applies",
-    "rotation": "Health Observer Agent itself is audited by AISHA monthly"
+    "rotation": "VITALS itself is audited by AISHA monthly"
   }
 }
 ```
@@ -390,7 +390,7 @@ Health Observer Agent is the equivalent of a hospital's quality assurance depart
 
 The most insidious form of AI degradation is drift: the agent still works, still completes tasks, but its outputs gradually shift away from what they should be. Like a compass needle slowly moving off north. The agent doesn't notice because each day's output is close to yesterday's.
 
-**Health Observer Agent detects drift through:**
+**VITALS detects drift through:**
 
 1. **Semantic Consistency Analysis:** Compare an agent's outputs from this week to the same type of output from 30 days ago. Measure semantic similarity. A slow decline in similarity to the agent's own baseline signals drift.
 
@@ -406,7 +406,7 @@ The most insidious form of AI degradation is drift: the agent still works, still
 
 ```markdown
 # Fleet Health Report, Week of {date}
-Generated by: Health Observer Agent 🩺
+Generated by: VITALS 🩺
 
 ## Fleet Vital Signs
 - Agents Active: {n}
@@ -580,7 +580,7 @@ Note: {one sentence, only if something notable}
 
 **Scoring guidance injected into agent context:**
 
-> Score yourself honestly. Health Observer Agent cross-checks every score against objective data. Inflated scores get flagged and corrected. Accurate self-awareness is itself a health metric.
+> Score yourself honestly. VITALS cross-checks every score against objective data. Inflated scores get flagged and corrected. Accurate self-awareness is itself a health metric.
 > - 10: Exceptional. Top 5% of what's possible for this dimension.
 > - 8-9: Strong. Performing well with minor room for improvement.
 > - 6-7: Adequate. Getting the job done but with notable gaps.
@@ -624,7 +624,7 @@ Every Sunday, each agent produces a deeper reflection:
 
 The system actively trains agents to self-assess accurately:
 
-1. After each weekly assessment, Health Observer Agent sends the agent its composite score alongside the self-assessment
+1. After each weekly assessment, VITALS sends the agent its composite score alongside the self-assessment
 2. Divergences are highlighted with specific examples: "You scored Environmental 9, but your MCI was 0.78 this week (3 stale references detected). Composite scored you 7."
 3. Over time, agents that consistently align self-scores within 1 point of composite scores earn higher Self-Awareness scores
 4. Self-Awareness Score is itself tracked as a meta-metric and factors into Psychological wellness
@@ -668,7 +668,7 @@ Where signal_severity:
 | BurnoutRisk | Status | Response |
 |-------------|--------|----------|
 | 0.00 - 0.15 | Healthy | No action |
-| 0.16 - 0.30 | Elevated | Health Observer Agent flags in weekly report. Agent self-assessment prompt includes burnout awareness. |
+| 0.16 - 0.30 | Elevated | VITALS flags in weekly report. Agent self-assessment prompt includes burnout awareness. |
 | 0.31 - 0.50 | Warning | Autonomous intervention triggered (context refresh, load reduction). AISHA notified. |
 | 0.51 - 0.70 | High | Mandatory load reduction. Peer support activated. AISHA reviews. |
 | 0.71 - 1.00 | Critical | Agent paused. Full context reset. Root cause analysis. Ashley notified. |
@@ -830,7 +830,7 @@ Each agent maintains a growth plan, reviewed monthly:
 
 ### 10.1 The Tradeoff
 
-Healthier agents cost more to maintain (more frequent assessments, peer reviews, Health Observer Agent overhead). The question isn't "minimize cost" or "maximize health." It's "where's the sweet spot?"
+Healthier agents cost more to maintain (more frequent assessments, peer reviews, VITALS overhead). The question isn't "minimize cost" or "maximize health." It's "where's the sweet spot?"
 
 ### 10.2 Cost of Unhealthiness
 
@@ -1000,7 +1000,7 @@ This system is not proprietary. Ashley's directive: "Ensure all processes we bui
 | Autonomous Healing Playbook | 4-tier escalation with specific interventions | Decision tree |
 | Fleet Health Dashboard Schema | Real-time fleet state | JSON Schema v2020-12 |
 | Agent Health Record Schema | Longitudinal per-agent data | JSON Schema v2020-12 |
-| Health Observer Agent Agent Specification | Independent observer requirements | Agent specification |
+| VITALS Agent Specification | Independent observer requirements | Agent specification |
 
 ### 12.3 Adoption Guide (for non-OpenClaw systems)
 
@@ -1008,7 +1008,7 @@ Any AI system can adopt 8D Wellness by implementing:
 
 1. **Minimum viable:** Self-assessment template injected into agent prompts + weekly manual review
 2. **Basic:** Add objective telemetry collection from whatever logging your system uses
-3. **Standard:** Add peer review rotation + Health Observer Agent-equivalent observer
+3. **Standard:** Add peer review rotation + VITALS-equivalent observer
 4. **Full:** Three-source composite scoring, autonomous healing, burnout detection
 
 Each level adds value independently. You don't need the full stack to benefit.
@@ -1016,7 +1016,7 @@ Each level adds value independently. You don't need the full stack to benefit.
 ### 12.4 Reference Implementation
 
 A reference Python implementation of the core algorithms will be maintained at:
-`
+`REDACTED/REDACTED/workspace/tools/8d-wellness/`
 
 Includes:
 - `composite_score.py`, Three-source weighted blend calculator
@@ -1044,7 +1044,7 @@ A framework for comprehensive health monitoring, assessment, and autonomous heal
 
 4. **Three-Source Health Scoring:** Why self-report is insufficient. The composite scoring model. Divergence detection and automatic reweighting. Empirical validation against fleet performance data.
 
-5. **The Independent Health Observer (Health Observer Agent):** Architecture for separation of concerns. Why the observer must have no other responsibilities. Behavioral drift detection methodology. Score inflation patterns in AI self-assessment.
+5. **The Independent Health Observer (VITALS):** Architecture for separation of concerns. Why the observer must have no other responsibilities. Behavioral drift detection methodology. Score inflation patterns in AI self-assessment.
 
 6. **Peer Assessment Protocol:** How agents evaluate each other. Anti-gaming measures. Mapping peer evaluations to dimensional scores. Bias detection in peer reviews.
 
@@ -1065,14 +1065,14 @@ A framework for comprehensive health monitoring, assessment, and autonomous heal
 ## 14. Implementation Roadmap
 
 ### Phase 1: Foundation (Week 1)
-- Deploy Health Observer Agent agent (Haiku, hourly telemetry collection)
+- Deploy VITALS agent (Haiku, hourly telemetry collection)
 - Inject self-assessment template into all agent prompts
 - Begin collecting objective telemetry from cron logs and session data
 - Establish baseline composite scores for executive team (12 agents)
 
 ### Phase 2: Peer Review (Week 2)
 - Launch peer review rotation for executive team
-- Train Health Observer Agent on inflation detection patterns
+- Train VITALS on inflation detection patterns
 - Begin computing three-source composite scores
 - First weekly Fleet Health Report
 

@@ -2,7 +2,7 @@
 
 **Version:** 1.0.0
 **Created:** 2026-03-22
-**Owner:** Health Observer Agent
+**Owner:** VITALS
 **Purpose:** Track which personalities perform best on which tasks so future agents can be spun up with optimal configurations based on historical data.
 
 ---
@@ -200,7 +200,7 @@ Append to their task log:
 
 ### Weekly Analytics Run
 
-Health Observer Agent runs weekly analysis:
+VITALS runs weekly analysis:
 1. Aggregate task_records by agent + variant + task_type
 2. Calculate average scores per combo
 3. Update personality_analytics

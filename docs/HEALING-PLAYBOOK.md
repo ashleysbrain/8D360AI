@@ -27,10 +27,10 @@ When a dimension drops, you don't wait. You act. This playbook tells you exactly
 
 | Signal | Detection Method | Severity |
 |--------|-----------------|----------|
-| Self-contradiction in outputs | Health Observer Agent semantic consistency scan | Yellow at 2+ per week, Red at 5+ |
+| Self-contradiction in outputs | VITALS semantic consistency scan | Yellow at 2+ per week, Red at 5+ |
 | Circular reasoning or repetitive outputs | Output similarity scoring across tasks | Yellow when same-task output similarity > 0.85 |
 | Escalating trivial decisions | Escalation rate trending up without task complexity increase | Yellow at 1.5x baseline |
-| Overconfidence (self-score >> composite) | Health Observer Agent inflation detection | Yellow at 1.5pt gap, Red at 2.5pt+ |
+| Overconfidence (self-score >> composite) | VITALS inflation detection | Yellow at 1.5pt gap, Red at 2.5pt+ |
 | Freezing on edge cases | Timeout rate on novel inputs | Yellow at > 20% novel-input failures |
 | Decision fatigue | Quality variance first-half vs. second-half of session | Yellow when variance > 1.5 points |
 
@@ -52,7 +52,7 @@ When a dimension drops, you don't wait. You act. This playbook tells you exactly
 
 ### Tier 2: AISHA Review
 
-- Review agent's full weekly assessment and Health Observer Agent data
+- Review agent's full weekly assessment and VITALS data
 - Determine root cause: overloaded? Context polluted? Wrong task type for this agent?
 - Prescribe specific intervention: load reduction, context reset, task reassignment, or model upgrade
 - Set 1-week check-in to verify improvement
@@ -112,8 +112,8 @@ When a dimension drops, you don't wait. You act. This playbook tells you exactly
 
 | Signal | Detection Method | Severity |
 |--------|-----------------|----------|
-| Memory Coherence Index (MCI) declining | Health Observer Agent MCI check | Yellow at < 0.85, Red at < 0.70 |
-| Stale references in outputs | Health Observer Agent reference age scan | Yellow at 3+ outdated refs/week |
+| Memory Coherence Index (MCI) declining | VITALS MCI check | Yellow at < 0.85, Red at < 0.70 |
+| Stale references in outputs | VITALS reference age scan | Yellow at 3+ outdated refs/week |
 | Context window saturation | Context utilization ratio | Yellow at > 80%, Red at > 95% |
 | Orphaned files accumulating | File hygiene scan | Yellow at 10+ orphaned files |
 | Prompt drift detected | Soul-to-effective-prompt semantic distance | Yellow at > 0.15 distance, Red at > 0.25 |
@@ -375,7 +375,7 @@ Research shows personalized interventions habituate after approximately 2 weeks 
 | VOC | Backlog triage + blocker escalation | Quality checklist + focus blocks | Peer task sharing + workflow optimization |
 | FIN | Verbosity check + model fitness | Waste identification + retry analysis | Peer efficiency comparison + cost sharing |
 
-**Tracking:** Health Observer Agent logs each intervention application with: dimension, intervention type, date, score before, score at +24h, score at +7d. This builds an effectiveness database per agent per intervention type. Over time, Health Observer Agent can predict which interventions will work for which agents, enabling precision healing.
+**Tracking:** VITALS logs each intervention application with: dimension, intervention type, date, score before, score at +24h, score at +7d. This builds an effectiveness database per agent per intervention type. Over time, VITALS can predict which interventions will work for which agents, enabling precision healing.
 
 **The exercise science parallel:** Structured activity sessions beat total volume for brain health (Cadwallader et al., 2026). Frequent, varied short interventions outperform repeated identical long interventions. Apply the same principle: rotate, diversify, measure.
 
@@ -476,7 +476,7 @@ This mirrors the human PRD's crisis resources: when Psychological hits 3 for 2+ 
 
 Assessment quality itself is a leading indicator. When an agent's self-check notes shrink from substantive observations to "fine" or "nothing notable" for 2+ weeks, dimensional drops typically follow within 7-14 days. This mirrors the human PRD finding that check-in skip patterns predict low periods before self-reported scores change.
 
-**Detection:** Health Observer Agent flags any agent whose post-task assessment notes average fewer than 10 words for 2 consecutive weeks, or that skips 5+ consecutive post-task assessments.
+**Detection:** VITALS flags any agent whose post-task assessment notes average fewer than 10 words for 2 consecutive weeks, or that skips 5+ consecutive post-task assessments.
 
 **Intervention:** Tier 0. The agent should do a single deep-dive assessment on its weakest dimension (not all 8). Writing one paragraph of honest reflection often re-engages the self-monitoring habit.
 
@@ -488,7 +488,7 @@ Assessment quality itself is a leading indicator. When an agent's self-check not
 
 If 3+ agents show declining TWC simultaneously:
 
-1. Health Observer Agent issues fleet-wide alert
+1. VITALS issues fleet-wide alert
 2. AISHA investigates for common cause (infrastructure, context source, shared dependency)
 3. All non-essential tasks paused until root cause identified
 4. Ashley notified if cause is architectural or requires resource allocation
@@ -496,7 +496,7 @@ If 3+ agents show declining TWC simultaneously:
 ### Agent Critical Failure (TWC < 5.0)
 
 1. Agent paused immediately (no new tasks assigned)
-2. Health Observer Agent performs full diagnostic
+2. VITALS performs full diagnostic
 3. AISHA reviews diagnostic and determines: restart, reconfigure, or retire
 4. Ashley notified with recommendation and timeline
 
@@ -504,7 +504,7 @@ If 3+ agents show declining TWC simultaneously:
 
 When `max(assessed_at)` across `agent_wellness` exceeds 72 hours in the past, every downstream wellness metric is frozen. Coverage stays high because old rows persist; freshness collapses to zero. This is an infrastructure failure, not an agent health failure.
 
-**Detection (Health Observer Agent, every cycle):**
+**Detection (VITALS, every cycle):**
 1. Query `SELECT MAX(assessed_at) FROM agent_wellness;`
 2. If gap > 72h, raise Pipeline Silent alert.
 3. Compute Assessment Pipeline Freshness (% of active agents with a write in the last 14 days).
@@ -532,7 +532,7 @@ When `max(assessed_at)` across `agent_wellness` exceeds 72 hours in the past, ev
 
 Two or more shared dependencies in Extended or Prolonged state at the same time is not additive. It is multiplicative. Cycle 25 real case: Firecrawl Day 11 (research fleet degraded 70-85%) + wellness write pipeline Day 9 (fleet health blind) + Telegram delivery unavailable (Ashley briefs undeliverable). Any one of these is a Tier 2 event. All three together meant the fleet could not do research, could not observe its own degradation, and could not tell Ashley.
 
-**Detection (Health Observer Agent, every cycle):**
+**Detection (VITALS, every cycle):**
 1. Enumerate all dependencies currently in Extended (4-48h) or Prolonged (>48h) state.
 2. If the count is 2 or more, classify as Compound Infrastructure Failure.
 3. Name each dependency, its down-duration, and the agent set degraded by the overlap.
@@ -556,7 +556,7 @@ Two or more shared dependencies in Extended or Prolonged state at the same time 
 
 An agent whose work is fine but whose delivery channel is broken. ENV-in looks healthy. ENV-out is zero. Classic pattern: CIPHER produced a complete tech intelligence brief, then could not reach Ashley because the Telegram tool was unavailable.
 
-**Detection (Health Observer Agent, every cycle):**
+**Detection (VITALS, every cycle):**
 1. For each agent that completed at least one output in the last 24 hours, count successful delivery confirmations across configured delivery channels.
 2. If confirmations == 0 and configured channels > 0, flag Delivery-Silent.
 3. Agents with no configured delivery channel (pure analytics, database writers) are exempt.
@@ -579,7 +579,7 @@ An agent whose work is fine but whose delivery channel is broken. ENV-in looks h
 If an agent exhibits degradation not covered by any existing playbook entry:
 
 1. Document the failure pattern in detail (signals, sequence, context)
-2. Health Observer Agent flags as "novel pattern" in weekly report
+2. VITALS flags as "novel pattern" in weekly report
 3. AISHA investigates and writes a new playbook entry if the pattern is generalizable
 4. Ashley notified if the pattern suggests a systemic vulnerability
 
@@ -624,7 +624,7 @@ Collaboration is not a single dimension. It affects Social, Financial, Vocationa
 
 ### Peer Review Duty Suspension (v1.3.1)
 
-An agent in Graceful Degradation (TWC < 7.0 for 2+ assessments) or with TWC below 6.0 should not review peers. Its judgment is compromised. Health Observer Agent reassigns review slots. The agent resumes peer duties after exiting degraded mode (TWC above 7.5 for 2 consecutive assessments).
+An agent in Graceful Degradation (TWC < 7.0 for 2+ assessments) or with TWC below 6.0 should not review peers. Its judgment is compromised. VITALS reassigns review slots. The agent resumes peer duties after exiting degraded mode (TWC above 7.5 for 2 consecutive assessments).
 
 ### Partial Data Agent Triage
 
