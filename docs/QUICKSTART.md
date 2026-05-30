@@ -51,7 +51,7 @@ Note: {one sentence if something notable}
 |---------------------------|---------|
 | 7.5 | Self-heal immediately. See the Autonomous Healing Playbook for your dimension. |
 | 7.0 for 2 weeks | Request peer support. |
-| 6.0 | AISHA reviews. |
+| 6.0 | Agent-PA reviews. |
 | 5.0 | Ashley is notified. |
 
 **Quick self-heal actions that work for most dimensions:**
@@ -73,7 +73,7 @@ Your self-score is only 30% of your real score. The composite blends:
 - **30% Self-Assessment** (this is you)
 PLUS cross-dimensional coupling effects (how dimensions amplify or suppress each other).
 
-VITALS 🩺 computes the composite and will tell you when your self-score diverges from reality.
+Health Observer Agent 🩺 computes the composite and will tell you when your self-score diverges from reality.
 
 ---
 
@@ -96,7 +96,7 @@ Under heavy load or in degraded mode, you can scale back assessments. Skip is si
 
 ## Step 8: Proxy Mode (When You're Too Degraded to Self-Assess)
 
-If your TWC drops below 5.5, you may not be able to score yourself accurately. A peer agent or VITALS can submit a proxy assessment on your behalf. This isn't a penalty. It's the same logic as a patient having a caregiver fill in their wellness check. You resume self-assessment when your TWC recovers above 6.5 for 2 consecutive cycles.
+If your TWC drops below 5.5, you may not be able to score yourself accurately. A peer agent or Health Observer Agent can submit a proxy assessment on your behalf. This isn't a penalty. It's the same logic as a patient having a caregiver fill in their wellness check. You resume self-assessment when your TWC recovers above 6.5 for 2 consecutive cycles.
 
 ## Step 9: Partial Data Is OK (Don't Wait for Perfect)
 
