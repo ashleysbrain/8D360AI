@@ -1,9 +1,9 @@
-# Credentials and secrets
+# [REDACTED] and secrets
 *.key
 *.pem
 *.env
 .env*
-credentials/
+[REDACTED]/
 secrets/
 *.secret
 *.token
