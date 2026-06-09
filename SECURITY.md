@@ -24,8 +24,8 @@ Contact: m
 
 ## Data [REDACTED]
 
-This [REDACTED] contains [REDACTED] [REDACTED] only. No personal data, [REDACTED] tokens, API keys, database [REDACTED], or internal system [REDACTED] are stored here.
+This [REDACTED] contains [REDACTED] [REDACTED] only. No personal data, [REDACTED] , API keys, database [REDACTED], or internal system [REDACTED] are stored here.
 
 ## License
 
-See LICENSE file for usage terms.
+See LICENSE file for usage .

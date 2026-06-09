@@ -1,4 +1,4 @@
-## 2026-06-08 — v1.3.11
+## 2026-06-09 — v1.3.12
 - Docs sync: all 8 core docs refreshed from workspace (METHODOLOGY, QUICKSTART, PLATFORM-ARCHITECTURE, WELLNESS-GUIDE, HEALING-PLAYBOOK, PERSONALITY-FRAMEWORKS, PERFORMANCE-DATABASE, SELF-ASSESSMENT-TEMPLATE)
 - Agent names replaced with role identifiers across all docs
 - PII removal applied: emails, phone numbers, Telegram IDs, file paths
@@ -30,7 +30,7 @@
 - HEALING-PLAYBOOK.md: [REDACTED] healing playbook
 - [REDACTED]-[REDACTED].md: [REDACTED] [REDACTED]
 - [REDACTED]-DATABASE.md: [REDACTED] [REDACTED] database
-- SELF-[REDACTED]-TEMPLATE.md: Self-[REDACTED] template
+- SELF-[REDACTED]-TEMPLATE.md: Self-[REDACTED] 
 
 - Synced [REDACTED], [REDACTED], PLATFORM-[REDACTED], WELLNESS-GUIDE
 - Updated HEALING-PLAYBOOK, [REDACTED]-[REDACTED], [REDACTED]-DATABASE
@@ -48,7 +48,7 @@
 
 - Synced latest [REDACTED], [REDACTED], platform [REDACTED], wellness guide
 - Updated healing playbook, [REDACTED] [REDACTED], [REDACTED] database
-- Updated self-[REDACTED] template
+- Updated self-[REDACTED] 
 - Applied PII [REDACTED] and agent [REDACTED]
 
 # Updates
@@ -63,7 +63,7 @@
 - HEALING-PLAYBOOK.md: Updated [REDACTED] healing playbook
 - [REDACTED]-[REDACTED].md: Updated [REDACTED] [REDACTED]
 - [REDACTED]-DATABASE.md: Updated [REDACTED] database
-- SELF-[REDACTED]-TEMPLATE.md: Updated self-[REDACTED] template
+- SELF-[REDACTED]-TEMPLATE.md: Updated self-[REDACTED] 
 - Agent names [REDACTED] to role [REDACTED] across all docs
 
 ## 2026-03-31 - Doc Sync v1.3.5
@@ -82,7 +82,7 @@
 - HEALING-PLAYBOOK.md: Updated [REDACTED] healing playbook
 - [REDACTED]-[REDACTED].md: Updated [REDACTED] [REDACTED]
 - [REDACTED]-DATABASE.md: Updated [REDACTED] database
-- SELF-[REDACTED]-TEMPLATE.md: Updated self-[REDACTED] template
+- SELF-[REDACTED]-TEMPLATE.md: Updated self-[REDACTED] 
 
 ## 2026-04-01 — v1.3.7
 - **[REDACTED].md**: Added Fleet Data Quality Index metric, dual-layer [REDACTED] [REDACTED] (Not Yet Assessed state), and Error [REDACTED] Tracking for fleet [REDACTED] [REDACTED]

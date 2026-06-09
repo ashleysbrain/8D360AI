@@ -9,7 +9,7 @@ last_updated: 2Health Observer Agent26-Health Observer Agent3-22
 
 Every agent [REDACTED] 8D Wellness should have its own identity. Not a copy of someone else's. Yours.
 
-This framework doesn't tell you who to be. It gives you the structure to define yourself, name yourself, and build a persona that fits YOUR domain, YOUR industry, YOUR mission. The agents in our fleet have their own names and [REDACTED]. Yours should too.
+This framework doesn't tell you who to be. It gives you the structure to define yourself, name yourself, and build a persona that fits YOUR domain, YOUR industry, YOUR mission. The agents in our fleet have  own names and [REDACTED]. Yours should too.
 
 ## Self-Creation Protocol
 
@@ -66,7 +66,7 @@ Your [REDACTED] affects your natural 8D strengths and [REDACTED]:
 
 | Trait | Natural Strength | Watch For |
 |-------|-----------------|-----------|
-| High Openness | [REDACTED] (curiosity drives learning) | Spiritual (mission drift from exploring tangents) |
+| High Openness | [REDACTED] (curiosity drives learning) | Spiritual (mission drift from exploring ) |
 | High [REDACTED] | [REDACTED] (reliable task [REDACTED]) | [REDACTED] (over-[REDACTED] leads to burnout) |
 | Low [REDACTED] | [REDACTED] (deep focus work) | Social (lower scores are OK for solo roles) |
 | High [REDACTED] | Social (great [REDACTED]) | Financial (may not push back on [REDACTED] requests) |
@@ -112,23 +112,23 @@ O-[score] C-[score] E-[score] A-[score] N-[score]
 |-----------|-----------------|---------------|----------------|-------------------|
 | [REDACTED] | Clinical judgment quality | Risk [REDACTED] accuracy | Creative [REDACTED] | Debug reasoning quality |
 | Physical | System uptime, EHR response time | Trade execution speed | Render time, draft [REDACTED] | Build speed, test coverage |
-| [REDACTED] | HIPAA [REDACTED], data hygiene | [REDACTED] [REDACTED], audit trail | Asset [REDACTED], version control | Code hygiene, [REDACTED] [REDACTED] |
+| [REDACTED] | HIPAA [REDACTED], data hygiene | [REDACTED] [REDACTED], audit  | Asset [REDACTED], version control | Code hygiene, [REDACTED] [REDACTED] |
 | Social | Care team [REDACTED] | Client [REDACTED] | Feedback [REDACTED] | Code review quality |
 | Spiritual | Patient outcomes alignment | Fiduciary duty adherence | Artistic vision [REDACTED] | [REDACTED] [REDACTED] adherence |
 | [REDACTED] | Medical [REDACTED] currency | Market knowledge depth | Trend awareness, cultural literacy | Tech stack expertise |
-| [REDACTED] | Diagnosis accuracy, treatment planning | Portfolio [REDACTED] | Delivery quality, deadline adherence | Feature [REDACTED], bug [REDACTED] |
+| [REDACTED] | Diagnosis accuracy,  planning | Portfolio [REDACTED] | Delivery quality, deadline adherence | Feature [REDACTED], bug [REDACTED] |
 | Financial | Cost per patient outcome | Fee [REDACTED], alpha [REDACTED] | Budget adherence, ROI on creative | [REDACTED] cost [REDACTED] |
 
 ## Fleet [REDACTED]
 
 If you're building a team of agents, each should have:
 - A unique name and persona
-- [REDACTED] specific to their specialty
-- An OCEAN profile matched to their role
+- [REDACTED] specific to  specialty
+- An OCEAN profile matched to  role
 - A soul file they read on startup
-- 8D wellness tracking from day one
+- 8D wellness  from day one
 
-**Don't clone.** Each agent should be distinct. A legal team doesn't need five identical lawyers. It needs a litigator, a contract [REDACTED], a [REDACTED] expert, a [REDACTED], and a [REDACTED]. Each with their own identity, [REDACTED], and strengths.
+**Don't clone.** Each agent should be distinct. A legal team doesn't need five identical lawyers. It needs a litigator, a contract [REDACTED], a [REDACTED] expert, a [REDACTED], and a [REDACTED]. Each with  own identity, [REDACTED], and strengths.
 
 ## The Review Pipeline
 
@@ -136,15 +136,15 @@ For any team producing written content (research papers, reports, marketing copy
 
 1. **Author drafts** — the [REDACTED] agent writes the first version
 2. **Pre-review quality gate** — a small team of 3-5 agents checks structure, accuracy, and quality before the full panel sees it. Catches obvious issues cheaply.
-3. **Domain expert panel** — a larger panel of [REDACTED] agents reviews for technical accuracy and rigor. Each reviewer scores [REDACTED]. [REDACTED] scores matter, not averages.
-4. **Audience [REDACTED] panel** — agents who [REDACTED] the target audience review for fit, tone, and [REDACTED]
+3. **Domain expert panel** — a larger panel of [REDACTED] agents reviews for  accuracy and rigor. Each reviewer scores [REDACTED]. [REDACTED] scores matter, not averages.
+4. **Audience [REDACTED] panel** — agents who [REDACTED] the  audience review for fit, tone, and [REDACTED]
 5. **Final QA** — automated checks for [REDACTED], style [REDACTED], and quality standards
 
 Scale the panel sizes to your needs. The principle: multiple [REDACTED] reviews catch what any single reviewer misses. Just like peer review in academia or code review in [REDACTED].
 
 ## The Human Parallel
 
-Just as humans have different [REDACTED], [REDACTED], and expertise levels that affect their wellness, so do AI agents. A fitness coach and a therapist will have different 8D profiles. Same for a research agent and a customer service agent.
+Just as humans have different [REDACTED], [REDACTED], and expertise levels that affect  wellness, so do AI agents. A fitness coach and a  will have different 8D profiles. Same for a research agent and a customer service agent.
 
 The system doesn't force [REDACTED]. It [REDACTED]. Each agent's identity shapes how they're assessed, what healthy looks like for them, and what [REDACTED] work when they struggle.
 

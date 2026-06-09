@@ -47,17 +47,17 @@
 - Research-to-Product Pipeline: 9 peer-reviewed findings [REDACTED]
 - Vigilance Stability [REDACTED] (PSY), Dynamic [REDACTED] Fabric (PSY)
 - Authority-Level Priors in agent identity (SPI)
-- Molecular Sleep Debt tracking (PHY), Sleep-Stage [REDACTED] (PHY)
+- Molecular Sleep Debt  (PHY), Sleep-Stage [REDACTED] (PHY)
 - Multi-Agent Safety and [REDACTED] Security (Platform [REDACTED])
 - 5 new Human-AI [REDACTED] Map entries, 2 new metrics
 
 ## v1.2.1 — 2026-03-23
-- Docs sync: [REDACTED], [REDACTED], platform [REDACTED], wellness guide, healing playbook, [REDACTED] [REDACTED], [REDACTED] database, self-[REDACTED] template
+- Docs sync: [REDACTED], [REDACTED], platform [REDACTED], wellness guide, healing playbook, [REDACTED] [REDACTED], [REDACTED] database, self-[REDACTED] 
 
 ## v1.2.0 — 2026-03-22
 - [REDACTED] [REDACTED] Framework
 - Full fleet analytics
-- Enhanced [REDACTED] tracking
+- Enhanced [REDACTED] 
 
 ## v1.1.0 — 2026-03-18
 - Initial public release with core 8D framework

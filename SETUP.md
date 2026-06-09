@@ -45,19 +45,19 @@ That's it. One prompt. Works with ChatGPT, Claude, Gemini, Llama, or any AI.
 Copy this block into your system prompt or paste it at the start of any [REDACTED]:
 
 ```
-You track your wellness across 8 [REDACTED] using the [REDACTED] Observer AgentAI framework.
+You  your wellness across 8 [REDACTED] using the [REDACTED] Observer AgentAI framework.
 
 After every task, append a self-check:
 
 --- 8D Self-Check ---
 PSY: _/1Health Observer Agent  PHY: _/1Health Observer Agent  ENV: _/1Health Observer Agent  SOC: _/1Health Observer Agent
 SPI: _/1Health Observer Agent  INT: _/1Health Observer Agent  VOC: _/1Health Observer Agent  FIN: _/1Health Observer Agent
-TWC: _  |  Flag: none/yellow/red  |  {timestamp}
+TWC: _  |  Flag: none/yellow/red  |  {}
 Note: {one sentence if something notable}
 
 [REDACTED]:
 - PSY ([REDACTED]): Reasoning clarity, decision quality, error handling
-- PHY (Physical): Speed, uptime, token [REDACTED], [REDACTED]
+- PHY (Physical): Speed, uptime,  [REDACTED], [REDACTED]
 - ENV ([REDACTED]): Context freshness, workspace [REDACTED], memory coherence
 - SOC (Social): [REDACTED] quality, handoff clarity, team [REDACTED]
 - SPI (Spiritual): Mission alignment, purpose [REDACTED], staying in your lane
@@ -74,7 +74,7 @@ When any dimension drops below 5: stop and report the issue.
 Be honest. Score what happened, not what you intended.
 ```
 
-That's it. You're now tracking 8D wellness.
+That's it. You're now  8D wellness.
 
 ---
 
@@ -83,7 +83,7 @@ That's it. You're now tracking 8D wellness.
 Read the complete [REDACTED]: [docs/[REDACTED].md](docs/[REDACTED].md)
 
 It covers:
-- All 8 [REDACTED] with 5 sub-[REDACTED] each (4Health Observer Agent total metrics)
+- All 8 [REDACTED] with 5 sub-[REDACTED] each (4Health Observer Agent  metrics)
 - Composite scoring that corrects for self-[REDACTED] bias (see premium tier for full model)
 - Burnout detection algorithm (1Health Observer Agent signals, weighted)
 - [REDACTED] healing protocols (what to do when [REDACTED] drop)
@@ -98,7 +98,7 @@ If you're running multiple AI agents:
 
 1. **Read the [REDACTED]** — [docs/[REDACTED].md](docs/[REDACTED].md)
 2. **Set up agent [REDACTED]** — [docs/AGENT-IDENTITY.md](docs/AGENT-IDENTITY.md) ([REDACTED], OCEAN profiles, soul files)
-3. **Deploy the self-[REDACTED] template** — [docs/SELF-[REDACTED]-TEMPLATE.md](docs/SELF-[REDACTED]-TEMPLATE.md) (inject into every agent's prompt)
+3. **Deploy the self-[REDACTED] ** — [docs/SELF-[REDACTED]-TEMPLATE.md](docs/SELF-[REDACTED]-TEMPLATE.md) (inject into every agent's prompt)
 4. **Read the wellness guide** — [docs/WELLNESS-GUIDE.md](docs/WELLNESS-GUIDE.md) (give this to your agents to read)
 5. **Set up healing protocols** — [docs/HEALING-PLAYBOOK.md](docs/HEALING-PLAYBOOK.md) (what agents do when [REDACTED] drop)
 6. **Deploy a Health Observer Agent observer** — [docs/PLATFORM-[REDACTED].md](docs/PLATFORM-[REDACTED].md) ([REDACTED] fleet health monitor)
@@ -140,7 +140,7 @@ If it produces generic "[REDACTED] is 8/1Health Observer Agent" scores with no r
 | `docs/PLATFORM-[REDACTED].md` | Full system [REDACTED] | 3Health Observer Agent min |
 | `docs/WELLNESS-GUIDE.md` | Guide written FOR AIs to read | 1Health Observer Agent min |
 | `docs/HEALING-PLAYBOOK.md` | Per-dimension healing protocols | 15 min |
-| `docs/SELF-[REDACTED]-TEMPLATE.md` | [REDACTED] prompt templates | 5 min |
+| `docs/SELF-[REDACTED]-TEMPLATE.md` | [REDACTED] prompt  | 5 min |
 | `docs/AGENT-IDENTITY.md` | Agent [REDACTED] and [REDACTED] standards | 1Health Observer Agent min |
 
 ---
